@@ -1,0 +1,112 @@
+Message
+
+(:Exercise 2: Every message needs a SG2 NAD+MS :)
+assert (SG2/NAD[_3035='MS']) report("NAD+MS must be existent for every message", "E2")
+
+(:Exercise 3: Every message needs a SG2 NAD+MR :)
+assert (SG2/NAD/_3035='MR') report("NAD+MR must be existent for every message", "E3")
+
+(:Exercise 4: The Agency Code for NAD+MS must be '9':)
+(:see also Exercise 4 - Check in SG2 NAD:)
+(:Problem: Compliance error when there is no NAD+MS :)
+assert (SG2/NAD[_3035='MS']/C082/_3055='9') report("Agency Code for NAD+MS must be 9", "E4")
+
+(:Exercise 5: The Agency Code for NAD+MR must be '14' or 'ZZZ':)
+(:see also Exercise 4 - Check in SG2 NAD:)
+(:Problem: Compliance error when there is no NAD+MR :)
+assert (SG2/NAD[_3035='MR']/C082/_3055=('14','ZZZ')) report("Agency Code for NAD+MR must be 14 or ZZZ", "E5")
+
+(:Exercise 6: The message number must be unique per interchange:)
+fail (preceding-sibling::Message/UNH/_0062 = UNH/_0062) report("The message number must be unique", "E6")
+
+(:Exercise 7: There must be a reference date to the order reference number:)
+assert (SG1[RFF/C506/_1153='ON']/DTM[C507/_2005='171']) report("The date of the order reference number does not exist", "E7")
+
+(:Exercise 8: The document date must be in format 102 or 203 :)
+assert (DTM/C507[_2005='137']/_2379=('102','203')) report("Format of the document date is wrong", "Ed")
+
+
+
+
+SG26
+
+(:Exercise 9: Every SG26 must contain a QTY+47 :)
+assert (QTY/C186/_6063 = '47') report("calculated quantity is missing", "E9")
+
+
+
+
+
+-------------------------------
+
+
+
+0017
+ 
+(:Exercise 3: UNB date must be valid:)
+assert (isValidTime(., "101")) report (concat("Transmission date for transmission ",../../_0020," is not valid"), "E3")
+ 
+ 
+ 
+0019
+ 
+(:Exercise 4:  UNB time must be valid:)
+assert (isValidTime(., "401")) report (concat("Transmission time for transmission ",../../_0020," is not valid"), "E4")
+ 
+ 
+Message
+ 
+(:Exercise 2: Saving the message number in a variable :)
+let $Message_Number := UNH/_0062
+ 
+ 
+(: Exercise 10: The following assertions should only be exevuted when BGM+381:)
+if(BGM/C002/_1001='381'){
+      (:Exercise 10a: A RFF+DQ must exist:)
+      assert (SG1/RFF/C506/_1153='DQ') report(concat("The delivery note date is missing in message ",$Message_Number), "E10a")
+      
+      (: Exercise 10b: A CUX+2 must exist:)
+      assert (SG7/CUX/C504/_6347='2') report(concat("The reference currency is missing in message ",$Message_Number), "E10b")
+      
+}
+ 
+ 
+ 
+DTM
+ 
+ 
+(:Exercise 5 :)
+assert ( if (C507/_2005='137' and isValidEdifactTime(C507/_2380, C507/_2379)) 
+then before(asEdifactTime(C507/_2380, C507/_2379),current-dateTime()) ) 
+report(concat("The message date is not before the current date in message ",$Message_Number), "E5")
+ 
+ 
+ 
+SG1
+ 
+(:Exercise 6 :)
+assert ( if (RFF/C506/_1153='ON') then matches(RFF/C506/_1154, '^([1-9])([0-9])+[A-Z]$')) 
+report(concat("The reference number to the order is not correct in message ",$Message_Number), "E6")v
+ 
+ 
+ 
+SG26
+ 
+(:Exercise 7: A MOA+203 must exist :)
+assert (SG27/MOA/C516/_5025='203') 
+report(concat("LIN+",LIN/_1082," of message ",$Message_Number," does not contain an item amount"), "E7")
+ 
+(:Exercise 8: MOA+203 = QTY+47 * PRI+CAL :)
+assert ( if (isFilled(QTY/C186[_6063='47']/_6060) and isFilled(SG27/MOA/C516[_5025='203']/_5004) and isFilled(SG29/PRI/C509[_5125='CAL']/_5118)) 
+then number(SG27/MOA/C516[_5025='203']/_5004) = number(QTY/C186[_6063='47']/_6060) * number(SG29/PRI/C509[_5125='CAL']/_5118)) 
+report(concat("In the LIN+",LIN/_1082," of message ",$Message_Number,", the item amount does not match the calculated item amount"), "E8")
+ 
+(: Exercise 9: When DTM+ZZZ, there must not be a DTM+155/156 :)
+fail (if(DTM/C507/_2005='ZZZ') then DTM/C507/_2005=('155','156') else false()) 
+report(concat("The LIN+",LIN/_1082," in message",$Message_Number," does contain a DTM+155/156, even thouth a DTM+ZZZ is existent"), "E9")
+ 
+ 
+ 
+ 
+
+
