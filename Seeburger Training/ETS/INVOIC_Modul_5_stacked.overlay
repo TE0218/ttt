@@ -1,0 +1,95 @@
+import "INVOIC_Modul_5.overlay"
+overlay /INVOIC/Message {assertions |->
+		
+		
+
+
+<-|}
+overlay /INVOIC/Message/DTM {assertions |->
+		@override("E4_Valid_Date")
+		(:Exercise 9: Exception for DTM+154, otherwise check if valid :)
+		assert (if (not(C507/_2005='154' and C507/_2380='999999' and C507/_2379='102')) 
+		then isValidEdifactTime(C507/_2380, C507/_2379)
+		) report(concat("The date is not valid in message ",$Message_Number), "E9")
+		with("CONTENT",C507/_2380) 
+		with("CONTEXT",content(.))
+<-|}
+
+
+overlay /INVOIC/Message/DTM/C507/_2005 {
+	change /innerType {
+		enumerationFacet = new EnumerationFacet {
+			values =
+			add new EnumerationValue {
+				documentationItems =
+				add new DocumentationItem {
+					owner = "heil"
+					title = "Processing date/time"
+					language = "en"
+					documenation = "Date/time of processing."
+					creationDate = "1420498800000"
+				}
+				value = "9"
+			}
+			add new EnumerationValue {
+				documentationItems =
+				add new DocumentationItem {
+					owner = "heil"
+					title = "Document issue date time"
+					language = "en"
+					documenation = "[2007] Date that a document was issued and when appropriate, signed or otherwise authenticated."
+					creationDate = "1420498800000"
+				}
+				value = "137"
+			}
+			add new EnumerationValue {
+				documentationItems =
+				add new DocumentationItem {
+					owner = "heil"
+					title = "Eccounting period start date"
+					language = "en"
+					documenation = "The first date of an accounting period."
+					creationDate = "1420498800000"
+				}
+				value = "155"
+			}
+			add new EnumerationValue {
+				documentationItems =
+				add new DocumentationItem {
+					owner = "heil"
+					title = "Eccounting period end date"
+					language = "en"
+					documenation = "The last date of an accounting period."
+					creationDate = "1420498800000"
+				}
+				value = "156"
+			}
+			add new EnumerationValue {
+				value = "154"
+			}
+		}
+	}
+}
+
+overlay /INVOIC/Message/SG26 {assertions |->
+		@override("E6_Item_Checks")
+		if(LIN/C212/_7143 = 'SRV'){
+			(:Exercise 10: QTY+47 must be >= 0 :)
+			fail (number(QTY/C186[_6063='47']/_6060)<0) report(concat("QTY+47 in message ",$Message_Number," is < 0"), "E10")
+			with("CONTENT",QTY/C186[_6063='47']/_6060)
+			with("CONTEXT",content(QTY[C186/_6063='47']))
+			
+			(:Exercise 6b: DTM+155 must be valid :)
+			assert ( if (isFilled(DTM/C507[_2005='155']/_2379) and isFilled(DTM/C507[_2005='155']/_2380)) 
+			then isValidEdifactTime(DTM/C507[_2005='155']/_2380, DTM/C507[_2005='155']/_2379)) report(concat("DTM+155 is not valid in message ",$Message_Number), "E6b")
+			with("CONTENT",DTM/C507[_2005='155']/_2380)
+			with("CONTEXT",content(DTM[C507/_2005='155']))
+			
+			(:Exercise 6c: DTM+156 must be valid :)
+			assert ( if (isFilled(DTM/C507[_2005='156']/_2379) and isFilled(DTM/C507[_2005='156']/_2380)) 
+			then isValidEdifactTime(DTM/C507[_2005='156']/_2380, DTM/C507[_2005='156']/_2379)) report(concat("DTM+156 is not valid in message ",$Message_Number), "E6c")
+			with("CONTENT",DTM/C507[_2005='156']/_2380)
+			with("CONTEXT",content(DTM[C507/_2005='156']))
+			
+		}
+<-|}
