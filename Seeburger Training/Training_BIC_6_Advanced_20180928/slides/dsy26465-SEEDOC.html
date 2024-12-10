@@ -1,0 +1,477 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html xmlns:fn="http://www.w3.org/2005/xpath-functions" xmlns:p="http://outerx.org/daisy/1.0#publisher" xmlns:i18n="http://apache.org/cocoon/i18n/2.1" xmlns:einclude="http://outerx.org/daisy/1.0#externalinclude" xmlns:d="http://outerx.org/daisy/1.0">
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<link href="resources/css/books.css" type="text/css" rel="stylesheet">
+<script src="resources/js/toggle.js" type="text/javascript"></script>
+</head>
+<body onLoad="appendToDiv();">
+<div class="all">
+<div class="top">
+<div class="chunkNavigation">
+<div class="topCut"></div>
+<div class="logoTitle">
+<span><img src="resources/images/see-logo.png"></span><span class="bookTitle">BAPI Adapter</span>
+</div>
+<div class="navigation">
+<ul>
+<li class="first">
+<a href="dsy26464-SEEDOC.html">&nbsp;<img src="resources/images/small_left.gif">&nbsp;Previous&nbsp;</a>
+</li>
+<li class="middle">
+<a href="chunk1.html"><img src="resources/images/content.png">Table of Contents&nbsp;</a>
+</li>
+<li class="last">
+<a href="dsy29351-SEEDOC.html">&nbsp;Next&nbsp;<img src="resources/images/small_right.gif"></a>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="content">
+<div class="left">
+<a href="dsy26464-SEEDOC.html"><img src="resources/images/big_left.gif" class="centeredImage"></a>
+</div>
+<div class="center">
+<h2 xmlns:ns="http://outerx.org/daisy/1.0" daisyBranch="1" daisyDocument="26465-SEEDOC" daisyLanguage="2" id="dsy26465-SEEDOC">BAPI - Tutorial 2</h2>
+        
+<p>This exercise will only work if the following function modul has been
+installed in the SAP system you will connect to: /SEEAG/HF_SALES_ORDER_CREATE
+</p>
+        
+<table column-widths="30%;70%" nokeeptogether="true" print-column-widths="30%;70%" print-width="100%" width="100%" class="content">
+<col width="30%">
+<col width="70%">
+<tbody>
+                
+<tr>
+                    
+<th>
+                        
+<p>Instruction</p>
+                    
+</th>
+                    <th>
+                        
+<p>Illustration</p>
+                    
+</th>
+                
+</tr>
+                
+<tr>
+                    
+<td>
+                        
+<ol>
+                            
+<li>Before you can run a bapi mapping you have to provide sapjco libraries and
+reference it in the CompileConvert.ini, SeeMappingsComp.ini and
+bic_mapping_designer.ini</li>
+                        
+</ol>
+                        
+<p class="note">Please do this only if you haven't done it before.</p>
+                    
+</td>
+                    <td>
+                        
+<p>Extract Z:\_CD_Source\07_SAP\sapjco3-NTAMD64-3.0.8.zip to your harddisk and
+copy the following files as follows.</p>
+                        
+<pre>copy sapjco3.jar to C:\SEEBURGER\MappingDesigner652\lib\ext
+copy sapjco3.dll to C:\SEEBURGER\MappingDesigner652\runtime\jvm64\jre\bin</pre>
+                        
+<p>Extend the CLASSPATH of
+C:\SEEBURGER\MappingDesigner652\conf\bic\ini\CompileConvert.ini</p>
+                        
+<pre>CLASSPATH=...\
+%BASE%/lib/ext/sapjco3.jar;\</pre>
+                        
+<p class="note">Don't forget the backslash at the end of the entry.</p>
+                        
+<p>Extend the CLASSPATH of
+C:\SEEBURGER\MappingDesigner652\conf\bic\ini\SeeMappingsComp.ini</p>
+                        
+<pre>Classpath=..\lib\ext\sapjco3.jar;</pre>
+                        
+<p>Extend the CLASSPATH of
+C:\SEEBURGER\MappingDesigner652\Bin\bic_mapping_designer.ini</p>
+                        
+<pre>Classpath=../lib/ext/sapjco3.jar;</pre>
+                        
+<p>Afterwards please restart your BIC Mapping Designer.</p>
+                    
+</td>
+                
+</tr>
+                
+<tr>
+                    
+<td>
+                        
+<ol start="2">
+                            
+<li>Create a new No Message to No Message mapping.</li>
+                        
+</ol>
+                    
+</td>
+                    <td>
+                        
+<p>Check chapter "How to Operate BIC Mapping Designer" in Training BIC 6 Basics
+if you need further assistance.</p>
+                    
+</td>
+                
+</tr>
+                
+<tr>
+                    
+<td>
+                        
+<ol start="3">
+                            
+<li>
+                                
+<p>Go to record program New Mapping</p>
+                            
+</li>
+                        
+</ol>
+                    
+</td>
+                    <td></td>
+                
+</tr>
+                
+<tr>
+                    
+<td>
+                        
+<ol start="4">
+                            
+<li>
+                                
+<p>Define local variables</p>
+                            
+</li>
+                        
+</ol>
+                    
+</td>
+                    <td>
+                        
+<pre>local hostname$, systemnr$, client$, user$, password$, language$, j%, end%;</pre>
+                    
+</td>
+                
+</tr>
+                
+<tr>
+                    
+<td>
+                        
+<ol start="5">
+                            
+<li>
+                                
+<p>Open Bapi Connection</p>
+                            
+</li>
+                        
+</ol>
+                    
+</td>
+                    <td>
+                        
+<pre>copy "dedcsapsoex01.seeburger.de" to hostname$;
+copy "00" to systemnr$;
+copy "800" to client$;
+copy "academy" to user$;
+copy "seeburger" to password$;
+copy "DE" to language$;
+
+openBAPIConnection("BapiConnection", hostname$, systemnr$, client$, user$,  password$, language$);
+traceln("open BapiConnection test!"); </pre>
+                        
+<p class="note">This code should only be used within BIC MD. If the mapping is
+used inside BIS you can make a reference to the masterdata.</p>
+                    
+</td>
+                
+</tr>
+                
+<tr>
+                    
+<td>
+                        
+<ol start="6">
+                            
+<li>
+                                
+<p>Create Bapi Call</p>
+                            
+</li>
+                        
+</ol>
+                    
+</td>
+                    <td>
+                        
+<pre>createBAPICall("BapiConnection","/SEEAG/HF_SALES_ORDER_CREATE");</pre>
+                    
+</td>
+                
+</tr>
+                
+<tr>
+                    
+<td>
+                        
+<ol start="7">
+                            
+<li>
+                                
+<p>Go to record program DEFAULT</p>
+                            
+</li>
+                        
+</ol>
+                    
+</td>
+                    <td></td>
+                
+</tr>
+                
+<tr>
+                    
+<td>
+                        
+<ol start="8">
+                            
+<li>
+                                
+<p>Set the import parameter</p>
+                            
+</li>
+                        
+</ol>
+                    
+</td>
+                    <td>
+                        
+<p>In this example the import parameters are defined as structures and tables
+</p>
+                        
+<p>
+                            
+<strong>import structures</strong>
+                        
+</p>
+                        
+<pre>local j%, end%, kunag$, kunwe$,item_number$, article_number$, item_quantity$, unit$;
+local sched_line$, date$, sched_quantity$, ordernumber$;
+kunag$ = "0000100132";
+kunwe$ = "0000100132";
+item_number$ = "10";
+article_number$ = "000000000000001147";
+item_quantity$ = "5";
+unit$ = "ST";
+sched_line$ = "10";
+date$ = "20131211";
+sched_quantity$ = "5";
+
+getBAPIImportStructure("WA_ORDER_HEADER_IN");
+setBAPIStructureFieldValue("DOC_TYPE", "TA");
+setBAPIStructureFieldValue("SALES_ORG", "0001");
+setBAPIStructureFieldValue("DISTR_CHAN", "01");
+setBAPIStructureFieldValue("DIVISION", "01");
+setBapiStructureFieldValue("SD_DOC_CAT", "C");
+setBAPIStructureFieldValue("PMNTTRMS", "0002");
+setBAPIStructureFieldValue("INCOTERMS1", "EXW");
+setBAPIStructureFieldValue("PURCH_NO_C", "BICAdvanced");</pre>
+                        
+<p>
+                            
+<strong>import tables</strong>
+                        
+</p>
+                        
+<pre>// set Partners
+getBapiTable("WA_ORDER_PARTNERS");
+addBAPITableRow();
+setBAPITableFieldValue("PARTN_ROLE", "AG");
+setBAPITableFieldValue("PARTN_NUMB", kunag$);
+
+if kunag$ &amp;!= kunwe$
+    addBAPITableRow();
+    setBAPITableFieldValue("PARTN_ROLE", "WE");
+    setBAPITableFieldValue("PARTN_NUMB", kunwe$);
+endif  
+  
+// set Items
+getBapiTable("WA_ORDER_ITEMS_IN");
+addBAPITableRow();
+setBAPITableFieldValue("ITM_NUMBER", item_number$);
+setBAPITableFieldValue("MATERIAL", article_number$);
+setBAPITableFieldValue("TARGET_QTY", item_quantity$);
+setBAPITableFieldValue("TARGET_QU", unit$);
+setBAPITableFieldValue("PLANT", "0001");
+setBAPITableFieldValue("GROSS_WGHT", "4");
+setBAPITableFieldValue("NET_WEIGHT", "3");
+setBAPITableFieldValue("UNTOF_WGHT", "G");
+
+// set Schedules
+getBapiTable("WA_ORDER_SCHEDULES_IN");
+addBapiTableRow();
+setBapiTableFieldValue("ITM_NUMBER", item_number$);
+setBapiTableFieldValue("SCHED_LINE", sched_line$);
+setBapiTableFieldValue("REQ_DATE", date$);
+setBapiTableFieldValue("TP_DATE", date$);
+setBapiTableFieldValue("MS_DATE", date$);
+setBapiTableFieldValue("REQ_QTY", sched_quantity$);
+setBapiTableFieldValue("LOAD_DATE", date$);
+setBapiTableFieldValue("GI_DATE", date$);</pre>
+                    
+</td>
+                
+</tr>
+                
+<tr>
+                    
+<td>
+                        
+<ol start="9">
+                            
+<li>
+                                
+<p>Execute the BAPI</p>
+                            
+</li>
+                        
+</ol>
+                    
+</td>
+                    <td>
+                        
+<pre>traceln("Create Sales Order");
+executeBapiCall();</pre>
+                    
+</td>
+                
+</tr>
+                
+<tr>
+                    
+<td>
+                        
+<ol start="10">
+                            
+<li>
+                                
+<p>Get the BAPI Exportparameter</p>
+                            
+</li>
+                            
+<li>
+                                
+<p>Commit the imported sales order</p>
+                            
+</li>
+                        
+</ol>
+                    
+</td>
+                    <td>
+                        
+<p>In this example the export values are defined as normal variables and as
+tables</p>
+                        
+<pre>ordernumber$ = getBapiExportValue("WA_SALESDOCUMENT");
+traceln("Order number: "&amp;ordernumber$);
+
+getBAPITable("WA_RETURN");
+end% = getBAPITableRowCount();
+for j% = 0 to end%
+  setBAPITableRow(j%);
+  traceln(getBAPITableFieldValue("TYPE")&amp;
+  ""&amp;getBAPITableFieldValue("ID")&amp;
+  getBAPITableFieldValue("NUMBER")&amp;
+  ": "&amp;getBAPITableFieldValue("MESSAGE"));  
+next
+
+if ordernumber$ &amp;!= ""
+  createBAPICall("BapiConnection", "BAPI_TRANSACTION_COMMIT");
+  setBapiImportValue("WAIT", "X");
+  executeBapiCall();
+  getBAPIExportStructure("RETURN");
+  traceln(getBAPIStructureFieldValue("TYPE")&amp;": "&amp;getBAPIStructureFieldValue("MESSAGE"));
+endif </pre>
+                    
+</td>
+                
+</tr>
+                
+<tr>
+                    
+<td>
+                        
+<ol start="12">
+                            
+<li>
+                                
+<p>Result can be checked using transaction /nVA03</p>
+                            
+</li>
+                        
+</ol>
+                        
+<p class="note">If you will see an incompleteness check warning in the BIC
+logfile and in the SAP GUI.This can be fixed with a customizing change in the
+SAP system that is not part of this training.</p>
+                    
+</td>
+                    <td></td>
+                
+</tr>
+                
+<tr>
+                    
+<td>
+                        
+<ol start="13">
+                            
+<li>
+                                
+<p>Please double check with the
+<a href="../classmaterial/BapiAdapter/map_Bapi_Exercise_2.xml">trainer
+solution</a>
+                                
+</p>
+                            
+</li>
+                        
+</ol>
+                    
+</td>
+                    <td></td>
+                
+</tr>
+            
+</tbody>
+</table>
+        
+</div>
+<div class="right">
+<a href="dsy29351-SEEDOC.html"><img src="resources/images/big_right.gif"></a>
+</div>
+</div>
+<div id="pageNumber">
+<div class="numberAndTitle">
+<span class="bottomTitle">Training BIC 6 Advanced</span><span class="count">141</span>
+</div>
+</div>
+</div>
+</body>
+</html>

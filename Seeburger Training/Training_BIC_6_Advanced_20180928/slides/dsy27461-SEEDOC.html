@@ -1,0 +1,385 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html xmlns:fn="http://www.w3.org/2005/xpath-functions" xmlns:p="http://outerx.org/daisy/1.0#publisher" xmlns:i18n="http://apache.org/cocoon/i18n/2.1" xmlns:einclude="http://outerx.org/daisy/1.0#externalinclude" xmlns:d="http://outerx.org/daisy/1.0">
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<link href="resources/css/books.css" type="text/css" rel="stylesheet">
+<script src="resources/js/toggle.js" type="text/javascript"></script>
+</head>
+<body onLoad="appendToDiv();">
+<div class="all">
+<div class="top">
+<div class="chunkNavigation">
+<div class="topCut"></div>
+<div class="logoTitle">
+<span><img src="resources/images/see-logo.png"></span><span class="bookTitle">BIS:MT Mappings</span>
+</div>
+<div class="navigation">
+<ul>
+<li class="first">
+<a href="dsy26782-SEEDOC.html">&nbsp;<img src="resources/images/small_left.gif">&nbsp;Previous&nbsp;</a>
+</li>
+<li class="middle">
+<a href="chunk1.html"><img src="resources/images/content.png">Table of Contents&nbsp;</a>
+</li>
+<li class="last">
+<a href="dsy26783-SEEDOC.html">&nbsp;Next&nbsp;<img src="resources/images/small_right.gif"></a>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="content">
+<div class="left">
+<a href="dsy26782-SEEDOC.html"><img src="resources/images/big_left.gif" class="centeredImage"></a>
+</div>
+<div class="center">
+<h3 xmlns:ns="http://outerx.org/daisy/1.0" daisyBranch="1" daisyDocument="27461-SEEDOC" daisyLanguage="2" id="dsy27461-SEEDOC">Direct Commands - 2</h3>
+        
+<table column-widths="20%;40%;40%" print-column-widths="20%;40%;40%" print-width="100%" width="100%" class="content">
+<col width="20%">
+<col width="40%">
+<col width="40%">
+<tbody>
+                
+<tr>
+                    
+<th>
+                        
+<p>Command</p>
+                    
+</th>
+                    <th>
+                        
+<p>Example</p>
+                    
+</th>
+                    <th>
+                        
+<p>Description</p>
+                    
+</th>
+                
+</tr>
+                
+<tr>
+                    
+<td>
+                        
+<p>getMTField</p>
+                    
+</td>
+                    <td>
+                        
+<pre>Text$ = getMTField("Info4");</pre>
+                    
+</td>
+                    <td>
+                        
+<p>Get a field/column from the current message tracking database record. This
+command is similar to "getLookupFieldDB". You get a field from the record you
+read before</p>
+                    
+</td>
+                
+</tr>
+                
+<tr>
+                    
+<td>
+                        
+<p>clearMTRecord</p>
+                    
+</td>
+                    <td>
+                        
+<pre>clearMTRecord();</pre>
+                    
+</td>
+                    <td>
+                        
+<p>Clears the fields of the current Message Tracking record.</p>
+                    
+</td>
+                
+</tr>
+                
+<tr>
+                    
+<td>
+                        
+<p>closeMTDBConnection</p>
+                    
+</td>
+                    <td>
+                        
+<pre>closeMTDBConnection();</pre>
+                    
+</td>
+                    <td>
+                        
+<p>This command is used to close a connection of a Message Tracking database.Set
+this in the program <em>
+                                <strong>end of mapping.</strong>
+                            </em>
+                        
+</p>
+                    
+</td>
+                
+</tr>
+            
+</tbody>
+</table>
+        
+<h8 id="s201">For more details please refer to</h8>
+        
+<h8 daisyBranch="1" daisyDocument="2888-SEEDOC" daisyLanguage="2" id="dsy2888-SEEDOC">getMTField</h8>
+        
+<h12 id="s202">Syntax</h12>
+        
+<p>
+            
+<strong>getMTField(key)</strong>
+        
+</p>
+        
+<h12 id="s203">Description</h12>
+        
+<p>It is used to get a field/column from the current message tracking database
+record. The database has to have already been connected with the
+<em>
+                <a href="dsy26782-SEEDOC.html#dsy2946-SEEDOC">
+                    <p:linkInfo access="read,fullRead,write,publish,delete" documentName="openMTDBConnection" documentType="SimpleDocument" href="daisy:2946-SEEDOC" lastVersionId="11" liveVersionId="11">
+                        <p:linkPartInfo id="7" mimeType="text/xml" name="SimpleDocumentContent" size="799"/>
+                    </p:linkInfo>openMTDBConnection</a>
+            </em> command before. If
+no record is present, a new record is created. If no value could be found for
+the given key, the returned value is a string, or an empty string. Please refer
+also to the topic<em>Functions for Message Tracking
+Databases.</em>
+        
+</p>
+        
+<h12 id="s204">Parameter(s)</h12>
+        
+<table class="content" column-widths="20%;20%" print-column-widths="20%;20%" width="100%">
+<col width="20%">
+<col width="20%">
+<col>
+<tbody>
+                
+<tr>
+                    
+<th>
+                        
+<p>Parameter</p>
+                    
+</th>
+                    <th>
+                        
+<p>Type</p>
+                    
+</th>
+                    <th>
+                        
+<p>Description</p>
+                    
+</th>
+                
+</tr>
+                
+<tr>
+                    
+<td>
+                        
+<p align="center">key</p>
+                    
+</td>
+                    <td>
+                        
+<p align="center">$</p>
+                    
+</td>
+                    <td>
+                        
+<p align="left">The name of the column to get.</p>
+                    
+</td>
+                
+</tr>
+            
+</tbody>
+</table>
+        
+<h12 id="s205">Return Value</h12>
+        
+<table class="content" column-widths="30%;" print-column-widths="30%" width="100%">
+<col width="30%">
+<col>
+<tbody>
+                
+<tr>
+                    
+<th>
+                        
+<p>Type</p>
+                    
+</th>
+                    <th>
+                        
+<p>Description</p>
+                    
+</th>
+                
+</tr>
+                
+<tr>
+                    
+<td>
+                        
+<p align="center">$</p>
+                    
+</td>
+                    <td>
+                        
+<p>Value of the field/column defined by the key.</p>
+                    
+</td>
+                
+</tr>
+            
+</tbody>
+</table>
+        
+<h12 id="s206">Warning(s) / Error(s)</h12>
+        
+<p>If the field does not exist, the warning</p>
+        
+<ul>
+            
+<li>
+                
+<em>2601</em>
+            
+</li>
+        
+</ul>
+        
+<p>is created. In this case an empty string is returned.</p>
+        
+<p>Example</p>
+        
+<pre>dim Text$;
+Text$ = getMTField("Info4");</pre>
+        
+<h8 daisyBranch="1" daisyDocument="2805-SEEDOC" daisyLanguage="2" id="dsy2805-SEEDOC">clearMTRecord</h8>
+        
+<h12 id="s207">Syntax</h12>
+        
+<p>
+            
+<strong>clearMTRecord()</strong>
+        
+</p>
+        
+<h12 id="s208">Description</h12>
+        
+<p>Clears the fields of the current Message Tracking record. The database has to
+have been connected, via the
+<em>
+                <a href="dsy26782-SEEDOC.html#dsy2946-SEEDOC">
+                    <p:linkInfo access="read,fullRead,write,publish,delete" documentName="openMTDBConnection" documentType="SimpleDocument" href="daisy:2946-SEEDOC" lastVersionId="11" liveVersionId="11">
+                        <p:linkPartInfo id="7" mimeType="text/xml" name="SimpleDocumentContent" size="799"/>
+                    </p:linkInfo>openMTDBConnection</a>
+            </em> command, previously.
+Please refer also to the topic <em>Functions for
+Message Tracking Database</em>, especially the command
+<em>
+                <a href="dsy26782-SEEDOC.html#dsy2855-SEEDOC">
+                    <p:linkInfo access="read,fullRead,write,publish,delete" documentName="executeMTSQLCommandWithMultiResult" documentType="SimpleDocument" href="daisy:2855-SEEDOC" lastVersionId="17" liveVersionId="17">
+                        <p:linkPartInfo id="7" mimeType="text/xml" name="SimpleDocumentContent" size="1754"/>
+                    </p:linkInfo>executeMTCommandWithMultiResult</a>
+            </em>.</p>
+        
+<h7 daisyBranch="1" daisyDocument="15257-SEEDOC" daisyLanguage="2" id="dsy15257-SEEDOC">Parameter(s)</h7>
+        
+<p>This command does not expect any parameters.</p>
+        
+<h7 daisyBranch="1" daisyDocument="15258-SEEDOC" daisyLanguage="2" id="dsy15258-SEEDOC">Return Value</h7>
+        
+<p>This command does not return a value.</p>
+        
+<h7 daisyBranch="1" daisyDocument="15290-SEEDOC" daisyLanguage="2" id="dsy15290-SEEDOC">Warning(s) / Error(s)</h7>
+        
+<p>This command does not raise any warnings or errors.</p>
+        
+<h12 id="s209">Example:</h12>
+        
+<pre>clearMTRecord();</pre>
+        
+<h8 daisyBranch="1" daisyDocument="2806-SEEDOC" daisyLanguage="2" id="dsy2806-SEEDOC">closeMTDBConnection</h8>
+        
+<h12 id="s210">Syntax</h12>
+        
+<p>
+            
+<strong>closeMTDBConnection()</strong>
+        
+</p>
+        
+<h12 id="s211">Description</h12>
+        
+<p>This command is used to close a connection of a Message Tracking database (if
+it is still open due to the
+<em>
+                <a href="dsy26782-SEEDOC.html#dsy2946-SEEDOC">
+                    <p:linkInfo access="read,fullRead,write,publish,delete" documentName="openMTDBConnection" documentType="SimpleDocument" href="daisy:2946-SEEDOC" lastVersionId="11" liveVersionId="11">
+                        <p:linkPartInfo id="7" mimeType="text/xml" name="SimpleDocumentContent" size="799"/>
+                    </p:linkInfo>openMTDBConnection</a>
+            </em> command). Refer also
+to the other&nbsp;<em>Functions for Message Tracking
+Database</em>.</p>
+        
+<h7 daisyBranch="1" daisyDocument="15257-SEEDOC" daisyLanguage="2" id="dsy15257-SEEDOC">Parameter(s)</h7>
+        
+<p>This command does not expect any parameters.</p>
+        
+<h7 daisyBranch="1" daisyDocument="15258-SEEDOC" daisyLanguage="2" id="dsy15258-SEEDOC">Return Value</h7>
+        
+<p>This command does not return a value.</p>
+        
+<h12 id="s212">Warning(s) /&nbsp; Error(s)</h12>
+        
+<p>If the <em>closeMTDBConnection </em>call returns an <em>MTException</em> the
+error</p>
+        
+<ul>
+            
+<li>
+                
+<em>2613</em>
+            
+</li>
+        
+</ul>
+        
+<p>is created. The <em>MTException</em> is thrown, if the closing process fails,
+or the Message Tracking is working in an asynchronous mode.</p>
+        
+<h12 id="s213">Example</h12>
+        
+<pre>closeMTDBConnection();</pre>
+        
+</div>
+<div class="right">
+<a href="dsy26783-SEEDOC.html"><img src="resources/images/big_right.gif"></a>
+</div>
+</div>
+<div id="pageNumber">
+<div class="numberAndTitle">
+<span class="bottomTitle">Training BIC 6 Advanced</span><span class="count">122</span>
+</div>
+</div>
+</div>
+</body>
+</html>

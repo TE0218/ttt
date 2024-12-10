@@ -1,0 +1,454 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html xmlns:fn="http://www.w3.org/2005/xpath-functions" xmlns:p="http://outerx.org/daisy/1.0#publisher" xmlns:i18n="http://apache.org/cocoon/i18n/2.1" xmlns:einclude="http://outerx.org/daisy/1.0#externalinclude" xmlns:d="http://outerx.org/daisy/1.0">
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<link href="resources/css/books.css" type="text/css" rel="stylesheet">
+<script src="resources/js/toggle.js" type="text/javascript"></script>
+</head>
+<body onLoad="appendToDiv();">
+<div class="all">
+<div class="top">
+<div class="chunkNavigation">
+<div class="topCut"></div>
+<div class="logoTitle">
+<span><img src="resources/images/see-logo.png"></span><span class="bookTitle">BIS:MT Mappings</span>
+</div>
+<div class="navigation">
+<ul>
+<li class="first">
+<a href="dsy27460-SEEDOC.html">&nbsp;<img src="resources/images/small_left.gif">&nbsp;Previous&nbsp;</a>
+</li>
+<li class="middle">
+<a href="chunk1.html"><img src="resources/images/content.png">Table of Contents&nbsp;</a>
+</li>
+<li class="last">
+<a href="dsy27461-SEEDOC.html">&nbsp;Next&nbsp;<img src="resources/images/small_right.gif"></a>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="content">
+<div class="left">
+<a href="dsy27460-SEEDOC.html"><img src="resources/images/big_left.gif" class="centeredImage"></a>
+</div>
+<div class="center">
+<h3 xmlns:ns="http://outerx.org/daisy/1.0" daisyBranch="1" daisyDocument="26782-SEEDOC" daisyLanguage="2" id="dsy26782-SEEDOC">Direct Commands - 1</h3>
+        
+<table column-widths="20%;40%;40%" print-column-widths="20%;40%;40%" print-width="100%" width="100%" class="content">
+<col width="20%">
+<col width="40%">
+<col width="40%">
+<tbody>
+                
+<tr>
+                    
+<th>
+                        
+<p>Command</p>
+                    
+</th>
+                    <th>
+                        
+<p>Example</p>
+                    
+</th>
+                    <th>
+                        
+<p>Description</p>
+                    
+</th>
+                
+</tr>
+                
+<tr>
+                    
+<td>
+                        
+<p>openMTDBConnection</p>
+                    
+</td>
+                    <td>
+                        
+<pre>openMTDBConnection();</pre>
+                    
+</td>
+                    <td>
+                        
+<p>Command is used to open a connection to a message tracking database (if not
+opened yet). The connection information has to be saved in the SmartiDS
+datasource.</p>
+                    
+</td>
+                
+</tr>
+                
+<tr>
+                    
+<td>
+                        
+<p>executeMTSQLCommand</p>
+                    
+</td>
+                    <td>
+                        
+<pre>executeMTSQLCommand("SELECT count(*) AS counter
+	FROM tBISMT_Worklfow
+	WHERE ( cFree7 = 'SEEBURGER')");</pre>
+                    
+</td>
+                    <td>
+                        
+<p>Is used to execute an SQL command in the Message Tracking database. Get one
+result from your SQL- command back.</p>
+                    
+</td>
+                
+</tr>
+                
+<tr>
+                    
+<td>
+                        
+<p>executeMTSQLCommandWithMultiResult</p>
+                    
+</td>
+                    <td>
+                        
+<pre>executeMTSQLCommandWithMultiResult
+("select * from tBISMT_Worklfow");</pre>
+                    
+</td>
+                    <td>
+                        
+<p>Executes an SQL command in the message tracking database. This command can be
+used for getting more then one record as a result.</p>
+                        
+<p>Use a Loop to run through all results, for checking the next values use</p>
+                        
+<ul>
+                            
+<li>
+                                
+<p>hasMoreMTRecords</p>
+                            
+</li>
+                            
+<li>nextMTRecord</li>
+                        
+</ul>
+                    
+</td>
+                
+</tr>
+            
+</tbody>
+</table>
+        
+<h8 id="s186">For more details please refer to</h8>
+        
+<h8 daisyBranch="1" daisyDocument="2946-SEEDOC" daisyLanguage="2" id="dsy2946-SEEDOC">openMTDBConnection</h8>
+        
+<h12 id="s187">Syntax</h12>
+        
+<p>
+            
+<strong>openMTDBConnection()</strong>
+        
+</p>
+        
+<h12 id="s188">Description</h12>
+        
+<p>This command is used to open a connection of a message tracking database (if
+not opened yet). The connection information has to be saved in the SmartiDS
+datasource. Please refer also to the topic<em>Functions for Message Tracking Databases.</em>
+        
+</p>
+        
+<h7 daisyBranch="1" daisyDocument="15257-SEEDOC" daisyLanguage="2" id="dsy15257-SEEDOC">Parameter(s)</h7>
+        
+<p>This command does not expect any parameters.</p>
+        
+<h7 daisyBranch="1" daisyDocument="15258-SEEDOC" daisyLanguage="2" id="dsy15258-SEEDOC">Return Value</h7>
+        
+<p>This command does not return a value.</p>
+        
+<h12 id="s189">Warning(s) / Error(s)</h12>
+        
+<p>If t he connection to the database cannot be established, the error</p>
+        
+<ul>
+            
+<li>
+                
+<em>2600</em>
+            
+</li>
+        
+</ul>
+        
+<p>is created.</p>
+        
+<h12 id="s190">Example</h12>
+        
+<pre>openMTDBConnection();</pre>
+        
+<h8 daisyBranch="1" daisyDocument="2856-SEEDOC" daisyLanguage="2" id="dsy2856-SEEDOC">executeMTSQLCommand</h8>
+        
+<h12 id="s191">Syntax</h12>
+        
+<p>
+            
+<strong>executeMTSQLCommand (sqlString)</strong>
+        
+</p>
+        
+<h12 id="s192">Description</h12>
+        
+<p>Is used to execute an SQL command in the Message Tracking database. The
+database has to have been connected with the
+<em>
+                <a href="#dsy2946-SEEDOC">
+                    <p:linkInfo access="read,fullRead,write,publish,delete" documentName="openMTDBConnection" documentType="SimpleDocument" href="daisy:2946-SEEDOC" lastVersionId="11" liveVersionId="11">
+                        <p:linkPartInfo id="7" mimeType="text/xml" name="SimpleDocumentContent" size="799"/>
+                    </p:linkInfo>openMTDBConnection</a>
+            </em> command. Please
+refer also to the topic <em>Functions for Message
+Tracking Database</em>, particularly the command
+<em>
+                <a href="#dsy2855-SEEDOC">
+                    <p:linkInfo access="read,fullRead,write,publish,delete" documentName="executeMTSQLCommandWithMultiResult" documentType="SimpleDocument" href="daisy:2855-SEEDOC" lastVersionId="17" liveVersionId="17">
+                        <p:linkPartInfo id="7" mimeType="text/xml" name="SimpleDocumentContent" size="1754"/>
+                    </p:linkInfo>executeMTSQLCommandWithMultiResult</a>
+            </em>.</p>
+        
+<h12 id="s193">Parameter(s)</h12>
+        
+<table class="content" column-widths="20%;20%" print-column-widths="20%;20%" width="100%">
+<col width="20%">
+<col width="20%">
+<col>
+<tbody>
+                
+<tr>
+                    
+<th>
+                        
+<p>Parameter</p>
+                    
+</th>
+                    <th>
+                        
+<p>Type</p>
+                    
+</th>
+                    <th>
+                        
+<p>Description</p>
+                    
+</th>
+                
+</tr>
+                
+<tr>
+                    
+<td>
+                        
+<p align="center">sqlString</p>
+                    
+</td>
+                    <td>
+                        
+<p align="center">$</p>
+                    
+</td>
+                    <td>
+                        
+<p align="left">The SQL command to execute.</p>
+                    
+</td>
+                
+</tr>
+            
+</tbody>
+</table>
+        
+<h7 daisyBranch="1" daisyDocument="15258-SEEDOC" daisyLanguage="2" id="dsy15258-SEEDOC">Return Value</h7>
+        
+<p>This command does not return a value.</p>
+        
+<h12 id="s194">Warning(s) / Error(s)</h12>
+        
+<p>If the connection cannot be established or an SQL error occurs, the errors
+</p>
+        
+<ul>
+            
+<li>
+                
+<em>2606</em>
+            
+</li>
+            
+<li>
+                
+<em>2607</em>
+            
+</li>
+        
+</ul>
+        
+<p>are created.</p>
+        
+<h12 id="s195">Example</h12>
+        
+<pre>local count%;
+executeMTSQLCommand("SELECT count(*) AS counter
+	FROM tBISMT_Worklfow
+	WHERE (cFree6 = &lsquo;" &amp; ISA_Sender$ &amp; "&rsquo;) AND ( cFree7 = &lsquo;" &amp; ISA_Receiver$ &amp; "&rsquo;)");;
+count% = getMTField("counter");
+clearMTRecord();</pre>
+        
+<h8 daisyBranch="1" daisyDocument="2855-SEEDOC" daisyLanguage="2" id="dsy2855-SEEDOC">executeMTSQLCommandWithMultiResult</h8>
+        
+<h12 id="s196">Syntax</h12>
+        
+<p>
+            
+<strong>executeMTSQLCommandWithMultiResult (sqlString)</strong>
+        
+</p>
+        
+<h12 id="s197">Description</h12>
+        
+<p>Executes an SQL command in the message tracking database. This command can be
+used for getting more then one record as a result. Please refer also to the
+other functions for the <em>Message Tracking
+Database</em>, especially the commands
+<em>
+                <a href="#dsy2856-SEEDOC">
+                    <p:linkInfo access="read,fullRead,write,publish,delete" documentName="executeMTSQLCommand" documentType="SimpleDocument" href="daisy:2856-SEEDOC" lastVersionId="20" liveVersionId="20">
+                        <p:linkPartInfo id="7" mimeType="text/xml" name="SimpleDocumentContent" size="1528"/>
+                    </p:linkInfo>executeMTSQLCommand</a>
+            </em>,
+<em>hasMoreMTRecords</em>,
+<em>nextMTRecord</em>,
+<em>
+                <a href="dsy27461-SEEDOC.html#dsy2888-SEEDOC">
+                    <p:linkInfo access="read,fullRead,write,publish,delete" documentName="getMTField" documentType="SimpleDocument" href="daisy:2888-SEEDOC" lastVersionId="15" liveVersionId="15">
+                        <p:linkPartInfo id="7" mimeType="text/xml" name="SimpleDocumentContent" size="1566"/>
+                    </p:linkInfo>getMTField</a>
+            </em> and
+<em>
+                <a href="dsy27461-SEEDOC.html#dsy2805-SEEDOC">
+                    <p:linkInfo access="read,fullRead,write,publish,delete" documentName="clearMTRecord" documentType="SimpleDocument" href="daisy:2805-SEEDOC" lastVersionId="11" liveVersionId="11">
+                        <p:linkPartInfo id="7" mimeType="text/xml" name="SimpleDocumentContent" size="780"/>
+                    </p:linkInfo>clearMTRecord</a>
+            </em>. Please refer also to the
+topic<em>Functions for Message Tracking
+Databases.</em>
+        
+</p>
+        
+<h12 id="s198">Parameter(s)</h12>
+        
+<table class="content" column-widths="20%;20%" print-column-widths="20%;20%" width="100%">
+<col width="20%">
+<col width="20%">
+<col>
+<tbody>
+                
+<tr>
+                    
+<th>
+                        
+<p>Parameter</p>
+                    
+</th>
+                    <th>
+                        
+<p>Type</p>
+                    
+</th>
+                    <th>
+                        
+<p>Description</p>
+                    
+</th>
+                
+</tr>
+                
+<tr>
+                    
+<td>
+                        
+<p align="center">sqlString</p>
+                    
+</td>
+                    <td>
+                        
+<p align="center">$</p>
+                    
+</td>
+                    <td>
+                        
+<p align="left">The SQL command to execute.</p>
+                    
+</td>
+                
+</tr>
+            
+</tbody>
+</table>
+        
+<h12 id="s199">Warning(s) / Error(s)</h12>
+        
+<p>If the connection cannot be established or an SQL error occurs, the errors
+</p>
+        
+<ul>
+            
+<li>
+                
+<em>2611</em>
+            
+</li>
+            
+<li>
+                
+<em>2612</em>
+            
+</li>
+        
+</ul>
+        
+<p>are created.</p>
+        
+<h12 id="s200">Example</h12>
+        
+<pre>local i%;
+local test$;
+executeMTSQLCommandWithMultiResult("select * from MasterDB");
+for i% = 0 to 10000 step 1
+    if hasMoreMTRecords()
+         nextMTRecord();
+         test$ = getMTField("TEST");
+        &hellip;
+    else
+        exitfor;
+    endif
+next</pre>
+        
+</div>
+<div class="right">
+<a href="dsy27461-SEEDOC.html"><img src="resources/images/big_right.gif"></a>
+</div>
+</div>
+<div id="pageNumber">
+<div class="numberAndTitle">
+<span class="bottomTitle">Training BIC 6 Advanced</span><span class="count">121</span>
+</div>
+</div>
+</div>
+</body>
+</html>

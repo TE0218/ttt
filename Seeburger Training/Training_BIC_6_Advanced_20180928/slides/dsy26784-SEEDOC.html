@@ -1,0 +1,553 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html xmlns:fn="http://www.w3.org/2005/xpath-functions" xmlns:p="http://outerx.org/daisy/1.0#publisher" xmlns:i18n="http://apache.org/cocoon/i18n/2.1" xmlns:einclude="http://outerx.org/daisy/1.0#externalinclude" xmlns:d="http://outerx.org/daisy/1.0">
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<link href="resources/css/books.css" type="text/css" rel="stylesheet">
+<script src="resources/js/toggle.js" type="text/javascript"></script>
+</head>
+<body onLoad="appendToDiv();">
+<div class="all">
+<div class="top">
+<div class="chunkNavigation">
+<div class="topCut"></div>
+<div class="logoTitle">
+<span><img src="resources/images/see-logo.png"></span><span class="bookTitle">BIS:MT Mappings</span>
+</div>
+<div class="navigation">
+<ul>
+<li class="first">
+<a href="dsy26783-SEEDOC.html">&nbsp;<img src="resources/images/small_left.gif">&nbsp;Previous&nbsp;</a>
+</li>
+<li class="middle">
+<a href="chunk1.html"><img src="resources/images/content.png">Table of Contents&nbsp;</a>
+</li>
+<li class="last">
+<a href="dsy29127-SEEDOC.html">&nbsp;Next&nbsp;<img src="resources/images/small_right.gif"></a>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="content">
+<div class="left">
+<a href="dsy26783-SEEDOC.html"><img src="resources/images/big_left.gif" class="centeredImage"></a>
+</div>
+<div class="center">
+<h2 xmlns:ns="http://outerx.org/daisy/1.0" daisyBranch="1" daisyDocument="26784-SEEDOC" daisyLanguage="2" id="dsy26784-SEEDOC">BIS:MT - Tutorial 1</h2>
+        
+<table column-widths="30%;70%" nokeeptogether="true" print-column-widths="30%;70%" width="100%" class="content">
+<col width="30%">
+<col width="70%">
+<tbody>
+                
+<tr>
+                    
+<th>
+                        
+<p>Instruction</p>
+                    
+</th>
+                    <th>
+                        
+<p>Illustration</p>
+                    
+</th>
+                
+</tr>
+                
+<tr>
+                    
+<td>
+                        
+<ol>
+                            
+<li>
+                                
+<p>Change the datasource SmartiDS from the H2 database to the SQL Server
+database:</p>
+                            
+</li>
+                        
+</ol>
+                        
+<blockquote>
+                            
+<p>user: SeePRTDB652<br>
+Password: secret</p>
+                        
+</blockquote>
+                    
+</td>
+                    <td>
+                        
+<p align="center">
+                            
+<table class="plainTable" align="center">
+<tr>
+<td align="center"><a href="images/29126-SEEDOC_1_2_2.jpg"><img bookStorePath="/data/resources/29126-SEEDOC_1_2_2" daisy-caption="Change datasource SmartiDS" p:imageHeight="519" p:imageWidth="617" print-width="11cm" src="images/29126-SEEDOC_1_2_2.jpg" width="600" daisy-image-type="default" id="dsy_fig_48"></a></td>
+</tr>
+<tr>
+<td class="imageCaption" align="center">Change datasource SmartiDS</td>
+</tr>
+</table>
+                        
+</p>
+                    
+</td>
+                
+</tr>
+                
+<tr>
+                    
+<td>
+                        
+<ol start="2">
+                            
+<li>
+                                
+<p>Import the provided message structure into BIC Mapping Designer</p>
+                            
+</li>
+                            
+<li>
+                                
+<p>Create a new Mapping with SEEDELFOR as source and No_Message as destination
+</p>
+                            
+</li>
+                        
+</ol>
+                    
+</td>
+                    <td>
+                        
+<p align="center">
+                            
+<table class="plainTable" align="center">
+<tr>
+<td align="center"><a href="images/26787-SEEDOC_1_2_1.jpg"><img bookStorePath="/data/resources/26787-SEEDOC_1_2_1" daisy-caption="Create a new mapping" p:imageHeight="503" p:imageWidth="603" print-width="11cm" src="images/26787-SEEDOC_1_2_1.jpg" daisy-image-type="default" id="dsy_fig_49"></a></td>
+</tr>
+<tr>
+<td class="imageCaption" align="center">Create a new mapping</td>
+</tr>
+</table>
+                        
+</p>
+                    
+</td>
+                
+</tr>
+                
+<tr>
+                    
+<td>
+                        
+<ol start="4">
+                            
+<li>Read input values&nbsp; ORIGIN_FILE_ID and PROCESSING_STATUS.</li>
+                        
+</ol>
+                        
+<blockquote>
+                            
+<p class="note">Please set them first in the test environment.</p>
+                        
+</blockquote>
+                        
+<ol start="5">
+                            
+<li>
+                                
+<p>Open the connection the BIS:MT database.</p>
+                            
+</li>
+                            
+<li>
+                                
+<p>Write the information to the BIS:MT database.</p>
+                            
+</li>
+                            
+<li>
+                                
+<p>Clear all MT fields.</p>
+                            
+</li>
+                        
+</ol>
+                    
+</td>
+                    <td>
+                        
+<p>Record program NewMapping</p>
+                        
+<pre>/*
+Next lines are only relevant for the traing environment to populate 
+some fields in table tBISMT_Workflow. Normally these fields will be
+populated by the BIS process.
+*/
+
+/* global g_Origin_File_ID$;   moved to variablePanel */
+/* global g_Process_Status$;   moved to variablePanel */
+/* 
+set the Input variables in test environment if you run the mapping 
+inside the BICMD test environment.
+ORIGIN_FILE_ID = 1234
+PROCESSING_STATUS = RUNNING
+*/
+
+g_Origin_File_ID$ = getinputValue("ORIGIN_FILE_ID");
+g_Process_Status$ = getinputValue("PROCESSING_STATUS");
+openMTDBConnection();
+
+/* Create a timestamp for processing time start and end
+Be carefull with the formatting of the timestamp */
+local datetime$;
+local datetime~;
+datetime$ = currentdate() &amp; currenttime();
+datetime$ = getTime(datetime$, "yyyyMMddHHmmss");
+copy absBig(datetime$) to datetime~;
+traceln(datetime~);
+
+setMTField("cWfid", g_Origin_File_ID$);
+setMTField("cMessageId", "1");
+setMTField("cPartner", "DEMO");
+setMTField("cMessageType", "DEMO");
+setMTField("cDirection", "IN");
+setMTField("cStatus", g_Process_Status$);
+setMTField("cProcessingTimeStart", datetime~);
+setMTField("cProcessingTimeEnd", datetime~);
+
+//write record to table tBISMT_Workflow and clear fields afterwards.
+writeMTRecord(g_Origin_File_ID$, null);
+clearMTRecord();</pre>
+                    
+</td>
+                
+</tr>
+                
+<tr>
+                    
+<td>
+                        
+<br>
+                        
+<ol start="8">
+                            
+<li>
+                                
+<p>Write the fields to MT if msq counter is equal or greater 2.</p>
+                            
+</li>
+                            
+<li>
+                                
+<p>write message number and a combined message type to BIS:MT table.</p>
+                            
+</li>
+                        
+</ol>
+                    
+</td>
+                    <td>
+                        
+<p>Record SEEDELFOR.CNT.GRP.MSG.ME</p>
+                        
+<pre>Counter_Msg% = Counter_Msg% + 1;
+
+if Counter_Msg% &gt;= 2
+    //write record to table tBISMT_Documents and clear fields afterwards.
+    writeMTDetailRecord(g_Comb_ID$, g_Origin_File_ID$);
+    clearMTRecord();
+endif
+
+//Msg number
+setMTField("cDocNumber", THIS.MESSAGE_NUMBER:value);
+
+//Message type, version and release
+local l_message_type$;
+copy THIS.MESSAGE_TYPE:value &amp; "_" &amp; THIS.MESSAGE_TYPE_VERSION:value 
+&amp; "_" &amp; THIS.MESSAGE_TYPE_RELEASE:value to l_message_type$;
+traceln(l_message_type$);
+setMTField("cDocType", l_message_type$);</pre>
+                    
+</td>
+                
+</tr>
+                
+<tr>
+                    
+<td>
+                        
+<ol start="10">
+                            
+<li>
+                                
+<p>Set the MT-fields in tag REF and also concate the filename and reference for
+the keys.</p>
+                            
+</li>
+                        
+</ol>
+                    
+</td>
+                    <td>
+                        
+<p>Record SEEDELFOR.CNT.GRP.MSG.REF</p>
+                        
+<pre>local l_Date$;
+
+if THIS.QUALIFIER:value &amp;= "ON"
+    l_Date$ = formatDate(THIS.REFERENCE_DATE:value, "YYYYMMDD", "DD.MM.YYYY");
+    g_Comb_ID$ = g_Origin_File_ID$ &amp; "_" &amp; THIS.REFERENCE:value;
+    
+    setMTField("cWfId", g_Origin_File_ID$);
+    setMTField("cId",g_Comb_ID$);
+    setMTField("cFree15", l_Date$);
+    setMTField("cFree7", THIS.REFERENCE:value); //order number
+endif</pre>
+                    
+</td>
+                
+</tr>
+                
+<tr>
+                    
+<td>
+                        
+<ol start="11">
+                            
+<li>
+                                
+<p>Write all fields to BIS:MT database.</p>
+                            
+</li>
+                        
+</ol>
+                    
+</td>
+                    <td>
+                        
+<p>Record Program MappingEnd</p>
+                        
+<pre>//write record to table tBISMT_Documents and clear fields afterwards.
+writeMTDetailRecord(g_Comb_ID$, g_Origin_File_ID$);
+closeMTDBConnection();</pre>
+                    
+</td>
+                
+</tr>
+                
+<tr>
+                    
+<td>
+                        
+<ol start="12">
+                            
+<li>
+                                
+<p>Please test your mapping with the provided test file.</p>
+                            
+</li>
+                        
+</ol>
+                    
+</td>
+                    <td></td>
+                
+</tr>
+                
+<tr>
+                    
+<td>
+                        
+<ol start="13">
+                            
+<li>
+                                
+<p>Please check the results in BIS:MT</p>
+                            
+</li>
+                            
+<li>
+                                
+<p>Start the Portal application from the start menue and logon to the
+application with</p>
+                            
+</li>
+                        
+</ol>
+                        
+<blockquote>
+                            
+<ul>
+                                
+<li>user: standard</li>
+                                
+<li>password: seeburger</li>
+                            
+</ul>
+                        
+</blockquote>
+                    
+</td>
+                    <td></td>
+                
+</tr>
+                
+<tr>
+                    
+<td>
+                        
+<ol start="15">
+                            
+<li>Search for your entries in the actual timeframe.</li>
+                        
+</ol>
+                    
+</td>
+                    <td>
+                        
+<p align="center">
+                            
+<table class="plainTable" align="center">
+<tr>
+<td align="center"><a href="images/26789-SEEDOC_1_2_1.jpg"><img bookStorePath="/data/resources/26789-SEEDOC_1_2_1" daisy-caption="BIS:MT search for new entries" p:imageHeight="544" p:imageWidth="438" print-width="11cm" src="images/26789-SEEDOC_1_2_1.jpg" daisy-image-type="default" id="dsy_fig_50"></a></td>
+</tr>
+<tr>
+<td class="imageCaption" align="center">BIS:MT search for new entries</td>
+</tr>
+</table>
+                        
+</p>
+                    
+</td>
+                
+</tr>
+                
+<tr>
+                    
+<td>
+                        
+<ol start="16">
+                            
+<li>
+                                
+<p>For each time you changed the input value ORIGIN_FILE_ID and you the mapping
+was executed you should see an entry in the result list.</p>
+                            
+</li>
+                        
+</ol>
+                    
+</td>
+                    <td>
+                        
+<p align="center">
+                            
+<table class="plainTable" align="center">
+<tr>
+<td align="center"><a href="images/26790-SEEDOC_1_2_1.jpg"><img bookStorePath="/data/resources/26790-SEEDOC_1_2_1" daisy-caption="BIS:MT result" p:imageHeight="136" p:imageWidth="1391" print-width="11cm" src="images/26790-SEEDOC_1_2_1.jpg" width="600" daisy-image-type="default" id="dsy_fig_51"></a></td>
+</tr>
+<tr>
+<td class="imageCaption" align="center">BIS:MT result</td>
+</tr>
+</table>
+                        
+</p>
+                    
+</td>
+                
+</tr>
+                
+<tr>
+                    
+<td>
+                        
+<ol start="17">
+                            
+<li>
+                                
+<p>If you click on one result you will see more details.</p>
+                            
+</li>
+                        
+</ol>
+                    
+</td>
+                    <td>
+                        
+<p align="center">
+                            
+<table class="plainTable" align="center">
+<tr>
+<td align="center"><a href="images/26791-SEEDOC_1_2_1.jpg"><img bookStorePath="/data/resources/26791-SEEDOC_1_2_1" daisy-caption="BIS:MT details" p:imageHeight="626" p:imageWidth="1288" print-width="11cm" src="images/26791-SEEDOC_1_2_1.jpg" width="600" daisy-image-type="default" id="dsy_fig_52"></a></td>
+</tr>
+<tr>
+<td class="imageCaption" align="center">BIS:MT details</td>
+</tr>
+</table>
+                        
+</p>
+                    
+</td>
+                
+</tr>
+                
+<tr>
+                    
+<td>
+                        
+<ol start="18">
+                            
+<li>
+                                
+<p>You can also switch between workflow and document details.</p>
+                            
+</li>
+                        
+</ol>
+                    
+</td>
+                    <td></td>
+                
+</tr>
+                
+<tr>
+                    
+<td>
+                        
+<ol start="19">
+                            
+<li>
+
+                                
+<p>To double check please have a look at the
+<a href="../classmaterial/BismtMappings/map_SEEDELFOR_V3_0_TO_MT_DEMO.zip.bicmd">trainer
+solution</a>.</p>
+                            
+</li>
+                        
+</ol>
+                    
+</td>
+                    <td></td>
+                
+</tr>
+            
+</tbody>
+</table>
+        
+</div>
+<div class="right">
+<a href="dsy29127-SEEDOC.html"><img src="resources/images/big_right.gif"></a>
+</div>
+</div>
+<div id="pageNumber">
+<div class="numberAndTitle">
+<span class="bottomTitle">Training BIC 6 Advanced</span><span class="count">124</span>
+</div>
+</div>
+</div>
+</body>
+</html>

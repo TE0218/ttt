@@ -1,0 +1,25 @@
+<?xml encoding="UTF-8" ?>
+<!ELEMENT root (customer,supplier?)>
+
+<!ELEMENT customer (name,address*,volume)>
+<!ATTLIST customer
+	id 	CDATA 	#IMPLIED
+>
+
+<!ELEMENT name (#PCDATA)>
+
+<!ELEMENT address (#PCDATA)>
+<!ATTLIST address
+	str 	CDATA 	#IMPLIED
+>
+
+<!ELEMENT volume (#PCDATA)>
+<!ATTLIST volume
+	value 	CDATA 	#IMPLIED
+>
+
+<!ELEMENT supplier (name,address*,volume)>
+<!ATTLIST supplier
+	id 	CDATA 	#IMPLIED
+>
+

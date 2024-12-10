@@ -1,0 +1,199 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html xmlns:fn="http://www.w3.org/2005/xpath-functions" xmlns:p="http://outerx.org/daisy/1.0#publisher" xmlns:i18n="http://apache.org/cocoon/i18n/2.1" xmlns:einclude="http://outerx.org/daisy/1.0#externalinclude" xmlns:d="http://outerx.org/daisy/1.0">
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<link href="resources/css/books.css" type="text/css" rel="stylesheet">
+<script src="resources/js/toggle.js" type="text/javascript"></script>
+</head>
+<body onLoad="appendToDiv();">
+<div class="all">
+<div class="top">
+<div class="chunkNavigation">
+<div class="topCut"></div>
+<div class="logoTitle">
+<span><img src="resources/images/see-logo.png"></span><span class="bookTitle">Arrays and Hashmaps</span>
+</div>
+<div class="navigation">
+<ul>
+<li class="first">
+<a href="dsy24179-SEEDOC.html">&nbsp;<img src="resources/images/small_left.gif">&nbsp;Previous&nbsp;</a>
+</li>
+<li class="middle">
+<a href="chunk1.html"><img src="resources/images/content.png">Table of Contents&nbsp;</a>
+</li>
+<li class="last">
+<a href="dsy24180-SEEDOC.html">&nbsp;Next&nbsp;<img src="resources/images/small_right.gif"></a>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="content">
+<div class="left">
+<a href="dsy24179-SEEDOC.html"><img src="resources/images/big_left.gif" class="centeredImage"></a>
+</div>
+<div class="center">
+<h2 xmlns:ns="http://outerx.org/daisy/1.0" daisyBranch="1" daisyDocument="24187-SEEDOC" daisyLanguage="2" id="dsy24187-SEEDOC">Arrays/Hashmaps - Tutorial 3</h2>
+        
+<table width="100%" class="content">
+<tbody>
+                
+<tr>
+                    
+<th>
+                        
+<p>Instruction</p>
+                    
+</th>
+                    <th>
+                        
+<p>Illustration</p>
+                    
+</th>
+                
+</tr>
+                
+<tr>
+                    
+<td>
+                        
+<ol>
+                            
+<li>
+                                
+<p>Create a new No Message to No Message mapping.</p>
+                            
+</li>
+                        
+</ol>
+                    
+</td>
+                    <td>
+                        
+<p>Check chapter "How to Operate BIC Mapping Designer" in Training BIC 6 Basics
+if you need further assistance.</p>
+                    
+</td>
+                
+</tr>
+                
+<tr>
+                    
+<td>
+                        
+<ol start="2">
+                            
+<li>Go to record program DEFAULT.</li>
+                        
+</ol>
+                    
+</td>
+                    <td>
+                        
+<pre>// define variables, set counter
+local size%, i%, volume%;
+volume% = 1;
+
+// define array (first index is always 0)
+// it's not possible to use a variable for the size
+local harrypotter$[7][2]; 
+
+// fill the array
+// first token is the volume [0]-[6]
+// second token is the name of the book [0] and the ISBN [1]
+harrypotter$[0][0] = "Harry Potter and the Philosopher&rsquo;s Stone";
+harrypotter$[0][1] = "ISBN 0-7475-7360-3";
+harrypotter$[1][0] = "Harry Potter and the Chamber of Secrets";
+harrypotter$[1][1] = "ISBN 0-7475-3849-2";
+harrypotter$[2][0] = "Harry Potter and the Prisoner of Azkaban";
+harrypotter$[2][1] = "ISBN 0-7475-4215-5";
+harrypotter$[3][0] = "Harry Potter and the Goblet of Fire";
+harrypotter$[3][1] = "ISBN 0-7475-4624-X";
+harrypotter$[4][0] = "Harry Potter and the Order of the Phoenix";
+harrypotter$[4][1] = "ISBN 0-7475-5100-6";
+harrypotter$[5][0] = "Harry Potter and the Half-Blood Prince";
+harrypotter$[5][1] = "ISBN 0-7475-8108-8";
+harrypotter$[6][0] = "Harry Potter and the Deathly Hallows";
+harrypotter$[6][1] = "ISBN 0-7475-9106-7";
+
+//get array size for defining how often the for loop must run 
+//The getSize function's output is 7, but as the index starts 
+//with 0, the highest index is 6!
+size% = getSize(harrypotter$[]) - 1;
+traceln("Max array index: " &amp; size%);
+
+// get array data
+for i% = 0 to size% // Loop effecting the read out of the elements of a two-dimensional
+    traceln("Harry Potter Volume "&amp; volume% &amp; " is \"" &amp; harrypotter$[i%][0]&amp; "\" with 
+" &amp; harrypotter$[i%][1] &amp; "."); 
+    volume% = volume% + 1;
+next
+
+// Excercise 3 - some additional info
+
+// The size of the first dimension
+traceln("getsize(harrypotter$[]): " &amp;getsize(harrypotter$[]));            
+// The size of the second dimension of the 3rd occurence of the first dimension (0-based)
+traceln("getsize(harrypotter$[2]): " &amp;getsize(harrypotter$[2]));          
+// The size of the second dimension of the 4th occurence of the first dimension (0-based)
+traceln("getsize(harrypotter$[3]): " &amp;getsize(harrypotter$[3]));          
+// The size of the value contained in this matrix
+traceln("getsize(harrypotter$[6][0]): " &amp;getsize(harrypotter$[6][0])); </pre>
+                    
+</td>
+                
+</tr>
+                
+<tr>
+                    
+<td>
+                        
+<ol start="3">
+                            
+<li>
+                                
+<p>Have a look at the trace-file and find out how the two-dimensional&nbsp; array
+works.</p>
+                            
+</li>
+                        
+</ol>
+                    
+</td>
+                    <td>
+
+                        
+<p>You can compare your results with the attached
+<a href="../classmaterial/ArraysHashmaps/map_array_2.xml">trainer solution</a>.
+</p>
+                        
+<p>Traceline should look like the following lines:</p>
+                        
+<pre>Harry Potter Volume 1 is "Harry Potter and the Philosopher&rsquo;s Stone" with ISBN 0-7475-7360-3.
+Harry Potter Volume 2 is "Harry Potter and the Chamber of Secrets" with ISBN 0-7475-3849-2.
+Harry Potter Volume 3 is "Harry Potter and the Prisoner of Azkaban" with ISBN 0-7475-4215-5.
+Harry Potter Volume 4 is "Harry Potter and the Goblet of Fire" with ISBN 0-7475-4624-X.
+Harry Potter Volume 5 is "Harry Potter and the Order of the Phoenix" with ISBN 0-7475-5100-6.
+Harry Potter Volume 6 is "Harry Potter and the Half-Blood Prince" with ISBN 0-7475-8108-8.
+Harry Potter Volume 7 is "Harry Potter and the Deathly Hallows" with ISBN 0-7475-9106-7.</pre>
+                    
+</td>
+                
+</tr>
+            
+</tbody>
+</table>
+        
+</div>
+<div class="right">
+<a href="dsy24180-SEEDOC.html"><img src="resources/images/big_right.gif"></a>
+</div>
+</div>
+<div id="pageNumber">
+<div class="numberAndTitle">
+<span class="bottomTitle">Training BIC 6 Advanced</span><span class="count">91</span>
+</div>
+</div>
+</div>
+</body>
+</html>

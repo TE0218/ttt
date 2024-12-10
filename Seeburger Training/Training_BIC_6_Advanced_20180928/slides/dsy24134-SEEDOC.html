@@ -1,0 +1,159 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html xmlns:fn="http://www.w3.org/2005/xpath-functions" xmlns:p="http://outerx.org/daisy/1.0#publisher" xmlns:i18n="http://apache.org/cocoon/i18n/2.1" xmlns:einclude="http://outerx.org/daisy/1.0#externalinclude" xmlns:d="http://outerx.org/daisy/1.0">
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<link href="resources/css/books.css" type="text/css" rel="stylesheet">
+<script src="resources/js/toggle.js" type="text/javascript"></script>
+</head>
+<body onLoad="appendToDiv();">
+<div class="all">
+<div class="top">
+<div class="chunkNavigation">
+<div class="topCut"></div>
+<div class="logoTitle">
+<span><img src="resources/images/see-logo.png"></span><span class="bookTitle">CSV Adapter</span>
+</div>
+<div class="navigation">
+<ul>
+<li class="first">
+<a href="dsy24135-SEEDOC.html">&nbsp;<img src="resources/images/small_left.gif">&nbsp;Previous&nbsp;</a>
+</li>
+<li class="middle">
+<a href="chunk1.html"><img src="resources/images/content.png">Table of Contents&nbsp;</a>
+</li>
+<li class="last">
+<a href="dsy24136-SEEDOC.html">&nbsp;Next&nbsp;<img src="resources/images/small_right.gif"></a>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="content">
+<div class="left">
+<a href="dsy24135-SEEDOC.html"><img src="resources/images/big_left.gif" class="centeredImage"></a>
+</div>
+<div class="center">
+<h2 xmlns:ns="http://outerx.org/daisy/1.0" daisyBranch="1" daisyDocument="24134-SEEDOC" daisyLanguage="2" id="dsy24134-SEEDOC">CSV - Exercise 2</h2>
+        
+<p>
+            
+<strong>Import of the destination structure </strong>
+        
+</p>
+        
+<ul>
+
+            
+<li>Import the message description &ldquo;CATALOGUE_INH&rdquo; from the file
+<a href="../classmaterial/CsvAdapter/msg_CATALOGUE_INH.xml">msg_CATALOGUE_INH.xml</a>
+into your current project. &nbsp;It would act as destination structure for the CSV to
+INHOUSE-mapping.</li>
+        
+</ul>
+        
+<p>
+            
+<strong>Create a new mapping </strong>
+        
+</p>
+        
+<ul>
+
+            
+<li>New objects can be created on the project level by means of the context
+menu. In this way create a new mapping. Select as an input structure
+CATALOGUE_CSV from exercise before and as destination structure the before
+imported INHOUSE structure. Use the attached
+<a href="../classmaterial/CsvAdapter/catalogue.csv">testfile</a> to test your
+mapping.</li>
+        
+</ul>
+        
+<p>
+            
+<strong>Source Options (Global Settings for a mapping)</strong>
+        
+</p>
+        
+<ul>
+            
+<li>
+                
+<p>setCsvSourceHeadline to "on"</p>
+            
+</li>
+            
+<li>
+                
+<p>set SourceDelimiter for Element (+), DecimalPoint(.) and Masking (?)</p>
+            
+</li>
+        
+</ul>
+        
+<p>
+            
+<strong>Simple assignments </strong>
+        
+</p>
+        
+<ul>
+            
+<li>Search in both message structures comparable fields and assign the source
+fields to the corresponding target field. Simple assignments can be made via
+Drag&amp;Drop.</li>
+        
+</ul>
+        
+<ul>
+            
+<li>Record-ID of the destination file should be unique.</li>
+        
+</ul>
+        
+<ul>
+            
+<li>If the destination field is smaller than the source field, check out the
+string manipulation commands. It is important to test consistently the newly
+created mapping. Take the relevant configuration of the test environment and
+test regularly the mapping.</li>
+        
+</ul>
+        
+<ul>
+            
+<li>Be aware of the delimiter settings and the headline of the source message
+</li>
+        
+</ul>
+        
+<p class="note">Tip: Comment your work steps.</p>
+        
+<p class="note">The sourceoptions in this exercise are set in the code instead
+of in the sourceoptions</p>
+        
+<p>
+            
+<strong>Use of traces </strong>
+        
+</p>
+        
+<ul>
+            
+<li>Please trace the Record-ID and the Price for Controlling purposes.</li>
+        
+</ul>
+        
+</div>
+<div class="right">
+<a href="dsy24136-SEEDOC.html"><img src="resources/images/big_right.gif"></a>
+</div>
+</div>
+<div id="pageNumber">
+<div class="numberAndTitle">
+<span class="bottomTitle">Training BIC 6 Advanced</span><span class="count">20</span>
+</div>
+</div>
+</div>
+</body>
+</html>

@@ -1,0 +1,124 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html xmlns:fn="http://www.w3.org/2005/xpath-functions" xmlns:p="http://outerx.org/daisy/1.0#publisher" xmlns:i18n="http://apache.org/cocoon/i18n/2.1" xmlns:einclude="http://outerx.org/daisy/1.0#externalinclude" xmlns:d="http://outerx.org/daisy/1.0">
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<link href="resources/css/books.css" type="text/css" rel="stylesheet">
+<script src="resources/js/toggle.js" type="text/javascript"></script>
+</head>
+<body onLoad="appendToDiv();">
+<div class="all">
+<div class="top">
+<div class="chunkNavigation">
+<div class="topCut"></div>
+<div class="logoTitle">
+<span><img src="resources/images/see-logo.png"></span><span class="bookTitle">SQL Adapter</span>
+</div>
+<div class="navigation">
+<ul>
+<li class="first">
+<a href="dsy26230-SEEDOC.html">&nbsp;<img src="resources/images/small_left.gif">&nbsp;Previous&nbsp;</a>
+</li>
+<li class="middle">
+<a href="chunk1.html"><img src="resources/images/content.png">Table of Contents&nbsp;</a>
+</li>
+<li class="last">
+<a href="dsy26231-SEEDOC.html">&nbsp;Next&nbsp;<img src="resources/images/small_right.gif"></a>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="content">
+<div class="left">
+<a href="dsy26230-SEEDOC.html"><img src="resources/images/big_left.gif" class="centeredImage"></a>
+</div>
+<div class="center">
+<h2 xmlns:ns="http://outerx.org/daisy/1.0" daisyBranch="1" daisyDocument="29096-SEEDOC" daisyLanguage="2" id="dsy29096-SEEDOC">SQL Adapter - Exercise 2</h2>
+        
+<ol>
+            
+<li>
+                
+<p>In the following part of the exercise you will learn how to create a SQL
+structure with the MappingDesinger.</p>
+            
+</li>
+            
+<li>
+                
+<p>Before we are able to create the SQL structure in BICMD we have have to
+execute the following steps:</p>
+            
+</li>
+        
+</ol>
+        
+<blockquote>
+            
+<ul>
+                
+<li>start H2 client from &lt;BICMD&gt;\bin\runH2.client.bat - an Internet
+Explorer WIndow will open.</li>
+            
+</ul>
+        
+</blockquote>
+        
+<blockquote>
+            
+<ul>
+                
+<li>create the DB tables at the H2 database using the below script.</li>
+            
+</ul>
+        
+</blockquote>
+        
+<blockquote>
+            
+<blockquote>
+                
+<pre>CREATE TABLE CN_LINE (EDI_SENDER VARCHAR(16), EDI_RECEIVER VARCHAR(16), 
+TRANS_NR NUMBER(5,0), CN_NR VARCHAR(20), NET_AMOUNT NUMBER(12,2), 
+GROSS_AMOUNT NUMBER(12,2), VAT_AMOUNT NUMBER(12,2), VAT_RATE NUMBER(4,2), 
+TEXT_1 VARCHAR(250), TEXT_2 VARCHAR(250), TEXT_3 VARCHAR(250));
+
+CREATE TABLE CN_HEADER (EDI_SENDER VARCHAR(16), EDI_RECEIVER VARCHAR(16), 
+STATUS VARCHAR(2), TRANS_DATE DATE, TRANS_NR NUMBER(5,0), 
+VATID_SENDER VARCHAR(20), VATID_RECEIVER VARCHAR(20), FISCALNR VARCHAR(15));</pre>
+            
+</blockquote>
+        
+</blockquote>
+        
+<ol start="3">
+            
+<li>
+                
+<p>After the database tables have been created by a script we can go back to
+MappingDesigner and start with creating/referencing the table structure.</p>
+            
+</li>
+            
+<li>
+                
+<p>Please create a message CH_Message with two tables CN_Header and CN_Lines by
+using the JDBC Wizard.</p>
+            
+</li>
+        
+</ol>
+        
+</div>
+<div class="right">
+<a href="dsy26231-SEEDOC.html"><img src="resources/images/big_right.gif"></a>
+</div>
+</div>
+<div id="pageNumber">
+<div class="numberAndTitle">
+<span class="bottomTitle">Training BIC 6 Advanced</span><span class="count">54</span>
+</div>
+</div>
+</div>
+</body>
+</html>

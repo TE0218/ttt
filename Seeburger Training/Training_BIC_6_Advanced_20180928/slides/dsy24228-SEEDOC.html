@@ -1,0 +1,188 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html xmlns:fn="http://www.w3.org/2005/xpath-functions" xmlns:p="http://outerx.org/daisy/1.0#publisher" xmlns:i18n="http://apache.org/cocoon/i18n/2.1" xmlns:einclude="http://outerx.org/daisy/1.0#externalinclude" xmlns:d="http://outerx.org/daisy/1.0">
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<link href="resources/css/books.css" type="text/css" rel="stylesheet">
+<script src="resources/js/toggle.js" type="text/javascript"></script>
+</head>
+<body onLoad="appendToDiv();">
+<div class="all">
+<div class="top">
+<div class="chunkNavigation">
+<div class="topCut"></div>
+<div class="logoTitle">
+<span><img src="resources/images/see-logo.png"></span><span class="bookTitle">Procedures</span>
+</div>
+<div class="navigation">
+<ul>
+<li class="first">
+<a href="dsy24534-SEEDOC.html">&nbsp;<img src="resources/images/small_left.gif">&nbsp;Previous&nbsp;</a>
+</li>
+<li class="middle">
+<a href="chunk1.html"><img src="resources/images/content.png">Table of Contents&nbsp;</a>
+</li>
+<li class="last">
+<a href="dsy24231-SEEDOC.html">&nbsp;Next&nbsp;<img src="resources/images/small_right.gif"></a>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="content">
+<div class="left">
+<a href="dsy24534-SEEDOC.html"><img src="resources/images/big_left.gif" class="centeredImage"></a>
+</div>
+<div class="center">
+<h2 xmlns:ns="http://outerx.org/daisy/1.0" daisyBranch="1" daisyDocument="24228-SEEDOC" daisyLanguage="2" id="dsy24228-SEEDOC">Procedures - Exercise 1</h2>
+        
+<p>
+            
+<strong>Local procedures</strong>
+        
+</p>
+        
+<ul>
+            
+<li>Create a new project <strong>Training_BIC_6_Advanced_Procedures</strong>
+within the BIC MD.</li>
+        
+</ul>
+        
+<ul>
+            
+<li>Import the mapping
+<a href="../classmaterial/Procedures/map_I_SHPMNT05_E46C_to_I_ADDRESSES_INH_template.zip.bicmd">
+                    <strong>I_SHPMNT05_E46C_to_I_ADDRESSES_INH_TEMPLATE</strong>
+                </a>.
+</li>
+        
+</ul>
+        
+<ul>
+            
+<li>Create a <strong>new local procedure "check_role" </strong>that checks if
+the partner role is Sales Organization, sold-to party, ship-to party or carrier.
+</li>
+        
+</ul>
+        
+<ul>
+            
+<li>The following table shows the qualifiers of the partner roles that should be
+used in the destination file.</li>
+        
+</ul>
+        
+<blockquote>
+            
+<table print-width="60%" width="60%" class="content">
+<tbody>
+                    
+<tr>
+                        
+<th>
+                            
+<p>Qualifier</p>
+                        
+</th>
+                        <th>
+                            
+<p>partner role (eng)</p>
+                        
+</th>
+                    
+</tr>
+                    
+<tr>
+                        
+<td>
+                            
+<p>OSO</p>
+                        
+</td>
+                        <td>
+                            
+<p>Sales Organization</p>
+                        
+</td>
+                    
+</tr>
+                    
+<tr>
+                        
+<td>
+                            
+<p>AG</p>
+                        
+</td>
+                        <td>
+                            
+<p>sold-to party</p>
+                        
+</td>
+                    
+</tr>
+                    
+<tr>
+                        
+<td>
+                            
+<p>WE</p>
+                        
+</td>
+                        <td>
+                            
+<p>ship-to party</p>
+                        
+</td>
+                    
+</tr>
+                    
+<tr>
+                        
+<td>
+                            
+<p>SP</p>
+                        
+</td>
+                        <td>
+                            
+<p>carrier</p>
+                        
+</td>
+                    
+</tr>
+                
+</tbody>
+</table>
+        
+</blockquote>
+        
+<ul>
+            
+<li>Go to record program Additional Programms/End of MessageBlock (FileEnd) and
+change the mapping: local procedure should be used instead of conditional
+statements.</li>
+        
+</ul>
+        
+<ul>
+            
+<li>Use the <a href="../classmaterial/Procedures/SHPMNT05.idoc">testfile</a> to
+check the functionality of your procedure.</li>
+        
+</ul>
+        
+</div>
+<div class="right">
+<a href="dsy24231-SEEDOC.html"><img src="resources/images/big_right.gif"></a>
+</div>
+</div>
+<div id="pageNumber">
+<div class="numberAndTitle">
+<span class="bottomTitle">Training BIC 6 Advanced</span><span class="count">72</span>
+</div>
+</div>
+</div>
+</body>
+</html>

@@ -1,0 +1,99 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html xmlns:fn="http://www.w3.org/2005/xpath-functions" xmlns:p="http://outerx.org/daisy/1.0#publisher" xmlns:i18n="http://apache.org/cocoon/i18n/2.1" xmlns:einclude="http://outerx.org/daisy/1.0#externalinclude" xmlns:d="http://outerx.org/daisy/1.0">
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<link href="resources/css/books.css" type="text/css" rel="stylesheet">
+<script src="resources/js/toggle.js" type="text/javascript"></script>
+</head>
+<body onLoad="appendToDiv();">
+<div class="all">
+<div class="top">
+<div class="chunkNavigation">
+<div class="topCut"></div>
+<div class="logoTitle">
+<span><img src="resources/images/see-logo.png"></span><span class="bookTitle">SQL Adapter</span>
+</div>
+<div class="navigation">
+<ul>
+<li class="first">
+<a href="dsy26674-SEEDOC.html">&nbsp;<img src="resources/images/small_left.gif">&nbsp;Previous&nbsp;</a>
+</li>
+<li class="middle">
+<a href="chunk1.html"><img src="resources/images/content.png">Table of Contents&nbsp;</a>
+</li>
+<li class="last">
+<a href="dsy26677-SEEDOC.html">&nbsp;Next&nbsp;<img src="resources/images/small_right.gif"></a>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="content">
+<div class="left">
+<a href="dsy26674-SEEDOC.html"><img src="resources/images/big_left.gif" class="centeredImage"></a>
+</div>
+<div class="center">
+<h2 xmlns:ns="http://outerx.org/daisy/1.0" daisyBranch="1" daisyDocument="26234-SEEDOC" daisyLanguage="2" id="dsy26234-SEEDOC">SQL Adapter - Exercise 5</h2>
+        
+<ol>
+            
+<li>
+                
+<p>The last exercise contains the BICMD commands to access the database.</p>
+            
+</li>
+            
+<li>
+                
+<p>Please open den H2 client (how to: see in exercise 2) and copy the following
+script to the SQL statement text field.</p>
+            
+</li>
+        
+</ol>
+        
+<blockquote>
+            
+<pre>CREATE TABLE "PARTNER_ADDRESS" ("SEARCHKEY" VARCHAR2(35), "NAME1"
+VARCHAR2(35), "NAME2" VARCHAR2(35), "STRASSE" VARCHAR2(35), "LAND" VARCHAR2(3),
+"PLZ" VARCHAR2(9), "ORT" VARCHAR2(35));
+
+Insert into PARTNER_ADDRESS (SEARCHKEY,NAME1,NAME2,STRASSE,LAND,PLZ,ORT)
+values ('149733','Muster GmbH',null,'Hauptstra&szlig;e 13','DE','75015','Bretten');
+
+Insert into PARTNER_ADDRESS (SEARCHKEY,NAME1,NAME2,STRASSE,LAND,PLZ,ORT) values
+('474843','Kleinteile Meyer GmbH',null,'Mustergasse 3','DE','75015','Bretten');</pre>
+        
+</blockquote>
+        
+<ol start="3">
+            
+<li>
+                
+<p>This SQL script will create a new table at the database. This table should be
+used to transcode the partner ID to the full name of the partner.</p>
+            
+</li>
+            
+<li>
+                
+<p>Please adjust the mapping SQL to CSV to replace the dummy names by the
+information of the DB table PARTNER_ADDRESS.</p>
+            
+</li>
+        
+</ol>
+        
+</div>
+<div class="right">
+<a href="dsy26677-SEEDOC.html"><img src="resources/images/big_right.gif"></a>
+</div>
+</div>
+<div id="pageNumber">
+<div class="numberAndTitle">
+<span class="bottomTitle">Training BIC 6 Advanced</span><span class="count">60</span>
+</div>
+</div>
+</div>
+</body>
+</html>

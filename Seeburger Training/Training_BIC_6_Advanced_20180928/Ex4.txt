@@ -1,0 +1,15 @@
+copy THIS:EDI_SENDER                           to HEADER.SENDER:SENDER_ID;
+
+//execute the DB lookup
+executeLookupDB("PARNTER_NAME",THIS:EDI_SENDER);
+copy getLookupFieldDB("PARNTER_NAME", "NAME1") to HEADER.SENDER:NAME;
+copy THIS:VATID_SENDER                         to HEADER.SENDER:ID;
+
+copy THIS:EDI_RECEIVER                         to HEADER.RECEIVER:RECEIVER_ID;
+
+//execute the DB lookup
+executeLookupDB("PARNTER_NAME",THIS:EDI_RECEIVER);
+copy getLookupFieldDB("PARNTER_NAME", "NAME1") to HEADER.RECEIVER:NAME;
+copy THIS:VATID_RECEIVER                       to HEADER.RECEIVER:ID;
+
+create(HEADER.POSITION.POSITION_HEADER);

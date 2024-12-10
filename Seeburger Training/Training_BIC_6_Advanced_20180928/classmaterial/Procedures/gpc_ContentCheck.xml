@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<globalprocedure name="ContentCheck" version="6.1">
+ <metaInfo/>
+ <variables/>
+ <method name="check_role" returnType="%">
+  <parameter type="$" name="role"/>
+  <description>returns:
+0 = wrong role
+1 = OK</description>
+  <textline>local role$, result%;
+</textline>
+  <textline>
+</textline>
+  <textline>result% = 0;
+</textline>
+  <textline>
+</textline>
+  <textline>if role$ = "OSO"
+</textline>
+  <textline>    result% = 1;
+</textline>
+  <textline>endif
+</textline>
+  <textline>if role$ = "AG"
+</textline>
+  <textline>    result% = 1;
+</textline>
+  <textline>endif
+</textline>
+  <textline>if role$ = "WE"
+</textline>
+  <textline>    result% = 1;
+</textline>
+  <textline>endif
+</textline>
+  <textline>if role$ = "SP"
+</textline>
+  <textline>    result% = 1;
+</textline>
+  <textline>endif
+</textline>
+  <textline>if role$ = "OSP"
+</textline>
+  <textline>    result% = 0;
+</textline>
+  <textline>endif
+</textline>
+  <textline>
+</textline>
+  <textline>exitproc(result%);
+</textline>
+ </method>
+</globalprocedure>

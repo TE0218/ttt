@@ -1,0 +1,256 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html xmlns:fn="http://www.w3.org/2005/xpath-functions" xmlns:p="http://outerx.org/daisy/1.0#publisher" xmlns:i18n="http://apache.org/cocoon/i18n/2.1" xmlns:einclude="http://outerx.org/daisy/1.0#externalinclude" xmlns:d="http://outerx.org/daisy/1.0">
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<link href="resources/css/books.css" type="text/css" rel="stylesheet">
+<script src="resources/js/toggle.js" type="text/javascript"></script>
+</head>
+<body onLoad="appendToDiv();">
+<div class="all">
+<div class="top">
+<div class="chunkNavigation">
+<div class="topCut"></div>
+<div class="logoTitle">
+<span><img src="resources/images/see-logo.png"></span><span class="bookTitle">CSV Adapter</span>
+</div>
+<div class="navigation">
+<ul>
+<li class="first">
+<a href="dsy18422-SEEDOC.html">&nbsp;<img src="resources/images/small_left.gif">&nbsp;Previous&nbsp;</a>
+</li>
+<li class="middle">
+<a href="chunk1.html"><img src="resources/images/content.png">Table of Contents&nbsp;</a>
+</li>
+<li class="last">
+<a href="s10.html">&nbsp;Next&nbsp;<img src="resources/images/small_right.gif"></a>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="content">
+<div class="left">
+<a href="dsy18422-SEEDOC.html"><img src="resources/images/big_left.gif" class="centeredImage"></a>
+</div>
+<div class="center">
+<h1 xmlns:ns="http://outerx.org/daisy/1.0" daisyBranch="1" daisyDocument="24121-SEEDOC" daisyLanguage="2" id="dsy24121-SEEDOC">CSV Adapter</h1>
+        
+<h2 id="s7">Introduction</h2>
+        
+<table column-widths="50%;50%" print-column-widths="50%;50%" print-width="100%" width="100%" class="content">
+<col width="50%">
+<col width="50%">
+<tbody>
+                
+<tr>
+                    
+<th>
+                        
+<p align="center">Objectives</p>
+                    
+</th>
+                    <th>
+                        
+<p align="center">Schedule</p>
+                    
+</th>
+                
+</tr>
+                
+<tr>
+                    
+<td valign="top">
+                        
+<ul>
+                            
+<li>
+                                
+<p>What is the structure of a CSV message like?</p>
+                            
+</li>
+                        
+</ul>
+                        
+<ul>
+                            
+<li>
+                                
+<p>Of which parts does a CSV message consist?</p>
+                            
+</li>
+                        
+</ul>
+                    
+</td>
+                    <td valign="top">
+                        
+<ul>
+                            
+<li>
+                                
+<p>
+                                    
+<a href="s10.html#dsy24129-SEEDOC">
+                                    <p:linkInfo access="read,fullRead,write,publish,delete" documentName="CSV Characteristics - 1" documentType="SimpleDocument" href="daisy:24129-SEEDOC" lastVersionId="6" liveVersionId="6">
+                                    <p:linkPartInfo id="7" mimeType="text/xml" name="SimpleDocumentContent" size="453"/>
+                                    </p:linkInfo>Walkthrough</a>
+                                
+</p>
+                            
+</li>
+                            
+<li>
+                                
+<p>
+                                    
+<a href="dsy24133-SEEDOC.html#dsy24133-SEEDOC">
+                                    <p:linkInfo access="read,fullRead,write,publish,delete" documentName="CSV - Exercise 1" documentType="SimpleDocument" href="daisy:24133-SEEDOC" lastVersionId="9" liveVersionId="9">
+                                    <p:linkPartInfo id="7" mimeType="text/xml" name="SimpleDocumentContent" size="2962"/>
+                                    </p:linkInfo>Exercise + Tutorial</a>
+                                
+</p>
+                            
+</li>
+                        
+</ul>
+                        
+<ul>
+                            
+<li>
+                                
+<p>
+                                    
+<a href="dsy24152-SEEDOC.html#dsy24152-SEEDOC">
+                                    <p:linkInfo access="read,fullRead,write,publish,delete" documentName="Questions and Answers" documentType="SimpleDocument" href="daisy:24152-SEEDOC" lastVersionId="3" liveVersionId="3">
+                                    <p:linkPartInfo id="7" mimeType="text/xml" name="SimpleDocumentContent" size="297"/>
+                                    </p:linkInfo>Q &amp; A</a>
+                                
+</p>
+                            
+</li>
+                        
+</ul>
+                        
+<ul>
+                            
+<li>
+                                
+<p>Overall Duration: 60 Minutes</p>
+                            
+</li>
+                        
+</ul>
+                    
+</td>
+                
+</tr>
+            
+</tbody>
+</table>
+        
+<h6 id="s8">For more details please refer to</h6>
+        
+<h7 daisyBranch="1" daisyDocument="3287-SEEDOC" daisyLanguage="2" id="dsy3287-SEEDOC">CSV</h7>
+        
+<p>The CSV message type contains comma- (or semicolon-)separated file message
+types as generated by <em>Microsoft Excel</em>. It also contains any supported
+message type with variable length that is not EDIFACT, ANSI X12, AECMA or
+TRADACOMS type.</p>
+        
+<p>Example File:</p>
+        
+<pre>GEONAME;TOTPOP;TOT_M_POP;TOT_W_POP;POP_0_14;POP_15_64;POP_65;M_0_14;M_15_64;M_65;W_0_14;W_15_64;W_65;
+CITYPOP;COUNTRYPOP;
+CITY_M_POP;STADT_W_POP;COUNTRY_M_POP;COUNTRY_W_POP
+Afghanistan;15513267;7962397;7550870;7146575;7791404;575288;3610630;4014894;336873;3535945;3776510;
+238415;2752024;
+12761340;1417760;1334264;6544634;6216706
+Albania;1626315;835294;791021;1626315;;;835294;;;791021;;;;;;;;
+Algeria;22600957;11425492;11175465;9946100;11758841;893159;5087856;5894449;441519;4858244;5864392;
+451640;;;;;;</pre>
+        
+<p>CSV files consist of records, like all conventional sequential ASCII files.
+These records consist of single fields. Every record can start with a keyword ,
+e.g. <em>100</em> (the record identifier). Every record (e. g. <em>100</em>) is
+delimited by a special delimiter, e. g. apostrophe (<strong>'</strong>). <br>
+This delimiter can also be <em>Carriage Return Line Feed</em> ("\r\n" segment
+delimiter).</p>
+        
+<p>Records consist of:</p>
+        
+<ul>
+            
+<li>Data fields</li>
+            
+<li>Composite data fields</li>
+        
+</ul>
+        
+<p>Record identifier, composite data fields, and data fields are delimited by
+special characters like the plus symbol ("<strong>+</strong>") (Element
+delimiter).<br>
+Composite data fields consist of sub-fields. Sub-fields are delimited by a
+further delimiter, e. g. colon ("<strong>:</strong>") (SubElement delimiter).
+<br>
+Repeated composite data fields and data fields are delimited by special
+characters like asterisk
+("<strong>
+                <strong>*</strong>
+            </strong>"<strong>)</strong> (Group delimiter).</p>
+        
+<p>Further information about the key rules is described in the
+chapter key rules of&nbsp; Rules and Functions for
+Flatfiles (INHOUSE).</p>
+        
+<p>Sample message description and file:</p>
+        
+<pre>Record	field		subFields
+100
+		GEONAME
+		TOPTOP
+		TOT_M_POP
+		TOT_W_POP
+		POP
+				0_14
+				15_64
+				65
+		M
+				0_14
+				15_64
+				65
+		W	
+				0_14
+				15_64
+				65
+		CITYTOP
+		COUNTRYTOP
+		CITY_M_POP
+		STADT_W_POP
+		COUNTRY_M_POP
+		COUNTRY_W_POP
+Afghanistan+15513267+7962397+7550870+7146575:7791404:575288+3610630:4014894:336873+3535945:
+3776510:238415+2752024+12761340+1417760+1334264+6544634+6216706&rsquo;
+Albania+1626315+835294+791021+1626315::+835294::+791021::++++++&rsquo;
+Algeria+22600957+11425492+11175465+9946100:11758841:893159+5087856:5894449:441519+4858244:
+5864392:451640++++++&rsquo;</pre>
+        
+<h8 id="s9">Conditional Fields</h8>
+        
+<p>Although not defined in CSV, the belonging message formats allow a definition
+of field conditions as known from the ANSI X12
+Conditional Fields norm. For details see chapter
+Conditional Fields.</p>
+        
+</div>
+<div class="right">
+<a href="s10.html"><img src="resources/images/big_right.gif"></a>
+</div>
+</div>
+<div id="pageNumber">
+<div class="numberAndTitle">
+<span class="bottomTitle">Training BIC 6 Advanced</span><span class="count">13</span>
+</div>
+</div>
+</div>
+</body>
+</html>

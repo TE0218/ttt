@@ -1,0 +1,380 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html xmlns:fn="http://www.w3.org/2005/xpath-functions" xmlns:p="http://outerx.org/daisy/1.0#publisher" xmlns:i18n="http://apache.org/cocoon/i18n/2.1" xmlns:einclude="http://outerx.org/daisy/1.0#externalinclude" xmlns:d="http://outerx.org/daisy/1.0">
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<link href="resources/css/books.css" type="text/css" rel="stylesheet">
+<script src="resources/js/toggle.js" type="text/javascript"></script>
+</head>
+<body onLoad="appendToDiv();">
+<div class="all">
+<div class="top">
+<div class="chunkNavigation">
+<div class="topCut"></div>
+<div class="logoTitle">
+<span><img src="resources/images/see-logo.png"></span><span class="bookTitle">Error Child Mapping</span>
+</div>
+<div class="navigation">
+<ul>
+<li class="first">
+<a href="dsy26180-SEEDOC.html">&nbsp;<img src="resources/images/small_left.gif">&nbsp;Previous&nbsp;</a>
+</li>
+<li class="middle">
+<a href="chunk1.html"><img src="resources/images/content.png">Table of Contents&nbsp;</a>
+</li>
+<li class="last">
+<a href="dsy26181-SEEDOC.html">&nbsp;Next&nbsp;<img src="resources/images/small_right.gif"></a>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="content">
+<div class="left">
+<a href="dsy26180-SEEDOC.html"><img src="resources/images/big_left.gif" class="centeredImage"></a>
+</div>
+<div class="center">
+<h2 xmlns:ns="http://outerx.org/daisy/1.0" daisyBranch="1" daisyDocument="26188-SEEDOC" daisyLanguage="2" id="dsy26188-SEEDOC">Child mappings - Tutorial</h2>
+        
+<table column-widths="30%;70%" nokeeptogether="true" print-column-widths="30%;70%" print-width="100%" width="100%" class="content">
+<col width="30%">
+<col width="70%">
+<tbody>
+                
+<tr>
+                    
+<th>
+                        
+<p>Instruction</p>
+                    
+</th>
+                    <th>
+                        
+<p>Illustration</p>
+                    
+</th>
+                
+</tr>
+                
+<tr>
+                    
+<td>
+                        
+<ol>
+                            
+<li>
+                                
+<p>Please import the mappings MAIN_INVOICE_1 and&nbsp; CHILD_INVOICE_CN in BIC
+Mapping Designer.</p>
+                            
+</li>
+                        
+</ol>
+                    
+</td>
+                    <td>
+                        
+<p>Check chapter "How to Operate BIC Mapping Designer" in Training BIC 6 Basics
+if you need further assistance.</p>
+                    
+</td>
+                
+</tr>
+                
+<tr>
+                    
+<td>
+                        
+<ol start="2">
+                            
+<li>
+                                
+<p>Open mapping MAIN_INVOICE_1 and goto BGM segment. Here you will find the name
+of the second child mapping.</p>
+                            
+</li>
+                        
+</ol>
+                    
+</td>
+                    <td>
+                        
+<pre>case "380":
+  addPrefixDataForChildMapping(g_UNA$&amp;g_UNB$&amp;g_UNH$&amp;g_BGM$);
+  addSuffixDataForChildMapping(g_UNZ$);
+  traceln(g_UNA$&amp;g_UNB$&amp;g_UNH$&amp;g_BGM$);
+  traceln(g_UNZ$);
+  startChildMapping("CHILD_INVOIC_INV","","off","","on");</pre>
+                    
+</td>
+                
+</tr>
+                
+<tr>
+                    
+<td>
+                        
+<ol start="3">
+                            
+<li>
+                                
+<p>Create a new child mapping CHILD_INVOIC_INV. Use the same source and
+destination messages like the child mapping CHILD_INVOICE_CN.</p>
+                            
+</li>
+                        
+</ol>
+                    
+</td>
+                    <td></td>
+                
+</tr>
+                
+<tr>
+                    
+<td>
+                        
+<ol start="4">
+                            
+<li>
+                                
+<p>The main mapping maps the information of the sender and receiver to the
+header information. Please map additional information as described below.</p>
+                            
+</li>
+                        
+</ol>
+                    
+</td>
+                    <td></td>
+                
+</tr>
+                
+<tr>
+                    
+<td>
+                        
+<ol start="5">
+                            
+<li>
+                                
+<p>Insert trace in UNB segment to identifiy start of child mapping.</p>
+                            
+</li>
+                        
+</ol>
+                    
+</td>
+                    <td>
+                        
+<pre>traceln("INVOIC MAPPING");</pre>
+                    
+</td>
+                
+</tr>
+                
+<tr>
+                    
+<td>
+                        
+<ol start="6">
+                            
+<li>
+                                
+<p>Map the information of the field BGM:C106.1004 to IV_NR.</p>
+                            
+</li>
+                        
+</ol>
+                    
+</td>
+                    <td>
+                        
+<pre>copy THIS:C106.1004 to HEADER.IV_POSITION.IV_POSITION_LINE:IV_NR;</pre>
+                    
+</td>
+                
+</tr>
+                
+<tr>
+                    
+<td>
+                        
+<ol start="7">
+                            
+<li>
+                                
+<p>save address qualifier in segment SG2:NAD to variable.</p>
+                            
+</li>
+                        
+</ol>
+                    
+</td>
+                    <td>
+                        
+<pre>g_Address_Qualifier$ = THIS:3035;</pre>
+                    
+</td>
+                
+</tr>
+                
+<tr>
+                    
+<td>
+                        
+<ol start="8">
+                            
+<li>Map the information of SG3 RFF:C506.1154 below the NAD where the qualifier
+is VA.</li>
+                        
+</ol>
+                    
+</td>
+                    <td>
+                        
+<pre>if THIS:C506.1153 &amp;= "VA"
+    selectcase g_Address_Qualifier$
+        case "BY":
+            overwrite THIS:C506.1154 to HEADER.SENDER:ID;
+        case "SU":
+            overwrite THIS:C506.1154 to HEADER.RECEIVER:ID;
+    endselect
+endif</pre>
+                    
+</td>
+                
+</tr>
+                
+<tr>
+                    
+<td>
+                        
+<ol start="9">
+                            
+<li>
+                                
+<p>Map the information of the field TAX:C243.5278.</p>
+                            
+</li>
+                        
+</ol>
+                    
+</td>
+                    <td>
+                        
+<pre>copy THIS:C243.5278 to HEADER.IV_POSITION.IV_POSITION_LINE:VAT_RATE;</pre>
+                    
+</td>
+                
+</tr>
+                
+<tr>
+                    
+<td>
+                        
+<ol start="10">
+                            
+<li>
+                                
+<p>Map the information of the field MOA:C516.5004 at the segment group SG 50
+where the qualifier is 77.</p>
+                            
+</li>
+                            
+<li>Map the information of the field MOA:C516.5004 at the segment group SG 50
+where the qualifier is 124.</li>
+                        
+</ol>
+                    
+</td>
+                    <td>
+                        
+<pre>if THIS:C516.5025 &amp;= "77"
+    copy THIS:C516.5004 to HEADER.IV_POSITION.IV_POSITION_LINE:INV_AMOUNT;
+endif
+
+if THIS:C516.5025 &amp;= "124"
+    copy THIS:C516.5004 to HEADER.IV_POSITION.IV_POSITION_LINE:VAT_AMOUNT;
+endif</pre>
+                    
+</td>
+                
+</tr>
+                
+<tr>
+                    
+<td>
+                        
+<ol start="12">
+                            
+<li>
+                                
+<p>Mapping should stop reading at segment UNT.</p>
+                            
+</li>
+                        
+</ol>
+                    
+</td>
+                    <td>
+                        
+<pre>stopReading();</pre>
+                    
+</td>
+                
+</tr>
+                
+<tr>
+                    
+<td>
+                        
+<ol start="13">
+                            
+<li>
+                                
+<p>Test your mapping with the provided test file.</p>
+                            
+</li>
+                        
+</ol>
+                    
+</td>
+                    <td></td>
+                
+</tr>
+                
+<tr>
+                    
+<td>
+                        
+<ol start="14">
+                            
+<li>Please double check with the
+<a href="../classmaterial/ErrorChildMappings/map_CHILD_INVOIC_INV.zip.bicmd">trainer
+solution</a>
+                            
+</li>
+                        
+</ol>
+                    
+</td>
+                    <td></td>
+                
+</tr>
+            
+</tbody>
+</table>
+        
+</div>
+<div class="right">
+<a href="dsy26181-SEEDOC.html"><img src="resources/images/big_right.gif"></a>
+</div>
+</div>
+<div id="pageNumber">
+<div class="numberAndTitle">
+<span class="bottomTitle">Training BIC 6 Advanced</span><span class="count">110</span>
+</div>
+</div>
+</div>
+</body>
+</html>

@@ -1,0 +1,820 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html xmlns:fn="http://www.w3.org/2005/xpath-functions" xmlns:p="http://outerx.org/daisy/1.0#publisher" xmlns:i18n="http://apache.org/cocoon/i18n/2.1" xmlns:einclude="http://outerx.org/daisy/1.0#externalinclude" xmlns:d="http://outerx.org/daisy/1.0">
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<link href="resources/css/books.css" type="text/css" rel="stylesheet">
+<script src="resources/js/toggle.js" type="text/javascript"></script>
+</head>
+<body onLoad="appendToDiv();">
+<div class="all">
+<div class="top">
+<div class="chunkNavigation">
+<div class="topCut"></div>
+<div class="logoTitle">
+<span><img src="resources/images/see-logo.png"></span><span class="bookTitle">Error Child Mapping</span>
+</div>
+<div class="navigation">
+<ul>
+<li class="first">
+<a href="dsy26179-SEEDOC.html">&nbsp;<img src="resources/images/small_left.gif">&nbsp;Previous&nbsp;</a>
+</li>
+<li class="middle">
+<a href="chunk1.html"><img src="resources/images/content.png">Table of Contents&nbsp;</a>
+</li>
+<li class="last">
+<a href="dsy26180-SEEDOC.html">&nbsp;Next&nbsp;<img src="resources/images/small_right.gif"></a>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="content">
+<div class="left">
+<a href="dsy26179-SEEDOC.html"><img src="resources/images/big_left.gif" class="centeredImage"></a>
+</div>
+<div class="center">
+<h3 xmlns:ns="http://outerx.org/daisy/1.0" daisyBranch="1" daisyDocument="29242-SEEDOC" daisyLanguage="2" id="dsy29242-SEEDOC">BICMD commands for Error and Child Mappings</h3>
+        
+<table column-widths="20%;40%;40%" print-column-widths="20%;40%;40%" print-width="100%" width="100%" class="content">
+<col width="20%">
+<col width="40%">
+<col width="40%">
+<tbody>
+                
+<tr>
+                    
+<th>
+                        
+<p>Command</p>
+                    
+</th>
+                    <th>
+                        
+<p>Example</p>
+                    
+</th>
+                    <th>
+                        
+<p>Description</p>
+                    
+</th>
+                
+</tr>
+                
+<tr>
+                    
+<td>
+                        
+<p>addPrefixDataForChildMapping</p>
+                    
+</td>
+                    <td>
+                        
+<pre>addPrefixDataForChildMapping(data$);</pre>
+                    
+</td>
+                    <td>
+                        
+<p>Forces the next child mapping reader to read the provided data
+<strong>before </strong>the reading the input stream or file</p>
+                    
+</td>
+                
+</tr>
+                
+<tr>
+                    
+<td>
+                        
+<p>addSuffixDataForChildMapping</p>
+                    
+</td>
+                    <td>
+                        
+<pre>addSuffixDataForChildMapping(data$);</pre>
+                    
+</td>
+                    <td>
+                        
+<p>Forces the next child mapping reader to read the provided data
+<strong>after</strong> reading the input stream or file.</p>
+                    
+</td>
+                
+</tr>
+                
+<tr>
+                    
+<td>
+                        
+<p>startChildMapping</p>
+                    
+</td>
+                    <td>
+                        
+<pre>startChildMapping("ChildMappingName");</pre>
+                    
+</td>
+                    <td>
+                        
+<p>Executes the specified child mapping immediately. The main mapping is paused
+until the child mapping is finished.</p>
+                    
+</td>
+                
+</tr>
+                
+<tr>
+                    
+<td>
+                        
+<p>setErrorMapping</p>
+                    
+</td>
+                    <td>
+                        
+<pre>setErrorMapping(ErrorMappingName);</pre>
+                    
+</td>
+                    <td>
+                        
+<p>Sets an error mapping. The mapping is called, if an error occurs in the
+mapping. We recommend setting the option in the <em>Option </em>tab of the
+mapping.</p>
+                    
+</td>
+                
+</tr>
+                
+<tr>
+                    
+<td>
+                        
+<p>stopReading</p>
+                    
+</td>
+                    <td>
+                        
+<pre>stopReading();</pre>
+                    
+</td>
+                    <td>
+                        
+<p>Forces the current reader to stop reading which corresponds to a behavior
+when the end of a file or stream is reached.</p>
+                    
+</td>
+                
+</tr>
+                
+<tr>
+                    
+<td>
+                        
+<p>stopReadingOnError</p>
+                    
+</td>
+                    <td>
+                        
+<pre>stopReadingOnError ("off");</pre>
+                    
+</td>
+                    <td>
+                        
+<p>Specifies whether a mapping will stop the processing if an error occurs. If
+this option is set to <em>off</em>, the mapping will end in errors as usual, but
+the complete source message will be read and processed. The default setting is
+<em>on</em>. We recommend setting the option in the <em>Option </em>tab of the
+mapping.</p>
+                    
+</td>
+                
+</tr>
+            
+</tbody>
+</table>
+        
+<p class="note">Additional commands can be found in the online help of BIC
+Mapping Designer or in the document BIC Command Reference.</p>
+        
+<h8 id="s93">For more details please refer to</h8>
+        
+<h9 daisyBranch="1" daisyDocument="2749-SEEDOC" daisyLanguage="2" id="dsy2749-SEEDOC">addPrefixDataForChildMapping</h9>
+        
+<h13 id="s94">Syntax</h13>
+        
+<p>
+            
+<strong>addPrefixDataForChildMapping(data)</strong>
+        
+</p>
+        
+<h13 id="s95">Description</h13>
+        
+<p>Forces the next child mapping reader to read the provided data
+<strong>before</strong> the reading the input stream or file. Command has no
+effect if no child mapping is executed afterwards. For further information on
+child mappings, please refer to the topic <em>Usage
+of Child Mappings</em>.</p>
+        
+<h13 id="s96">Parameter(s)</h13>
+        
+<table class="content" column-widths="20%;20%" print-column-widths="20%;20%" width="100%">
+<col width="20%">
+<col width="20%">
+<col>
+<tbody>
+                
+<tr>
+                    
+<th>
+                        
+<p>Parameter</p>
+                    
+</th>
+                    <th>
+                        
+<p>Type</p>
+                    
+</th>
+                    <th>
+                        
+<p>Description</p>
+                    
+</th>
+                
+</tr>
+                
+<tr>
+                    
+<td valign="top">
+                        
+<p align="center">data</p>
+                    
+</td>
+                    <td valign="top">
+                        
+<p align="center">$</p>
+                    
+</td>
+                    <td valign="top">
+                        
+<p>The data to read.</p>
+                    
+</td>
+                
+</tr>
+            
+</tbody>
+</table>
+        
+<h7 daisyBranch="1" daisyDocument="15258-SEEDOC" daisyLanguage="2" id="dsy15258-SEEDOC">Return Value</h7>
+        
+<p>This command does not return a value.</p>
+        
+<h7 daisyBranch="1" daisyDocument="15290-SEEDOC" daisyLanguage="2" id="dsy15290-SEEDOC">Warning(s) / Error(s)</h7>
+        
+<p>This command does not raise any warnings or errors.</p>
+        
+<h13 id="s97">Example</h13>
+        
+<pre>local data$;
+
+// gets the data in the current record
+data$ = saveRecordContent();
+
+// next child mapping will read, evaluate and convert this record too
+addPrefixDataForChildMapping(data$); </pre>
+        
+<h9 daisyBranch="1" daisyDocument="2765-SEEDOC" daisyLanguage="2" id="dsy2765-SEEDOC">addSuffixDataForChildMapping</h9>
+        
+<h13 id="s98">Syntax</h13>
+        
+<p>
+            
+<strong>addSuffixDataForChildMapping(data)</strong>
+        
+</p>
+        
+<h13 id="s99">Description</h13>
+        
+<p>Forces the next child mapping reader to read the provided data
+<strong>after</strong> reading - eventually aborted through the
+<em>
+                <a href="#dsy3058-SEEDOC">
+                    <p:linkInfo access="read,fullRead,write,publish,delete" documentName="stopReading" documentType="SimpleDocument" href="daisy:3058-SEEDOC" lastVersionId="12" liveVersionId="12">
+                        <p:linkPartInfo id="7" mimeType="text/xml" name="SimpleDocumentContent" size="583"/>
+                    </p:linkInfo>stopReading</a>
+            </em>command - the input stream
+or file. Command has no effect if no child mapping is executed afterwards. For
+further information on child mappings, please refer to the topic
+<em>Usage of Child Mappings</em>.</p>
+        
+<h13 id="s100">Parameter(s)</h13>
+        
+<table class="content" column-widths="20%;20%" print-column-widths="20%;20%" width="100%">
+<col width="20%">
+<col width="20%">
+<col>
+<tbody>
+                
+<tr>
+                    
+<th>
+                        
+<p>Parameter</p>
+                    
+</th>
+                    <th>
+                        
+<p>Type</p>
+                    
+</th>
+                    <th>
+                        
+<p>Description</p>
+                    
+</th>
+                
+</tr>
+                
+<tr>
+                    
+<td valign="top">
+                        
+<p align="center">data</p>
+                    
+</td>
+                    <td valign="top">
+                        
+<p align="center">$</p>
+                    
+</td>
+                    <td valign="top">
+                        
+<p>The data to read.</p>
+                    
+</td>
+                
+</tr>
+            
+</tbody>
+</table>
+        
+<h7 daisyBranch="1" daisyDocument="15258-SEEDOC" daisyLanguage="2" id="dsy15258-SEEDOC">Return Value</h7>
+        
+<p>This command does not return a value.</p>
+        
+<h7 daisyBranch="1" daisyDocument="15290-SEEDOC" daisyLanguage="2" id="dsy15290-SEEDOC">Warning(s) / Error(s)</h7>
+        
+<p>This command does not raise any warnings or errors.</p>
+        
+<h13 id="s101">Example</h13>
+        
+<pre>// creates an 'UNZ' record for the child mapping
+addSuffixDataForChildMapping("UNZ+1+3&rsquo;"); </pre>
+        
+<h8 daisyBranch="1" daisyDocument="3054-SEEDOC" daisyLanguage="2" id="dsy3054-SEEDOC">startChildMapping</h8>
+        
+<h12 id="s102">Syntax</h12>
+        
+<p>
+            
+<strong>startChildMapping(mppg)</strong>
+        
+</p>
+        
+<p>
+            
+<strong> startChildMapping(mppg, in)</strong>
+        
+</p>
+        
+<p>
+            
+<strong> startChildMapping(mppg, </strong>
+            <strong>in</strong>
+            <strong>,
+use</strong>
+            <strong>Reader</strong>
+            <strong>)</strong>
+        
+</p>
+        
+<p>
+            
+<strong> startChildMapping(mppg, </strong>
+            <strong>in</strong>
+            <strong>,
+useReader, out)</strong>
+        
+</p>
+        
+<p>
+            
+<strong> startChildMapping(mppg, </strong>
+            <strong>in</strong>
+            <strong>,
+useReader, </strong>
+            <strong>out</strong>
+            <strong>, useWriter)</strong>
+        
+</p>
+        
+<h12 id="s103">Description</h12>
+        
+<p id="dsy3054-SEEDOC_dsy3247-SEEDOC">Executes the specified child mapping immediately. The
+main mapping is paused until the child mapping is finished. The child mapping
+will reuse the doc reader/writer and/or the input/output file or stream if they
+are not explicitly specified. Please refer also to
+<em>Usage of Child Mappings</em>.</p>
+        
+<h12 id="dsy3054-SEEDOC_dsy15281-SEEDOC">Parameter(s)</h12>
+        
+<table class="content" column-widths="20%;20%" print-column-widths="20%;20%" width="100%">
+<col width="20%">
+<col width="20%">
+<col>
+<tbody>
+                
+<tr>
+                    
+<th>
+                        
+<p>Parameter</p>
+                    
+</th>
+                    <th>
+                        
+<p>Type</p>
+                    
+</th>
+                    <th>
+                        
+<p>Description</p>
+                    
+</th>
+                
+</tr>
+                
+<tr>
+                    
+<td>
+                        
+<p align="center">mppg</p>
+                    
+</td>
+                    <td>
+                        
+<p align="center">$</p>
+                    
+</td>
+                    <td>
+                        
+<p align="left">The child mapping name.</p>
+                    
+</td>
+                
+</tr>
+                
+<tr>
+                    
+<td valign="top">
+                        
+<p align="center">in</p>
+                    
+</td>
+                    <td valign="top">
+                        
+<p align="center">$</p>
+                    
+</td>
+                    <td valign="top">
+                        
+<p>The input file or stream name. Within BIS 6 only "", "automatically" and
+"mainSourceStream" are supported.&nbsp;</p>
+                        
+<p>"automatically": gets the next input attachment as input. Please work with
+the command hasMoreSourceAttachments().</p>
+                        
+<p>"mainSourceStream": gets the complete main attachment as input</p>
+                        
+<p>"": Reuses the current input stream.</p>
+                    
+</td>
+                
+</tr>
+                
+<tr>
+                    
+<td valign="top">
+                        
+<p align="center">useReader</p>
+                    
+</td>
+                    <td valign="top">
+                        
+<p align="center">$</p>
+                    
+</td>
+                    <td valign="top">
+                        
+<p>A flag with the possible values "<em>off</em>" or "<em>on</em>" (default) to
+create a new or reuse the existing doc reader.</p>
+                    
+</td>
+                
+</tr>
+                
+<tr>
+                    
+<td valign="top">
+                        
+<p align="center">out</p>
+                    
+</td>
+                    <td valign="top">
+                        
+<p align="center">$</p>
+                    
+</td>
+                    <td valign="top">
+                        
+<p>The output file or stream name. Within BIS 6 only "automatically" and "" are
+supported.</p>
+                        
+<p>"automatically": creates a new output attachment.</p>
+                        
+<p>"": Reuses the current output stream.</p>
+                    
+</td>
+                
+</tr>
+                
+<tr>
+                    
+<td valign="top">
+                        
+<p align="center">useWriter</p>
+                    
+</td>
+                    <td valign="top">
+                        
+<p align="center">$</p>
+                    
+</td>
+                    <td valign="top">
+                        
+<p>A flag with the possible values "<em>off</em>" or "<em>on</em>" (default) to
+create a new or reuse the existing doc writer.</p>
+                    
+</td>
+                
+</tr>
+            
+</tbody>
+</table>
+        
+<h7 daisyBranch="1" daisyDocument="15258-SEEDOC" daisyLanguage="2" id="dsy15258-SEEDOC">Return Value</h7>
+        
+<p>This command does not return a value.</p>
+        
+<h7 daisyBranch="1" daisyDocument="15290-SEEDOC" daisyLanguage="2" id="dsy15290-SEEDOC">Warning(s) / Error(s)</h7>
+        
+<p>This command does not raise any warnings or errors.</p>
+        
+<h12 id="s104">Example</h12>
+        
+<pre>startChildMapping("X_bmecat_to_I_Webcat");
+startChildMapping("X_bmecat_to_I_Webcat", "automatically", "on", "automatically", "on");
+startChildMapping("X_bmecat_to_I_Webcat", "mainSourceStream", "on", "webcat.dta", "off");</pre>
+        
+<h8 daisyBranch="1" daisyDocument="3005-SEEDOC" daisyLanguage="2" id="dsy3005-SEEDOC">setErrorMapping</h8>
+        
+<h12 id="s105">Syntax</h12>
+        
+<p>
+            
+<strong>setErrorMapping(ErrorMappingName)</strong>
+        
+</p>
+        
+<h12 id="s106">Description</h12>
+        
+<p>Sets an error mapping. The mapping is called, if an error occurs in the
+mapping. Please refer to the topic <em>Error
+Handling</em> and <em>Error Mappings</em>.
+We recommend setting the option in the <em>Option </em>tab of the mapping.</p>
+        
+<p class="note">
+            
+<strong>Note: </strong>The command
+<em>SetErrorMapping(null)</em> resets the function.</p>
+        
+<h12 id="s107">Parameter(s)</h12>
+        
+<table class="content" column-widths="20%;20%" print-column-widths="20%;20%" width="100%">
+<col width="20%">
+<col width="20%">
+<col>
+<tbody>
+                
+<tr>
+                    
+<th>
+                        
+<p>Parameter</p>
+                    
+</th>
+                    <th>
+                        
+<p>Type</p>
+                    
+</th>
+                    <th>
+                        
+<p>Description</p>
+                    
+</th>
+                
+</tr>
+                
+<tr>
+                    
+<td>
+                        
+<p align="center">ErrorMappingName</p>
+                    
+</td>
+                    <td>
+                        
+<p align="center">$</p>
+                    
+</td>
+                    <td>
+                        
+<p align="left">Name of the error mapping, which is called if an error occurred.
+The source structure of the mapping has to contain an error record.</p>
+                    
+</td>
+                
+</tr>
+            
+</tbody>
+</table>
+        
+<h7 daisyBranch="1" daisyDocument="15258-SEEDOC" daisyLanguage="2" id="dsy15258-SEEDOC">Return Value</h7>
+        
+<p>This command does not return a value.</p>
+        
+<h7 daisyBranch="1" daisyDocument="15290-SEEDOC" daisyLanguage="2" id="dsy15290-SEEDOC">Warning(s) / Error(s)</h7>
+        
+<p>This command does not raise any warnings or errors.</p>
+        
+<h12 id="s108">Example</h12>
+        
+<pre>&nbsp;&nbsp;&nbsp; &nbsp;&nbsp; setErrorMapping("ErrorOrdersMap");</pre>
+        
+<h8 daisyBranch="1" daisyDocument="3058-SEEDOC" daisyLanguage="2" id="dsy3058-SEEDOC">stopReading</h8>
+        
+<h12 id="s109">Syntax</h12>
+        
+<p>
+            
+<strong>stopReading()</strong>
+        
+</p>
+        
+<h12 id="s110">Description</h12>
+        
+<p>Forces the current reader to stop reading which corresponds to a behavior
+when the end of a file or stream is reached. Please refer also to
+<em>Usage of Child Mappings</em>.</p>
+        
+<h7 daisyBranch="1" daisyDocument="15257-SEEDOC" daisyLanguage="2" id="dsy15257-SEEDOC">Parameter(s)</h7>
+        
+<p>This command does not expect any parameters.</p>
+        
+<h7 daisyBranch="1" daisyDocument="15258-SEEDOC" daisyLanguage="2" id="dsy15258-SEEDOC">Return Value</h7>
+        
+<p>This command does not return a value.</p>
+        
+<h7 daisyBranch="1" daisyDocument="15290-SEEDOC" daisyLanguage="2" id="dsy15290-SEEDOC">Warning(s) / Error(s)</h7>
+        
+<p>This command does not raise any warnings or errors.</p>
+        
+<h12 id="s111">Example</h12>
+        
+<pre>stopReading();</pre>
+        
+<h9 daisyBranch="1" daisyDocument="3059-SEEDOC" daisyLanguage="2" id="dsy3059-SEEDOC">stopReadingOnError</h9>
+        
+<h13 id="s112">Syntax</h13>
+        
+<p>
+            
+<strong>stopReadingOnError(flag)</strong>
+        
+</p>
+        
+<h13 id="s113">Description</h13>
+        
+<p>Specifies whether a mapping will stop the processing if an error occurs. If
+this option is set to <em>off</em>, the mapping will end in errors as usual, but
+the complete source message will be read and processed. The default setting is
+<em>on</em>.</p>
+        
+<p>We recommend setting the option in the global <em>Option</em> tab of the
+mapping. The handling of warnings, errors, and the dependencies to other
+configurations is described in the topic<em>Error
+Handling</em>.</p>
+        
+<p class="note">
+            
+<strong>Note</strong>: If the function is called multiple times
+in the mapping code, the last call will overwrite the earlier calls.</p>
+        
+<p class="note">
+            
+<strong>Note</strong>: If stopReadingOnError(false) is set the
+command isErrorOccurred() always&nbsp;returns&nbsp;false! Please use the command
+getLastErrorId() != -1 as workaorund.</p>
+        
+<h7 daisyBranch="1" daisyDocument="15892-SEEDOC" daisyLanguage="2" id="dsy15892-SEEDOC">Parameter(s)</h7>
+        
+<table class="content" column-widths="20%;20%" print-column-widths="20%;20%" width="100%">
+<col width="20%">
+<col width="20%">
+<col>
+<tbody>
+                
+<tr>
+                    
+<th>
+                        
+<p>Parameter</p>
+                    
+</th>
+                    <th>
+                        
+<p>Type</p>
+                    
+</th>
+                    <th>
+                        
+<p>Description</p>
+                    
+</th>
+                
+</tr>
+                
+<tr>
+                    
+<td>
+                        
+<p align="center">flag</p>
+                    
+</td>
+                    <td>
+                        
+<p align="center">$</p>
+                    
+</td>
+                    <td>
+                        
+<p align="left">A flag with the possible values "<em>off</em>" or "<em>on</em>"
+to activate or deactivate the behavior.</p>
+                    
+</td>
+                
+</tr>
+            
+</tbody>
+</table>
+        
+<h7 daisyBranch="1" daisyDocument="15258-SEEDOC" daisyLanguage="2" id="dsy15258-SEEDOC">Return Value</h7>
+        
+<p>This command does not return a value.</p>
+        
+<h7 daisyBranch="1" daisyDocument="15290-SEEDOC" daisyLanguage="2" id="dsy15290-SEEDOC">Warning(s) / Error(s)</h7>
+        
+<p>This command does not raise any warnings or errors.</p>
+        
+<h13 id="s114">Example</h13>
+        
+<pre>stopReadingOnError ("on");
+stopReadingOnError ("off");</pre>
+        
+</div>
+<div class="right">
+<a href="dsy26180-SEEDOC.html"><img src="resources/images/big_right.gif"></a>
+</div>
+</div>
+<div id="pageNumber">
+<div class="numberAndTitle">
+<span class="bottomTitle">Training BIC 6 Advanced</span><span class="count">108</span>
+</div>
+</div>
+</div>
+</body>
+</html>

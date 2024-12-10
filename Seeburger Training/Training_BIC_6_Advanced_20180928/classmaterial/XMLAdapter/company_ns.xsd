@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:company="http://example.com/namespace/for/company" xmlns:bio="http://example.com/namespace/for/bio">
+<xs:import schemaLocation="bio.xsd" namespace="http://example.com/namespace/for/bio"/>
+<xs:element name="root" type="root"/>
+ <xs:complexType name="root">
+  <xs:sequence>
+   <xs:element maxOccurs="unbounded" minOccurs="0" name="customer" type="customer"/>
+   <xs:element maxOccurs="unbounded" minOccurs="0" name="supplier" type="customer"/>
+  </xs:sequence>
+ </xs:complexType>
+ <xs:complexType name="customer">
+  <xs:sequence>
+   <xs:element name="name" type="xs:string"/>
+   <xs:element maxOccurs="unbounded" minOccurs="0" name="address">
+    <xs:complexType>
+     <xs:simpleContent>
+      <xs:extension base="xs:string">
+       <xs:attribute name="str" type="xs:string"/>
+      </xs:extension>
+     </xs:simpleContent>
+    </xs:complexType>
+   </xs:element>
+   <xs:element minOccurs="0" name="volume">
+    <xs:complexType mixed="true">
+     <xs:sequence>
+      <xs:element minOccurs="0" name="height" type="xs:string"/>
+      <xs:element minOccurs="0" name="weight" type="xs:string"/>
+     </xs:sequence>
+     <xs:attribute name="value">
+      <xs:simpleType>
+       <xs:restriction base="xs:decimal">
+       </xs:restriction>
+      </xs:simpleType>
+     </xs:attribute>
+    </xs:complexType>
+   </xs:element>
+   <xs:element minOccurs="0" name="bio" type="bio:bio">
+   </xs:element>
+  </xs:sequence>
+  <xs:attribute name="id">
+   <xs:simpleType>
+    <xs:restriction base="xs:decimal">
+    </xs:restriction>
+   </xs:simpleType>
+  </xs:attribute>
+ </xs:complexType>
+</xs:schema>

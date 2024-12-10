@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<xs:schema xmlns="http://example.com/namespace/for/bio" targetNamespace="http://example.com/namespace/for/bio" xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified">
+ <xs:element name="bio" type="bio"/>
+ <xs:complexType name="bio">
+  <xs:sequence>
+   <xs:element name="height">
+    <xs:simpleType>
+     <xs:restriction base="xs:decimal">
+      <xs:pattern value="[\-+]?[0-9]+"/>
+     </xs:restriction>
+    </xs:simpleType>
+   </xs:element>
+   <xs:element name="weight">
+    <xs:simpleType>
+     <xs:restriction base="xs:decimal">
+      <xs:pattern value="[\-+]?[0-9]+"/>
+     </xs:restriction>
+    </xs:simpleType>
+   </xs:element>
+  </xs:sequence>
+ </xs:complexType>
+</xs:schema>

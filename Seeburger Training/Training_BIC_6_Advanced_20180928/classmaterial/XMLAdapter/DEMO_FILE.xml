@@ -1,0 +1,10 @@
+<root>
+  <customer id="A2378">
+    <name>
+      Reference Customer
+    </name>
+    <address str="rosenweg 100"/>
+    <address str="blumenweg 223"/>
+    <volume value="2200"/>
+  </customer>
+</root>

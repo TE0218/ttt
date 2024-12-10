@@ -1,0 +1,484 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html xmlns:fn="http://www.w3.org/2005/xpath-functions" xmlns:p="http://outerx.org/daisy/1.0#publisher" xmlns:i18n="http://apache.org/cocoon/i18n/2.1" xmlns:einclude="http://outerx.org/daisy/1.0#externalinclude" xmlns:d="http://outerx.org/daisy/1.0">
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<link href="resources/css/books.css" type="text/css" rel="stylesheet">
+<script src="resources/js/toggle.js" type="text/javascript"></script>
+</head>
+<body onLoad="appendToDiv();">
+<div class="all">
+<div class="top">
+<div class="chunkNavigation">
+<div class="topCut"></div>
+<div class="logoTitle">
+<span><img src="resources/images/see-logo.png"></span><span class="bookTitle">BIS:MT Mappings</span>
+</div>
+<div class="navigation">
+<ul>
+<li class="first">
+<a href="dsy27461-SEEDOC.html">&nbsp;<img src="resources/images/small_left.gif">&nbsp;Previous&nbsp;</a>
+</li>
+<li class="middle">
+<a href="chunk1.html"><img src="resources/images/content.png">Table of Contents&nbsp;</a>
+</li>
+<li class="last">
+<a href="dsy26784-SEEDOC.html">&nbsp;Next&nbsp;<img src="resources/images/small_right.gif"></a>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="content">
+<div class="left">
+<a href="dsy27461-SEEDOC.html"><img src="resources/images/big_left.gif" class="centeredImage"></a>
+</div>
+<div class="center">
+<h2 xmlns:ns="http://outerx.org/daisy/1.0" daisyBranch="1" daisyDocument="26783-SEEDOC" daisyLanguage="2" id="dsy26783-SEEDOC">BIS:MT - Exercise 1</h2>
+        
+<ul>
+            
+<li>Change the datasource for DS_MT to link to a BIS:MT database. Login details
+can be found in the seminar opening.</li>
+            
+<li>
+
+                
+<p>Create a new mapping "SEEDELFOR_V3_0_TO_MT_DEMO". Use
+<a href="../classmaterial/BismtMappings/msg_SEEDELFOR_V3_0.xml">msg_SEEDELFOR_V3_0.xml</a>
+as source message. All informations should be added to the MT- tables<em>
+tBISMT_Workflow and tBISMT_Documents. </em>
+                
+</p>
+            
+</li>
+            
+<li>
+                
+<p>Map the below information to the MT- Database</p>
+            
+</li>
+            
+<li>
+                
+<p>Use the test file
+<a href="../classmaterial/BismtMappings/MT_DEMO.xml">MT_DEMO.xml</a> to run your
+mapping.</p>
+            
+</li>
+        
+</ul>
+        
+<h7 id="s214">Record program NewMapping:</h7>
+        
+<table column-widths="35%;35%;30%" print-column-widths="35%;35%;30%" print-width="100%" width="100%" class="content">
+<col width="35%">
+<col width="35%">
+<col width="30%">
+<tbody>
+                
+<tr>
+                    
+<th>
+                        
+<p>Source field / value</p>
+                    
+</th>
+                    <th>
+                        
+<p>BISMT table / field</p>
+                    
+</th>
+                    <th>
+                        
+<p>Note</p>
+                    
+</th>
+                
+</tr>
+                
+<tr>
+                    
+<td>
+                        
+<p>getinputvalue("ORIGIN_FILE_ID")</p>
+                    
+</td>
+                    <td>
+                        
+<p>tBISMT_Workflow.cWfId</p>
+                    
+</td>
+                    <td>
+                        
+<p>Please also write this string to a global variable g_Origin_File_ID$ for
+later use. String "1234" needs to be set as input value in the test environment.
+</p>
+                    
+</td>
+                
+</tr>
+                
+<tr>
+                    
+<td>
+                        
+<p>getinputvalue("PROCESSING_STATUS")</p>
+                    
+</td>
+                    <td>
+                        
+<p>tBISMT_Workflow.cStatus</p>
+                    
+</td>
+                    <td>
+                        
+<p>String "RUNNING" needs to be set as input value in the test environment.</p>
+                    
+</td>
+                
+</tr>
+                
+<tr>
+                    
+<td>
+                        
+<p>1</p>
+                    
+</td>
+                    <td>
+                        
+<p>tBISMT_Workflow.cMessageId</p>
+                    
+</td>
+                    <td>
+                        
+<p>fix value for the demo mapping.</p>
+                    
+</td>
+                
+</tr>
+                
+<tr>
+                    
+<td>
+                        
+<p>DEMO</p>
+                    
+</td>
+                    <td>
+                        
+<p>tBISMT_Workflow.cPartner</p>
+                    
+</td>
+                    <td>
+                        
+<p>fix value for the demo mapping.</p>
+                    
+</td>
+                
+</tr>
+                
+<tr>
+                    
+<td>
+                        
+<p>DEMO</p>
+                    
+</td>
+                    <td>
+                        
+<p>tBISMT_Workflow.cMessageType</p>
+                    
+</td>
+                    <td>
+                        
+<p>fix value for the demo mapping.</p>
+                    
+</td>
+                
+</tr>
+                
+<tr>
+                    
+<td>
+                        
+<p>IN</p>
+                    
+</td>
+                    <td>
+                        
+<p>tBISMT_Workflow.cDirection</p>
+                    
+</td>
+                    <td>
+                        
+<p>fix value for the demo mapping.</p>
+                    
+</td>
+                
+</tr>
+                
+<tr>
+                    
+<td>
+                        
+<p>currentdate() &amp; currenttime()</p>
+                    
+</td>
+                    <td>
+                        
+<p>tBISMT_Workflow.cProcessingTimeStart</p>
+                    
+</td>
+                    <td>
+                        
+<p>Create current date and time and convert it to a timestamp.</p>
+                    
+</td>
+                
+</tr>
+                
+<tr>
+                    
+<td>
+                        
+<p>currentdate() &amp; currenttime()</p>
+                    
+</td>
+                    <td>
+                        
+<p>tBISMT_Workflow.cProcessingTimeEnd</p>
+                    
+</td>
+                    <td>
+                        
+<p>Create current date and time and convert it to a timestamp.</p>
+                    
+</td>
+                
+</tr>
+            
+</tbody>
+</table>
+        
+<p>Write record to table tBISMT_Workflow and clear fields afterwards.</p>
+        
+<h7 id="s215">Record SEEDELFOR.CNT.GRP.MSG.ME</h7>
+        
+<table column-widths="35%;35%;30%" print-column-widths="35%;35%;30%" print-width="100%" width="100%" class="content">
+<col width="35%">
+<col width="35%">
+<col width="30%">
+<tbody>
+                
+<tr>
+                    
+<th>
+                        
+<p>Source field / value</p>
+                    
+</th>
+                    <th>
+                        
+<p>BISMT table / field</p>
+                    
+</th>
+                    <th>
+                        
+<p>Note</p>
+                    
+</th>
+                
+</tr>
+                
+<tr>
+                    
+<td>
+                        
+<p>increase global variable Counter_Msg% with 1</p>
+                    
+</td>
+                    <td></td>
+                    <td></td>
+                
+</tr>
+                
+<tr>
+                    
+<td>
+                        
+<p>write records to table tBISMT_Documents and clear fields afterwards.</p>
+                    
+</td>
+                    <td></td>
+                    <td>
+                        
+<p>do this only if msg counter is greater or equal 2.</p>
+                    
+</td>
+                
+</tr>
+                
+<tr>
+                    
+<td>
+                        
+<p>MESSAGE_NUMBER:value</p>
+                    
+</td>
+                    <td>
+                        
+<p>tBISMT_Documents.cDocNumber</p>
+                    
+</td>
+                    <td></td>
+                
+</tr>
+                
+<tr>
+                    
+<td>
+                        
+<p>MESSAGE_TYPE:value + MESSAGE_TYPE_VERSION:value + MESSAGE_TYPE_RELEASE:value
+</p>
+                    
+</td>
+                    <td>
+                        
+<p>tBISMT_Documents.cDocType</p>
+                    
+</td>
+                    <td>
+                        
+<p>Please create a combination of the 3 fields and use an underscore as
+seperator.</p>
+                    
+</td>
+                
+</tr>
+            
+</tbody>
+</table>
+        
+<h7 id="s216">Record SEEDELFOR.CNT.GRP.MSG.REF</h7>
+        
+<p>Do this only if QUALIFIER:value &amp;= "ON"</p>
+        
+<table column-widths="35%;35%;30%" print-column-widths="35%;35%;30%" print-width="100%" width="100%" class="content">
+<col width="35%">
+<col width="35%">
+<col width="30%">
+<tbody>
+                
+<tr>
+                    
+<th>
+                        
+<p>Source field / value</p>
+                    
+</th>
+                    <th>
+                        
+<p>BISMT table / field</p>
+                    
+</th>
+                    <th>
+                        
+<p>Note</p>
+                    
+</th>
+                
+</tr>
+                
+<tr>
+                    
+<td>
+                        
+<p>REFERENCE_DATE:value</p>
+                    
+</td>
+                    <td>
+                        
+<p>tBISMT_Documents.cFree15</p>
+                    
+</td>
+                    <td>
+                        
+<p>Please format the date as follows: DD.MM.YYYY</p>
+                    
+</td>
+                
+</tr>
+                
+<tr>
+                    
+<td>
+                        
+<p>g_Origin_File_ID$</p>
+                    
+</td>
+                    <td>
+                        
+<p>tBISMT_Documents.cWfId</p>
+                    
+</td>
+                    <td></td>
+                
+</tr>
+                
+<tr>
+                    
+<td>
+                        
+<p>g_Origin_File_ID$ + REFERENCE:value</p>
+                    
+</td>
+                    <td>
+                        
+<p>tBISMT_Documents.cID</p>
+                    
+</td>
+                    <td>
+                        
+<p>Create the combined ID as g_Comb_ID$</p>
+                    
+</td>
+                
+</tr>
+                
+<tr>
+                    
+<td>
+                        
+<p>REFERENCE:value</p>
+                    
+</td>
+                    <td>
+                        
+<p>tBISMT_Documents.cFree7</p>
+                    
+</td>
+                    <td></td>
+                
+</tr>
+            
+</tbody>
+</table>
+        
+<h7 id="s217">Record program MappingEnd</h7>
+        
+<p>write records to table tBISMT_Documents and clear fields afterwards.</p>
+        
+</div>
+<div class="right">
+<a href="dsy26784-SEEDOC.html"><img src="resources/images/big_right.gif"></a>
+</div>
+</div>
+<div id="pageNumber">
+<div class="numberAndTitle">
+<span class="bottomTitle">Training BIC 6 Advanced</span><span class="count">123</span>
+</div>
+</div>
+</div>
+</body>
+</html>

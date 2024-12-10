@@ -1,0 +1,178 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html xmlns:fn="http://www.w3.org/2005/xpath-functions" xmlns:p="http://outerx.org/daisy/1.0#publisher" xmlns:i18n="http://apache.org/cocoon/i18n/2.1" xmlns:einclude="http://outerx.org/daisy/1.0#externalinclude" xmlns:d="http://outerx.org/daisy/1.0">
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<link href="resources/css/books.css" type="text/css" rel="stylesheet">
+<script src="resources/js/toggle.js" type="text/javascript"></script>
+</head>
+<body onLoad="appendToDiv();">
+<div class="all">
+<div class="top">
+<div class="chunkNavigation">
+<div class="topCut"></div>
+<div class="logoTitle">
+<span><img src="resources/images/see-logo.png"></span><span class="bookTitle">CSV Adapter</span>
+</div>
+<div class="navigation">
+<ul>
+<li class="first">
+<a href="dsy24134-SEEDOC.html">&nbsp;<img src="resources/images/small_left.gif">&nbsp;Previous&nbsp;</a>
+</li>
+<li class="middle">
+<a href="chunk1.html"><img src="resources/images/content.png">Table of Contents&nbsp;</a>
+</li>
+<li class="last">
+<a href="dsy24152-SEEDOC.html">&nbsp;Next&nbsp;<img src="resources/images/small_right.gif"></a>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="content">
+<div class="left">
+<a href="dsy24134-SEEDOC.html"><img src="resources/images/big_left.gif" class="centeredImage"></a>
+</div>
+<div class="center">
+<h2 xmlns:ns="http://outerx.org/daisy/1.0" daisyBranch="1" daisyDocument="24136-SEEDOC" daisyLanguage="2" id="dsy24136-SEEDOC">CSV - Tutorial 2</h2>
+        
+<table column-widths="30%;70%" nokeeptogether="true" print-column-widths="30%;70%" print-width="100%" width="100%" class="content">
+<col width="30%">
+<col width="70%">
+<tbody>
+                
+<tr>
+                    
+<th>
+                        
+<p>Instruction</p>
+                    
+</th>
+                    <th>
+                        
+<p>Illustration</p>
+                    
+</th>
+                
+</tr>
+                
+<tr>
+                    
+<td>
+                        
+<ol>
+                            
+<li>
+                                
+<p>Import the message structure
+<a href="../classmaterial/CSVAdapter/msg_CATALOGUE_INH.xml">msg_CATALOGUE_INH.
+xml</a> from the classmaterial.</p>
+                            
+</li>
+                            
+<li>
+                                
+<p>Create a new mapping (source = "CATALOGUE_CSV", destination =
+"CATALOGUE_INH").</p>
+                            
+</li>
+                        
+</ol>
+                    
+</td>
+                    <td>
+                        
+<p>Check chapter "How to Operate BIC Mapping Designer" if you need further
+assistance.</p>
+                    
+</td>
+                
+</tr>
+                
+<tr>
+                    
+<td>
+                        
+<ol start="3">
+                            
+<li>
+                                
+<p>Go to record program RECORD.</p>
+                            
+</li>
+                        
+</ol>
+                    
+</td>
+                    <td>
+                        
+<pre>// global setting
+setCsvSourceHeadLine("on");
+
+// delimiter settings
+setSourceDelimiter("Element", "+");
+setSourceDelimiter("DecimalPoint", ".");
+setSourceDelimiter("Masking", "?");
+
+// use counter as unique Record-ID
+local counter%;
+copy getCounter("UniqueID") to counter%;
+copy counter% to RECORD:ID;
+
+copy THIS:CAT_NAME to RECORD:CAT_NAME;
+copy THIS:POS to RECORD:POS;
+copy THIS:DESC_LONG to RECORD:DESC_LONG;
+
+// copy right 10 characters
+copy right(THIS:ORDERUNIT,10) to RECORD:ORDERUNIT;
+copy THIS:MEASURE to RECORD:MEASURE;
+
+local price%;
+copy THIS:PRICE to price%;
+copy price% to RECORD:PRICE;
+copy THIS:AMOUNT to RECORD:AMOUNT;
+
+// trace Record-ID and PRICE
+traceln("Record-Id: " &amp; counter% &amp; ", Price: " &amp; price%);</pre>
+                    
+</td>
+                
+</tr>
+                
+<tr>
+                    
+<td>
+                        
+<ol start="4">
+                            
+<li>
+
+                                
+<p>You can compare your results with the attached
+<a href="../classmaterial/CsvAdapter/map_C_CATALOGUE_CSV_to_I_CATALOGUE_INH.zip.bicmd">trainer
+solution</a>.</p>
+                            
+</li>
+                        
+</ol>
+                    
+</td>
+                    <td></td>
+                
+</tr>
+            
+</tbody>
+</table>
+        
+</div>
+<div class="right">
+<a href="dsy24152-SEEDOC.html"><img src="resources/images/big_right.gif"></a>
+</div>
+</div>
+<div id="pageNumber">
+<div class="numberAndTitle">
+<span class="bottomTitle">Training BIC 6 Advanced</span><span class="count">21</span>
+</div>
+</div>
+</div>
+</body>
+</html>

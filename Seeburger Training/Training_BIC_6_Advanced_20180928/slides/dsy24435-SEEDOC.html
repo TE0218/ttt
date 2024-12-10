@@ -1,0 +1,457 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html xmlns:fn="http://www.w3.org/2005/xpath-functions" xmlns:p="http://outerx.org/daisy/1.0#publisher" xmlns:i18n="http://apache.org/cocoon/i18n/2.1" xmlns:einclude="http://outerx.org/daisy/1.0#externalinclude" xmlns:d="http://outerx.org/daisy/1.0">
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<link href="resources/css/books.css" type="text/css" rel="stylesheet">
+<script src="resources/js/toggle.js" type="text/javascript"></script>
+</head>
+<body onLoad="appendToDiv();">
+<div class="all">
+<div class="top">
+<div class="chunkNavigation">
+<div class="topCut"></div>
+<div class="logoTitle">
+<span><img src="resources/images/see-logo.png"></span><span class="bookTitle">XML Adapter</span>
+</div>
+<div class="navigation">
+<ul>
+<li class="first">
+<a href="dsy24434-SEEDOC.html">&nbsp;<img src="resources/images/small_left.gif">&nbsp;Previous&nbsp;</a>
+</li>
+<li class="middle">
+<a href="chunk1.html"><img src="resources/images/content.png">Table of Contents&nbsp;</a>
+</li>
+<li class="last">
+<a href="dsy24439-SEEDOC.html">&nbsp;Next&nbsp;<img src="resources/images/small_right.gif"></a>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="content">
+<div class="left">
+<a href="dsy24434-SEEDOC.html"><img src="resources/images/big_left.gif" class="centeredImage"></a>
+</div>
+<div class="center">
+<h2 xmlns:ns="http://outerx.org/daisy/1.0" daisyBranch="1" daisyDocument="24435-SEEDOC" daisyLanguage="2" id="dsy24435-SEEDOC">XML - Tutorial 1</h2>
+        
+<table column-widths="30%;70%" nokeeptogether="true" print-column-widths="30%;70%" print-width="100%" width="100%" class="content">
+<col width="30%">
+<col width="70%">
+<tbody>
+                
+<tr>
+                    
+<th>
+                        
+<p>Instruction</p>
+                    
+</th>
+                    <th>
+                        
+<p>Illustration</p>
+                    
+</th>
+                
+</tr>
+                
+<tr>
+                    
+<td>
+                        
+<ol>
+                            
+<li>
+                                
+<p>Create a new Mapping with company as source and destination structure</p>
+                            
+</li>
+                        
+</ol>
+                    
+</td>
+                    <td>
+                        
+<p align="center">
+                            
+<table class="plainTable" align="center">
+<tr>
+<td align="center"><a href="images/26680-SEEDOC_1_2_1.jpg"><img bookStorePath="/data/resources/26680-SEEDOC_1_2_1" daisy-caption="Create a new mapping" p:imageHeight="503" p:imageWidth="603" print-width="11cm" src="images/26680-SEEDOC_1_2_1.jpg" width="600" daisy-image-type="default" id="dsy_fig_4"></a></td>
+</tr>
+<tr>
+<td class="imageCaption" align="center">Create a new mapping</td>
+</tr>
+</table>
+                        
+</p>
+                    
+</td>
+                
+</tr>
+                
+<tr>
+                    
+<td>
+                        
+<ol start="2">
+                            
+<li>
+                                
+<p>Set the correct trigger in your xml. Look where you have 1:n relations and
+set the trigger there</p>
+                            
+</li>
+                        
+</ol>
+                        
+<p class="note">Supplier don't need a trigger, because we don't map anything
+from there.</p>
+                    
+</td>
+                    <td>
+                        
+<p align="center">
+                            
+<table class="plainTable" align="center">
+<tr>
+<td align="center"><a href="images/26681-SEEDOC_1_2_1.jpg"><img bookStorePath="/data/resources/26681-SEEDOC_1_2_1" daisy-caption="Sett trigger in source xml" p:imageHeight="311" p:imageWidth="803" print-width="11cm" src="images/26681-SEEDOC_1_2_1.jpg" width="600" daisy-image-type="default" id="dsy_fig_5"></a></td>
+</tr>
+<tr>
+<td class="imageCaption" align="center">Sett trigger in source xml</td>
+</tr>
+</table>
+                        
+</p>
+                    
+</td>
+                
+</tr>
+                
+<tr>
+                    
+<td>
+                        
+<ol start="3">
+                            
+<li>Look into the file. You see there is a Namespace bio available. So check if
+you have this in your structure.</li>
+                        
+</ol>
+                    
+</td>
+                    <td>
+                        
+<p align="center">
+                            
+<table class="plainTable" align="center">
+<tr>
+<td align="center"><a href="images/26682-SEEDOC_1_2_1.jpg"><img bookStorePath="/data/resources/26682-SEEDOC_1_2_1" daisy-caption="Check structure for namespace" p:imageHeight="149" p:imageWidth="166" src="images/26682-SEEDOC_1_2_1.jpg" daisy-image-type="default" id="dsy_fig_6"></a></td>
+</tr>
+<tr>
+<td class="imageCaption" align="center">Check structure for namespace</td>
+</tr>
+</table>
+                        
+</p>
+                    
+</td>
+                
+</tr>
+                
+<tr>
+                    
+<td>
+                        
+<ol start="4">
+                            
+<li>
+                                
+<p>As we don't have any Namespace-Definition in our source we must ignore them.
+</p>
+                            
+</li>
+                            
+<li>
+                                
+<p>Use "ignoreXML<br>
+NamespacePrefixes" otherwise you get the following error</p>
+                            
+</li>
+                        
+</ol>
+                    
+</td>
+                    <td>
+                        
+<br>
+                        
+<p align="center">
+                            
+<table class="plainTable" align="center">
+<tr>
+<td align="center"><a href="images/26684-SEEDOC_1_2_1.jpg"><img bookStorePath="/data/resources/26684-SEEDOC_1_2_1" daisy-caption="Set ignoreXMLNamspacePrefixes" p:imageHeight="188" p:imageWidth="1021" print-width="11cm" src="images/26684-SEEDOC_1_2_1.jpg" width="600" daisy-image-type="default" id="dsy_fig_7"></a></td>
+</tr>
+<tr>
+<td class="imageCaption" align="center">Set ignoreXMLNamspacePrefixes</td>
+</tr>
+</table>
+                        
+</p>
+                        
+<p>
+                            
+<strong>Error:</strong>
+                        
+</p>
+                        
+<p>otherwise you will get the following output</p>
+                        
+<pre>[Error:ID=2099;LEVEL=1]  in Record "PROG_NEW_MAPPING" near Line 15 : 
+copy "80"      to root.customer.bio.weight:value;  
+Error-Text: InhouseDocReader doSyntaxCheck(): 
+offset[304]: the found segment 'bio:height' is not in the message description.</pre>
+                    
+</td>
+                
+</tr>
+                
+<tr>
+                    
+<td>
+                        
+<ol start="6">
+                            
+<li>
+                                
+<p>Check also the encoding settings, before you start to map</p>
+                            
+</li>
+                        
+</ol>
+                    
+</td>
+                    <td>
+                        
+<p align="center">
+                            
+<table class="plainTable" align="center">
+<tr>
+<td align="center"><a href="images/26683-SEEDOC_1_2_1.jpg"><img bookStorePath="/data/resources/26683-SEEDOC_1_2_1" daisy-caption="Set Java encoding" p:imageHeight="98" p:imageWidth="1034" print-width="11cm" src="images/26683-SEEDOC_1_2_1.jpg" width="600" daisy-image-type="default" id="dsy_fig_8"></a></td>
+</tr>
+<tr>
+<td class="imageCaption" align="center">Set Java encoding</td>
+</tr>
+</table>
+                        
+</p>
+                        
+<p>
+                            
+<strong>Error:</strong>
+                        
+</p>
+                        
+<p>Otherwise you will get something like this output</p>
+                        
+<pre>&lt;?xml version="1.0" encoding="UTF-8"?&gt;
+&lt;root&gt;
+	&lt;customer id="1"&gt;
+		&lt;name&gt;trainer&lt;/name&gt;
+		&lt;address str="Edisonstra&szlig;e 1"/&gt;
+		&lt;volume value="5000"&gt;
+			&lt;height&gt;5000&lt;/height&gt;
+			&lt;weight&gt;5000&lt;/weight&gt;
+		&lt;/volume&gt;
+		&lt;bio&gt;
+			&lt;height&gt;180&lt;/height&gt;
+			&lt;weight&gt;80&lt;/weight&gt;
+		&lt;/bio&gt;
+	&lt;/customer&gt;
+	&lt;supplier id="2378"&gt;
+		&lt;name&gt;Customer One&lt;/name&gt;
+		&lt;address str="rosenstra&Atilde;Ÿe 100"/&gt;
+		&lt;address str="&Atilde;&curren;onenweg 223"/&gt;
+		&lt;volume value="2200"&gt;
+			&lt;height&gt;123&lt;/height&gt;
+			&lt;weight&gt;800&lt;/weight&gt;
+		&lt;/volume&gt;
+		&lt;bio&gt;
+			&lt;height&gt;180&lt;/height&gt;
+			&lt;weight&gt;80&lt;/weight&gt;
+		&lt;/bio&gt;
+	&lt;/supplier&gt;
+	&lt;supplier id="2379"&gt;
+		&lt;name&gt;Customer Four&lt;/name&gt;
+		&lt;address str="&Atilde;œbungsstrasse 100"/&gt;
+		&lt;address str="&acirc;&sbquo;&not;-Weg 223"/&gt;
+		&lt;volume value="2200"&gt;
+			&lt;height&gt;123&lt;/height&gt;
+			&lt;weight&gt;800&lt;/weight&gt;
+		&lt;/volume&gt;
+		&lt;bio&gt;
+			&lt;height&gt;180&lt;/height&gt;
+			&lt;weight&gt;80&lt;/weight&gt;
+		&lt;/bio&gt;
+	&lt;/supplier&gt;
+&lt;/root&gt;</pre>
+                    
+</td>
+                
+</tr>
+                
+<tr>
+                    
+<td>
+                        
+<ol start="7">
+                            
+<li>
+                                
+<p>Copy your static information from "New Mapping" or tag root, because customer
+has a 1:n relation</p>
+                            
+</li>
+                        
+</ol>
+                    
+</td>
+                    <td>
+                        
+<pre>copy "1"       to root.customer:id;
+copy "trainer" to root.customer.name:value;
+
+copy "Edisonstra&szlig;e 1" to root.customer.address:str;
+
+copy "5000"    to root.customer.volume:\@value;
+copy "5000"    to root.customer.volume.height:value;
+copy "5000"    to root.customer.volume.weight:value;
+
+copy "180"     to root.customer.bio.height:value;
+copy "80"      to root.customer.bio.weight:value;</pre>
+                    
+</td>
+                
+</tr>
+                
+<tr>
+                    
+<td>
+                        
+<ol start="8">
+                            
+<li>
+                                
+<p>Copy the information from customer to supplier.</p>
+                            
+</li>
+                            
+<li>
+                                
+<p>Take care that also address has a 1:n relation.</p>
+                            
+</li>
+                        
+</ol>
+                    
+</td>
+                    <td>
+                        
+<p>tag customer</p>
+                        
+<pre>copy THIS:id to root.supplier:id;
+copy THIS.name:value to root.supplier.name:value;
+
+copy THIS.volume:\@value to root.supplier.volume:\@value;
+copy THIS.volume.height:value to root.supplier.volume.height:value;
+copy THIS.volume.weight:value to root.supplier.volume.weight:value;
+
+copy THIS.bio.height:value to root.supplier.bio.height:value;
+copy THIS.bio.weight:value to root.supplier.bio.weight:value;</pre>
+                        
+<p>tag address</p>
+                        
+<pre>copy THIS:str to root.supplier.address:str;</pre>
+                    
+</td>
+                
+</tr>
+                
+<tr>
+                    
+<td>
+                        
+<ol start="10">
+                            
+<li>Check your result.</li>
+                        
+</ol>
+                        
+<p class="note">You can double check your mapping with the
+<a href="../classmaterial/XMLAdapter/prj_XMLAdapter_TrainerSolution.zip.bicmd">trainersolution</a>.
+</p>
+                    
+</td>
+                    <td>
+                        
+<pre>&lt;?xml version="1.0" encoding="UTF-8"?&gt;
+&lt;root&gt;
+	&lt;customer id="1"&gt;
+		&lt;name&gt;trainer&lt;/name&gt;
+		&lt;address str="Edisonstra&szlig;e 1"/&gt;
+		&lt;volume value="5000"&gt;
+			&lt;height&gt;5000&lt;/height&gt;
+			&lt;weight&gt;5000&lt;/weight&gt;
+		&lt;/volume&gt;
+		&lt;bio&gt;
+			&lt;height&gt;180&lt;/height&gt;
+			&lt;weight&gt;80&lt;/weight&gt;
+		&lt;/bio&gt;
+	&lt;/customer&gt;
+	&lt;supplier id="2378"&gt;
+		&lt;name&gt;Customer One&lt;/name&gt;
+		&lt;address str="rosenstra&szlig;e 100"/&gt;
+		&lt;address str="&auml;onenweg 223"/&gt;
+		&lt;volume value="2200"&gt;
+			&lt;height&gt;123&lt;/height&gt;
+			&lt;weight&gt;800&lt;/weight&gt;
+		&lt;/volume&gt;
+		&lt;bio&gt;
+			&lt;height&gt;180&lt;/height&gt;
+			&lt;weight&gt;80&lt;/weight&gt;
+		&lt;/bio&gt;
+	&lt;/supplier&gt;
+	&lt;supplier id="2379"&gt;
+		&lt;name&gt;Customer Four&lt;/name&gt;
+		&lt;address str="&Uuml;bungsstrasse 100"/&gt;
+		&lt;address str="&euro;-Weg 223"/&gt;
+		&lt;volume value="2200"&gt;
+			&lt;height&gt;123&lt;/height&gt;
+			&lt;weight&gt;800&lt;/weight&gt;
+		&lt;/volume&gt;
+		&lt;bio&gt;
+			&lt;height&gt;180&lt;/height&gt;
+			&lt;weight&gt;80&lt;/weight&gt;
+		&lt;/bio&gt;
+	&lt;/supplier&gt;
+&lt;/root&gt;</pre>
+                    
+</td>
+                
+</tr>
+            
+</tbody>
+</table>
+        
+</div>
+<div class="right">
+<a href="dsy24439-SEEDOC.html"><img src="resources/images/big_right.gif"></a>
+</div>
+</div>
+<div id="pageNumber">
+<div class="numberAndTitle">
+<span class="bottomTitle">Training BIC 6 Advanced</span><span class="count">41</span>
+</div>
+</div>
+</div>
+</body>
+</html>

@@ -1,0 +1,229 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html xmlns:fn="http://www.w3.org/2005/xpath-functions" xmlns:p="http://outerx.org/daisy/1.0#publisher" xmlns:i18n="http://apache.org/cocoon/i18n/2.1" xmlns:einclude="http://outerx.org/daisy/1.0#externalinclude" xmlns:d="http://outerx.org/daisy/1.0">
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<link href="resources/css/books.css" type="text/css" rel="stylesheet">
+<script src="resources/js/toggle.js" type="text/javascript"></script>
+</head>
+<body onLoad="appendToDiv();">
+<div class="all">
+<div class="top">
+<div class="chunkNavigation">
+<div class="topCut"></div>
+<div class="logoTitle">
+<span><img src="resources/images/see-logo.png"></span><span class="bookTitle">SQL Adapter</span>
+</div>
+<div class="navigation">
+<ul>
+<li class="first">
+<a href="dsy26234-SEEDOC.html">&nbsp;<img src="resources/images/small_left.gif">&nbsp;Previous&nbsp;</a>
+</li>
+<li class="middle">
+<a href="chunk1.html"><img src="resources/images/content.png">Table of Contents&nbsp;</a>
+</li>
+<li class="last">
+<a href="dsy26715-SEEDOC.html">&nbsp;Next&nbsp;<img src="resources/images/small_right.gif"></a>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="content">
+<div class="left">
+<a href="dsy26234-SEEDOC.html"><img src="resources/images/big_left.gif" class="centeredImage"></a>
+</div>
+<div class="center">
+<h2 xmlns:ns="http://outerx.org/daisy/1.0" daisyBranch="1" daisyDocument="26677-SEEDOC" daisyLanguage="2" id="dsy26677-SEEDOC">SQL Adapter - Tutorial 5</h2>
+        
+<table column-widths="30%;70%" nokeeptogether="true" print-column-widths="30%;70%" print-width="100%" width="100%" class="content">
+<col width="30%">
+<col width="70%">
+<tbody>
+                
+<tr>
+                    
+<th>
+                        
+<p>Instructions</p>
+                    
+</th>
+                    <th>
+                        
+<p>Illustration</p>
+                    
+</th>
+                
+</tr>
+                
+<tr>
+                    
+<td>
+                        
+<ol>
+                            
+<li>
+                                
+<p>Please open den H2 client (how to: see in exercise 2) and copy the following
+script to the SQL statement text field.</p>
+                            
+</li>
+                        
+</ol>
+                    
+</td>
+                    <td>
+                        
+<pre>CREATE TABLE "PARTNER_ADDRESS" ("SEARCHKEY" VARCHAR2(35), "NAME1"
+VARCHAR2(35), "NAME2" VARCHAR2(35), "STRASSE" VARCHAR2(35), "LAND" VARCHAR2(3),
+"PLZ" VARCHAR2(9), "ORT" VARCHAR2(35));
+
+Insert into PARTNER_ADDRESS (SEARCHKEY,NAME1,NAME2,STRASSE,LAND,PLZ,ORT)
+values ('149733','Muster GmbH',null,'Hauptstra&szlig;e 13','DE','75015','Bretten');
+
+Insert into PARTNER_ADDRESS (SEARCHKEY,NAME1,NAME2,STRASSE,LAND,PLZ,ORT) values
+('474843','Kleinteile Meyer GmbH',null,'Mustergasse 3','DE','75015','Bretten');</pre>
+                    
+</td>
+                
+</tr>
+                
+<tr>
+                    
+<td>
+                        
+<ol start="2">
+                            
+<li>
+                                
+<p>For this task we can reuse the existing DB connection of the source
+structure.</p>
+                            
+</li>
+                        
+</ol>
+                    
+</td>
+                    <td></td>
+                
+</tr>
+                
+<tr>
+                    
+<td>
+                        
+<ol start="3">
+                            
+<li>
+                                
+<p>You have to add the following mapping code to the additional program
+NewMapping, because the command reuseSourceDBConnection should be called only
+once.</p>
+                            
+</li>
+                            
+<li>
+                                
+<p>The column SEARCHKEY contains the partner ID and is used to get the name of
+the partner.</p>
+                            
+</li>
+                        
+</ol>
+                    
+</td>
+                    <td>
+                        
+<pre>openLookupDB("PARTNER_NAME", "SQLDocReader", "PARTNER_ADDRESS", "NAME1", "SEARCHKEY=?");</pre>
+                        
+<p class="note">The reuseSourceDBConnection() command is depreciated in 652. In
+future use the connection name <em>SQLDocReader</em> in the database access
+commands: openMapDB, openLookupDB.</p>
+                    
+</td>
+                
+</tr>
+                
+<tr>
+                    
+<td>
+                        
+<ol start="5">
+                            
+<li>
+                                
+<p>Execute the lookup which was opened at the additional program.</p>
+                            
+</li>
+                        
+</ol>
+                    
+</td>
+                    <td>
+                        
+<p>
+                            
+<strong>Record: CN_HEADER</strong>
+                        
+</p>
+                        
+<pre>copy THIS:EDI_SENDER to HEADER.SENDER:SENDER_ID;
+
+//execute the DB lookup
+executeLookupDB("PARTNER_NAME",THIS:EDI_SENDER);
+copy getLookupFieldDB("PARTNER_NAME", "NAME1") to HEADER.SENDER:NAME;
+copy THIS:VATID_SENDER to HEADER.SENDER:ID;
+
+copy THIS:EDI_RECEIVER to HEADER.RECEIVER:RECEIVER_ID;
+
+//execute the DB lookup
+executeLookupDB("PARTNER_NAME",THIS:EDI_RECEIVER);
+copy getLookupFieldDB("PARTNER_NAME", "NAME1") to HEADER.RECEIVER:NAME;
+copy THIS:VATID_RECEIVER to HEADER.RECEIVER:ID;
+
+create(HEADER.POSITION.POSITION_HEADER);</pre>
+                    
+</td>
+                
+</tr>
+                
+<tr>
+                    
+<td>
+                        
+<ol start="6">
+                            
+<li>
+                                
+<p>You can double check with the
+<a href="../classmaterial/SQLAdapter/map_CN_MESSAGE_TO_CN_REPORT.zip.bicmd">trainer
+solution</a>.</p>
+                            
+</li>
+                        
+</ol>
+                        
+<p class="note">Hint: To run the mapping multiple times, you first have to reset
+the field STATUS to &lsquo;U&lsquo;. Use the following SQL statement in the H2 console:
+UPDATE CN_HEADER SET STATUS = 'U' WHERE STATUS = 'X' &ldquo;</p>
+                    
+</td>
+                    <td></td>
+                
+</tr>
+            
+</tbody>
+</table>
+        
+</div>
+<div class="right">
+<a href="dsy26715-SEEDOC.html"><img src="resources/images/big_right.gif"></a>
+</div>
+</div>
+<div id="pageNumber">
+<div class="numberAndTitle">
+<span class="bottomTitle">Training BIC 6 Advanced</span><span class="count">61</span>
+</div>
+</div>
+</div>
+</body>
+</html>

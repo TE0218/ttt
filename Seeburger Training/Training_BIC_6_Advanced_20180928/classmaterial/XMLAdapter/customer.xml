@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<root>
+  <customer id="2378">
+    <name>Customer One</name>
+    <address str="rosenstraße 100"/>
+    <address str="äonenweg 223"/>
+    <volume value="2200">
+    	<height>123</height>
+    	<weight>800</weight>	
+    </volume>	
+    <bio>
+    	<bio:height>180</bio:height>
+    	<bio:weight>80</bio:weight>	    	
+    </bio>
+  </customer>
+  <customer id="2379">
+    <name>Customer Four</name>
+    <address str="Übungsstrasse 100"/>
+    <address str="€-Weg 223"/>
+    <volume value="2200">
+    	<height>123</height>
+    	<weight>800</weight>	
+    </volume>	
+    <bio>
+    	<bio:height>180</bio:height>
+    	<bio:weight>80</bio:weight>	    	
+    </bio>
+  </customer>  
+</root>

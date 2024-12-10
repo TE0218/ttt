@@ -1,0 +1,195 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html xmlns:fn="http://www.w3.org/2005/xpath-functions" xmlns:p="http://outerx.org/daisy/1.0#publisher" xmlns:i18n="http://apache.org/cocoon/i18n/2.1" xmlns:einclude="http://outerx.org/daisy/1.0#externalinclude" xmlns:d="http://outerx.org/daisy/1.0">
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<link href="resources/css/books.css" type="text/css" rel="stylesheet">
+<script src="resources/js/toggle.js" type="text/javascript"></script>
+</head>
+<body onLoad="appendToDiv();">
+<div class="all">
+<div class="top">
+<div class="chunkNavigation">
+<div class="topCut"></div>
+<div class="logoTitle">
+<span><img src="resources/images/see-logo.png"></span><span class="bookTitle">Procedures</span>
+</div>
+<div class="navigation">
+<ul>
+<li class="first">
+<a href="dsy24224-SEEDOC.html">&nbsp;<img src="resources/images/small_left.gif">&nbsp;Previous&nbsp;</a>
+</li>
+<li class="middle">
+<a href="chunk1.html"><img src="resources/images/content.png">Table of Contents&nbsp;</a>
+</li>
+<li class="last">
+<a href="dsy24226-SEEDOC.html">&nbsp;Next&nbsp;<img src="resources/images/small_right.gif"></a>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="content">
+<div class="left">
+<a href="dsy24224-SEEDOC.html"><img src="resources/images/big_left.gif" class="centeredImage"></a>
+</div>
+<div class="center">
+<h3 xmlns:ns="http://outerx.org/daisy/1.0" daisyBranch="1" daisyDocument="24225-SEEDOC" daisyLanguage="2" id="dsy24225-SEEDOC">How to use local procedures - 2</h3>
+        
+<ul>
+            
+<li>Procedure will be called by write down the procedure name followed by
+brackets inside the mapping.</li>
+        
+</ul>
+        
+<p>
+            
+<strong>Example</strong>:<br>
+            
+<em>WRITE_ADDRESSDATA()</em>
+        
+</p>
+        
+<p align="center">
+            
+<a href="images/24238-SEEDOC_1_2_1.jpg"><img bookStorePath="/data/resources/24238-SEEDOC_1_2_1" height="265" p:imageHeight="478" p:imageWidth="899" print-width="11cm" src="images/24238-SEEDOC_1_2_1.jpg" width="500"></a>
+        
+</p>
+        
+<h8 id="s76">For more details please refer to</h8>
+        
+<h9 daisyBranch="1" daisyDocument="2023-SEEDOC" daisyLanguage="2" id="dsy2023-SEEDOC">Procedures</h9>
+        
+<p>Procedures provide a possibility to write reusable code. There are two kinds
+of procedures within the BIC Mapping Designer: Global procedures and local
+procedures.</p>
+        
+<p>Global procedures can be used by all mappings, local procedures are placed in
+one mapping, and can only be used by this mapping.</p>
+        
+<h10 id="s77">Procedure Editor</h10>
+        
+<p>The Procedure Editor is used to create and modify the procedure code.</p>
+        
+<p>For global procedures it is shown whenever a global procedure is opened (via
+the context menu, or with a double mouse-click from the Project Explorer). It
+contains a list view of all existing methods in that global procedure, a
+variables view, and the source code editor for the currently selected method. It
+can be seen as a small mapping view.</p>
+        
+<p>The local Procedure Editor is integrated into the mapping view in the tabs
+<em>Procedure source</em> and <em>Mapping procedures</em>. If one of these tabs
+is selected, both tabs are shown in the Mapping Editor. The <em>Procedure
+source</em> tab at the bottom of the mapping view contains the source code of
+the current selected procedure. The <em>Mapping procedures</em> tab at the right
+upper part of the mapping view contains the list of all existing local
+procedures.</p>
+        
+<p>Methods inside a global procedure are treated the same way as local
+procedures in a mapping. Therefore the <em>Editor </em>part of the Global
+procedure view has basically the same meaning as the <em>Procedure source</em>
+tab in a mapping view. Furthermore, the <em>Mapping procedures</em> tab in the
+mapping view has the same functionality as the <em>Global procedure methods</em>
+part in a global procedure view.&nbsp;</p>
+        
+<h11 id="s78">The Mapping Procedures/Global Procedure Methods View</h11>
+        
+<p>In this view the list of all available methods/local procedures are shown. It
+is possible to edit or delete an existing, or create a new method/local
+procedure, if the corresponding button is clicked.</p>
+        
+<p>Every <em>Edit</em> or <em>New </em>process opens the properties view of a
+method/local procedure. It is possible to change the method/procedure signature
+(that means name, description, return type and parameters) within that view. It
+is not allowed to rename a method/local procedure. Please delete that
+method/procedure, and create a new one instead.</p>
+        
+<p class="note">
+            
+<strong>Note</strong>: The BIC Mapping Designer ensures that
+newly created procedures are named uniquely. It is not allowed to use identical
+names for procedures, BIC commands and functions (refer to the topic
+<em>Commands in the Mapping Designer Command Reference</em>), or variables.</p>
+        
+<p class="note">
+            
+<strong>Note: </strong>Every signature change of a method or
+local procedure may not be backward compatible. You have to check every affected
+mapping or global procedure.</p>
+        
+<p>Possible return values types are:</p>
+        
+<ul>
+            
+<li>Numerical</li>
+            
+<li>Alphanunmerical</li>
+            
+<li>BigDecimal</li>
+            
+<li>Boolean</li>
+            
+<li>void</li>
+        
+</ul>
+        
+<p>Procedure parameters can be added, removed, or edited on the second tab of
+the<em> Procedure Property </em>panel. The characters "~", "$", "%", "?",
+"[","]", "{" and "}" are not allowed within the parameter name. They cannot be
+entered in the text field. The characters "$", "%", "~" ,"?", "[","]", "{" and
+"}" are automatically added to the parameter names, "%" means numeric type, "$"
+alphanumeric type,&nbsp; "~" bigdecimal type, "?" boolean type, "[&nbsp; ]" array and "{
+}" hashmap, if both ("[ ]" and "{ }") are use, it is a mixed type of array(s)
+and hashmap(s).</p>
+        
+<p align="center">
+            
+<a href="images/12594-SEEDOC_1_2_1.png"><img bookStorePath="/data/resources/12594-SEEDOC_1_2_1" p:imageHeight="496" p:imageWidth="395" src="images/12594-SEEDOC_1_2_1.png"></a>
+        
+</p>
+        
+<p>The following parameter types can be applied:</p>
+        
+<ul>
+            
+<li>Numerical</li>
+            
+<li>Alphanunmerical</li>
+            
+<li>BigDecimal</li>
+            
+<li>Boolean</li>
+        
+</ul>
+        
+<p>Simple parameters (no) can be passed by value or by reference. <br>
+By value means they are not changed within the procedure/method. If a parameter
+is passed <em>by reference</em>, it can be changed within the procedure. Because
+this may lead to unexpected results and effects, it is recommended to add a
+corresponding comment to the <em>description </em>part of the method/procedure.
+</p>
+        
+<p>Arrays, hashmaps and mixed types are always passed by reference.</p>
+        
+<p class="warn">
+            
+<strong>Attention</strong>: If a local procedure belongs to a
+mapping with programming language BIC-BASIC V1, the new
+<em>dynamic arrays,hashmaps and mixed types</em>
+are not supported. The simple parameters are always passed by value and the
+array parameters by reference.&nbsp; If a wrong usage of the parameters is detected,
+an error dialog is shown, which contains information about the wrong usage.</p>
+        
+</div>
+<div class="right">
+<a href="dsy24226-SEEDOC.html"><img src="resources/images/big_right.gif"></a>
+</div>
+</div>
+<div id="pageNumber">
+<div class="numberAndTitle">
+<span class="bottomTitle">Training BIC 6 Advanced</span><span class="count">68</span>
+</div>
+</div>
+</div>
+</body>
+</html>

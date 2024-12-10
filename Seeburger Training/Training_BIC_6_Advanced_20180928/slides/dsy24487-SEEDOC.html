@@ -1,0 +1,121 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html xmlns:fn="http://www.w3.org/2005/xpath-functions" xmlns:p="http://outerx.org/daisy/1.0#publisher" xmlns:i18n="http://apache.org/cocoon/i18n/2.1" xmlns:einclude="http://outerx.org/daisy/1.0#externalinclude" xmlns:d="http://outerx.org/daisy/1.0">
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<link href="resources/css/books.css" type="text/css" rel="stylesheet">
+<script src="resources/js/toggle.js" type="text/javascript"></script>
+</head>
+<body onLoad="appendToDiv();">
+<div class="all">
+<div class="top">
+<div class="chunkNavigation">
+<div class="topCut"></div>
+<div class="logoTitle">
+<span><img src="resources/images/see-logo.png"></span><span class="bookTitle">XML Adapter</span>
+</div>
+<div class="navigation">
+<ul>
+<li class="first">
+<a href="dsy24489-SEEDOC.html">&nbsp;<img src="resources/images/small_left.gif">&nbsp;Previous&nbsp;</a>
+</li>
+<li class="middle">
+<a href="chunk1.html"><img src="resources/images/content.png">Table of Contents&nbsp;</a>
+</li>
+<li class="last">
+<a href="dsy24488-SEEDOC.html">&nbsp;Next&nbsp;<img src="resources/images/small_right.gif"></a>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="content">
+<div class="left">
+<a href="dsy24489-SEEDOC.html"><img src="resources/images/big_left.gif" class="centeredImage"></a>
+</div>
+<div class="center">
+<h3 xmlns:ns="http://outerx.org/daisy/1.0" daisyBranch="1" daisyDocument="24487-SEEDOC" daisyLanguage="2" id="dsy24487-SEEDOC">DTD - Document Type Definition</h3>
+        
+<p>A Document Type Definition (DTD) defines the legal building blocks of an XML
+document. It defines the document structure with a list of legal elements and
+attributes. A DTD can be declared inline inside an XML document, or as an
+external reference.</p>
+        
+<p>The following example is a DTD file called "PART2_DTD.dtd" that defines the
+elements of the XML document the part before:</p>
+        
+<pre>&lt;?xml encoding="UTF-8" ?&gt;
+&lt;!ELEMENT root (customer,supplier?)&gt;
+
+&lt;!ELEMENT customer (name,address*,volume)&gt;
+&lt;!ATTLIST customer
+	id 	CDATA 	#IMPLIED&gt;
+
+&lt;!ELEMENT name (#PCDATA)&gt;
+
+&lt;!ELEMENT address (#PCDATA)&gt;
+&lt;!ATTLIST address
+	str 	CDATA 	#IMPLIED&gt;
+
+&lt;!ELEMENT volume (#PCDATA)&gt;
+&lt;!ATTLIST volume
+	value 	CDATA 	#IMPLIED&gt;
+
+&lt;!ELEMENT supplier (name,address*,volume)&gt;
+&lt;!ATTLIST supplier
+	id 	CDATA 	#IMPLIED&gt;</pre>
+        
+<p>The first line defines the note element to have two child elements:
+"customer,supplier".</p>
+        
+<table class="borderless" column-widths="50%;50%" print-column-widths="50%;50%" print-width="100%" width="100%">
+<col width="50%">
+<col width="50%">
+<tbody>
+                
+<tr>
+                    
+<td>
+                        
+<ul>
+                            
+<li>
+                                
+<a href="../classmaterial/XMLAdapter/DEMO_DTD.dtd">Sample DTD</a>
+                            
+</li>
+                            
+<li>
+                                
+<a href="../classmaterial/XMLAdapter/DEMO_FILE.xml">Sample XML</a>
+                            
+</li>
+                        
+</ul>
+                    
+</td>
+                    <td>
+                        
+<p class="note">To open the files please right-click
+<span class="symbol">&rarr;</span> save as and open it with your preferred editor.
+</p>
+                    
+</td>
+                
+</tr>
+            
+</tbody>
+</table>
+        
+</div>
+<div class="right">
+<a href="dsy24488-SEEDOC.html"><img src="resources/images/big_right.gif"></a>
+</div>
+</div>
+<div id="pageNumber">
+<div class="numberAndTitle">
+<span class="bottomTitle">Training BIC 6 Advanced</span><span class="count">34</span>
+</div>
+</div>
+</div>
+</body>
+</html>

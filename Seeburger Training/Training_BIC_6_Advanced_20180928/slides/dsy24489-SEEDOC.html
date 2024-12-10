@@ -1,0 +1,878 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html xmlns:fn="http://www.w3.org/2005/xpath-functions" xmlns:p="http://outerx.org/daisy/1.0#publisher" xmlns:i18n="http://apache.org/cocoon/i18n/2.1" xmlns:einclude="http://outerx.org/daisy/1.0#externalinclude" xmlns:d="http://outerx.org/daisy/1.0">
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<link href="resources/css/books.css" type="text/css" rel="stylesheet">
+<script src="resources/js/toggle.js" type="text/javascript"></script>
+</head>
+<body onLoad="appendToDiv();">
+<div class="all">
+<div class="top">
+<div class="chunkNavigation">
+<div class="topCut"></div>
+<div class="logoTitle">
+<span><img src="resources/images/see-logo.png"></span><span class="bookTitle">XML Adapter</span>
+</div>
+<div class="navigation">
+<ul>
+<li class="first">
+<a href="dsy24452-SEEDOC.html">&nbsp;<img src="resources/images/small_left.gif">&nbsp;Previous&nbsp;</a>
+</li>
+<li class="middle">
+<a href="chunk1.html"><img src="resources/images/content.png">Table of Contents&nbsp;</a>
+</li>
+<li class="last">
+<a href="dsy24487-SEEDOC.html">&nbsp;Next&nbsp;<img src="resources/images/small_right.gif"></a>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="content">
+<div class="left">
+<a href="dsy24452-SEEDOC.html"><img src="resources/images/big_left.gif" class="centeredImage"></a>
+</div>
+<div class="center">
+<h3 xmlns:ns="http://outerx.org/daisy/1.0" daisyBranch="1" daisyDocument="24489-SEEDOC" daisyLanguage="2" id="dsy24489-SEEDOC">Schemata vs. DTD</h3>
+        
+<p align="center">
+            
+<a href="images/24491-SEEDOC_1_2_1.jpg"><img bookStorePath="/data/resources/24491-SEEDOC_1_2_1" height="493" p:imageHeight="841" p:imageWidth="1144" src="images/24491-SEEDOC_1_2_1.jpg"></a>
+        
+</p>
+        
+<h8 id="s21">For more details please refer to</h8>
+        
+<h9 daisyBranch="1" daisyDocument="2601-SEEDOC" daisyLanguage="2" id="dsy2601-SEEDOC">XML Schema Import Customization</h9>
+        
+<p>The XML schema employs various validation mechanisms specific to itself and
+which could not (or only partly) be mapped/converted to the BIC Message schema
+model. This document describes cases where custom modification of the source XML
+schema document(s) is needed to import usable BIC Message schema.</p>
+        
+<p>For clarity, where not explicitly stated the <em>xs</em> and <em>xsi</em>
+prefixes used in the examples identify the
+<em>http://www.w3.org/2001/XMLSchema</em> and
+<em>http://www.w3.org/2001/XMLSchema-instance</em> namespaces.</p>
+        
+<h10 id="s22">Type Mapping</h10>
+        
+<h11 id="s23">BIC Mapping Designer Type Restrictions</h11>
+        
+<p>The BIC Mapping Designer is able to map simple schema types
+(<em>anySimpleType</em> ) and restrictions on such types into the following
+internal properties:</p>
+        
+<ul>
+            
+<li>
+                
+<em>type</em>
+            
+</li>
+            
+<li>
+                
+<em>minimum length</em>
+            
+</li>
+            
+<li>
+                
+<em>maximum length</em>
+            
+</li>
+            
+<li>
+                
+<em>minimum value</em>
+            
+</li>
+            
+<li>
+                
+<em>maximum value</em>
+            
+</li>
+            
+<li>
+                
+<em>minimum value inclusive - the flag to signal that the minimum value is a
+part of the range or not</em>
+            
+</li>
+            
+<li>
+                
+<em>maximum value inclusive - the flag to signal that the maximum value is a
+part of the range or not</em>
+            
+</li>
+            
+<li>
+                
+<em>enumerations</em>
+            
+</li>
+            
+<li>
+                
+<em>regular expressions</em>.</li>
+        
+</ul>
+        
+<p>Those properties can be inspected and edited in the via BIC Mapping Designer
+message panel / property view.</p>
+        
+<h11 id="s24">XML Schema Type Restrictions</h11>
+        
+<p>The XML schema definition offers however a much broader range to define a
+type restriction. From the basic <em>anySimpleType</em> the following simple
+types may be derived:</p>
+        
+<ul>
+            
+<li>
+                
+<em>string</em>
+            
+</li>
+            
+<ul>
+                
+<li>
+                    
+<em>normalizeString</em>
+                
+</li>
+                
+<ul>
+                    
+<li>
+                        
+<em>token</em>
+                    
+</li>
+                    
+<ul>
+                        
+<li>
+                            
+<em>language</em>
+                        
+</li>
+                        
+<li>
+                            
+<em>Name </em>
+                        
+</li>
+                        
+<ul>
+                            
+<li>
+                                
+<em>NCName</em>
+                            
+</li>
+                            
+<ul>
+                                
+<li>
+                                    
+<em>ID</em>
+                                
+</li>
+                                
+<li>
+                                    
+<em>IDREF</em>
+                                
+</li>
+                                
+<ul>
+                                    
+<li>
+                                    
+<em>IDREFS</em>
+                                    
+</li>
+                                
+</ul>
+                                
+<li>
+                                    
+<em>ENTITY</em>
+                                
+</li>
+                                
+<ul>
+                                    
+<li>
+                                    
+<em>ENTITYS</em>
+                                    
+</li>
+                                
+</ul>
+                            
+</ul>
+                        
+</ul>
+                        
+<li>
+                            
+<em>NMTOKEN</em>
+                        
+</li>
+                        
+<ul>
+                            
+<li>
+                                
+<em>NMTOKENS</em>
+                            
+</li>
+                        
+</ul>
+                    
+</ul>
+                
+</ul>
+            
+</ul>
+            
+<li>
+                
+<em>boolean</em>
+            
+</li>
+            
+<li>
+                
+<em>float</em>
+            
+</li>
+            
+<li>
+                
+<em>double</em>
+            
+</li>
+            
+<li>
+                
+<em>decimal</em>
+            
+</li>
+            
+<ul>
+                
+<li>
+                    
+<em>integer</em>
+                
+</li>
+                
+<ul>
+                    
+<li>
+                        
+<em>nonPositiveInteger</em>
+                    
+</li>
+                    
+<ul>
+                        
+<li>
+                            
+<em>negativeInteger</em>
+                        
+</li>
+                    
+</ul>
+                    
+<li>
+                        
+<em>long</em>
+                    
+</li>
+                    
+<ul>
+                        
+<li>
+                            
+<em>int</em>
+                        
+</li>
+                        
+<ul>
+                            
+<li>
+                                
+<em>short</em>
+                            
+</li>
+                            
+<ul>
+                                
+<li>
+                                    
+<em>byte</em>
+                                
+</li>
+                            
+</ul>
+                        
+</ul>
+                    
+</ul>
+                    
+<li>
+                        
+<em>nonNegativeInteger</em>
+                    
+</li>
+                    
+<ul>
+                        
+<li>positive<em>Integer</em>
+                        
+</li>
+                        
+<li>
+                            
+<em>unsignedLong</em>
+                        
+</li>
+                        
+<ul>
+                            
+<li>
+                                
+<em>unsignedInt</em>
+                            
+</li>
+                            
+<ul>
+                                
+<li>
+                                    
+<em>unsignedShort</em>
+                                
+</li>
+                                
+<ul>
+                                    
+<li>
+                                    
+<em>unsignedByte</em>
+                                    
+</li>
+                                
+</ul>
+                            
+</ul>
+                        
+</ul>
+                    
+</ul>
+                
+</ul>
+            
+</ul>
+            
+<li>
+                
+<em>duration</em>
+            
+</li>
+            
+<li>
+                
+<em>dateTime</em>
+            
+</li>
+            
+<li>
+                
+<em>time</em>
+            
+</li>
+            
+<li>
+                
+<em>date</em>
+            
+</li>
+            
+<li>
+                
+<em>gYearMonth</em>
+            
+</li>
+            
+<li>
+                
+<em>gYear</em>
+            
+</li>
+            
+<li>
+                
+<em>gMonthDay</em>
+            
+</li>
+            
+<li>
+                
+<em>gDay</em>
+            
+</li>
+            
+<li>
+                
+<em>gMonth</em>
+            
+</li>
+            
+<li>
+                
+<em>hexBinary</em>
+            
+</li>
+            
+<li>
+                
+<em>base64Binary</em>
+            
+</li>
+            
+<li>
+                
+<em>anyURI</em>
+            
+</li>
+            
+<li>
+                
+<em>QName</em>
+            
+</li>
+            
+<li>
+                
+<em>NOTATION</em>.</li>
+        
+</ul>
+        
+<p>Those types may be further restricted through facets:</p>
+        
+<ul>
+            
+<li>
+                
+<em>length</em>
+            
+</li>
+            
+<li>
+                
+<em>minimum length</em>
+            
+</li>
+            
+<li>
+                
+<em>maximum length</em>
+            
+</li>
+            
+<li>
+                
+<em>minimum value</em>
+            
+</li>
+            
+<li>
+                
+<em>maximum value</em>
+            
+</li>
+            
+<li>
+                
+<em>minimum value inclusive - the flag to signal that the minimum value is a
+part of the range</em>
+            
+</li>
+            
+<li>
+                
+<em>maximum value inclusive - the flag to signal that the maximum value is a
+part of the range</em>
+            
+</li>
+            
+<li>
+                
+<em>minimum value exclusive - the flag to signal that the minimum value is
+not a part of the range</em>
+            
+</li>
+            
+<li>
+                
+<em>maximum value exclusive - the flag to signal that the maximum value is
+not a part of the range</em>
+            
+</li>
+            
+<li>
+                
+<em>enumerations</em>
+            
+</li>
+            
+<li>
+                
+<em>regular expressions (pattern)</em>
+            
+</li>
+            
+<li>
+                
+<em>whiteSpace</em>
+            
+</li>
+            
+<li>
+                
+<em>totalDigits</em>
+            
+</li>
+            
+<li>
+                
+<em>fractionDigits</em>.</li>
+        
+</ul>
+        
+<h11 id="s25">One to One Facets Mapping</h11>
+        
+<p>It is obvious that most of the facets correspond to a BIC Mapping Designer
+property value. Accordingly, they are mapped one to one during a BIC Mapping
+Designer schema import operation. Some negligible adjustments are necessary for
+<em>length</em>, and the <em>inclusive</em>, <em>exclusive</em> flag.<em>
+WhiteSpace</em> (with the valid values <em>preserve</em>, <em>replace</em>,
+<em>collapse</em>) provides in principle only formatting instructions, which can
+be neglected in BIC Mapping Designer messages.</p>
+        
+<p>
+            
+<em>TotalDigits</em> and <em>fractionDigits</em> however require a special
+treatment and can not be mapped one to one.</p>
+        
+<h11 id="s26">Derived Simple Schema Types Mapping</h11>
+        
+<p>The derived simple schema types are reflected in BIC Mapping Designer in
+following way:</p>
+        
+<ul>
+            
+<li>
+                
+<em>float, double, decimal </em>are mapped into the type <em>N..</em>
+            
+</li>
+        
+</ul>
+        
+<ul>
+            
+<li>
+                
+<em>dateTime, time, date </em>are mapped into the type <em>DATETIME</em>
+            
+</li>
+        
+</ul>
+        
+<ul>
+            
+<li>All the other types are mapped into the type <em>AN..</em>
+            
+</li>
+        
+</ul>
+        
+<p>Apparently this mapping (only on a type) is not very accurate. So as an
+additional criteria the regular expression is used to reflect derived simple
+schema types more precisely in the BIC Mapping Designer.</p>
+        
+<h11 id="s27">Exploiting the Regular Expression</h11>
+        
+<p>As explained before</p>
+        
+<ul>
+            
+<li>the facet restrictions <em>totalDigits</em> and <em>fractionDigits</em> as
+well as</li>
+            
+<li>most of the derived simple schema types</li>
+        
+</ul>
+        
+<p>may not be mapped precisely into BIC Mapping Designer property values. This
+is compensated through the usage of newly introduced regular expressions. For
+instance, the XML schema type<em> integer</em> is mapped into the BIC Mapping
+Designer property type <em>N..</em> and additionally the regular expression
+<em>[\\-+]?[0-9]+</em> is added to the belonging BIC Mapping Designer
+properties. (This regular expression permits all digit sequences with a sign.)
+</p>
+        
+<p>No additional regular expressions are provided for</p>
+        
+<ul>
+            
+<li>
+                
+<em>IDREF</em>
+            
+</li>
+            
+<li>
+                
+<em>IDREFS</em>
+            
+</li>
+            
+<li>
+                
+<em>ENTITY</em>
+            
+</li>
+            
+<li>
+                
+<em>ENTITIES</em>
+            
+</li>
+            
+<li>
+                
+<em>ID</em>.</li>
+        
+</ul>
+        
+<p>The XML schema definition for those types can just not be expressed as a
+regular expression.</p>
+        
+<p>Slightly less restrictive (as a strict XML schema type definition would
+require it) additional regular expressions are provided for</p>
+        
+<ul>
+            
+<li>
+                
+<em>NCName</em>
+            
+</li>
+            
+<li>
+                
+<em>Name</em>
+            
+</li>
+            
+<li>
+                
+<em>NMTOKEN</em>
+            
+</li>
+            
+<li>
+                
+<em>NMTOKENS</em>.</li>
+        
+</ul>
+        
+<h12 id="s28">Collisions with existing Regular Expressions</h12>
+        
+<p>There may be a defined pattern (XML schema regular expression) in the schema
+and additionally the mapping into the BIC Mapping Designer properties creates a
+further regular expression. For such cases boths regular expressions are added
+to the properties as combined logial <em>AND </em>expression, e. g.</p>
+        
+<ul>
+            
+<li>
+                
+<em>(?=[0-9]+\.[0-9]+)[0-9]{1,4}\.[0-9]{1,2} </em>corresponds to a
+logical<em> AND</em> between</li>
+            
+<ul>
+                
+<li>
+                    
+<em>[0-9]+\.[0-9]+</em> and</li>
+                
+<li>
+                    
+<em>[0-9]{1,4}\.[0-9]{1,2}</em>
+                
+</li>
+            
+</ul>
+        
+</ul>
+        
+<p>and it could be used to express that it should fit for</p>
+        
+<ul>
+            
+<ul>
+                
+<li>a numeric value</li>
+                
+<li>which should have a maximum number of four digits before and a maximum
+number of two digits after the decimal point.</li>
+            
+</ul>
+        
+</ul>
+        
+<h12 id="s29">Suppressing huge Regular Expressions</h12>
+        
+<p>XML schema parsing tools (e. g. <em>XERCES</em>) fully respecting the W3C
+guidelines provide already for some derived simple schema types regular
+expressions. If the BIC Mapping Designer schema import detects such expressions
+the logical <em>AND</em> is not performed, instead the same expression is placed
+into the properties. This avoids that the logical <em>AND</em> blows up the
+final regular expressions unnecessarily. In detail, for</p>
+        
+<ul>
+            
+<li>
+                
+<em>
+                    <em>Name,</em> NCName</em>, <em>NMTOKEN</em>
+            
+</li>
+        
+</ul>
+        
+<p>not usable regular expressions are provided. They are just discarded.<em>
+For</em>
+        
+</p>
+        
+<ul>
+            
+<li>
+                
+<em>nonNegativeInteger, </em>positive<em>Integer</em>,<em>
+nonPositiveInteger</em>,<em> negativeInteger</em>
+            
+</li>
+        
+</ul>
+        
+<p>BIC Mapping Designer does no further checks and puts the same regular
+expressions into the properties as the known parsing tools would provide them.
+For</p>
+        
+<ul>
+            
+<li>
+                
+<em>language</em>, <em>integer</em>
+            
+</li>
+        
+</ul>
+        
+<p>BIC Mapping Designer compares the received regular expressions with its own
+regular expressions. If they are identical no <em>AND</em> expression is used.
+</p>
+        
+<h12 id="s30">Export / Import Problems</h12>
+        
+<p>It is evident that repeatedly performed export and (re)import operations with
+the same schema leads to insane huge regular expressions, because the applied
+<em>AND</em> expression lets the overall regular expressions grow remarkable.
+Until a better export solution for the regular expressions has been found that
+should be simply avoided.</p>
+        
+<h10 id="s31">Order on Ranges</h10>
+        
+<p>The BIC Mapping Designer is importing range values (<em>minimum</em>,
+<em>maximum value</em> ...) but is - so far - not able to perform calculation on
+all of them - or, with other words, BIC Mapping Designer does not know the order
+on all range types. E. g., a valid range value for <em>duration</em> would be
+<em>P3Y</em>, but BIC Mapping Designer is unable to decide whether this value
+fits into the belonging range between <em>P1Y</em> and <em>P5Y</em>.</p>
+        
+<h10 id="s32">Invalid Values Detection</h10>
+        
+<p>BIC Mapping Designer is able to detect invalid schema values during a schema
+import. Most of that is accomplished through the invoked XML schema parsing
+tools (e. g. <em>XERCES</em>). In detail, the following is reported or the
+invalid values are just ignored:</p>
+        
+<ul>
+            
+<li>Facets which are not permited for a certain derived simple schema type.</li>
+            
+<li>Invalid facet values (for valid facets).</li>
+            
+<li>If fixed facet values are overwritten.</li>
+            
+<li>Wrong regular expressions.</li>
+            
+<li>Wrong enumeration values (not fitting to the regular expression).</li>
+            
+<li>Wrong range bounderies (not fitting to the regular expression).</li>
+            
+<li>Conflicts between exclusive or inclusive range bounderies.</li>
+            
+<li>Invalid (conflicting) numeric (only!) range bounderies.</li>
+            
+<li>Wrong enumeration values (not in the numeric range).</li>
+            
+<li>Double defined facets.</li>
+            
+<li>Violation of length limitations (only for string related facets).</li>
+        
+</ul>
+        
+<h10 id="s33">Unsupported XML Schema Types&nbsp;</h10>
+        
+<p>Aside from the previously mentioned XML schema type definitions, and
+restrictions on them, which are fully or partly mapped into BIC Mapping Designer
+type definitions, some XML Schema Type definitons are not supported in the BIC
+Mapping Designer at all. Such types are</p>
+        
+<ul>
+            
+<li>unions</li>
+            
+<li>lists.</li>
+        
+</ul>
+        
+<p>They are imported as unconstrained string types.</p>
+        
+</div>
+<div class="right">
+<a href="dsy24487-SEEDOC.html"><img src="resources/images/big_right.gif"></a>
+</div>
+</div>
+<div id="pageNumber">
+<div class="numberAndTitle">
+<span class="bottomTitle">Training BIC 6 Advanced</span><span class="count">33</span>
+</div>
+</div>
+</div>
+</body>
+</html>

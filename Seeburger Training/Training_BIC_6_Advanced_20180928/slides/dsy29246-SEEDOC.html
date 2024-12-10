@@ -1,0 +1,322 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html xmlns:fn="http://www.w3.org/2005/xpath-functions" xmlns:p="http://outerx.org/daisy/1.0#publisher" xmlns:i18n="http://apache.org/cocoon/i18n/2.1" xmlns:einclude="http://outerx.org/daisy/1.0#externalinclude" xmlns:d="http://outerx.org/daisy/1.0">
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<link href="resources/css/books.css" type="text/css" rel="stylesheet">
+<script src="resources/js/toggle.js" type="text/javascript"></script>
+</head>
+<body onLoad="appendToDiv();">
+<div class="all">
+<div class="top">
+<div class="chunkNavigation">
+<div class="topCut"></div>
+<div class="logoTitle">
+<span><img src="resources/images/see-logo.png"></span><span class="bookTitle">BIS:MT Mappings</span>
+</div>
+<div class="navigation">
+<ul>
+<li class="first">
+<a href="s118.html">&nbsp;<img src="resources/images/small_left.gif">&nbsp;Previous&nbsp;</a>
+</li>
+<li class="middle">
+<a href="chunk1.html"><img src="resources/images/content.png">Table of Contents&nbsp;</a>
+</li>
+<li class="last">
+<a href="dsy26780-SEEDOC.html">&nbsp;Next&nbsp;<img src="resources/images/small_right.gif"></a>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="content">
+<div class="left">
+<a href="s118.html"><img src="resources/images/big_left.gif" class="centeredImage"></a>
+</div>
+<div class="center">
+<h3 xmlns:ns="http://outerx.org/daisy/1.0" daisyBranch="1" daisyDocument="29246-SEEDOC" daisyLanguage="2" id="dsy29246-SEEDOC">Different modes for writing into BIS:MT</h3>
+        
+<p>The Message Tracking import provides three modes for writing the data into
+the database tables:</p>
+        
+<ul>
+            
+<li>
+                
+<p>The asynchronous mode using a folder: The data is written into a folder and
+asynchronously imported into the Message Tracking. This is the default mode.
+</p>
+            
+</li>
+            
+<li>
+                
+<p>The asynchronous mode using an import table: The data is written into an
+import table and asynchronously imported into the Message Tracking.</p>
+            
+</li>
+            
+<li>The synchronous mode: The data is directly written into the Portal database
+schema.</li>
+        
+</ul>
+        
+<blockquote>
+            
+<p class="warn">The process will fail if the Portal database schema is not
+available and finish after the data is written into the Message Tracking if
+there is no failure.</p>
+        
+</blockquote>
+        
+<h8 id="s119">For more details please refer to</h8>
+        
+<h9 daisyBranch="1" daisyDocument="26029-SEEDOC" daisyLanguage="2" id="dsy26029-SEEDOC">Message Tracking</h9>
+        
+<h10 id="s120">Introduction</h10>
+        
+<p>In order to write data from BIS into the Message Tracking, it is necessary to
+execute a mapping which invokes the corresporend commands. The tables used by
+the Message Tracking are not located in the BIS database schema but in the
+Portal database schema, and are created when installing the Portal. The Message
+Tracking import provides three modes for writing the data:</p>
+        
+<ul>
+            
+<li>The asynchronous mode using a folder: The data is written into a folder and
+asynchronously imported into the Message Tracking. This the default on
+installations until 6.5.2 SP 40 and not changed when updating those
+installations.</li>
+            
+<li>The asynchronous mode using an import table: The data is written into an
+import table and asynchronously imported into the Message Tracking. This is the
+default mode for new installations starting with 6.5.2 SP41.</li>
+            
+<li>The synchronous mode: The data is directly written into the Portal database
+schema. The process will fail if the Portal database schema is not available and
+finish after the data is written into the Message Tracking if there is no
+failure.</li>
+        
+</ul>
+        
+<h10 id="s121">Configuration</h10>
+        
+<p>In order to change the import mode, the following steps need to be done:</p>
+        
+<ol>
+            
+<li>Execute &lt;BIS&gt;\software\export-config.{bat,sh} on the AdminServer
+instance</li>
+            
+<li>Open the file
+&lt;BIS&gt;\temp\SeeConfig\{com.seeburger.conf.user=BISAS}\com.seeburger.smarti.bismt-config.xml
+and change the property named <em>class</em>. The corresponding&nbsp; values can be
+found in the table below. This configuration file is not shipped with BIS and
+gets created during the first startup of a process engine instance.</li>
+            
+<li>Execute &lt;BIS&gt;\software\import-config.{bat,sh} on the AS instance</li>
+            
+<li>Restart all PE and AE instances</li>
+        
+</ol>
+        
+<table class="content">
+<tbody>
+                
+<tr>
+                    
+<th>
+                        
+<p>Mode</p>
+                    
+</th>
+                    <th>
+                        
+<p>Value</p>
+                    
+</th>
+                
+</tr>
+                
+<tr>
+                    
+<td>
+                        
+<p>Asynchronous mode using a folder (default until 6.5.2 SP40)</p>
+                    
+</td>
+                    <td>
+                        
+<p>com.seeburger.smarti.bismt.api.impl.EJBWriterImpl</p>
+                    
+</td>
+                
+</tr>
+                
+<tr>
+                    
+<td>
+                        
+<p>Asynchronous mode using the import table (default for new installations
+starting with 6.5.2 SP41)</p>
+                    
+</td>
+                    <td>
+                        
+<p>com.seeburger.smarti.bismt.api.impl.ImportTableImpl</p>
+                    
+</td>
+                
+</tr>
+                
+<tr>
+                    
+<td>
+                        
+<p>Synchronous mode</p>
+                    
+</td>
+                    <td>
+                        
+<p>com.seeburger.smarti.bismt.api.impl.BISDatabaseAccessImpl</p>
+                    
+</td>
+                
+</tr>
+                
+<tr>
+                    
+<td>
+                        
+<p>SIL client provider</p>
+                    
+</td>
+                    <td>
+                        
+<p>com.seeburger.sil.bismt.api.provider.impl.SilBISMTAPIProvider</p>
+                    
+</td>
+                
+</tr>
+            
+</tbody>
+</table>
+        
+<p class="note">In previous BIS versions, the import mode needed to be
+configured by setting a VM parameter on each process engine and adapter engine
+instance. If this has been done, the setting will be automatically taken and
+written to the configuration file mentioned above.</p>
+        
+<p>If you want to switch BISMT API to report to the SEEBURGER Information Layer
+(SIL) please refer to "SIL Environment Setup"
+chapter "SIL BISMT API Provider Setup". This also describes the usage of the
+alternate provider for writing into two destinations.</p>
+        
+<p>In addition the system database, account <em>MT_ACCOUNT</em> must be
+configured to point to the portal database.</p>
+        
+<p>The datasource <em>SmartiDS</em> is not used anymore in order to write data
+into the message tracking. When updating from a version prior than 6.5.2Q1 the
+configuration of the datasource <em>SmartiDS</em> is automatically applied to
+the system database account <em>MT_ACCOUNT</em> by the setup.</p>
+        
+<p>When using the asynchronous mode using the import table, only one PE instance
+imports the entire data into the Message Tracking database. The PE that imports
+the data is automatically chosen. In case this PE is shut down, another PE
+automatically takes over the import. In case it is needed, for some reason, that
+every PE imports its own data the following steps need to be done:</p>
+        
+<ol>
+            
+<li>Execute &lt;BIS&gt;\software\export-config.{bat,sh} on the AdminServer
+instance</li>
+            
+<li>Open the file
+&lt;BIS&gt;\temp\SeeConfig\{com.seeburger.conf.user=BISAS}\com.seeburger.smarti.bismt-config.xml
+and set the value of the property named <em>sharedImporterMode</em> to
+<em>false</em>.</li>
+            
+<li>Execute &lt;BIS&gt;\software\import-config.{bat,sh} on the AdminServer
+instance</li>
+            
+<li>Restart all PE instances</li>
+        
+</ol>
+        
+<h11 id="s122">Resolving Group Names</h11>
+        
+<p>If the Message Tracking configuration parameter <em>BISMT_VIEWTYPE</em> has
+the value <em>3</em> the BISMT API importer handles the value of the column
+<em>tBISMT_Workflow.cClient</em> in the following way:</p>
+        
+<ul>
+            
+<li>If the value is a valid group id, the value is written into
+<em>tBISMTWorkflow.cClient </em>without any modification</li>
+            
+<li>If the value is a valid group name, the corresponding id is written into
+<em>tBISMTWorkflow.cClient</em>
+            
+</li>
+            
+<li>If the value is neither a valid group id nor a valid group name it is
+written without any modification into <em> tBISMTWorkflow.cClient</em>. In this
+case the record is not marked as erroneous by setting the column <em>cLevel</em>
+to <em>-997</em>.</li>
+        
+</ul>
+        
+<h11 id="s123">Import via Portal</h11>
+        
+<p>The Portal from version 6.5.2Q1 provides the option to import the data into
+the database tables by itself instead of the BIS if one of the asynchronous
+modes is used. This has the advantage that there is no concurrent access to the
+Portal database between import via BIS and Portal. In order to use this option
+the BIS importer must be deactivated by executing the following steps:</p>
+        
+<ol>
+            
+<li>Execute &lt;BIS&gt;\software\export-config.{bat,sh} on the AdminServer
+instance</li>
+            
+<li>Open the file
+&lt;BIS&gt;\temp\SeeConfig\{com.seeburger.conf.user=BISAS}\com.seeburger.smarti.bismt-config.xml
+and set the value the of property named <em>disabled</em> to <em>true</em>.
+</li>
+            
+<li>Execute &lt;BIS&gt;\software\import-config.{bat,sh} on the AdminServer
+instance</li>
+            
+<li>Restart all PE and AE instances</li>
+        
+</ol>
+        
+<p>In addition the import folder needs to be specified if the asynchronous mode
+via folder is used by setting the system variable <em>BISMTImportFolder
+</em>(in BIS front-end below <em>Configuration | System settings | System
+variables).</em> The value is internally cached so it may take up to 30 seconds
+until the new value is taken into account.&nbsp; If the system variable
+<em>BISMTImportFolder</em> is not configured the files will be written to
+&lt;BIS-HOME&gt;/data/bismt.</p>
+        
+<p>Because the import folder is shared between BIS and Portal, it is also
+necessary to define it in the Portal configuration. <br>
+Therefore please refer to the chapter <em>BISMT Consolidator</em> in the Portal
+<em>Message Tracking</em> documentation.</p>
+        
+<p>When using the "asynchronous mode using the import table", you need to
+configure the system database account <em>MT_ACCOUNT</em> to point to the Portal
+database.</p>
+        
+</div>
+<div class="right">
+<a href="dsy26780-SEEDOC.html"><img src="resources/images/big_right.gif"></a>
+</div>
+</div>
+<div id="pageNumber">
+<div class="numberAndTitle">
+<span class="bottomTitle">Training BIC 6 Advanced</span><span class="count">116</span>
+</div>
+</div>
+</div>
+</body>
+</html>

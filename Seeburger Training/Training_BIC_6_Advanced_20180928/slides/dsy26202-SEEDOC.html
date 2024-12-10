@@ -1,0 +1,386 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html xmlns:fn="http://www.w3.org/2005/xpath-functions" xmlns:p="http://outerx.org/daisy/1.0#publisher" xmlns:i18n="http://apache.org/cocoon/i18n/2.1" xmlns:einclude="http://outerx.org/daisy/1.0#externalinclude" xmlns:d="http://outerx.org/daisy/1.0">
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<link href="resources/css/books.css" type="text/css" rel="stylesheet">
+<script src="resources/js/toggle.js" type="text/javascript"></script>
+</head>
+<body onLoad="appendToDiv();">
+<div class="all">
+<div class="top">
+<div class="chunkNavigation">
+<div class="topCut"></div>
+<div class="logoTitle">
+<span><img src="resources/images/see-logo.png"></span><span class="bookTitle">SQL Adapter</span>
+</div>
+<div class="navigation">
+<ul>
+<li class="first">
+<a href="dsy26200-SEEDOC.html">&nbsp;<img src="resources/images/small_left.gif">&nbsp;Previous&nbsp;</a>
+</li>
+<li class="middle">
+<a href="chunk1.html"><img src="resources/images/content.png">Table of Contents&nbsp;</a>
+</li>
+<li class="last">
+<a href="dsy29095-SEEDOC.html">&nbsp;Next&nbsp;<img src="resources/images/small_right.gif"></a>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="content">
+<div class="left">
+<a href="dsy26200-SEEDOC.html"><img src="resources/images/big_left.gif" class="centeredImage"></a>
+</div>
+<div class="center">
+<h3 xmlns:ns="http://outerx.org/daisy/1.0" daisyBranch="1" daisyDocument="26202-SEEDOC" daisyLanguage="2" id="dsy26202-SEEDOC">BICMD database structures - reading/writing</h3>
+        
+<table column-widths="50%;50%" print-column-widths="50%;50%" print-width="100%" width="100%" class="content">
+<col width="50%">
+<col width="50%">
+<tbody>
+                
+<tr>
+                    
+<th>
+                        
+<p>reading</p>
+                    
+</th>
+                    <th>
+                        
+<p>writing</p>
+                    
+</th>
+                
+</tr>
+                
+<tr>
+                    
+<td>
+                        
+<ul>
+                            
+<li>
+                                
+<p>the SQL structure is used as source message</p>
+                            
+</li>
+                            
+<li>
+                                
+<p>it&rsquo;s possible to automatically update the table</p>
+                            
+</li>
+                            
+<li>
+                                
+<p>it&rsquo;s possible to set read conditions</p>
+                            
+</li>
+                            
+<li>
+                                
+<p>the used tables are linked by the primary and foreign keys</p>
+                            
+</li>
+                        
+</ul>
+                    
+</td>
+                    <td>
+                        
+<ul>
+                            
+<li>
+                                
+<p>the SQL structure is used as destination</p>
+                            
+</li>
+                            
+<li>
+                                
+<p>mapping works like an INHOUSE mapping</p>
+                            
+</li>
+                            
+<li>
+                                
+<p>the foreign key information of the related table are filled automatically</p>
+                            
+</li>
+                            
+<li>
+                                
+<p>there exist different writing modes (BICSQLMODE)</p>
+                            
+</li>
+                            
+<ul>
+                                
+<li>INSERT</li>
+                                
+<li>INSERT_OR_UPDATE</li>
+                                
+<li>INSERT_DELETING</li>
+                                
+<li>MUST_UPDATE</li>
+                                
+<li>UPDATE</li>
+                                
+<li>MUST_DELETE</li>
+                                
+<li>DELETE</li>
+                                
+<li>NOTHING</li>
+                            
+</ul>
+                        
+</ul>
+                    
+</td>
+                
+</tr>
+            
+</tbody>
+</table>
+        
+<h8 id="s70">For more details please refer to</h8>
+        
+<h8 daisyBranch="1" daisyDocument="2250-SEEDOC" daisyLanguage="2" id="dsy2250-SEEDOC">Using BIC to Update and Delete from the Database</h8>
+        
+<p>The default behavior of BIC when writing to a database is:</p>
+        
+<p>After the record/segment is completed, it is written to the database using an
+SQL statement (<em>INSERT</em>). This process creates a new record in the table.
+If there already is a record with the same primary key, BIC triggers an error
+and the mapping fails!<br>
+However, you can modify the default behavior of BIC as follows:</p>
+        
+<pre>COPY "INSERT" to 100:BICSQLMODE;</pre>
+        
+<p>Each segment type/table has an internal field called <em>BICSQLMODE</em>.
+This field does not exist in the table. It is a control field used to instruct
+BIC to change the mode for that table. The following modes are available:</p>
+        
+<table column-widths="30%;70%" print-column-widths="30%;70%" print-width="100%" width="100%" class="content">
+<col width="30%">
+<col width="70%">
+<tbody>
+                
+<tr>
+                    
+<th>
+                        
+<p>Mode</p>
+                    
+</th>
+                    <th>
+                        
+<p>Description</p>
+                    
+</th>
+                
+</tr>
+                
+<tr>
+                    
+<td valign="top">
+                        
+<p>INSERT(default)</p>
+                    
+</td>
+                    <td valign="top">
+                        
+<p>Executes an insert (new record) for each instance of the segment. Duplicate
+keys will trigger an error.</p>
+                    
+</td>
+                
+</tr>
+                
+<tr>
+                    
+<td valign="top">
+                        
+<p>INSERT_OR_UPDATE</p>
+                    
+</td>
+                    <td valign="top">
+                        
+<p>Executes an insert (new record) for each segment. If the record already
+exists in the table (duplicate primary key), an UPDATE will be executed.</p>
+                    
+</td>
+                
+</tr>
+                
+<tr>
+                    
+<td valign="top">
+                        
+<p>INSERT_DELETING</p>
+                    
+</td>
+                    <td valign="top">
+                        
+<p>Executes an insert (new record) for each segment. If the record already
+exists in the table (duplicate primary key), it will be deleted first.</p>
+                    
+</td>
+                
+</tr>
+                
+<tr>
+                    
+<td valign="top">
+                        
+<p>MUST _UPDATE</p>
+                    
+</td>
+                    <td valign="top">
+                        
+<p>Updates the record in the table. If the record does not exist within the
+table, an error will occur.</p>
+                    
+</td>
+                
+</tr>
+                
+<tr>
+                    
+<td valign="top">
+                        
+<p>UPDATE</p>
+                    
+</td>
+                    <td valign="top">
+                        
+<p>Updates the record in the table. It does not check if the record exists.</p>
+                    
+</td>
+                
+</tr>
+                
+<tr>
+                    
+<td valign="top">
+                        
+<p>MUST_DELETE</p>
+                    
+</td>
+                    <td valign="top">
+                        
+<p>Deletes the record from the table. If the record does not exist in the table,
+an error will occur.</p>
+                    
+</td>
+                
+</tr>
+                
+<tr>
+                    
+<td valign="top">
+                        
+<p>DELETE</p>
+                    
+</td>
+                    <td valign="top">
+                        
+<p>Deletes the record from the table.</p>
+                    
+</td>
+                
+</tr>
+                
+<tr>
+                    
+<td valign="top">
+                        
+<p>NOTHING</p>
+                    
+</td>
+                    <td valign="top">
+                        
+<p>Leaves the record unchanged.</p>
+                    
+</td>
+                
+</tr>
+            
+</tbody>
+</table>
+        
+<p>Refer to the following example for the different modes:<br>
+Please assume you receive a file with articles (e.g. <em>PRICAT</em>). In the
+file, there is a field called <em>TYPE</em> that indicates what to do (create,
+delete, or modify the price). If you receive a modification, you only want to
+<strong>update </strong>the price.</p>
+        
+<p>The following mapping can be used:</p>
+        
+<pre>if IN:TYPE= "NEW"
+  COPY "INSERT" to OUT:BICSQLMODE ;
+
+  COPY IN:EAN TO OUT:EAN;
+  COPY IN:QTY TO OUT:QTY;
+  COPY IN:VAT TO OUT:VAT;
+  COPY IN:PRICE TO OUT:PRICE;
+  COPY IN:DESC TO OUT:DESC;
+  COPY IN:INTERNALCODE TO OUT:INTERNALCODE;
+
+endif
+
+if IN:TYPE= "DEL"
+ COPY "DELETE" to OUT:BICSQLMODE; 
+
+ COPY IN:EAN TO OUT:EAN;
+endif
+
+
+if IN:TYPE= "MODIFY_PRICE"
+  COPY "UPDATE" to OUT:BICSQLMODE;
+
+  // we only update the price
+
+  COPY IN:EAN TO OUT:EAN; 
+  COPY IN:PRICE TO OUT:PRICE;
+Endif
+
+// now force writing to the database
+flushSQLDestinationTables("OUT","on");</pre>
+        
+<p class="note">
+            
+<strong>Note:</strong>
+            
+<br>
+When applying <em>DELETE</em>, set the value of the primary key (in the
+example:<em> EAN</em>) to specify the record that has to be deleted. <br>
+When applying <em>UPDATE</em>, set the values of the primary key (<em>EAN</em>)
+and the fields that have to be updated (in the example: <em>PRICE</em>).</p>
+        
+<p>For the correct use of the different modes, you must understand the concept
+of primary key.</p>
+        
+<p class="warn">
+            
+<strong>Attention</strong>: Deleting and updating from the
+database is a dangerous activity, because a wrong mapping can delete valuable
+data from the tables. Therefore, BIC never deletes/updates more than one record
+simultaneously. This will prevent deletion of the complete table, if the primary
+key is not properly defined.</p>
+        
+</div>
+<div class="right">
+<a href="dsy29095-SEEDOC.html"><img src="resources/images/big_right.gif"></a>
+</div>
+</div>
+<div id="pageNumber">
+<div class="numberAndTitle">
+<span class="bottomTitle">Training BIC 6 Advanced</span><span class="count">51</span>
+</div>
+</div>
+</div>
+</body>
+</html>

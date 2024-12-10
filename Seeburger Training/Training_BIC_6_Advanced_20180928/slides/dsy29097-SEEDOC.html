@@ -1,0 +1,221 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html xmlns:fn="http://www.w3.org/2005/xpath-functions" xmlns:p="http://outerx.org/daisy/1.0#publisher" xmlns:i18n="http://apache.org/cocoon/i18n/2.1" xmlns:einclude="http://outerx.org/daisy/1.0#externalinclude" xmlns:d="http://outerx.org/daisy/1.0">
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<link href="resources/css/books.css" type="text/css" rel="stylesheet">
+<script src="resources/js/toggle.js" type="text/javascript"></script>
+</head>
+<body onLoad="appendToDiv();">
+<div class="all">
+<div class="top">
+<div class="chunkNavigation">
+<div class="topCut"></div>
+<div class="logoTitle">
+<span><img src="resources/images/see-logo.png"></span><span class="bookTitle">SQL Adapter</span>
+</div>
+<div class="navigation">
+<ul>
+<li class="first">
+<a href="dsy26232-SEEDOC.html">&nbsp;<img src="resources/images/small_left.gif">&nbsp;Previous&nbsp;</a>
+</li>
+<li class="middle">
+<a href="chunk1.html"><img src="resources/images/content.png">Table of Contents&nbsp;</a>
+</li>
+<li class="last">
+<a href="dsy26233-SEEDOC.html">&nbsp;Next&nbsp;<img src="resources/images/small_right.gif"></a>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="content">
+<div class="left">
+<a href="dsy26232-SEEDOC.html"><img src="resources/images/big_left.gif" class="centeredImage"></a>
+</div>
+<div class="center">
+<h2 xmlns:ns="http://outerx.org/daisy/1.0" daisyBranch="1" daisyDocument="29097-SEEDOC" daisyLanguage="2" id="dsy29097-SEEDOC">SQL Adapter - Tutorial 3</h2>
+        
+<table column-widths="30%;70%" nokeeptogether="true" print-column-widths="30%;70%" print-width="100%" width="100%" class="content">
+<col width="30%">
+<col width="70%">
+<tbody>
+                
+<tr>
+                    
+<th>
+                        
+<p>Instruction</p>
+                    
+</th>
+                    <th>
+                        
+<p>Illustration</p>
+                    
+</th>
+                
+</tr>
+                
+<tr>
+                    
+<td>
+                        
+<ol>
+                            
+<li>
+                                
+<p>Please import the VDA structure VDA4908_V03_STD from the classmaterial.</p>
+                            
+</li>
+                        
+</ol>
+                    
+</td>
+                    <td></td>
+                
+</tr>
+                
+<tr>
+                    
+<td>
+                        
+<ol start="2">
+                            
+<li>
+                                
+<p>Create a new mapping using the VDA structure VDA4908_V03_STD as source the
+SQL structure CN_MESSAGE as destination.</p>
+                            
+</li>
+                        
+</ol>
+                    
+</td>
+                    <td>
+                        
+<p align="center">
+                            
+<table class="plainTable" align="center">
+<tr>
+<td align="center"><a href="images/29104-SEEDOC_1_2_1.jpg"><img bookStorePath="/data/resources/29104-SEEDOC_1_2_1" daisy-caption="Create a new mapping" p:imageHeight="502" p:imageWidth="600" print-width="11cm" src="images/29104-SEEDOC_1_2_1.jpg" daisy-image-type="default" id="dsy_fig_25"></a></td>
+</tr>
+<tr>
+<td class="imageCaption" align="center">Create a new mapping</td>
+</tr>
+</table>
+                        
+</p>
+                    
+</td>
+                
+</tr>
+                
+<tr>
+                    
+<td>
+                        
+<ol start="3">
+                            
+<li>
+                                
+<p>Please create a mapping while just coping the fields from VDA to database.
+</p>
+                            
+</li>
+                        
+</ol>
+                        
+<p class="note">Hint: The H2 date format is MM/DD/CCYY and the VAT rate is a
+formatted amount with two decimals with a delimiter.</p>
+                    
+</td>
+                    <td>
+                        
+<p>
+                            
+<strong>Record 821</strong>
+                        
+</p>
+                        
+<pre>copy THIS:UEBERTR_NR_NEU to CN_HEADER:TRANS_NR;
+//H2 DB requires the date format MM/DD/CCYY
+copy formatDate(THIS:UEBERTR_DATUM,"YYMMDD", "MM/DD/CCYY")  to CN_HEADER:TRANS_DATE;
+copy THIS:UST_ID_EMPF    to CN_HEADER:VATID_RECEIVER;
+copy THIS:UST_ID_SENDER  to CN_HEADER:VATID_SENDER;
+copy THIS:STEUERNR       to CN_HEADER:FISCALNR;
+copy THIS:KUNDEN_NUMMER  to CN_HEADER:EDI_SENDER;
+copy THIS:LIEFERANTEN_NR to CN_HEADER:EDI_RECEIVER;
+//Set status (unread) for reading condition in the next exercises
+copy "U"                 to CN_HEADER:STATUS;</pre>
+                        
+<p>
+                            
+<strong>Record 822</strong>
+                        
+</p>
+                        
+<pre>copy THIS:SUM_UST_BETRAG  to CN_HEADER.CN_LINE:VAT_AMOUNT;
+copy THIS:SUM_GUT_ENDWERT to CN_HEADER.CN_LINE:GROSS_AMOUNT;
+copy THIS:GUTSCHRIFT_NR   to CN_HEADER.CN_LINE:CN_NR;</pre>
+                        
+<p>
+                            
+<strong>Record 824</strong>
+                        
+</p>
+                        
+<pre>//the VAT rate is a formated value at the incoming VDA
+overwrite format(THIS:UST_SATZ,"9900","99.00") to CN_HEADER.CN_LINE:VAT_RATE;</pre>
+                    
+</td>
+                
+</tr>
+                
+<tr>
+                    
+<td>
+                        
+<ol start="4">
+                            
+<li>
+                                
+<p>Test the mapping with the provided testfile.</p>
+                            
+</li>
+                            
+<li>
+                                
+<p>You can double check with the
+<a href="../classmaterial/SQLAdapter/map_VDA4908_V03_STD_TO_CN_MESSAGE.zip.bicmd">trainer
+solution</a>
+                                
+</p>
+                            
+</li>
+                        
+</ol>
+                        
+<p class="note">Hint: To check the values in the database, click on the tables
+in the H2 console and run the auto-generated SQL&nbsp; statement, e.g. SELECT * FROM
+CN_HEADER&ldquo;</p>
+                    
+</td>
+                    <td></td>
+                
+</tr>
+            
+</tbody>
+</table>
+        
+</div>
+<div class="right">
+<a href="dsy26233-SEEDOC.html"><img src="resources/images/big_right.gif"></a>
+</div>
+</div>
+<div id="pageNumber">
+<div class="numberAndTitle">
+<span class="bottomTitle">Training BIC 6 Advanced</span><span class="count">57</span>
+</div>
+</div>
+</div>
+</body>
+</html>

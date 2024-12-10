@@ -1,0 +1,223 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html xmlns:fn="http://www.w3.org/2005/xpath-functions" xmlns:p="http://outerx.org/daisy/1.0#publisher" xmlns:i18n="http://apache.org/cocoon/i18n/2.1" xmlns:einclude="http://outerx.org/daisy/1.0#externalinclude" xmlns:d="http://outerx.org/daisy/1.0">
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<link href="resources/css/books.css" type="text/css" rel="stylesheet">
+<script src="resources/js/toggle.js" type="text/javascript"></script>
+</head>
+<body onLoad="appendToDiv();">
+<div class="all">
+<div class="top">
+<div class="chunkNavigation">
+<div class="topCut"></div>
+<div class="logoTitle">
+<span><img src="resources/images/see-logo.png"></span><span class="bookTitle">XML Adapter</span>
+</div>
+<div class="navigation">
+<ul>
+<li class="first">
+<a href="dsy27227-SEEDOC.html">&nbsp;<img src="resources/images/small_left.gif">&nbsp;Previous&nbsp;</a>
+</li>
+<li class="middle">
+<a href="chunk1.html"><img src="resources/images/content.png">Table of Contents&nbsp;</a>
+</li>
+<li class="last">
+<a href="dsy24481-SEEDOC.html">&nbsp;Next&nbsp;<img src="resources/images/small_right.gif"></a>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="content">
+<div class="left">
+<a href="dsy27227-SEEDOC.html"><img src="resources/images/big_left.gif" class="centeredImage"></a>
+</div>
+<div class="center">
+<h3 xmlns:ns="http://outerx.org/daisy/1.0" daisyBranch="1" daisyDocument="27228-SEEDOC" daisyLanguage="2" id="dsy27228-SEEDOC">XML commands in Mapping Designer - 3</h3>
+        
+<table column-widths="20%;40%;40%" print-column-widths="20%;40%;40%" print-width="100%" width="100%" class="content">
+<col width="20%">
+<col width="40%">
+<col width="40%">
+<tbody>
+                
+<tr>
+                    
+<th>
+                        
+<p>Command</p>
+                    
+</th>
+                    <th>
+                        
+<p>Description</p>
+                    
+</th>
+                    <th>
+                        
+<p>Details for execution</p>
+                    
+</th>
+                
+</tr>
+                
+<tr>
+                    
+<td>
+                        
+<p>setXMLNamespace</p>
+                    
+</td>
+                    <td>
+                        
+<p>Extends the tag with the namespace of the prefix and the link.</p>
+                    
+</td>
+                    <td>
+                        
+<p>Should be set in "Destination options" (or in New Mapping)</p>
+                        
+<pre>setXMLNamespace("orders","xmlns:myns", 
+"httpx://www.myns.example/2001/test");</pre>
+                        
+<pre>&lt;orders xmlns:myns=
+"httpx://www.myns.example/2001/test"&gt;</pre>
+                    
+</td>
+                
+</tr>
+                
+<tr>
+                    
+<td>
+                        
+<p>exchangeDestinationNamespacePrefix</p>
+                    
+</td>
+                    <td>
+                        
+<p>Directs the converter to replace one namespace prefix in a destination XML
+message with another prefix. This applies to <strong>all</strong> XML tags
+having the prefix to be replaced.</p>
+                    
+</td>
+                    <td>
+                        
+<p>Should be set in "Destination options" (or in New Mapping)</p>
+                    
+</td>
+                
+</tr>
+                
+<tr>
+                    
+<td>
+                        
+<p id="dsy27228-SEEDOC_dsy3263-SEEDOC">setSelectiveReadOn</p>
+                    
+</td>
+                    <td>
+                        
+<p>This option can be used for performance optimization.</p>
+                        
+<p class="note">More details can be found in the fore more details section
+below.</p>
+                    
+</td>
+                    <td>
+                        
+<p>Can be set in the "Source options" of the xml message. Under option xml tree
+reading mode.</p>
+                    
+</td>
+                
+</tr>
+            
+</tbody>
+</table>
+        
+<h8 id="s18">For more details please refer to</h8>
+        
+<h8 daisyBranch="1" daisyDocument="3263-SEEDOC" daisyLanguage="2" id="dsy3263-SEEDOC">Option setSelectiveReadOn: XML Reader Performance Tuning</h8>
+        
+<p>The XML reader reads a whole record program tag, and all sub-tags, of the
+record program tag into the memory. With a record program on the root tag, the
+complete file will be written to memory. This will slow down the reading and
+eventually exhaust your memory.</p>
+        
+<p class="note">
+            
+<strong>Note</strong>: This behavior is only valid when reading
+<strong>XML </strong>message files.</p>
+        
+<p>In some cases, a record program on a root element might not be avoided.</p>
+        
+<p>Example:</p>
+        
+<pre>&lt;<strong>ROOT</strong> attrib="ImportantValue"&gt;
+   &lt;A&gt;Value1&lt;/A&gt;
+   &lt;<strong>B</strong>&gt;
+      &lt;C&gt;Value2&lt;/C&gt;
+      &lt;<strong>D</strong>&gt;Value3&lt;/D&gt;
+      &lt;E&gt;Value4&lt;/E&gt;
+   &lt;/B&gt;
+   &lt;F&gt;value5&lt;/F&gt;
+&lt;/ROOT&gt;</pre>
+        
+<p>(Record program are marked <strong>bold</strong> (<em>ROOT</em>, <em>B</em>
+and <em>D</em>). To read the attribute <em>attrib</em>, a record program must be
+configured on the <em>ROOT</em> element. In such cases it is possible to avoid
+the reading of complete sub tags of the record program into memory by using the
+following command:</p>
+        
+<pre>option SetSelectiveReadOn;</pre>
+        
+<p>This will lead to a different behavior of the system:<br>
+The XML reader will only read the current record program tag and the following
+tags up to the next record program tag - the reader will stop reading at the
+next record program. <br>
+If in this example the <em>B</em> tag occurs 1 million times, this will cause no
+performance problem, because when reading the root, the reader will only read
+the root tag and the <em>A</em> tag, because the reader stops reading here. When
+reading the <em>B </em>tag, it will always only be the current occurrence of
+<em>B</em>. Thus the memory load will only be about one millionth than without
+this option activated.</p>
+        
+<p class="note">
+            
+<strong>Note</strong>: If the option <em>SetSelectiveReadOn</em>
+is used, and a root record program is set, the complete XML sub tree is not
+read. <br>
+I.e. the missing elements also can not be accessed in the root record program.
+</p>
+        
+<p>In the above example, with <em>SetSelectiveReadOff</em> you can access tag
+<em>F</em> from the root record program <em>ROO<em>T.F</em>
+            </em>
+            <em>:value</em>
+            
+<br>
+If the option <em>SetSelectiveReadOn</em> is used, this will lead to an error
+because the tag <em>B</em> contains the next record program, and all further
+tags (incl. <em>B</em>) will not be read. Reading will stop at trigger
+<em>B</em>. The tag <em>F</em> does not contain a record program and will
+therefore not be evaluated at all.</p>
+        
+<p class="note">
+            
+<strong>Note</strong>: You can use this function only
+<strong>once </strong>per mapping.</p>
+        
+</div>
+<div class="right">
+<a href="dsy24481-SEEDOC.html"><img src="resources/images/big_right.gif"></a>
+</div>
+</div>
+<div id="pageNumber">
+<div class="numberAndTitle">
+<span class="bottomTitle">Training BIC 6 Advanced</span><span class="count">29</span>
+</div>
+</div>
+</div>
+</body>
+</html>
