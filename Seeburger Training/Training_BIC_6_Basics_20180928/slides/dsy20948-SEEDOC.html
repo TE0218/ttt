@@ -1,0 +1,133 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html xmlns:fn="http://www.w3.org/2005/xpath-functions" xmlns:p="http://outerx.org/daisy/1.0#publisher" xmlns:i18n="http://apache.org/cocoon/i18n/2.1" xmlns:einclude="http://outerx.org/daisy/1.0#externalinclude" xmlns:d="http://outerx.org/daisy/1.0">
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<link href="resources/css/books.css" type="text/css" rel="stylesheet">
+<script src="resources/js/toggle.js" type="text/javascript"></script>
+</head>
+<body onLoad="appendToDiv();">
+<div class="all">
+<div class="top">
+<div class="chunkNavigation">
+<div class="topCut"></div>
+<div class="logoTitle">
+<span><img src="resources/images/see-logo.png"></span><span class="bookTitle">BIC Architecture and Technology</span>
+</div>
+<div class="navigation">
+<ul>
+<li class="first">
+<a href="dsy20947-SEEDOC.html">&nbsp;<img src="resources/images/small_left.gif">&nbsp;Previous&nbsp;</a>
+</li>
+<li class="middle">
+<a href="chunk1.html"><img src="resources/images/content.png">Table of Contents&nbsp;</a>
+</li>
+<li class="last">
+<a href="dsy20946-SEEDOC.html">&nbsp;Next&nbsp;<img src="resources/images/small_right.gif"></a>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="content">
+<div class="left">
+<a href="dsy20947-SEEDOC.html"><img src="resources/images/big_left.gif" class="centeredImage"></a>
+</div>
+<div class="center">
+<h3 xmlns:ns="http://outerx.org/daisy/1.0" daisyBranch="1" daisyDocument="20948-SEEDOC" daisyLanguage="2" id="dsy20948-SEEDOC">Child Mappings</h3>
+        
+<ul>
+            
+<li>
+                
+<p>Child mappings are usual mappings but they are not called by a BIC component
+but by another mapping (= parent mapping).</p>
+            
+</li>
+            
+<li>
+                
+<p>During the execution the main mapping is suspended. The main mapping is
+resumed when the child mapping is finished. It is also possible to call another
+child mapping within a child mapping.</p>
+            
+</li>
+            
+<li>
+                
+<p>Compared to the multireader / multiwriter feature child mappings are easier
+to handle but also have some more constraints and limits because it is not
+possible to switch from one mapping to the other one and vice versa.</p>
+            
+</li>
+            
+<li>
+                
+<p>It is possible to transfer data between main and child mapping using the
+commands setInputValue / getInputValue or setOutputValue / getOutputValue.</p>
+            
+</li>
+        
+</ul>
+        
+<p>
+            
+<a href="images/20195-SEEDOC_1_2_6.jpg"><img bookStorePath="/data/resources/20195-SEEDOC_1_2_6" p:imageHeight="20" p:imageWidth="10" src="images/20195-SEEDOC_1_2_6.jpg"></a>
+        
+</p>
+        
+<p class="note">Will be handled in more detail in the Training BIC 6 Advanced.
+</p>
+        
+<h8 id="s14">For more details please refer to</h8>
+        
+<h8 daisyBranch="1" daisyDocument="3248-SEEDOC" daisyLanguage="2" id="dsy3248-SEEDOC">Usage of Child Mappings</h8>
+        
+<p>The second option of using multiple input and output files or streams is the
+usage of child mappings within the main mapping. In comparison to the set/switch
+doc reader/writer functionality, this implementation has some more constraints
+and limits because it is not possible to switch from one mapping to the other
+one and vice versa.</p>
+        
+<p>A child mapping is always executed when it is called. During this execution
+the main mapping is suspended. The main mapping is resumed when the child
+mapping is finished. It is also possible to call another child mapping within a
+child mapping.</p>
+        
+<p>All input and output parameters of a main mapping are also valid for all
+child mappings. So it is possible to transfer data between main and child
+mapping using the commands /  or
+/
+.</p>
+        
+<p>A child mapping is generally a normal mapping as usual and can be created and
+executed separately from the main mapping. Therefore the creation of such
+mappings is much easier than the work with multiple doc readers and writers.
+Each separate child mapping has its own source and destination message
+descriptions, all used addresses can be created in the mapping view using the
+drag&amp;drop method.</p>
+        
+<h10 id="s15">Related Commands</h10>
+        
+<ul>
+            
+<li>
+                
+<em>startChildMapping</em>
+            
+</li>
+        
+</ul>
+        
+</div>
+<div class="right">
+<a href="dsy20946-SEEDOC.html"><img src="resources/images/big_right.gif"></a>
+</div>
+</div>
+<div id="pageNumber">
+<div class="numberAndTitle">
+<span class="bottomTitle">Training BIC 6 Basics</span><span class="count">29</span>
+</div>
+</div>
+</div>
+</body>
+</html>

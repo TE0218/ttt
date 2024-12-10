@@ -1,0 +1,1530 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html xmlns:fn="http://www.w3.org/2005/xpath-functions" xmlns:p="http://outerx.org/daisy/1.0#publisher" xmlns:i18n="http://apache.org/cocoon/i18n/2.1" xmlns:einclude="http://outerx.org/daisy/1.0#externalinclude" xmlns:d="http://outerx.org/daisy/1.0">
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<link href="resources/css/books.css" type="text/css" rel="stylesheet">
+<script src="resources/js/toggle.js" type="text/javascript"></script>
+</head>
+<body onLoad="appendToDiv();">
+<div class="all">
+<div class="top">
+<div class="chunkNavigation">
+<div class="topCut"></div>
+<div class="logoTitle">
+<span><img src="resources/images/see-logo.png"></span><span class="bookTitle">ANSI X.12 Adapter</span>
+</div>
+<div class="navigation">
+<ul>
+<li class="first">
+<a href="dsy22747-SEEDOC.html">&nbsp;<img src="resources/images/small_left.gif">&nbsp;Previous&nbsp;</a>
+</li>
+<li class="middle">
+<a href="chunk1.html"><img src="resources/images/content.png">Table of Contents&nbsp;</a>
+</li>
+<li class="last">
+<a href="dsy22749-SEEDOC.html">&nbsp;Next&nbsp;<img src="resources/images/small_right.gif"></a>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="content">
+<div class="left">
+<a href="dsy22747-SEEDOC.html"><img src="resources/images/big_left.gif" class="centeredImage"></a>
+</div>
+<div class="center">
+<h2 xmlns:ns="http://outerx.org/daisy/1.0" daisyBranch="1" daisyDocument="22748-SEEDOC" daisyLanguage="2" id="dsy22748-SEEDOC">ANSI X.12 Exercise</h2>
+        
+<p>Create a mapping from ANSI X.12 to CSV (Baan) format. Follow the instructions
+of how to use the different record programs.</p>
+        
+<p>The
+<a href="../classmaterial/AnsiX12Adapter/ClassMaterial_BIC6Basics_BIC_ANSI_X12_Adapter.zip">class
+material</a> contains the required message structures and testfiles.</p>
+        
+<p class="note">After you have finished your mapping you can test it in the test
+environment. While having a look at the baan output file using the internal
+message editor it's necessary to set the element delimiter "|" in the properties
+of the message editor as well.</p>
+        
+<h7 id="s165">Record program ISA:</h7>
+        
+<p>Set the destination delimiter using
+<strong>setdestinationdelimiter("Element", |);</strong> alternatively you can
+set it in the destination options of your structure.</p>
+        
+<table column-widths="30%;30%;30%" print-column-widths="30%;30%;30%" print-width="90%" width="100%" class="content">
+<col width="30%">
+<col width="30%">
+<col width="30%">
+<tbody>
+                
+<tr>
+                    
+<th>
+                        
+<p>Source field / value / command</p>
+                    
+</th>
+                    <th>
+                        
+<p>Destination field</p>
+                    
+</th>
+                    <th>
+                        
+<p>Note</p>
+                    
+</th>
+                
+</tr>
+                
+<tr>
+                    
+<td>
+                        
+<p>current date (format = YYMMDD!)</p>
+                    
+</td>
+                    <td>
+                        
+<p>CurrentDate$</p>
+                    
+</td>
+                    <td>
+                        
+<p>has to be stored in a variable (will be used later on)</p>
+                    
+</td>
+                
+</tr>
+            
+</tbody>
+</table>
+        
+<p>
+            
+<a href="images/20195-SEEDOC_1_2_6.jpg"><img bookStorePath="/data/resources/20195-SEEDOC_1_2_6" p:imageHeight="20" p:imageWidth="10" src="images/20195-SEEDOC_1_2_6.jpg"></a>
+        
+</p>
+        
+<h7 id="s166">Record program ISA.GS:</h7>
+        
+<table column-widths="30%;30%;30%" print-column-widths="30%;30%;30%" print-width="90%" width="100%" class="content">
+<col width="30%">
+<col width="30%">
+<col width="30%">
+<tbody>
+                
+<tr>
+                    
+<th>
+                        
+<p>Source field / value / command</p>
+                    
+</th>
+                    <th>
+                        
+<p>Destination field</p>
+                    
+</th>
+                    <th>
+                        
+<p>Note</p>
+                    
+</th>
+                
+</tr>
+                
+<tr>
+                    
+<td>
+                        
+<p>keepsegment("GS")</p>
+                    
+</td>
+                    <td></td>
+                    <td>
+                        
+<p>Archive GS segment for future use.</p>
+                    
+</td>
+                
+</tr>
+            
+</tbody>
+</table>
+        
+<p>
+            
+<a href="images/20195-SEEDOC_1_2_6.jpg"><img bookStorePath="/data/resources/20195-SEEDOC_1_2_6" p:imageHeight="20" p:imageWidth="10" src="images/20195-SEEDOC_1_2_6.jpg"></a>
+        
+</p>
+        
+<h7 id="s167">Record program ISA.GS.ST.BEG:</h7>
+        
+<table column-widths="30%;30%;30%" print-column-widths="30%;30%;30%" print-width="90%" width="100%" class="content">
+<col width="30%">
+<col width="30%">
+<col width="30%">
+<tbody>
+                
+<tr>
+                    
+<th>
+                        
+<p>Source field / value / command</p>
+                    
+</th>
+                    <th>
+                        
+<p>Destination field</p>
+                    
+</th>
+                    <th>
+                        
+<p>Note</p>
+                    
+</th>
+                
+</tr>
+                
+<tr>
+                    
+<td>
+                        
+<p>ARCHIVE.GS:142</p>
+                    
+</td>
+                    <td>
+                        
+<p>BaanRelationID$</p>
+                    
+</td>
+                    <td>
+                        
+<p>using Archived segment and store it into variable</p>
+                    
+</td>
+                
+</tr>
+                
+<tr>
+                    
+<td>
+                        
+<p>getcounter()</p>
+                    
+</td>
+                    <td>
+                        
+<p>BANOCounter$</p>
+                    
+</td>
+                    <td>
+                        
+<p>store counter into variable</p>
+                    
+</td>
+                
+</tr>
+                
+<tr>
+                    
+<td>
+                        
+<p>BEG.324</p>
+                    
+</td>
+                    <td>
+                        
+<p>BEG_324$</p>
+                    
+</td>
+                    <td>
+                        
+<p>store into variable for later use</p>
+                    
+</td>
+                
+</tr>
+                
+<tr>
+                    
+<td>
+                        
+<p>BEG.373</p>
+                    
+</td>
+                    <td>
+                        
+<p>BEG_373$</p>
+                    
+</td>
+                    <td>
+                        
+<p>store into variable for later use</p>
+                    
+</td>
+                
+</tr>
+                
+<tr>
+                    
+<td>
+                        
+<p>CurrentDate$ &amp; BANOCounter$</p>
+                    
+</td>
+                    <td>
+                        
+<p>ENV:MESSAGE_REFERENCE</p>
+                    
+</td>
+                    <td>
+                        
+<p>combine stored variables</p>
+                    
+</td>
+                
+</tr>
+                
+<tr>
+                    
+<td>
+                        
+<p>BaanRelationID$</p>
+                    
+</td>
+                    <td>
+                        
+<p>ENV:RELATION</p>
+                    
+</td>
+                    <td>
+                        
+<p>copy stored variable to destination</p>
+                    
+</td>
+                
+</tr>
+                
+<tr>
+                    
+<td>
+                        
+<p>BEG_324$</p>
+                    
+</td>
+                    <td>
+                        
+<p>ENV:ORDER_REFERENCE</p>
+                    
+</td>
+                    <td>
+                        
+<p>copy stored variable to destination</p>
+                    
+</td>
+                
+</tr>
+                
+<tr>
+                    
+<td>
+                        
+<p>"FFX"</p>
+                    
+</td>
+                    <td>
+                        
+<p>ENV:ORGANIZATION</p>
+                    
+</td>
+                    <td></td>
+                
+</tr>
+                
+<tr>
+                    
+<td>
+                        
+<p>"850INS"</p>
+                    
+</td>
+                    <td>
+                        
+<p>ENV:EDI_MESSAGE</p>
+                    
+</td>
+                    <td></td>
+                
+</tr>
+                
+<tr>
+                    
+<td>
+                        
+<p>BEG.92</p>
+                    
+</td>
+                    <td>
+                        
+<p>ENV:ORDER_TYPE</p>
+                    
+</td>
+                    <td></td>
+                
+</tr>
+                
+<tr>
+                    
+<td>
+                        
+<p>ARCHIVE.GS:373</p>
+                    
+</td>
+                    <td>
+                        
+<p>ENV:DATE_SENT</p>
+                    
+</td>
+                    <td>
+                        
+<p>using Archived segment</p>
+                    
+</td>
+                
+</tr>
+                
+<tr>
+                    
+<td>
+                        
+<p>ARCHIVE.GS:337</p>
+                    
+</td>
+                    <td>
+                        
+<p>ENV:TIME_SENT</p>
+                    
+</td>
+                    <td>
+                        
+<p>using Archived segment</p>
+                    
+</td>
+                
+</tr>
+                
+<tr>
+                    
+<td></td>
+                    <td></td>
+                    <td></td>
+                
+</tr>
+                
+<tr>
+                    
+<td>
+                        
+<p>CurrentDate$ &amp; BANOCounter$</p>
+                    
+</td>
+                    <td>
+                        
+<p>ENV.HDR:MESSAGE_REFERENCE</p>
+                    
+</td>
+                    <td>
+                        
+<p>combine stored variables</p>
+                    
+</td>
+                
+</tr>
+                
+<tr>
+                    
+<td>
+                        
+<p>BaanRelationID$</p>
+                    
+</td>
+                    <td>
+                        
+<p>ENV.HDR:CUSTOMER</p>
+                    
+</td>
+                    <td>
+                        
+<p>copy stored variable to destination</p>
+                    
+</td>
+                
+</tr>
+                
+<tr>
+                    
+<td>
+                        
+<p>BEG_324$</p>
+                    
+</td>
+                    <td>
+                        
+<p>ENV.HDR:CUSTOMER_PURCHASE_ORDER</p>
+                    
+</td>
+                    <td>
+                        
+<p>copy stored variable to destination</p>
+                    
+</td>
+                
+</tr>
+                
+<tr>
+                    
+<td>
+                        
+<p>BEG.373</p>
+                    
+</td>
+                    <td>
+                        
+<p>ENV.HDR:ORDER_DATE</p>
+                    
+</td>
+                    <td></td>
+                
+</tr>
+                
+<tr>
+                    
+<td>
+                        
+<p>BEG.373</p>
+                    
+</td>
+                    <td>
+                        
+<p>ENV.HDR:PLAN_DELIVERY_DATE</p>
+                    
+</td>
+                    <td></td>
+                
+</tr>
+                
+<tr>
+                    
+<td>
+                        
+<p>BEG.373</p>
+                    
+</td>
+                    <td>
+                        
+<p>ENV.HDR:PLAN_RECEIPT_DATE</p>
+                    
+</td>
+                    <td></td>
+                
+</tr>
+                
+<tr>
+                    
+<td>
+                        
+<p>"CC"</p>
+                    
+</td>
+                    <td>
+                        
+<p>ENV.HDR:TERMS_OF_DELIVERY</p>
+                    
+</td>
+                    <td></td>
+                
+</tr>
+                
+<tr>
+                    
+<td>
+                        
+<p>"COM"</p>
+                    
+</td>
+                    <td>
+                        
+<p>ENV.HDR:FORWARDING_AGENT</p>
+                    
+</td>
+                    <td></td>
+                
+</tr>
+                
+<tr>
+                    
+<td>
+                        
+<p>"USD"</p>
+                    
+</td>
+                    <td>
+                        
+<p>ENV.HDR:CURRENCY</p>
+                    
+</td>
+                    <td></td>
+                
+</tr>
+                
+<tr>
+                    
+<td>
+                        
+<p>"USA"</p>
+                    
+</td>
+                    <td>
+                        
+<p>ENV.HDR:COUNTRY</p>
+                    
+</td>
+                    <td></td>
+                
+</tr>
+                
+<tr>
+                    
+<td>
+                        
+<p>"PAC"</p>
+                    
+</td>
+                    <td>
+                        
+<p>ENV.HDR:SALES_PRICE_LIST</p>
+                    
+</td>
+                    <td></td>
+                
+</tr>
+                
+<tr>
+                    
+<td></td>
+                    <td></td>
+                    <td></td>
+                
+</tr>
+                
+<tr>
+                    
+<td>
+                        
+<p>CurrentDate$ &amp; BANOCounter$</p>
+                    
+</td>
+                    <td>
+                        
+<p>ENV.HAD:MESSAGE_REFERENCE</p>
+                    
+</td>
+                    <td>
+                        
+<p>copy stored variable to destination</p>
+                    
+</td>
+                
+</tr>
+                
+<tr>
+                    
+<td>
+                        
+<p>BaanRelationID$</p>
+                    
+</td>
+                    <td>
+                        
+<p>ENV.HAD:CUSTOMER</p>
+                    
+</td>
+                    <td>
+                        
+<p>copy stored variable to destination</p>
+                    
+</td>
+                
+</tr>
+                
+<tr>
+                    
+<td>
+                        
+<p>BEG_324$</p>
+                    
+</td>
+                    <td>
+                        
+<p>ENV.HAD:CUSTOMER_PO</p>
+                    
+</td>
+                    <td>
+                        
+<p>copy stored variable to destination</p>
+                    
+</td>
+                
+</tr>
+            
+</tbody>
+</table>
+        
+<p>
+            
+<a href="images/20195-SEEDOC_1_2_6.jpg"><img bookStorePath="/data/resources/20195-SEEDOC_1_2_6" p:imageHeight="20" p:imageWidth="10" src="images/20195-SEEDOC_1_2_6.jpg"></a>
+        
+</p>
+        
+<h7 id="s168">Record program ISA.GS.ST.PER:</h7>
+        
+<table column-widths="30%;30%;30%" print-column-widths="30%;30%;30%" print-width="90%" width="100%" class="content">
+<col width="30%">
+<col width="30%">
+<col width="30%">
+<tbody>
+                
+<tr>
+                    
+<th>
+                        
+<p>Source field / value / command</p>
+                    
+</th>
+                    <th>
+                        
+<p>Destination field</p>
+                    
+</th>
+                    <th>
+                        
+<p>Note</p>
+                    
+</th>
+                
+</tr>
+                
+<tr>
+                    
+<td>
+                        
+<p>PER.93</p>
+                    
+</td>
+                    <td>
+                        
+<p>ENV.HDR:REFERENCE_B</p>
+                    
+</td>
+                    <td></td>
+                
+</tr>
+            
+</tbody>
+</table>
+        
+<p>
+            
+<a href="images/20195-SEEDOC_1_2_6.jpg"><img bookStorePath="/data/resources/20195-SEEDOC_1_2_6" p:imageHeight="20" p:imageWidth="10" src="images/20195-SEEDOC_1_2_6.jpg"></a>
+        
+</p>
+        
+<h7 id="s169">Record program ISA.GS.ST.ITD:</h7>
+        
+<table column-widths="30%;30%;30%" print-column-widths="30%;30%;30%" print-width="90%" width="100%" class="content">
+<col width="30%">
+<col width="30%">
+<col width="30%">
+<tbody>
+                
+<tr>
+                    
+<th>
+                        
+<p>Source field / value / command</p>
+                    
+</th>
+                    <th>
+                        
+<p>Destination field</p>
+                    
+</th>
+                    <th>
+                        
+<p>Note</p>
+                    
+</th>
+                
+</tr>
+                
+<tr>
+                    
+<td>
+                        
+<p>"1" (where 333 = "3")</p>
+                    
+</td>
+                    <td>
+                        
+<p>ENV.HDR:TERMS_OF_PAYMENT</p>
+                    
+</td>
+                    <td></td>
+                
+</tr>
+            
+</tbody>
+</table>
+        
+<p>
+            
+<a href="images/20195-SEEDOC_1_2_6.jpg"><img bookStorePath="/data/resources/20195-SEEDOC_1_2_6" p:imageHeight="20" p:imageWidth="10" src="images/20195-SEEDOC_1_2_6.jpg"></a>
+        
+</p>
+        
+<h7 id="s170">Record program ISA.GS.ST.TD5:</h7>
+        
+<table column-widths="30%;30%;30%" print-column-widths="30%;30%;30%" print-width="90%" width="100%" class="content">
+<col width="30%">
+<col width="30%">
+<col width="30%">
+<tbody>
+                
+<tr>
+                    
+<th>
+                        
+<p>Source field / value / command</p>
+                    
+</th>
+                    <th>
+                        
+<p>Destination field</p>
+                    
+</th>
+                    <th>
+                        
+<p>Note</p>
+                    
+</th>
+                
+</tr>
+                
+<tr>
+                    
+<td>
+                        
+<p>CurrentDate$ &amp; BANOCounter$</p>
+                    
+</td>
+                    <td>
+                        
+<p>ENV.HTX:MESSAGE_REFERENCE</p>
+                    
+</td>
+                    <td>
+                        
+<p>copy stored variable to destination</p>
+                    
+</td>
+                
+</tr>
+                
+<tr>
+                    
+<td>
+                        
+<p>BaanRelationID$</p>
+                    
+</td>
+                    <td>
+                        
+<p>ENV.HTX:CUSTOMER</p>
+                    
+</td>
+                    <td>
+                        
+<p>copy stored variable to destination</p>
+                    
+</td>
+                
+</tr>
+                
+<tr>
+                    
+<td>
+                        
+<p>BEG_324$</p>
+                    
+</td>
+                    <td>
+                        
+<p>ENV.HTX:CUSTOMER_PO</p>
+                    
+</td>
+                    <td>
+                        
+<p>copy stored variable to destination</p>
+                    
+</td>
+                
+</tr>
+                
+<tr>
+                    
+<td>
+                        
+<p>"CARRIER DETAILS:"</p>
+                    
+</td>
+                    <td>
+                        
+<p>ENV.HTX:HEADER_TEXT_1</p>
+                    
+</td>
+                    <td></td>
+                
+</tr>
+                
+<tr>
+                    
+<td>
+                        
+<p>TD5.387</p>
+                    
+</td>
+                    <td>
+                        
+<p>ENV.HTX:HEADER_TEXT_2</p>
+                    
+</td>
+                    <td></td>
+                
+</tr>
+            
+</tbody>
+</table>
+        
+<p>
+            
+<a href="images/20195-SEEDOC_1_2_6.jpg"><img bookStorePath="/data/resources/20195-SEEDOC_1_2_6" p:imageHeight="20" p:imageWidth="10" src="images/20195-SEEDOC_1_2_6.jpg"></a>
+        
+</p>
+        
+<h7 id="s171">Record program ISA.GS.ST.N1.N1:</h7>
+        
+<table column-widths="30%;30%;30%" print-column-widths="30%;30%;30%" print-width="90%" width="100%" class="content">
+<col width="30%">
+<col width="30%">
+<col width="30%">
+<tbody>
+                
+<tr>
+                    
+<th>
+                        
+<p>Source field / value / command</p>
+                    
+</th>
+                    <th>
+                        
+<p>Destination field</p>
+                    
+</th>
+                    <th>
+                        
+<p>Note</p>
+                    
+</th>
+                
+</tr>
+                
+<tr>
+                    
+<td>
+                        
+<p>N1.67 (where 98 ="ST")</p>
+                    
+</td>
+                    <td>
+                        
+<p>ENV.HAD:DELIVERY_ADDRESS</p>
+                    
+</td>
+                    <td>
+                        
+<p>use select case for the next commands</p>
+                    
+</td>
+                
+</tr>
+                
+<tr>
+                    
+<td></td>
+                    <td></td>
+                    <td></td>
+                
+</tr>
+                
+<tr>
+                    
+<td>
+                        
+<p>"WAREHOUSE:" (where 98 ="WH")</p>
+                    
+</td>
+                    <td>
+                        
+<p>ENV.HTX:HEADER_TEXT_1</p>
+                    
+</td>
+                    <td></td>
+                
+</tr>
+                
+<tr>
+                    
+<td>
+                        
+<p>CurrentDate$ &amp; BANOCounter$ (where 98 ="WH")</p>
+                    
+</td>
+                    <td>
+                        
+<p>ENV.HTX:MESSAGE_REFERENCE</p>
+                    
+</td>
+                    <td></td>
+                
+</tr>
+                
+<tr>
+                    
+<td>
+                        
+<p>BaanRelationID$ (where 98 ="WH")</p>
+                    
+</td>
+                    <td>
+                        
+<p>ENV.HTX:CUSTOMER</p>
+                    
+</td>
+                    <td>
+                        
+<p>copy stored variable to destination</p>
+                    
+</td>
+                
+</tr>
+                
+<tr>
+                    
+<td>
+                        
+<p>BEG_324$ (where 98 ="WH")</p>
+                    
+</td>
+                    <td>
+                        
+<p>ENV.HTX:CUSTOMER_PO</p>
+                    
+</td>
+                    <td>
+                        
+<p>copy stored variable to destination</p>
+                    
+</td>
+                
+</tr>
+                
+<tr>
+                    
+<td>
+                        
+<p>N1.67 (where 98 ="WH")</p>
+                    
+</td>
+                    <td>
+                        
+<p>ENV.HTX:HEADER_TEXT_2</p>
+                    
+</td>
+                    <td></td>
+                
+</tr>
+            
+</tbody>
+</table>
+        
+<p>
+            
+<a href="images/20195-SEEDOC_1_2_6.jpg"><img bookStorePath="/data/resources/20195-SEEDOC_1_2_6" p:imageHeight="20" p:imageWidth="10" src="images/20195-SEEDOC_1_2_6.jpg"></a>
+        
+</p>
+        
+<h7 id="s172">Record program ISA.GS.ST.N1.N1.TD4:</h7>
+        
+<table column-widths="30%;30%;30%" print-column-widths="30%;30%;30%" print-width="90%" width="100%" class="content">
+<col width="30%">
+<col width="30%">
+<col width="30%">
+<tbody>
+                
+<tr>
+                    
+<th>
+                        
+<p>Source field / value / command</p>
+                    
+</th>
+                    <th>
+                        
+<p>Destination field</p>
+                    
+</th>
+                    <th>
+                        
+<p>Note</p>
+                    
+</th>
+                
+</tr>
+                
+<tr>
+                    
+<td>
+                        
+<p>CurrentDate$ &amp; BANOCounter$</p>
+                    
+</td>
+                    <td>
+                        
+<p>ENV.HTX:MESSAGE_REFERENCE</p>
+                    
+</td>
+                    <td>
+                        
+<p>copy stored variable to destination</p>
+                    
+</td>
+                
+</tr>
+                
+<tr>
+                    
+<td>
+                        
+<p>BaanRelationID$</p>
+                    
+</td>
+                    <td>
+                        
+<p>ENV.HTX:CUSTOMER</p>
+                    
+</td>
+                    <td>
+                        
+<p>copy stored variable to destination</p>
+                    
+</td>
+                
+</tr>
+                
+<tr>
+                    
+<td>
+                        
+<p>BEG_324$</p>
+                    
+</td>
+                    <td>
+                        
+<p>ENV.HTX:CUSTOMER_PO</p>
+                    
+</td>
+                    <td>
+                        
+<p>copy stored variable to destination</p>
+                    
+</td>
+                
+</tr>
+                
+<tr>
+                    
+<td>
+                        
+<p>"ADDITIONAL SHIP INFO:"</p>
+                    
+</td>
+                    <td>
+                        
+<p>ENV.HTX:HEADER_TEXT_1</p>
+                    
+</td>
+                    <td></td>
+                
+</tr>
+                
+<tr>
+                    
+<td>
+                        
+<p>TD4.352</p>
+                    
+</td>
+                    <td>
+                        
+<p>ENV.HTX:HEADER_TEXT_2</p>
+                    
+</td>
+                    <td></td>
+                
+</tr>
+            
+</tbody>
+</table>
+        
+<p>
+            
+<a href="images/20195-SEEDOC_1_2_6.jpg"><img bookStorePath="/data/resources/20195-SEEDOC_1_2_6" p:imageHeight="20" p:imageWidth="10" src="images/20195-SEEDOC_1_2_6.jpg"></a>
+        
+</p>
+        
+<h7 id="s173">Record program ISA.GS.ST.PO1.PO1:</h7>
+        
+<table column-widths="30%;30%;30%" print-column-widths="30%;30%;30%" print-width="90%" width="100%" class="content">
+<col width="30%">
+<col width="30%">
+<col width="30%">
+<tbody>
+                
+<tr>
+                    
+<th>
+                        
+<p>Source field / value / command</p>
+                    
+</th>
+                    <th>
+                        
+<p>Destination field</p>
+                    
+</th>
+                    <th>
+                        
+<p>Note</p>
+                    
+</th>
+                
+</tr>
+                
+<tr>
+                    
+<td>
+                        
+<p>CurrentDate$ &amp; BANOCounter$</p>
+                    
+</td>
+                    <td>
+                        
+<p>ENV.LIN:MESSAGE_REFERENCE</p>
+                    
+</td>
+                    <td>
+                        
+<p>copy stored variable to destination</p>
+                    
+</td>
+                
+</tr>
+                
+<tr>
+                    
+<td>
+                        
+<p>BaanRelationID$</p>
+                    
+</td>
+                    <td>
+                        
+<p>ENV.LIN:CUSTOMER</p>
+                    
+</td>
+                    <td>
+                        
+<p>copy stored variable to destination</p>
+                    
+</td>
+                
+</tr>
+                
+<tr>
+                    
+<td>
+                        
+<p>BEG_324$</p>
+                    
+</td>
+                    <td>
+                        
+<p>ENV.LIN:CUSTOMER_PURCHASE_ORDER</p>
+                    
+</td>
+                    <td>
+                        
+<p>copy stored variable to destination</p>
+                    
+</td>
+                
+</tr>
+                
+<tr>
+                    
+<td>
+                        
+<p>PO1.350</p>
+                    
+</td>
+                    <td>
+                        
+<p>ENV.LIN:CUSTOMER_PURCHASE_ORDER_LINE</p>
+                    
+</td>
+                    <td></td>
+                
+</tr>
+                
+<tr>
+                    
+<td>
+                        
+<p>PO1.355</p>
+                    
+</td>
+                    <td>
+                        
+<p>ENV.LIN:SALES_UOM</p>
+                    
+</td>
+                    <td></td>
+                
+</tr>
+                
+<tr>
+                    
+<td>
+                        
+<p>PO1.212</p>
+                    
+</td>
+                    <td>
+                        
+<p>ENV.LIN:PRICE</p>
+                    
+</td>
+                    <td></td>
+                
+</tr>
+                
+<tr>
+                    
+<td>
+                        
+<p>PO1.355</p>
+                    
+</td>
+                    <td>
+                        
+<p>ENV.LIN:SALE_PRICE_UOM</p>
+                    
+</td>
+                    <td></td>
+                
+</tr>
+                
+<tr>
+                    
+<td></td>
+                    <td></td>
+                    <td></td>
+                
+</tr>
+                
+<tr>
+                    
+<td>
+                        
+<p>PO1.234 (where 235 ="BP")</p>
+                    
+</td>
+                    <td>
+                        
+<p>ENV.LIN:ITEM</p>
+                    
+</td>
+                    <td></td>
+                
+</tr>
+                
+<tr>
+                    
+<td>
+                        
+<p>PO1.234#2 (235#2 ="BP")</p>
+                    
+</td>
+                    <td>
+                        
+<p>ENV.LIN:ITEM</p>
+                    
+</td>
+                    <td></td>
+                
+</tr>
+            
+</tbody>
+</table>
+        
+<p>
+            
+<a href="images/20195-SEEDOC_1_2_6.jpg"><img bookStorePath="/data/resources/20195-SEEDOC_1_2_6" p:imageHeight="20" p:imageWidth="10" src="images/20195-SEEDOC_1_2_6.jpg"></a>
+        
+</p>
+        
+<h7 id="s174">Record program ISA.GS.ST.PO1.PO1.SCH.SCH:</h7>
+        
+<table column-widths="30%;30%;30%" print-column-widths="30%;30%;30%" print-width="90%" width="100%" class="content">
+<col width="30%">
+<col width="30%">
+<col width="30%">
+<tbody>
+                
+<tr>
+                    
+<th>
+                        
+<p>Source field / value / command</p>
+                    
+</th>
+                    <th>
+                        
+<p>Destination field</p>
+                    
+</th>
+                    <th>
+                        
+<p>Note</p>
+                    
+</th>
+                
+</tr>
+                
+<tr>
+                    
+<td>
+                        
+<p>SCH.380</p>
+                    
+</td>
+                    <td>
+                        
+<p>ENV.LIN:ORDERED_QUANTITY</p>
+                    
+</td>
+                    <td></td>
+                
+</tr>
+                
+<tr>
+                    
+<td>
+                        
+<p>BEG_373$</p>
+                    
+</td>
+                    <td>
+                        
+<p>ENV.LIN:ORDER_DATE</p>
+                    
+</td>
+                    <td>
+                        
+<p>copy stored variable to destination</p>
+                    
+</td>
+                
+</tr>
+                
+<tr>
+                    
+<td></td>
+                    <td></td>
+                    <td></td>
+                
+</tr>
+                
+<tr>
+                    
+<td>
+                        
+<p>SCH.373 (where 374="010")</p>
+                    
+</td>
+                    <td>
+                        
+<p>ENV.LIN:PLANED_DELIVERY_DATE</p>
+                    
+</td>
+                    <td></td>
+                
+</tr>
+                
+<tr>
+                    
+<td>
+                        
+<p>SCH.373 (where 374="010")</p>
+                    
+</td>
+                    <td>
+                        
+<p>ENV.LIN:PLANED_RECEIPT_DATE</p>
+                    
+</td>
+                    <td></td>
+                
+</tr>
+            
+</tbody>
+</table>
+        
+</div>
+<div class="right">
+<a href="dsy22749-SEEDOC.html"><img src="resources/images/big_right.gif"></a>
+</div>
+</div>
+<div id="pageNumber">
+<div class="numberAndTitle">
+<span class="bottomTitle">Training BIC 6 Basics</span><span class="count">146</span>
+</div>
+</div>
+</div>
+</body>
+</html>

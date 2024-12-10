@@ -1,0 +1,188 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html xmlns:fn="http://www.w3.org/2005/xpath-functions" xmlns:p="http://outerx.org/daisy/1.0#publisher" xmlns:i18n="http://apache.org/cocoon/i18n/2.1" xmlns:einclude="http://outerx.org/daisy/1.0#externalinclude" xmlns:d="http://outerx.org/daisy/1.0">
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<link href="resources/css/books.css" type="text/css" rel="stylesheet">
+<script src="resources/js/toggle.js" type="text/javascript"></script>
+</head>
+<body onLoad="appendToDiv();">
+<div class="all">
+<div class="top">
+<div class="chunkNavigation">
+<div class="topCut"></div>
+<div class="logoTitle">
+<span><img src="resources/images/see-logo.png"></span><span class="bookTitle">How to Operate BIC Mapping Designer</span>
+</div>
+<div class="navigation">
+<ul>
+<li class="first">
+<a href="dsy20478-SEEDOC.html">&nbsp;<img src="resources/images/small_left.gif">&nbsp;Previous&nbsp;</a>
+</li>
+<li class="middle">
+<a href="chunk1.html"><img src="resources/images/content.png">Table of Contents&nbsp;</a>
+</li>
+<li class="last">
+<a href="dsy26261-SEEDOC.html">&nbsp;Next&nbsp;<img src="resources/images/small_right.gif"></a>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="content">
+<div class="left">
+<a href="dsy20478-SEEDOC.html"><img src="resources/images/big_left.gif" class="centeredImage"></a>
+</div>
+<div class="center">
+<h3 xmlns:ns="http://outerx.org/daisy/1.0" daisyBranch="1" daisyDocument="26262-SEEDOC" daisyLanguage="2" id="dsy26262-SEEDOC">BIC MD GUI - Message Editor</h3>
+        
+<table class="borderless" column-widths="50%;50%" print-column-widths="50%;50%" print-width="100%" width="100%">
+<col width="50%">
+<col width="50%">
+<tbody>
+                
+<tr>
+                    
+<td>
+                        
+<ul>
+                            
+<li>
+                                
+<p>Message Editor can be used to visualize and edit message data</p>
+                            
+</li>
+                            
+<li>During mapping creation you can also use the message editor to validate your
+created output data.</li>
+                            
+<li>
+                                
+<p>Message Editor can be started by a right-click on a message structure or
+inside the test environment.</p>
+                            
+</li>
+                            
+<li>
+                                
+<p>After selection of the message format a file have to be picked up from the
+file system.</p>
+                            
+</li>
+                        
+</ul>
+                        
+<p class="note">The benefit of the message editor is that you always have pairs
+with <strong>field = value</strong> and therefor don't need to count characters
+to reach the right position within a file.</p>
+                    
+</td>
+                    <td>
+                        
+<p align="center">
+                            
+<a href="images/15916-SEEDOC_1_2_1.jpg"><img bookStorePath="/data/resources/15916-SEEDOC_1_2_1" p:imageHeight="469" p:imageWidth="427" print-width="8cm" src="images/15916-SEEDOC_1_2_1.jpg" width="350"></a>
+                        
+</p>
+                    
+</td>
+                
+</tr>
+            
+</tbody>
+</table>
+        
+<h8 id="s25">For more details please refer to</h8>
+        
+<h8 daisyBranch="1" daisyDocument="6879-SEEDOC" daisyLanguage="2" id="dsy6879-SEEDOC">Message Editor</h8>
+        
+<h9 id="s26">Introduction</h9>
+        
+<p>The <em>Message Editor</em> allows it to visualize and to edit the structure
+of message (-data). The terms <em>message</em> and <em>message format</em> must
+be separated from each other; one of the main features of the BIC Mapping
+Designer is to show and to modify the structure of a valid message format, but
+the <em>Message Editor</em> is especially tailored to treat finally the messages
+which have to fit to those message formats.</p>
+        
+<p>Aside from visualization, the possibility to modify or create a message is
+the main benefit of the <em>Message Editor</em>. Every change is checked against
+the corresponding message format so that only valid messages may be assembled.
+</p>
+        
+<h9 id="dsy6879-SEEDOC_StartMessageEditor">Start</h9>
+        
+<p align="left">The <em>Message Editor</em> can be called through a right click
+on a <em>message format </em>node. This will open the context menu, where the
+entry <em>Open message editor</em> should be selected.</p>
+        
+<p align="center">
+            
+<table class="plainTable" align="center">
+<tr>
+<td align="center"><a href="images/10040-SEEDOC_1_2_1.png"><img bookStorePath="/data/resources/10040-SEEDOC_1_2_1" daisy-caption="BIC Mapping Designer" p:imageHeight="592" p:imageWidth="668" print-width="17cm" src="images/10040-SEEDOC_1_2_1.png" daisy-image-type="default" id="dsy_fig_19"></a></td>
+</tr>
+<tr>
+<td class="imageCaption" align="center">BIC Mapping Designer</td>
+</tr>
+</table>
+        
+</p>
+        
+<p>This will open a <em>File chooser</em>, which allows to select a message
+anywhere in the file system. A message and a message format are necessary
+together to start the<em> Message Editor</em>.</p>
+        
+<p>A <em>Configuration </em>dialog is opened after the <em>File chooser,</em>
+in the most cases, you only&nbsp;have to confirm the preselected standard assumptions
+in it. Detailed settings can be made in regard to how messages are read into the
+memory and written out onto the file system. Please refer to the section
+.</p>
+        
+<p>The second possibility to start the <em>Message Editor</em> is through a
+selected mapping in the <em>Test Environment</em>. Input-, output- and reference
+files are messages, and have fit to the source and destination message format of
+this mapping. The right outer button besides each text field containing the
+message file name and path on the file system allows here further the
+.</p>
+        
+<p align="center">
+            
+<table class="plainTable" align="center">
+<tr>
+<td align="center"><a href="images/12511-SEEDOC_1_2_1.png"><img bookStorePath="/data/resources/12511-SEEDOC_1_2_1" daisy-caption="Test environment" p:imageHeight="746" p:imageWidth="1032" print-width="17cm" src="images/12511-SEEDOC_1_2_1.png" daisy-image-type="default" id="dsy_fig_20"></a></td>
+</tr>
+<tr>
+<td class="imageCaption" align="center">Test environment</td>
+</tr>
+</table>
+        
+</p>
+        
+<p align="left">All buttons to open the message (files) can be configured so
+that favorite editors are associated with them. Usually the <em>Message
+Editor</em> will be opened with the second button - right of the file browser -
+and the third button (for an alternative editor) is associated with a more
+simple editor, e. g. <em>Notepad</em>, to enable also a quick view on the plain
+file. The link between the buttons and the editors can be configured through the
+<em>editors preference page</em>.</p>
+        
+<h9 id="s27">Operating</h9>
+        
+<p align="left">Nearly all operations which can be done with the <em>Message
+Editor</em> are started through a right-click on a <em>tree</em> node so that
+the context menu opens. For details please refer to the topic
+.</p>
+        
+</div>
+<div class="right">
+<a href="dsy26261-SEEDOC.html"><img src="resources/images/big_right.gif"></a>
+</div>
+</div>
+<div id="pageNumber">
+<div class="numberAndTitle">
+<span class="bottomTitle">Training BIC 6 Basics</span><span class="count">45</span>
+</div>
+</div>
+</div>
+</body>
+</html>

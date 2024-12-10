@@ -1,0 +1,263 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html xmlns:fn="http://www.w3.org/2005/xpath-functions" xmlns:p="http://outerx.org/daisy/1.0#publisher" xmlns:i18n="http://apache.org/cocoon/i18n/2.1" xmlns:einclude="http://outerx.org/daisy/1.0#externalinclude" xmlns:d="http://outerx.org/daisy/1.0">
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<link href="resources/css/books.css" type="text/css" rel="stylesheet">
+<script src="resources/js/toggle.js" type="text/javascript"></script>
+</head>
+<body onLoad="appendToDiv();">
+<div class="all">
+<div class="top">
+<div class="chunkNavigation">
+<div class="topCut"></div>
+<div class="logoTitle">
+<span><img src="resources/images/see-logo.png"></span><span class="bookTitle">Command Reference and Sample Coding</span>
+</div>
+<div class="navigation">
+<ul>
+<li class="first">
+<a href="dsy20434-SEEDOC.html">&nbsp;<img src="resources/images/small_left.gif">&nbsp;Previous&nbsp;</a>
+</li>
+<li class="middle">
+<a href="chunk1.html"><img src="resources/images/content.png">Table of Contents&nbsp;</a>
+</li>
+<li class="last">
+<a href="dsy20436-SEEDOC.html">&nbsp;Next&nbsp;<img src="resources/images/small_right.gif"></a>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="content">
+<div class="left">
+<a href="dsy20434-SEEDOC.html"><img src="resources/images/big_left.gif" class="centeredImage"></a>
+</div>
+<div class="center">
+<h3 xmlns:ns="http://outerx.org/daisy/1.0" daisyBranch="1" daisyDocument="20435-SEEDOC" daisyLanguage="2" id="dsy20435-SEEDOC">Numeric commands - 1</h3>
+        
+<ul>
+            
+<li>
+                
+<p>Simple calculations can be computed as such:</p>
+            
+</li>
+        
+</ul>
+        
+<blockquote>
+            
+<table class="borderless" column-widths="12%;35%;15%;30%" print-column-widths="12%;35%;15%;30%" print-width="70%" width="70%">
+<col width="12%">
+<col width="35%">
+<col width="15%">
+<col width="30%">
+<tbody>
+                    
+<tr>
+                        
+<td>
+                            
+<p>Addition:</p>
+                        
+</td>
+                        <td>
+                            
+<p>result% = 1 + 2;</p>
+                        
+</td>
+                        <td>
+                            
+<p>Subtraction:</p>
+                        
+</td>
+                        <td>
+                            
+<p>result% = 2 - 1;</p>
+                        
+</td>
+                    
+</tr>
+                    
+<tr>
+                        
+<td>
+                            
+<p>Division:</p>
+                        
+</td>
+                        <td>
+                            
+<p>result% = 2 / 2;</p>
+                        
+</td>
+                        <td>
+                            
+<p>Multiplication:</p>
+                        
+</td>
+                        <td>
+                            
+<p>result% = 2 * 2;</p>
+                        
+</td>
+                    
+</tr>
+                
+</tbody>
+</table>
+        
+</blockquote>
+        
+<ul>
+            
+<li>
+                
+<p>Numeric commands:</p>
+            
+</li>
+        
+</ul>
+        
+<blockquote>
+            
+<table column-widths="20%;60%;20%" print-column-widths="20%;60%;20%" print-width="100%" width="100%" class="content">
+<col width="20%">
+<col width="60%">
+<col width="20%">
+<tbody>
+                    
+<tr>
+                        
+<th>
+                            
+<p>Command</p>
+                        
+</th>
+                        <th valign="middle">
+                            
+<p>Example</p>
+                        
+</th>
+                        <th>
+                            
+<p align="center">Result</p>
+                        
+</th>
+                    
+</tr>
+                    
+<tr>
+                        
+<td>
+                            
+<p>
+                                
+<strong>multiDigitRound </strong>
+                            
+</p>
+                        
+</td>
+                        <td valign="top">
+                            
+<p>multiDigitRound(1234.890445, 3);</p>
+                        
+</td>
+                        <td>
+                            
+<p align="center">1234.891</p>
+                        
+</td>
+                    
+</tr>
+                    
+<tr>
+                        
+<td>
+                            
+<p>
+                                
+<strong>round</strong>
+                            
+</p>
+                        
+</td>
+                        <td valign="top">
+                            
+<p>round(1234.890445, 3);</p>
+                        
+</td>
+                        <td>
+                            
+<p align="center">1234.890</p>
+                        
+</td>
+                    
+</tr>
+                    
+<tr>
+                        
+<td>
+                            
+<p>
+                                
+<strong>isNumeric</strong>
+                            
+</p>
+                        
+</td>
+                        <td valign="top">
+                            
+<p>isNumeric("123.1"); / isNumeric("A");</p>
+                        
+</td>
+                        <td>
+                            
+<p align="center">1 (= true) / 0 (= false)</p>
+                        
+</td>
+                    
+</tr>
+                
+</tbody>
+</table>
+        
+</blockquote>
+        
+<p>Explanation for the different results of the two round functions:</p>
+        
+<ul>
+            
+<li>
+                
+<p>
+                    
+<em>multiDigitRound</em> uses more than one iteration. It rounds digit by
+digit starting with the last digit.</p>
+            
+</li>
+            
+<li>
+                
+<p>
+                    
+<em>round</em> inspects only one more digit than the required number of
+digits in the result: 1234.8904 --&gt; 1234.890</p>
+            
+</li>
+        
+</ul>
+        
+</div>
+<div class="right">
+<a href="dsy20436-SEEDOC.html"><img src="resources/images/big_right.gif"></a>
+</div>
+</div>
+<div id="pageNumber">
+<div class="numberAndTitle">
+<span class="bottomTitle">Training BIC 6 Basics</span><span class="count">69</span>
+</div>
+</div>
+</div>
+</body>
+</html>

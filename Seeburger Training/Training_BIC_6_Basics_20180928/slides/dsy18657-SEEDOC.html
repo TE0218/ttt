@@ -1,0 +1,1936 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html xmlns:fn="http://www.w3.org/2005/xpath-functions" xmlns:p="http://outerx.org/daisy/1.0#publisher" xmlns:i18n="http://apache.org/cocoon/i18n/2.1" xmlns:einclude="http://outerx.org/daisy/1.0#externalinclude" xmlns:d="http://outerx.org/daisy/1.0">
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<link href="resources/css/books.css" type="text/css" rel="stylesheet">
+<script src="resources/js/toggle.js" type="text/javascript"></script>
+</head>
+<body onLoad="appendToDiv();">
+<div class="all">
+<div class="top">
+<div class="chunkNavigation">
+<div class="topCut"></div>
+<div class="logoTitle">
+<span><img src="resources/images/see-logo.png"></span><span class="bookTitle">Mapfile and MapDB Handling</span>
+</div>
+<div class="navigation">
+<ul>
+<li class="first">
+<a href="dsy20885-SEEDOC.html">&nbsp;<img src="resources/images/small_left.gif">&nbsp;Previous&nbsp;</a>
+</li>
+<li class="middle">
+<a href="chunk1.html"><img src="resources/images/content.png">Table of Contents&nbsp;</a>
+</li>
+<li class="last">
+<a href="dsy21379-SEEDOC.html">&nbsp;Next&nbsp;<img src="resources/images/small_right.gif"></a>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="content">
+<div class="left">
+<a href="dsy20885-SEEDOC.html"><img src="resources/images/big_left.gif" class="centeredImage"></a>
+</div>
+<div class="center">
+<h3 xmlns:ns="http://outerx.org/daisy/1.0" daisyBranch="1" daisyDocument="18657-SEEDOC" daisyLanguage="2" id="dsy18657-SEEDOC">Advantages of Logical MapDB</h3>
+        
+<ul>
+            
+<li>
+                
+<p>Support for update and delete operations. So, the content can be controlled
+by mappings or other DB client tools.</p>
+            
+</li>
+        
+</ul>
+        
+<ul>
+            
+<li>
+                
+<p>The table structure is created automatically at installation time.</p>
+            
+</li>
+            
+<li>
+                
+<p>The content of the tables has an automatic backup with BIS backups.</p>
+            
+</li>
+            
+<li>
+                
+<p>The MapDB handling on this table supports the BIS logical systems.</p>
+            
+</li>
+            
+<li>
+                
+<p>Support for import of mapfiles and data maintenance.</p>
+            
+</li>
+            
+<li>
+                
+<p>The BIS Front-end allows opening and editing the logical table.</p>
+            
+</li>
+            
+<li>
+                
+<p>The table supports move to production system.</p>
+            
+</li>
+            
+<li>
+                
+<p>Command "copy mapfile" can still be used after migration to the logical MapDB
+</p>
+            
+</li>
+        
+</ul>
+        
+<h8 id="s102">For more details please refer to</h8>
+        
+<h8 daisyBranch="1" daisyDocument="15914-SEEDOC" daisyLanguage="2" id="dsy15914-SEEDOC">Migration from MapFile to MapDB</h8>
+        
+<h9 id="s103">Motivation</h9>
+        
+<p>It is recommended to migrate every existing mapfile to mapDB because of the
+higher functionality of a database:</p>
+        
+<ul>
+            
+<li>Databases provide transaction safety.</li>
+            
+<li>We have better editors for our standard mapdb table.</li>
+            
+<li>Database could easily be backuped and restored.</li>
+            
+<li>The standard MapDB table is automatically backuped together with all BIS
+system databases.</li>
+            
+<li>Database table could easily be accessed from remote systems using web
+frontends.</li>
+            
+<li>it is possible to use database installations on distributed systems. So the
+scalability is increased.</li>
+        
+</ul>
+        
+<h9 id="s104">Migration steps / options</h9>
+        
+<p>The following migration steps / options are available:</p>
+        
+<ul>
+            
+<li>Import of mapfiles into Seeburger Standard Mapfile table.</li>
+            
+<li>Import of mapfiles into a user-defined database table.</li>
+            
+<li>Adaption of mappings: Change mapfile commands into mapDB commands.</li>
+        
+</ul>
+        
+<h9 id="s105">Backward compatibility</h9>
+        
+<p>Basically each migration step should largely be backward compatible and the
+mappings should behave as before. But a migration from a file into a database is
+a major change and databases behave different from files. So a 100% backward
+compatibility cannot be assured.</p>
+        
+<ul>
+            
+<li>Import of mapfiles into Seeburger Standard Mapfile table.</li>
+        
+</ul>
+        
+<p>Due to the different behaviors of databases and mapfiles Seeburger just
+assures a backward compatibility of 90%. To be sure that everythings works as
+before, it is recommended to have a look at the check list in the chapter
+"Mapfile to MapDB Migration checklists" and execute adequate test runs. Also a
+migration from an Oracle database to a Microsoft SQL server or vice versa is
+just 90% backward compatible and requires test effort.</p>
+        
+<ul>
+            
+<li>Import of mapfiles into a user-defined database table.</li>
+        
+</ul>
+        
+<p>Due to the different behaviors of databases and mapfiles Seeburger just
+assures a backward compatibility of 90%. To be sure that everythings works as
+before, it is recommended to have a look at the check list in the chapter
+"Mapfile to MapDB Migration checklists" and execute adequate test runs. Also a
+migration from an Oracle database to a Microdoft SQL server or vice versa is
+just 90% backward compatible and requires test effort.</p>
+        
+<ul>
+            
+<li>Adaption of mappings: Change mapfile commands into mapDB commands.</li>
+        
+</ul>
+        
+<p>There is an automatical redirection from mapdb commands to mapfile commands
+and from mapfile commands to mapdb commands implemented. Therefore 100% backward
+compatiblity is assured if just the mapping commands are changed but the
+physical mapfile/mapDB stays the same.</p>
+        
+<p>Altough it is recommended to use mapDB in the future BIC still supports the
+usage of mapfiles. So it is possible <strong>not </strong>to change existing
+mappings and mapfiles and keep existing functionality.</p>
+        
+<h9 id="s106">Restrictions for migration into Standard Map Table</h9>
+        
+<p>The migration of mapfiles into the Seeburger Standard Mapfile table is the
+recommended way to migrate existing mapfiles. The Seeburger Standard Mapfile
+table is treated as a BIS system database table and therefore backedup/restored
+and updated automatically. Furthermore, the mapfile commands are just
+automatically redirected to the Seeburger Standard Mapfile table. It is not
+possible to redirect mapfile commands within a mapping to a user-defined
+database table.</p>
+        
+<p>The transfer of a mapfile to the Seeburger Standard Mapfile table must be
+done with the <em>BIC-MapDB-Configuration
+GUI</em> or with a batch script (see below). Mapfiles within that Seeburger
+Standard Mapfile table can also be edited using this GUI.</p>
+        
+<p>A Seeburger Standard Mapfile table is restricted to 25 columns. Mapfiles with
+more than 25 columns cannot be migrated into the Seeburger Standard Mapfile
+table. They should be migrated to a user-defined database table.</p>
+        
+<p>TheSeeburger Standard Mapfile table is created on the used standard BIS
+database. Huge mapfiles with a lot of lines could have performance effects of
+the BIS system. Therefore it is recommended also to migrate those mapfiles into
+a user-defined database table.</p>
+        
+<p>The mapfile handling depends on the used database and database driver.
+Different databases and drivers may have different effects and a mapfile might
+not work exactly the same way as before. If a mapfile row contains for example
+empty columns (the next column delimiter follows directly on the previous
+delimiter), these might be treated differently. The mapfile implementations
+behaves the same as a Microsoft SQL server database:&nbsp; These values are treated
+as existing, empty Strings. A BIC mapping command will just return an empty
+String and <strong>not </strong>use the default value behaviour for such cases.
+An Oracle database treats all empty Strings as not existing or <strong>
+                <em>NULL
+</em>
+            </strong>values. A mapping command reading such a value will return the
+default value (if set) and <strong>not </strong>just an empty String.</p>
+        
+<p>A solution to avoid these problems could be to use a user-defined database
+table created on a Microsoft SQL server database.</p>
+        
+<p>If the mapfile contains multiple rows with the same key values, backward
+compatibility is not guarrantied. The mapfile implementation returns the first
+occurrence of such a mapfile line, the mapDB implementation returns any
+occurrence (it is undefined which one).</p>
+        
+<p class="note">
+            
+<strong>Note:</strong> Since version 6.3.5Q4, the
+<strong>BIS-System database configuration</strong> is used to access the
+Seeburger Standard Mapfile table.<br>
+In earlier versions, the user datasource '<strong>WorkflowDS</strong>' was used.
+<br>
+            
+<strong>The reason for this change</strong> is to ensure the availibility of a
+working system database connection, independend of any user datasource
+configuration.<br>
+            
+<strong>The consequence of this change</strong> is that the connection can not
+be configured by the MappingDesigner for the testsytem and is fixed to the local
+H2 database. To avoid complicated access to the configuration in 6.5.2 ff the
+use of a data source it is used again. In this version the new data source DS_MD
+is used for the access to the Seeburger Standard Mapfile table.</p>
+        
+<p>The migration of mapfiles into a user-defined database table is <strong>not
+</strong>the default and recommended way. Such tables are <strong>not
+</strong>backuped/restored and updated automatically, this must be manually done
+by the user. Furthermore the redirection of mapfile commands does not work for
+such user-defined database tables. Nevertheless there are use cases where it
+makes sense to use them:</p>
+        
+<ul>
+            
+<li>if the mapfile contains more than 25 columns.</li>
+            
+<li>If the mapfile is that huge that bad performance effects are expected that
+would slow down the performance of the BIS system database.</li>
+            
+<li>If the mapfile contains a lot of empty values, the mappings use default
+values within their mapfile commands and the BIS system database is based on
+Oracle. In that case the null handling of a different Database System then the
+BIS System Database is required.</li>
+            
+<li>If the map table should be edited with a third party database editor or
+customer specific GUI.</li>
+        
+</ul>
+        
+<p>The transfer of a mapfile to user defined map table must be done with the
+<em>MapDBEditor</em> or with a batch script (see
+below). The <em>MapDBEditor</em>should also be
+used for editing.</p>
+        
+<p>All mappings using these mapfiles <strong>must </strong>be changed to mapdb
+commands.</p>
+        
+<p>The mapfile handling depends on the used database and database driver.
+Different databases and drivers may have different effects and a mapfile might
+not work exactly the same way as before. If a mapfile row contains for example
+empty columns (the next column delimiter follows directly on the previous
+delimiter), these might be treated differently. The mapfile implementations
+behaves the same as a Microsoft SQL server database:&nbsp; These values are treated
+as existing, empty Strings. A BIC mapping command will just return an empty
+String and <strong>not </strong>use the default value behaviour for such cases.
+An Oracle database treats all empty Strings as not existing or <strong>
+                <em>NULL
+</em>
+            </strong>values. A mapping command reading such a value will return the
+default value (if set) and <strong>not </strong>just an empty String.</p>
+        
+<p>A solution to avoid these problems could be to use a user-defined database
+table created on a Microsoft SQL server database.</p>
+        
+<p>If a user-defined database table is used that has primary key constraints on
+the key table, it will not be possible to import a mapfile with multiple rows
+that have the same key values.</p>
+        
+<p>If a user-defined database table source is used from within a mapping it must
+be ensured that the database is accessible from within the mapping. That
+requires a configuration of a data source (BIC Mapping designer / BIS Frontend)
+and a configuration of the database driver.</p>
+        
+<p>If the mapfile contains multiple rows with the same key values, backward
+compatibility is not guarrantied. The mapfile implementation returns the first
+occurrence of such a mapfile line, the mapDB implementation returns any
+occurrence (it is undefined which one).</p>
+        
+<h9 id="s107">Restrictions for adaption of mappings (change of mapfile commands into mapdb
+commands)</h9>
+        
+<p>The mapfile and the mapDB commands behave basically the same of the mapfile's
+physical location (a file, the Seeburger Standard Mapfile table or a
+user-defined database table) is the same. So there are no backward compatibilty
+issues when a mapping is changed from mapfile commands to mapdb commands. An
+exception is the migration from mapfiles to a user-defined database table. In
+this case the mapping must also be adapted (it does not work anymore with
+mapfile commands).</p>
+        
+<p>If mapdb commands are used an additional connectDB command call is required.
+This command is used to conenct the correct database. It is planned to avoid
+this connectDB command in the future when the Seeburger Standard Mapfile table
+is used. In this case BIC offers a default mapDB channel which is configured
+automatically.</p>
+        
+<p>Further restriction: The mapfile commands do not support any editing
+(insert/update) of a mapfile. MapDB commands do not support this.&nbsp;</p>
+        
+<h9 id="s108">Mapfile to MapDB Migration checklists</h9>
+        
+<h10 id="s109">Checklist for decision for user defined/Standard map table</h10>
+        
+<ul>
+            
+<li>Are there specific use cases that require a user defined database?</li>
+            
+<ul>
+                
+<li>a database with remote access&nbsp;</li>
+                
+<li>a user frontend/GUI to edit database table rows/values</li>
+                
+<li>is the database already existing? (was the mapfile access just an old "work
+around") ?</li>
+                
+<li>Any question yes --&gt; <em>
+                        <strong>user-defined database
+table</strong>
+                    </em>
+                
+</li>
+            
+</ul>
+            
+<li>Contains the mapfile more than 25 columns? (Yes --&gt;
+<em>
+                    <strong>user-defined database table</strong>
+                </em>)</li>
+            
+<li>Is the mapfile a huge mapfile (&gt; 10 MB, many rows)</li>
+            
+<ul>
+                
+<li>migrate mapfile to Seeburger Standard Mapfile table on test system</li>
+                
+<li>Check editing performance using the
+<em>BIC-MapDB-Configuration GUI</em>
+                
+</li>
+                
+<li>Create test mapping with mapfile access and execute tests eith many parallel
+mapping calls. Check effects on perfromance of BIS frontend and other BIS system
+database operations.</li>
+                
+<li>If perfomance is bad --&gt; <em>
+                        <strong>user-defined database
+table</strong>
+                    </em>
+                
+</li>
+            
+</ul>
+            
+<li>Change/test effort for empty values too high (see next chapter) <strong>and
+</strong>BIS system database is Oracle based (No --&gt;<em>
+                    <strong> Seeburger
+Standard Mapfile table</strong>
+                </em>)</li>
+            
+<ul>
+                
+<li>Is it possible to use a parallel MS SQL server database (or similar database
+with equal empty value handling) ? (No --&gt; <em>
+                        <strong>Seeburger Standard
+Mapfile table</strong>
+                    </em>)</li>
+                
+<li>&nbsp;--&gt; <em>
+                        <strong>user defined</strong>
+                    </em>
+                
+</li>
+            
+</ul>
+        
+</ul>
+        
+<h10 id="s110">Checklist for estimation of migration risk/test effort</h10>
+        
+<h11 id="s111">Risk/test effort because of empty values</h11>
+        
+<ul>
+            
+<li>Does the mapfile has empty values (rows that start with column/line
+separator or that have the column/line separator directly followed after a
+column separator) ? (if No --&gt; <em>
+                    <strong>migration risk is
+low</strong>
+                </em>).</li>
+            
+<li>Is there any mappings using default value options within mapfile commands
+(the openMapFile and the mapFile command could have default values)? (if No
+--&gt;&nbsp;<em>
+                    <strong>migration risk is low</strong>
+                </em>).</li>
+            
+<li>Is the used database (for usage of Seeburger Standard Mapfile table: the BIS
+system database) based on Oracle or any other database with same empty value
+behaviour? (If Yes --&gt; <em>
+                    <strong>migration risk is high</strong>
+                </em>)
+</li>
+        
+</ul>
+        
+<p>=&gt; It is strongly recommended to test the default value behaviour. Please
+add at least a test mapping for <em>
+                <strong>each </strong>
+            </em>different use
+case to the migration test effort. The test should contain a mapfile command of
+each row that could have an empty value or not. The test should be done with the
+empty value and with filled value. The higher the risk is the more test use
+cases should be implemented.</p>
+        
+<h11 id="s112">Risk/test effort because of other reasons</h11>
+        
+<ul>
+            
+<li>How many mappings are using that mapfile (&gt;10 --&gt;
+<em>
+                    <strong>migration risk is high</strong>
+                </em>) ?</li>
+            
+<li>How many mapfile channels are opened (the more channels are used the higher
+is the risk) ?</li>
+            
+<li>Are more than one columns used as key columns (yes --&gt;
+<em>
+                    <strong>migration risk is high</strong>
+                </em>) ?</li>
+            
+<li>Could the key columns contain multiple occurrences of equal values (yes
+--&gt; <em>
+                    <strong>migration risk is high</strong>
+                </em>) ?&nbsp; This incosnistence
+must be resolved for ensuring backward compatibility.</li>
+            
+<li>Check the mappings for "special mapfile logics"</li>
+            
+<ul>
+                
+<li>usage of default values (<em>
+                        <strong>migration risk is
+higher</strong>
+                    </em>)</li>
+                
+<li>usage of special error message codes (migration risk is higher, the error
+codes might have changed(additional error codes could be thrown --&gt;
+<strong>
+                        <em>migration risk is high</em>
+                    </strong>) --&gt; see chapter
+<strong>mapfile and mapdb error codes</strong>.</li>
+            
+</ul>
+            
+<li>Check performance: Check if the mapfile is big (&gt; 1 MB)&nbsp; or the number of
+executed mapfile commands per second is big (&gt; 100) (If yes --&gt;
+<em>
+                    <strong>migration risk is high, performance tests should be
+done</strong>
+                </em>).</li>
+        
+</ul>
+        
+<h9 id="s113">Mapfile and mapdb error codes</h9>
+        
+<p>The following table contains a list of all error and warning codes thrown by
+the most important mapfile and mapdb commands (connectDB, openMapFile,
+openMapTable, mapFile, mapDB). The further existing commands
+(getFieldFromMapfileLine, writeToMapDB, updateToMapDB, deleteFromMapDB) are
+described in the command reference. The command getFieldFromMapfileLine could
+throw the same errors and warnings as the mapFile command.</p>
+        
+<table print-width="100%" width="100%" class="content">
+<tbody>
+                
+<tr>
+                    
+<th>
+                        
+<p>error code</p>
+                    
+</th>
+                    <th>
+                        
+<p>level</p>
+                    
+</th>
+                    <th>
+                        
+<p>thrown in command</p>
+                    
+</th>
+                    <th>
+                        
+<p>used API</p>
+                    
+</th>
+                    <th>
+                        
+<p>physical storage location</p>
+                    
+</th>
+                    <th>
+                        
+<p>remarks</p>
+                    
+</th>
+                
+</tr>
+                
+<tr>
+                    
+<td>
+                        
+<p>4002</p>
+                    
+</td>
+                    <td>
+                        
+<p>4 (warning)</p>
+                    
+</td>
+                    <td>
+                        
+<p>openMapFile</p>
+                    
+</td>
+                    <td>
+                        
+<p>map file</p>
+                    
+</td>
+                    <td>
+                        
+<p>map file</p>
+                    
+</td>
+                    <td>
+                        
+<p>Reported if an application is overwriting an existing channel.<br>
+(A channel is opened for a new file, but with a name that is already in use)</p>
+                    
+</td>
+                
+</tr>
+                
+<tr>
+                    
+<td>
+                        
+<p>4005</p>
+                    
+</td>
+                    <td>
+                        
+<p>3 (error)</p>
+                    
+</td>
+                    <td>
+                        
+<p>mapFile</p>
+                    
+</td>
+                    <td>
+                        
+<p>map file</p>
+                    
+</td>
+                    <td>
+                        
+<p>map file and Standard map DB</p>
+                    
+</td>
+                    <td>
+                        
+<p>Reported if the referenced map file/db channel is not opened.</p>
+                    
+</td>
+                
+</tr>
+                
+<tr>
+                    
+<td>
+                        
+<p>4014</p>
+                    
+</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                
+</tr>
+                
+<tr>
+                    
+<td>
+                        
+<p>4045</p>
+                    
+</td>
+                    <td>
+                        
+<p>3 (error)</p>
+                    
+</td>
+                    <td>
+                        
+<p>openMapXX</p>
+                    
+</td>
+                    <td>
+                        
+<p>map file</p>
+                    
+</td>
+                    <td>
+                        
+<p>map file and Standard map DB</p>
+                    
+</td>
+                    <td>
+                        
+<p>Reported if the specified mapfile is not existing as file AND as Standard map
+file table.</p>
+                    
+</td>
+                
+</tr>
+                
+<tr>
+                    
+<td>
+                        
+<p>4053</p>
+                    
+</td>
+                    <td>
+                        
+<p>4 (warning)</p>
+                    
+</td>
+                    <td>
+                        
+<p>mapFile</p>
+                    
+</td>
+                    <td>
+                        
+<p>map file</p>
+                    
+</td>
+                    <td>
+                        
+<p>map file</p>
+                    
+</td>
+                    <td>
+                        
+<p>Reported if an unknown source/target column is referenced or if the key value
+does not exist.<br>
+--&gt; if the phys. storage is Standard map db, warning 4053/4 is reported when
+a referenced column does not exist, that means if the column number is &gt; 25.
+<br>
+--&gt; if the phys. storage is Standard map db, no error/warning is reported
+when the key value is not found.</p>
+                    
+</td>
+                
+</tr>
+                
+<tr>
+                    
+<td>
+                        
+<p>4054</p>
+                    
+</td>
+                    <td>
+                        
+<p>3 (error)</p>
+                    
+</td>
+                    <td>
+                        
+<p>openMapFile</p>
+                    
+</td>
+                    <td>
+                        
+<p>map file</p>
+                    
+</td>
+                    <td>
+                        
+<p>map file</p>
+                    
+</td>
+                    <td>
+                        
+<p>Reported if sourceColumn = destinationColumn</p>
+                    
+</td>
+                
+</tr>
+                
+<tr>
+                    
+<td>
+                        
+<p>4055</p>
+                    
+</td>
+                    <td>
+                        
+<p>3 (error)</p>
+                    
+</td>
+                    <td>
+                        
+<p>openMapFile</p>
+                    
+</td>
+                    <td>
+                        
+<p>map file</p>
+                    
+</td>
+                    <td>
+                        
+<p>map file</p>
+                    
+</td>
+                    <td>
+                        
+<p>Reported if sourceColumn = 0</p>
+                    
+</td>
+                
+</tr>
+                
+<tr>
+                    
+<td>
+                        
+<p>4056</p>
+                    
+</td>
+                    <td>
+                        
+<p>3 (error)</p>
+                    
+</td>
+                    <td>
+                        
+<p>openMapFile</p>
+                    
+</td>
+                    <td>
+                        
+<p>map file</p>
+                    
+</td>
+                    <td>
+                        
+<p>map file</p>
+                    
+</td>
+                    <td>
+                        
+<p>Reported if destinationColumn = 0</p>
+                    
+</td>
+                
+</tr>
+                
+<tr>
+                    
+<td>
+                        
+<p>4059</p>
+                    
+</td>
+                    <td>
+                        
+<p>3 (error)</p>
+                    
+</td>
+                    <td>
+                        
+<p>mapFile</p>
+                    
+</td>
+                    <td>
+                        
+<p>map file</p>
+                    
+</td>
+                    <td>
+                        
+<p>map file</p>
+                    
+</td>
+                    <td>
+                        
+<p>Reported only if access prioritiy problems occures. <br>
+(Caused by cached values or, index files)</p>
+                    
+</td>
+                
+</tr>
+                
+<tr>
+                    
+<td>
+                        
+<p>4254</p>
+                    
+</td>
+                    <td>
+                        
+<p>4 (warning)</p>
+                    
+</td>
+                    <td>
+                        
+<p>mapFile</p>
+                    
+</td>
+                    <td>
+                        
+<p>map file</p>
+                    
+</td>
+                    <td>
+                        
+<p>Standard map DB</p>
+                    
+</td>
+                    <td>
+                        
+<p>Reported if the key value does not exist. In release 6.3.5Q1 and 6.3.5Q2 this
+warning ha been an error (level 3). In releases before it does not exist.</p>
+                    
+</td>
+                
+</tr>
+                
+<tr>
+                    
+<td>
+                        
+<p>4506</p>
+                    
+</td>
+                    <td>
+                        
+<p>1 (error)</p>
+                    
+</td>
+                    <td>
+                        
+<p>connectDB</p>
+                    
+</td>
+                    <td>
+                        
+<p>map DB</p>
+                    
+</td>
+                    <td>
+                        
+<p>map DB</p>
+                    
+</td>
+                    <td>
+                        
+<p>Reported only if the regular jdbc connect parameters are used to create a
+connection.</p>
+                    
+</td>
+                
+</tr>
+                
+<tr>
+                    
+<td>
+                        
+<p>4518</p>
+                    
+</td>
+                    <td>
+                        
+<p>3 (error)</p>
+                    
+</td>
+                    <td>
+                        
+<p>openMapDb</p>
+                    
+</td>
+                    <td>
+                        
+<p>map DB</p>
+                    
+</td>
+                    <td>
+                        
+<p>map DB</p>
+                    
+</td>
+                    <td>
+                        
+<p>Reported if the maximum of opened channels is reached. (max = 100)</p>
+                    
+</td>
+                
+</tr>
+                
+<tr>
+                    
+<td>
+                        
+<p>4522</p>
+                    
+</td>
+                    <td>
+                        
+<p>5 (warning)</p>
+                    
+</td>
+                    <td>
+                        
+<p>mapDb</p>
+                    
+</td>
+                    <td>
+                        
+<p>map DB</p>
+                    
+</td>
+                    <td>
+                        
+<p>map DB</p>
+                    
+</td>
+                    <td>
+                        
+<p>Reported if the record addressed by the destination field is not found</p>
+                    
+</td>
+                
+</tr>
+                
+<tr>
+                    
+<td>
+                        
+<p>4523</p>
+                    
+</td>
+                    <td>
+                        
+<p>1 (error)</p>
+                    
+</td>
+                    <td>
+                        
+<p>connectDb</p>
+                    
+</td>
+                    <td>
+                        
+<p>map DB</p>
+                    
+</td>
+                    <td>
+                        
+<p>mapDB and standard mapDB</p>
+                    
+</td>
+                    <td>
+                        
+<p>Reported if the driver can not be loaded.</p>
+                    
+</td>
+                
+</tr>
+                
+<tr>
+                    
+<td>
+                        
+<p>4524</p>
+                    
+</td>
+                    <td>
+                        
+<p>1 (error)</p>
+                    
+</td>
+                    <td>
+                        
+<p>openMapDb</p>
+                    
+</td>
+                    <td>
+                        
+<p>map DB</p>
+                    
+</td>
+                    <td>
+                        
+<p>mapDB and standard mapDB</p>
+                    
+</td>
+                    <td>
+                        
+<p>Reported if a channel could not be opened becaus of an invalid SQL statement.
+<br>
+(For example - invalid tablename or columnname)</p>
+                    
+</td>
+                
+</tr>
+                
+<tr>
+                    
+<td>
+                        
+<p>4526</p>
+                    
+</td>
+                    <td>
+                        
+<p>4 (warning)</p>
+                    
+</td>
+                    <td>
+                        
+<p>openMapDb</p>
+                    
+</td>
+                    <td>
+                        
+<p>map DB</p>
+                    
+</td>
+                    <td>
+                        
+<p>mapDB and standard mapDB</p>
+                    
+</td>
+                    <td>
+                        
+<p>Reported if channels are defined multiple and 'report duplicates' is enbaled.
+</p>
+                    
+</td>
+                
+</tr>
+                
+<tr>
+                    
+<td>
+                        
+<p>4527</p>
+                    
+</td>
+                    <td>
+                        
+<p>3 (error)</p>
+                    
+</td>
+                    <td>
+                        
+<p>mapDb</p>
+                    
+</td>
+                    <td>
+                        
+<p>map DB</p>
+                    
+</td>
+                    <td>
+                        
+<p>mapDB and standard mapDB</p>
+                    
+</td>
+                    <td>
+                        
+<p>Reported if a channel is accessed, but not defined.</p>
+                    
+</td>
+                
+</tr>
+                
+<tr>
+                    
+<td>
+                        
+<p>4530</p>
+                    
+</td>
+                    <td>
+                        
+<p>1 (error)</p>
+                    
+</td>
+                    <td>
+                        
+<p>openMapXX</p>
+                    
+</td>
+                    <td>
+                        
+<p>map file</p>
+                    
+</td>
+                    <td>
+                        
+<p>map file and Standard map DB</p>
+                    
+</td>
+                    <td>
+                        
+<p>Reported when the system BIS database is not available/reachable<br>
+This error has newly been introduced with release 6.3.5.</p>
+                    
+</td>
+                
+</tr>
+            
+</tbody>
+</table>
+        
+<p>.</p>
+        
+<h9 id="s114">Transfer of the Mapfile Data to Database Tables</h9>
+        
+<p>There are three different tools that can be used to import mapfiles into
+database tables:</p>
+        
+<ul>
+            
+<li>
+                
+<em>BIC-MapDB-Configuration GUI</em>: Is
+only available in the BIS front-end, and only supports the import for the
+Seeburger Standard Mapfile table.</li>
+            
+<li>MapDB-Editor: Is available in BIS and BIC Mapping Designer (test system),
+and only supports simple standalone tables. For details please refer to&nbsp;
+<em>MapDBEditor.</em>
+            
+</li>
+            
+<li>Batch script (command line tool): A demo batch script is available in the
+local test system and for BIS, and supports all type of tables.</li>
+        
+</ul>
+        
+<h9 id="s115">Batch Script (Command Line Tool)</h9>
+        
+<p>A demo batch script is available on the test system as:
+<em>&lt;installDir&gt;/bin/run.mapfileimport.demo.bat</em>
+            <strong>
+                
+<br>
+            
+</strong> and on BIS as:
+<em>&lt;installDir&gt;/software/run.mapfileimport.demo.bat.</em>
+        
+</p>
+        
+<p>This script has following parameters:</p>
+        
+<p>
+            
+<strong>Syntax: -&lt;Parameter&gt;=&lt;value&gt;</strong>
+        
+</p>
+        
+<ol>
+            
+<li>Mapfiles-Import</li>
+        
+</ol>
+        
+<table column-widths="30%;70%" print-column-widths="30%;70%" print-width="100%" width="100%" class="content">
+<col width="30%">
+<col width="70%">
+<tbody>
+                
+<tr>
+                    
+<th>
+                        
+<p>Parameter</p>
+                    
+</th>
+                    <th>
+                        
+<p>Description</p>
+                    
+</th>
+                
+</tr>
+                
+<tr>
+                    
+<td>
+                        
+<p>dir</p>
+                    
+</td>
+                    <td>
+                        
+<p>Source directory of the mapfiles (in the BIC Mapping Designer
+<em>&lt;SOURCE_FOLDER&gt;\mapfiles</em>).</p>
+                    
+</td>
+                
+</tr>
+                
+<tr>
+                    
+<td>
+                        
+<p>filepattern</p>
+                    
+</td>
+                    <td>
+                        
+<p>Mapfile name(s), wildcard * is allowed (e.g. *.txt).</p>
+                    
+</td>
+                
+</tr>
+                
+<tr>
+                    
+<td>
+                        
+<p>datasource</p>
+                    
+</td>
+                    <td>
+                        
+<p>Data source for the connection to the destination database (default:
+<em>DS</em>_MD).</p>
+                    
+</td>
+                
+</tr>
+            
+</tbody>
+</table>
+        
+<ol start="2">
+            
+<li>Advanced settings</li>
+        
+</ol>
+        
+<table column-widths="30%;70%" print-column-widths="30%;70%" print-width="100%" width="100%" class="content">
+<col width="30%">
+<col width="70%">
+<tbody>
+                
+<tr>
+                    
+<th>
+                        
+<p>Parameter</p>
+                    
+</th>
+                    <th>
+                        
+<p>Description</p>
+                    
+</th>
+                
+</tr>
+                
+<tr>
+                    
+<td>
+                        
+<p>encoding</p>
+                    
+</td>
+                    <td>
+                        
+<p>Encoding of the mapfile, if the file pattern is used, all mapfile must have
+the same encoding.</p>
+                    
+</td>
+                
+</tr>
+                
+<tr>
+                    
+<td>
+                        
+<p>delimiter</p>
+                    
+</td>
+                    <td>
+                        
+<p>Delimiter of the mapfile, default ";". If the mapfile uses another delimiter,
+it must be set.</p>
+                    
+</td>
+                
+</tr>
+                
+<tr>
+                    
+<td>
+                        
+<p>profile</p>
+                    
+</td>
+                    <td>
+                        
+<p>The MapDB editor profile. The profile must exists, it is recommended to use T
+for table name.</p>
+                    
+</td>
+                
+</tr>
+            
+</tbody>
+</table>
+        
+<ol start="3">
+            
+<li>JDBC connect parameters for the import (if no data source is used).</li>
+        
+</ol>
+        
+<table column-widths="30%;70%" print-column-widths="30%;70%" print-width="100%" width="100%" class="content">
+<col width="30%">
+<col width="70%">
+<tbody>
+                
+<tr>
+                    
+<th>
+                        
+<p>Parameter</p>
+                    
+</th>
+                    <th>
+                        
+<p>Description</p>
+                    
+</th>
+                
+</tr>
+                
+<tr>
+                    
+<td>
+                        
+<p>url</p>
+                    
+</td>
+                    <td>
+                        
+<p>URL to the destination database.</p>
+                    
+</td>
+                
+</tr>
+                
+<tr>
+                    
+<td>
+                        
+<p>driver</p>
+                    
+</td>
+                    <td>
+                        
+<p>Driver for the destination database.</p>
+                    
+</td>
+                
+</tr>
+                
+<tr>
+                    
+<td>
+                        
+<p>user</p>
+                    
+</td>
+                    <td>
+                        
+<p>Database user.</p>
+                    
+</td>
+                
+</tr>
+                
+<tr>
+                    
+<td>
+                        
+<p>pwd</p>
+                    
+</td>
+                    <td>
+                        
+<p>Password for the database user.</p>
+                    
+</td>
+                
+</tr>
+            
+</tbody>
+</table>
+        
+<ol start="4">
+            
+<li>Import to the internal logical table</li>
+        
+</ol>
+        
+<table column-widths="30%;70%" print-column-widths="30%;70%" print-width="100%" width="100%" class="content">
+<col width="30%">
+<col width="70%">
+<tbody>
+                
+<tr>
+                    
+<th>
+                        
+<p>Parameter</p>
+                    
+</th>
+                    <th>
+                        
+<p>Description</p>
+                    
+</th>
+                
+</tr>
+                
+<tr>
+                    
+<td>
+                        
+<p>stdmaptable</p>
+                    
+</td>
+                    <td>
+                        
+<p>On (recommended): The mapfile(s) are imported to the Seeburger Standard
+Mapfile table</p>
+                    
+</td>
+                
+</tr>
+                
+<tr>
+                    
+<td>
+                        
+<p>bisuser</p>
+                    
+</td>
+                    <td>
+                        
+<p>User of the BIS server with the needed rights to import data to the database.
+</p>
+                    
+</td>
+                
+</tr>
+                
+<tr>
+                    
+<td>
+                        
+<p>bisls</p>
+                    
+</td>
+                    <td>
+                        
+<p>Logical system of the BIS server.</p>
+                    
+</td>
+                
+</tr>
+            
+</tbody>
+</table>
+        
+<ol start="5">
+            
+<li>Overwrite</li>
+        
+</ol>
+        
+<table column-widths="30%;70%" print-column-widths="30%;70%" print-width="100%" width="100%" class="content">
+<col width="30%">
+<col width="70%">
+<tbody>
+                
+<tr>
+                    
+<th>
+                        
+<p>Parameter</p>
+                    
+</th>
+                    <th>
+                        
+<p>Description</p>
+                    
+</th>
+                
+</tr>
+                
+<tr>
+                    
+<td>
+                        
+<p>overwrite</p>
+                    
+</td>
+                    <td>
+                        
+<p>On: The import will overwrite, if theSeeburger Standard Mapfile table exists.
+Off: The import will fail, if the Seeburger Standard Mapfile table exists.</p>
+                    
+</td>
+                
+</tr>
+            
+</tbody>
+</table>
+        
+<ol start="6">
+            
+<li>Import database table to the internal logical table (only single table to
+the logical standard table).</li>
+        
+</ol>
+        
+<table column-widths="30%;70%" print-column-widths="30%;70%" print-width="100%" width="100%" class="content">
+<col width="30%">
+<col width="70%">
+<tbody>
+                
+<tr>
+                    
+<th>
+                        
+<p>Parameter</p>
+                    
+</th>
+                    <th>
+                        
+<p>Description</p>
+                    
+</th>
+                
+</tr>
+                
+<tr>
+                    
+<td>
+                        
+<p>srcdatasource</p>
+                    
+</td>
+                    <td>
+                        
+<p>Data source of the source data base.</p>
+                    
+</td>
+                
+</tr>
+                
+<tr>
+                    
+<td>
+                        
+<p>srctable</p>
+                    
+</td>
+                    <td>
+                        
+<p>Name of the source table.</p>
+                    
+</td>
+                
+</tr>
+                
+<tr>
+                    
+<td>
+                        
+<p>srcescapedcolumn</p>
+                    
+</td>
+                    <td>
+                        
+<p>Comma separated list of columns, which should be escaped.</p>
+                    
+</td>
+                
+</tr>
+            
+</tbody>
+</table>
+        
+<pre>REM -----------------------------------------------------------------------
+REM This script starts a demo mapfileimport with following parameters:
+REM -dir=&lt;location directory&gt; 	     //Source directory of the mapfiles (in the BIC Mapping Designer 
+REM                                  //&lt;SOURCE_FOLDER&gt;\mapfiles).
+REM -filepattern=&lt;pattern&gt; 	     //Mapfile name(s) wildcard * is allowed (e.g. *.txt), e.g. *.txt 
+REM                                  //or filename without patterns
+REM -datasource=&lt;data source name&gt;   //Data source for the connection to the destination database 
+REM                                  // (default: DS_MD).
+REM -profile=&lt;profile name&gt; 	     //the profile that should be generated for MapDB-Editor
+REM 
+REM Advanced settings (other possible parameters, not used by this script)
+REM -encoding=&lt;encoding&gt; 	//the encoding of the mapfile, if the file pattern is used,  
+REM                             //all mapfile must have the same encoding
+REM -delimiter=&lt;delimiter&gt; 	//must be specified if the delimiter is not standard ',' and 
+REM                             // is not specified in the header of the mapfile.
+REM -overwrite 			//should be used to overwriting existing tables. 
+REM                             // On: The import will overwrite,if the logical table exists.
+REM                             //  Off: The import will fail, if the logical table exists.
+REM
+REM A database can be connected also by the distinct connection parameters:
+REM -url=&lt;database Url&gt; 	//URL to the destination database
+REM -driver=&lt;JdbcDriver&gt; 	//Driver for the destination database
+REM -user=&lt;user&gt; 		//Database user
+REM -pwd=&lt;password&gt; 		//Password for the database user
+REM NOTE: if this parameters are used, the profile for MapDB-Editor can NOT be created.
+REM
+REM parameters for import of mapfile(s) to the internal logical mapdb tables 
+REM -stdmaptable=&lt;on&gt; 		//switch for standard logical table, or simple physical table; 
+REM                             //On (recommended): The mapfile(s) are imported to the Seeburger Standard Mapfile table. 
+REM -bisuser=&lt;value&gt;  		//User of the BIS server with the needed rights to import data to the database.
+REM -bisls=&lt;value&gt;    	        //BIS logical system
+REM
+REM parameters for import of a database table to the internal logical mapdb tables 
+REM -srcdatasource=&lt;value&gt; 	//Data source of the source data base
+REM                        	//ONLY for import of a single table to the Seeburger Standard Mapfile table.
+REM -srctable=&lt;value&gt;      	//Name of the source table 
+REM                        	//ONLY for import of a single table to the Seeburger Standard Mapfile table.
+REM -srcescapedcolumns=&lt;value&gt; 	//Comma separated list of fields that should be escaped. 
+REM                            	//ONLY for import of a single table to the Seeburger Standard Mapfile table.</pre>
+        
+<h8 daisyBranch="1" daisyDocument="15912-SEEDOC" daisyLanguage="2" id="dsy15912-SEEDOC">Mapfile Handling</h8>
+        
+<p class="warn">
+
+            
+<strong>Attention: </strong>It is recommended to use the MapDB
+commands and not mapfile, because of the better transaction and access handling
+of databases. There is an existing migration for mappings with mapfile commands
+to the Seeburger Standard Mapfile table of BIS, for further information about
+the migration see chapter <a href="#dsy15914-SEEDOC">
+                <p:linkInfo access="read,fullRead,write,publish,delete" documentName="Migration from MapFile to MapDB" documentType="SimpleDocument" href="daisy:15914-SEEDOC" lastVersionId="51" liveVersionId="51">
+                    <p:linkPartInfo id="7" mimeType="text/xml" name="SimpleDocumentContent" size="27660"/>
+                </p:linkInfo>Migration from Mapfile to
+MapDB</a>.</p>
+        
+<h9 id="s116">Mapfile Commands</h9>
+        
+<p>Mapfiles are flat files that store character data as records of delimiter
+separated values. The delimiter must be a unique, single character (the default
+is comma). The delimiter must not occur inside the data content, because no
+quoting of delimiters is supported. The records are separated by <em>CRLF</em>
+or <em>LF</em>.</p>
+        
+<p>The mapfile handling provides only reading access of the mapfile data.</p>
+        
+<p>To read mapfile data, the following two steps are required:</p>
+        
+<ol>
+            
+<li>Open a named mapfile channel using the command
+<em>openMapfile.</em>
+            
+</li>
+            
+<li>Read the mapped data for a specified key value using command
+<em>
+                    <a href="dsy20886-SEEDOC.html#dsy2930-SEEDOC">
+                        <p:linkInfo access="read,fullRead,write,publish,delete" documentName="mapFile" documentType="SimpleDocument" href="daisy:2930-SEEDOC" lastVersionId="15" liveVersionId="15">
+                            <p:linkPartInfo id="7" mimeType="text/xml" name="SimpleDocumentContent" size="4338"/>
+                        </p:linkInfo>mapfile</a>.</em>
+            
+</li>
+            
+<li>Read data for a specified key value using the command
+<em>getFieldFromMapfileLine</em>.</li>
+        
+</ol>
+        
+<p class="note">
+            
+<strong>Note</strong>: Ensure that the<em>openMapFile</em>command is invoked
+<strong>only once</strong> during a conversion for an individual channel.
+Therefore place it in the <strong>header </strong>record program.</p>
+        
+<p>By using map files, you can assign different values to a key during the
+conversion process. The list of keys and corresponding values is specified
+within a text file, a table, or a database. If in the <em>OpenMapFile</em>
+function no encoding is specified the default platform encoding of the Java VM
+is assumed. Fields are terminated by the given separator; no quoting is
+performed, the returned values are right trimmed. You can add end-of-line
+comments indicated by double slashes or an exclamation mark&nbsp; ("//" or "!").
+These symbols and the following text up to the end of line are ignored.</p>
+        
+<p class="note">
+            
+<strong>Note</strong>: It is not allowed to use keys more than
+once. Otherwise, the first found value with this key will be returned.</p>
+        
+<p>
+            
+<strong>Example:</strong>
+            
+<br>
+Suppose the file <em>country.cde</em> is a text file located in the directory
+<em>&lt;workspace path&gt;\src\mapfiles\</em>
+            
+<br>
+The following map file is applied:</p>
+        
+<pre>!Mapfile for Country Code Conversion
+!column1=internal (company specific) CountryCode ("01","02",...)
+!Column2=international (official) CountryCode ("DE", "GB",...)
+!Column3=Name of the country
+!Column4=Abbreviation used for vehicles
+
+01,DE,Germany,D
+02,GB,Great Britain,GB
+03,SP,Spain,S
+04,IT,Italy,I
+...</pre>
+        
+<p>Suppose within the source file of a mapping, the company-specific
+<strong>country code</strong> occurs in field <em>100:COUNTRY</em>, but the
+destination file should contain the <strong>country name</strong>. Then the
+following procedure applies:</p>
+        
+<ul>
+            
+<li>Open the code file with:
+<pre>openMapFile("COUNTRY_CODE", "country.cde", 1, 3);</pre>
+            
+</li>
+            
+<li>Map the corresponding value with: <br>
+                
+<pre>copy mapFile("COUNTRY_CODE", "100:COUNTRY") to 100:DestinationField; /*(Value of 100:COUNTRY should be contained 
+in the source column, otherwise default value will be returned)*/</pre>
+            
+</li>
+        
+</ul>
+        
+<blockquote>
+            
+<p>or</p>
+        
+</blockquote>
+        
+<blockquote>
+            
+<pre>copy getFieldFromMapfileLine("COUNTRY_CODE",SOURCE_MESSAGE:SOME_FIELD, 3) to
+DESTINATION_MESSAGE:WHATEVER_FIELD; //Country name</pre>
+        
+</blockquote>
+        
+<p class="warn">
+            
+<strong>Attention</strong>: It is not allowed to use non-ASCII
+characters in map file names. Otherwise an error will occur!</p>
+        
+<p class="note" id="dsy15912-SEEDOC_Mapfilesize">
+            
+<strong>Note</strong>: Memory handling:<br>
+The memory handling of mapfiles can be configured in the converter configuration
+file <em>juprefs.properties</em> in the manual BIC MD Operation Guide:
+<em>ALLOW_RELOAD_OF_MAPFILES_DURING_MAPPING_RUN</em> properties enables/disables
+the reload of the mapfile during the life cycle of a mapping.<br>
+- If reload is enabled (<em>on</em>), the mapfile will be reloaded and only one
+instance of the mapfile is kept in memory.<br>
+- If reload is disabled (<em>off</em>), the mapfile is loaded once and then kept
+in memory. In this case, it is not re-used by another instance of the same
+mapping. Therefore sufficient RAM is required for storing the mapfile as often
+as a parallel mapping execution is possible. The RAM size is not controlled and
+the average of mapping running time has to be much shorter than the values of
+<em>CACHE_RELOAD_TIME_AT_LOAD</em> or <em>CACHE_RELOAD_TIME_WITHOUT_LOAD</em>.
+</p>
+        
+<h11 id="s117">Sample Map File Processing Code</h11>
+        
+<pre>// open the mapfile country.cde
+openMapFile("COUNTRY_CODE","country.cde",1,3);
+// takes the 3rd column of the line in which the 1st column is equal to value of field 100:COUNTRY
+copy mapFile("COUNTRY_CODE", 100:COUNTRY) to 100:DESTCOUNTRY;
+copy 100:COUNTRY to CountryCode$;
+// takes the 3rd column of the line in which the 1st column is equal to the variable CountryCode$
+Country$ = getFieldFromMapfileLine("COUNTRY_CODE", CountryCode$, 3);
+Copy Country$ to 100:DESTCOUNTRY;
+
+// takes from mapfile the 2nd column of the line where 1st column is equal to value of field 
+// SOURCE_MESSAGE:SOME_FIELD
+copy getFieldFromMapfileLine("COUNTRY_CODE",SOURCE_MESSAGE:SOME_FIELD, 2) to DESTINATION_MESSAGE:WHATEVER_FIELD; </pre>
+        
+<h9 id="s118">Mapfile Location and Deployment</h9>
+        
+<p>In the test system (BIC Mapping Designer), mapfiles are usually located in
+the folder <em>&lt;workspaceDir&gt;/&lt;srcDir&gt;/mapfiles</em>, where
+&lt;<em>workspaceDir</em>&gt; is the workspace directory and
+&lt;<em>srcDir</em>&gt; is the folder, defined as <em>Source </em>folder in the
+Mapping Designer (the default is '<em>src</em>'). If the sub folder
+<em>'mapfiles</em>' is not available, it must be created manually. Mapfiles are
+searched for by the Java class path, so they cannot be located in an arbitrary
+folder.</p>
+        
+<p>If mapfiles should be used in a BIS 6 System, they must be activated and
+deployed via the Repository, together with the mapping. It is important to
+select the used mapfiles from the mapfile list, at activation time.</p>
+        
+<h9 id="s119">Mapfile Handling since BIC Version 6.3.5&nbsp;</h9>
+        
+<p>Since BIC version 6.3.5 all mapfile commands are redirected to corresponding
+mapDB commands, that operate on the Seeburger Standard Mapfile tables. For more
+information about user-defined database tables and Seeburger Standard Mapfile
+tables, please refer to the topic <em>MapDB
+Handling.</em>
+        
+</p>
+        
+<p>If the mapfile content can be found in the Seeburger Standard Mapfile tables,
+the content is evaluated automatically by the mapDB handling. If the mapfile
+content <strong>cannot</strong> be found in the Seeburger Standard Mapfile
+tables, the processing depends on the mapping version:</p>
+        
+<ul>
+            
+<li>If the mapping version is also 6.3.5 (or newer), error 4060 (level 3) is
+reported.</li>
+            
+<li>If the mapping version is earlier than 6.3.5, the mapfiles are searched for
+and evaluated as before, by the mapfile commands.</li>
+        
+</ul>
+        
+<p>It is possible to force the reporting of error 4060 for all mapping versions,
+by setting the following key in the<em> juprefs.properties</em>.
+<em>FORCE_MAPDB_USAGE_FOR_ALL_VERSIONS=ON&nbsp;</em> (default is OFF). This setting
+is useful to ensure the migration of older mappings to mapDB handling.</p>
+        
+<p>The correlation between mapfile names and Seeburger Standard Mapfile table
+names is done automatically by BIC, replacing all, non numeric and non literal
+characters, of the file name with an underscore. Example, the file name
+<em>products-data.01.txt</em> becomes the corresponding table name
+<em>products_data_01_txt.</em>
+        
+</p>
+        
+<p>These table names are also generated if mapfiles are imported to the
+Seeburger Standard Mapfile tables. For details please refer to the topic
+<em>
+                <a href="#dsy15914-SEEDOC">
+                    <p:linkInfo access="read,fullRead,write,publish,delete" documentName="Migration from MapFile to MapDB" documentType="SimpleDocument" href="daisy:15914-SEEDOC" lastVersionId="51" liveVersionId="51">
+                        <p:linkPartInfo id="7" mimeType="text/xml" name="SimpleDocumentContent" size="27660"/>
+                    </p:linkInfo>Mapfile Import</a>.</em>
+        
+</p>
+        
+</div>
+<div class="right">
+<a href="dsy21379-SEEDOC.html"><img src="resources/images/big_right.gif"></a>
+</div>
+</div>
+<div id="pageNumber">
+<div class="numberAndTitle">
+<span class="bottomTitle">Training BIC 6 Basics</span><span class="count">103</span>
+</div>
+</div>
+</div>
+</body>
+</html>

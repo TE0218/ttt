@@ -1,0 +1,157 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html xmlns:fn="http://www.w3.org/2005/xpath-functions" xmlns:p="http://outerx.org/daisy/1.0#publisher" xmlns:i18n="http://apache.org/cocoon/i18n/2.1" xmlns:einclude="http://outerx.org/daisy/1.0#externalinclude" xmlns:d="http://outerx.org/daisy/1.0">
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<link href="resources/css/books.css" type="text/css" rel="stylesheet">
+<script src="resources/js/toggle.js" type="text/javascript"></script>
+</head>
+<body onLoad="appendToDiv();">
+<div class="all">
+<div class="top">
+<div class="chunkNavigation">
+<div class="topCut"></div>
+<div class="logoTitle">
+<span><img src="resources/images/see-logo.png"></span><span class="bookTitle">Mapping Repository</span>
+</div>
+<div class="navigation">
+<ul>
+<li class="first">
+<a href="dsy20705-SEEDOC.html">&nbsp;<img src="resources/images/small_left.gif">&nbsp;Previous&nbsp;</a>
+</li>
+<li class="middle">
+<a href="chunk1.html"><img src="resources/images/content.png">Table of Contents&nbsp;</a>
+</li>
+<li class="last">
+<a href="dsy20707-SEEDOC.html">&nbsp;Next&nbsp;<img src="resources/images/small_right.gif"></a>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="content">
+<div class="left">
+<a href="dsy20705-SEEDOC.html"><img src="resources/images/big_left.gif" class="centeredImage"></a>
+</div>
+<div class="center">
+<h2 xmlns:ns="http://outerx.org/daisy/1.0" id="s72">Walkthrough</h2>
+        
+<h3 daisyBranch="1" daisyDocument="18283-SEEDOC" daisyLanguage="2" id="dsy18283-SEEDOC">Overview</h3>
+        
+<table class="borderless" column-widths="30%;70%" print-column-widths="30%;70%" print-width="100%" width="100%">
+<col width="30%">
+<col width="70%">
+<tbody>
+                
+<tr>
+                    
+<td valign="middle">
+                        
+<ul>
+                            
+<li>
+                                
+<p>Central storage for objects (mappings, messages and global procedures)</p>
+                            
+</li>
+                            
+<li>
+                                
+<p>Version management for such objects</p>
+                            
+</li>
+                        
+</ul>
+                    
+</td>
+                    <td valign="top">
+                        
+<p align="center">
+                            
+<a href="images/2316-SEEDOC_1_2_2.png"><img bookStorePath="/data/resources/2316-SEEDOC_1_2_2" height="451" p:imageHeight="426" p:imageWidth="552" print-height="451px" src="images/2316-SEEDOC_1_2_2.png"></a>
+                        
+</p>
+                    
+</td>
+                
+</tr>
+            
+</tbody>
+</table>
+        
+<h8 id="s73">For more details please refer to</h8>
+        
+<h8 daisyBranch="1" daisyDocument="15920-SEEDOC" daisyLanguage="2" id="dsy15920-SEEDOC">Recommended Organization of the Central Repository</h8>
+        
+<p>As in the introduction described, the common scenario has the following
+installations on different systems:</p>
+        
+<ul>
+            
+<li>BIS test instance</li>
+            
+<li>BIS production instance</li>
+            
+<li>One or more BIC Mapping Designer client installation</li>
+        
+</ul>
+        
+<p>The BIS instances have both a runtime repository for running the mapping with
+in their processes. The runtime repositories of the instances and the BIC
+Mapping Designers should be connected to one central source repository. It is
+recommended to use the source repository of the production instance. This
+scenario has the follwoing advantages:</p>
+        
+<ul>
+
+            
+<li>Both test and production systems access the same source repository
+<span class="symbol">&rarr;</span> the source versions of the objectes are the same,
+so it is possible to have the same versions running on the test and the
+production system.</li>
+
+            
+<li>In an upgrade scenario the test system can be updated to the newest version
+for tests<span class="symbol"> &rarr;</span> the cross version support allows the
+test mapping management to access the central source repository on the "old"&nbsp;
+production system, and generate new runtime versions for the test. The update of
+the production systems and the BIC Mappings Designer are done after a successful
+test on the test system. Therefore it is recommended to have the central source
+repository on the production system. The single steps of an example update are
+described in the topic <em>Example Update
+Scenario</em>.</li>
+        
+</ul>
+        
+<p align="center">
+            
+<table class="plainTable" align="center">
+<tr>
+<td align="center"><a href="images/15921-SEEDOC_1_2_1.jpg"><img bookStorePath="/data/resources/15921-SEEDOC_1_2_1" daisy-caption="Organization Central Source repository" p:imageHeight="431" p:imageWidth="779" print-width="17cm" src="images/15921-SEEDOC_1_2_1.jpg" daisy-image-type="default" id="dsy_fig_56"></a></td>
+</tr>
+<tr>
+<td class="imageCaption" align="center">Organization Central Source repository</td>
+</tr>
+</table>
+        
+</p>
+        
+<p>The test server is connected with the <em>bic.src.+ properties</em> in the
+configuration file <em>ports.properties</em> to the central repository. For
+further information please read the topic
+<em>Central Repository Configuration</em>. The
+BIC Mapping Designer can be connected to the central source repository with a
+<em>Create Repository Connection</em>.</p>
+        
+</div>
+<div class="right">
+<a href="dsy20707-SEEDOC.html"><img src="resources/images/big_right.gif"></a>
+</div>
+</div>
+<div id="pageNumber">
+<div class="numberAndTitle">
+<span class="bottomTitle">Training BIC 6 Basics</span><span class="count">92</span>
+</div>
+</div>
+</div>
+</body>
+</html>

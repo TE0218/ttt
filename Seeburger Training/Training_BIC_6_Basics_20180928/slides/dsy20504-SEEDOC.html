@@ -1,0 +1,1038 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html xmlns:fn="http://www.w3.org/2005/xpath-functions" xmlns:p="http://outerx.org/daisy/1.0#publisher" xmlns:i18n="http://apache.org/cocoon/i18n/2.1" xmlns:einclude="http://outerx.org/daisy/1.0#externalinclude" xmlns:d="http://outerx.org/daisy/1.0">
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<link href="resources/css/books.css" type="text/css" rel="stylesheet">
+<script src="resources/js/toggle.js" type="text/javascript"></script>
+</head>
+<body onLoad="appendToDiv();">
+<div class="all">
+<div class="top">
+<div class="chunkNavigation">
+<div class="topCut"></div>
+<div class="logoTitle">
+<span><img src="resources/images/see-logo.png"></span><span class="bookTitle">EDIFACT Adapter</span>
+</div>
+<div class="navigation">
+<ul>
+<li class="first">
+<a href="dsy20502-SEEDOC.html">&nbsp;<img src="resources/images/small_left.gif">&nbsp;Previous&nbsp;</a>
+</li>
+<li class="middle">
+<a href="chunk1.html"><img src="resources/images/content.png">Table of Contents&nbsp;</a>
+</li>
+<li class="last">
+<a href="dsy20505-SEEDOC.html">&nbsp;Next&nbsp;<img src="resources/images/small_right.gif"></a>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="content">
+<div class="left">
+<a href="dsy20502-SEEDOC.html"><img src="resources/images/big_left.gif" class="centeredImage"></a>
+</div>
+<div class="center">
+<h2 xmlns:ns="http://outerx.org/daisy/1.0" daisyBranch="1" daisyDocument="20504-SEEDOC" daisyLanguage="2" id="dsy20504-SEEDOC">EDIFACT Exercise</h2>
+        
+<p>Create a mapping from INHOUSE to EDIFACT format. Follow the instructions of
+how to use the different record programs.</p>
+        
+<p>The
+<a href="../classmaterial/EdifactAdapter/ClassMaterial_BIC6Basics_BIC Edifact Adapter.zip">class
+material</a> contains the required message structures and testfiles.</p>
+        
+<h7 id="s152">Record program NewMapping:</h7>
+        
+<p>Keep in mind that the UNB segment must not be created more than once!</p>
+        
+<table column-widths="30%;30%;30%" print-column-widths="30%;30%;30%" print-width="90%" width="100%" class="content">
+<col width="30%">
+<col width="30%">
+<col width="30%">
+<tbody>
+                
+<tr>
+                    
+<th>
+                        
+<p>Source field / value</p>
+                    
+</th>
+                    <th>
+                        
+<p>Destination field</p>
+                    
+</th>
+                    <th>
+                        
+<p>Note</p>
+                    
+</th>
+                
+</tr>
+                
+<tr>
+                    
+<td>
+                        
+<p>syntax identifier (= "UNOC")</p>
+                    
+</td>
+                    <td>
+                        
+<p>UNB:S001.0001</p>
+                    
+</td>
+                    <td></td>
+                
+</tr>
+                
+<tr>
+                    
+<td>
+                        
+<p>syntax version number (= "3&ldquo;)</p>
+                    
+</td>
+                    <td>
+                        
+<p>UNB:S001.0002</p>
+                    
+</td>
+                    <td></td>
+                
+</tr>
+                
+<tr>
+                    
+<td>
+                        
+<p>sender (e.g. &bdquo;SEEBURGER&ldquo;)</p>
+                    
+</td>
+                    <td>
+                        
+<p>UNB:S002.0004</p>
+                    
+</td>
+                    <td></td>
+                
+</tr>
+                
+<tr>
+                    
+<td>
+                        
+<p>identification code qualifier (= "14")</p>
+                    
+</td>
+                    <td>
+                        
+<p>UNB:S002.0007</p>
+                    
+</td>
+                    <td></td>
+                
+</tr>
+                
+<tr>
+                    
+<td>
+                        
+<p>current date</p>
+                    
+</td>
+                    <td>
+                        
+<p>UNB:S004.0017 (format = YYMMDD)</p>
+                    
+</td>
+                    <td>
+                        
+<p>Use the <em>currentdate</em> function</p>
+                    
+</td>
+                
+</tr>
+                
+<tr>
+                    
+<td>
+                        
+<p>current time</p>
+                    
+</td>
+                    <td>
+                        
+<p>UNB:S004.0019 (format = hhmm)</p>
+                    
+</td>
+                    <td>
+                        
+<p>Use the <em>currenttime</em> function</p>
+                    
+</td>
+                
+</tr>
+                
+<tr>
+                    
+<td>
+                        
+<p>interchange control reference</p>
+                    
+</td>
+                    <td>
+                        
+<p>UNB.0020</p>
+                    
+</td>
+                    <td>
+                        
+<p>Use the <em>getcounter</em> function and do not forget the counterpart in UNZ
+</p>
+                    
+</td>
+                
+</tr>
+            
+</tbody>
+</table>
+        
+<h7 id="s153">Record program NewMessage:</h7>
+        
+<table column-widths="30%;30%;30%" print-column-widths="30%;30%;30%" print-width="90%" width="100%" class="content">
+<col width="30%">
+<col width="30%">
+<col width="30%">
+<tbody>
+                
+<tr>
+                    
+<th>
+                        
+<p>Source field / value</p>
+                    
+</th>
+                    <th>
+                        
+<p>Destination field</p>
+                    
+</th>
+                    <th>
+                        
+<p>Note</p>
+                    
+</th>
+                
+</tr>
+                
+<tr>
+                    
+<td>
+                        
+<p>message reference number</p>
+                    
+</td>
+                    <td>
+                        
+<p>UNH.0062</p>
+                    
+</td>
+                    <td>
+                        
+<p>
+                            
+<em>All UNHs should be numbered consecutively (1,2,3...) by using a numeric
+variable. Do not forget the counterpart in UNT.</em>
+                        
+</p>
+                    
+</td>
+                
+</tr>
+                
+<tr>
+                    
+<td>
+                        
+<p>message type (= "INVOIC")</p>
+                    
+</td>
+                    <td>
+                        
+<p>UNH:S009.0065</p>
+                    
+</td>
+                    <td></td>
+                
+</tr>
+                
+<tr>
+                    
+<td>
+                        
+<p>message version number (= "D")</p>
+                    
+</td>
+                    <td>
+                        
+<p>UNH:S009.0052</p>
+                    
+</td>
+                    <td></td>
+                
+</tr>
+                
+<tr>
+                    
+<td>
+                        
+<p>message release number (= "96A")</p>
+                    
+</td>
+                    <td>
+                        
+<p>UNH:S009.0054</p>
+                    
+</td>
+                    <td></td>
+                
+</tr>
+                
+<tr>
+                    
+<td>
+                        
+<p>controlling agency (= "UN")</p>
+                    
+</td>
+                    <td>
+                        
+<p>UNH:S009.0051</p>
+                    
+</td>
+                    <td></td>
+                
+</tr>
+            
+</tbody>
+</table>
+        
+<h7 id="s154">Record program K01:</h7>
+        
+<table column-widths="30%;30%;30%" print-column-widths="30%;30%;30%" print-width="90%" width="100%" class="content">
+<col width="30%">
+<col width="30%">
+<col width="30%">
+<tbody>
+                
+<tr>
+                    
+<th>
+                        
+<p>Source field / value</p>
+                    
+</th>
+                    <th>
+                        
+<p>Destination field</p>
+                    
+</th>
+                    <th>
+                        
+<p>Note</p>
+                    
+</th>
+                
+</tr>
+                
+<tr>
+                    
+<td>
+                        
+<p>"380&ldquo;</p>
+                    
+</td>
+                    <td>
+                        
+<p>BGM:C002.1001</p>
+                    
+</td>
+                    <td></td>
+                
+</tr>
+                
+<tr>
+                    
+<td>
+                        
+<p>K01.BELNR</p>
+                    
+</td>
+                    <td>
+                        
+<p>BGM:1004</p>
+                    
+</td>
+                    <td></td>
+                
+</tr>
+                
+<tr>
+                    
+<td>
+                        
+<p>K01.CURCY</p>
+                    
+</td>
+                    <td>
+                        
+<p>has to be stored in a variable (will be used later on)</p>
+                    
+</td>
+                    <td></td>
+                
+</tr>
+            
+</tbody>
+</table>
+        
+<h7 id="s155">Record program KA1:</h7>
+        
+<table column-widths="30%;30%;30%" print-column-widths="30%;30%;30%" print-width="90%" width="100%" class="content">
+<col width="30%">
+<col width="30%">
+<col width="30%">
+<tbody>
+                
+<tr>
+                    
+<th>
+                        
+<p>Source field / value</p>
+                    
+</th>
+                    <th>
+                        
+<p>Destination field</p>
+                    
+</th>
+                    <th>
+                        
+<p>Note</p>
+                    
+</th>
+                
+</tr>
+                
+<tr>
+                    
+<td>
+                        
+<p>KA1.PARVW</p>
+                    
+</td>
+                    <td>
+                        
+<p>NAD.3035</p>
+                    
+</td>
+                    <td>
+                        
+<p>Transcode values:<br>
+"WE" to "CN"<br>
+"AG" to "BY"</p>
+                        
+<p>Use <em>select case</em> for "WE" and "AG" and caseelse for others.</p>
+                    
+</td>
+                
+</tr>
+                
+<tr>
+                    
+<td>
+                        
+<p>KA1.PARTN (where PARVW = "AG")</p>
+                    
+</td>
+                    <td>
+                        
+<p>UNB:S003.0010</p>
+                    
+</td>
+                    <td>
+                        
+<p>Use "14" as the receiver code qualifier (UNB:S003.0007)</p>
+                        
+<p>Use <em>overwrite</em> to guaranty not to create the UNB segment twice.</p>
+                    
+</td>
+                
+</tr>
+                
+<tr>
+                    
+<td>
+                        
+<p>KA1.NAME1</p>
+                    
+</td>
+                    <td>
+                        
+<p>NAD:C058.3036</p>
+                    
+</td>
+                    <td></td>
+                
+</tr>
+                
+<tr>
+                    
+<td>
+                        
+<p>KA1.STRAS</p>
+                    
+</td>
+                    <td>
+                        
+<p>NAD:C058.3042</p>
+                    
+</td>
+                    <td></td>
+                
+</tr>
+                
+<tr>
+                    
+<td>
+                        
+<p>KA1.ORT01</p>
+                    
+</td>
+                    <td>
+                        
+<p>NAD.3164</p>
+                    
+</td>
+                    <td></td>
+                
+</tr>
+                
+<tr>
+                    
+<td>
+                        
+<p>KA1.PSTLZ</p>
+                    
+</td>
+                    <td>
+                        
+<p>NAD.3251</p>
+                    
+</td>
+                    <td></td>
+                
+</tr>
+                
+<tr>
+                    
+<td>
+                        
+<p>KA1.LAND1</p>
+                    
+</td>
+                    <td>
+                        
+<p>NAD.3207</p>
+                    
+</td>
+                    <td></td>
+                
+</tr>
+                
+<tr>
+                    
+<td>
+                        
+<p>KA1.REGIO</p>
+                    
+</td>
+                    <td>
+                        
+<p>NAD.3229</p>
+                    
+</td>
+                    <td></td>
+                
+</tr>
+            
+</tbody>
+</table>
+        
+<h7 id="s156">Record program K02:</h7>
+        
+<table column-widths="30%;30%;30%" print-column-widths="30%;30%;30%" print-width="90%" width="100%" class="content">
+<col width="30%">
+<col width="30%">
+<col width="30%">
+<tbody>
+                
+<tr>
+                    
+<th>
+                        
+<p>Source field / value</p>
+                    
+</th>
+                    <th>
+                        
+<p>Destination field</p>
+                    
+</th>
+                    <th>
+                        
+<p>Note</p>
+                    
+</th>
+                
+</tr>
+                
+<tr>
+                    
+<td>
+                        
+<p>"3"</p>
+                    
+</td>
+                    <td>
+                        
+<p>DTM:C507.2005</p>
+                    
+</td>
+                    <td></td>
+                
+</tr>
+                
+<tr>
+                    
+<td>
+                        
+<p>Combine the six right digits of K02.DATUM and the four left digits of
+K02.UZEIT</p>
+                    
+</td>
+                    <td>
+                        
+<p>DTM:C507.2380</p>
+                    
+</td>
+                    <td>
+                        
+<p>Use <em>right</em> and <em>left</em> function</p>
+                    
+</td>
+                
+</tr>
+                
+<tr>
+                    
+<td>
+                        
+<p>"201" (= YYMMDDHHMM)</p>
+                    
+</td>
+                    <td>
+                        
+<p>DTM:C507.2379</p>
+                    
+</td>
+                    <td></td>
+                
+</tr>
+            
+</tbody>
+</table>
+        
+<h7 id="s157">Record program P01:</h7>
+        
+<table column-widths="30%;30%;30%" print-column-widths="30%;30%;30%" print-width="90%" width="100%" class="content">
+<col width="30%">
+<col width="30%">
+<col width="30%">
+<tbody>
+                
+<tr>
+                    
+<th>
+                        
+<p>Source field / value</p>
+                    
+</th>
+                    <th>
+                        
+<p>Destination field</p>
+                    
+</th>
+                    <th>
+                        
+<p>Note</p>
+                    
+</th>
+                
+</tr>
+                
+<tr>
+                    
+<td>
+                        
+<p>position counter</p>
+                    
+</td>
+                    <td>
+                        
+<p>LIN.1082</p>
+                    
+</td>
+                    <td>
+                        
+<p>Use a global numeric variable. Do not forget to reset in program MessageEnd
+</p>
+                    
+</td>
+                
+</tr>
+                
+<tr>
+                    
+<td>
+                        
+<p>P01.BETRG</p>
+                    
+</td>
+                    <td>
+                        
+<p>LIN.MOA:C516.5004</p>
+                    
+</td>
+                    <td></td>
+                
+</tr>
+                
+<tr>
+                    
+<td>
+                        
+<p>&ldquo;203&rdquo;</p>
+                    
+</td>
+                    <td>
+                        
+<p>LIN.MOA:C516.5025</p>
+                    
+</td>
+                    <td></td>
+                
+</tr>
+                
+<tr>
+                    
+<td>
+                        
+<p>K01.CURCY</p>
+                    
+</td>
+                    <td>
+                        
+<p>LIN.MOA:C516.6345</p>
+                    
+</td>
+                    <td>
+                        
+<p>Value had been stored in a variable before</p>
+                    
+</td>
+                
+</tr>
+                
+<tr>
+                    
+<td>
+                        
+<p>"131"</p>
+                    
+</td>
+                    <td>
+                        
+<p>LIN.QTY:C186.6063</p>
+                    
+</td>
+                    <td></td>
+                
+</tr>
+                
+<tr>
+                    
+<td>
+                        
+<p>P01.MENGE</p>
+                    
+</td>
+                    <td>
+                        
+<p>LIN.QTY:C186.6060</p>
+                    
+</td>
+                    <td></td>
+                
+</tr>
+                
+<tr>
+                    
+<td>
+                        
+<p>"PCE"</p>
+                    
+</td>
+                    <td>
+                        
+<p>LIN.QTY:C186.6411</p>
+                    
+</td>
+                    <td></td>
+                
+</tr>
+                
+<tr>
+                    
+<td>
+                        
+<p>"AAA"</p>
+                    
+</td>
+                    <td>
+                        
+<p>LIN.PRI:C509.5125</p>
+                    
+</td>
+                    <td></td>
+                
+</tr>
+                
+<tr>
+                    
+<td>
+                        
+<p>P01.BMNG2</p>
+                    
+</td>
+                    <td>
+                        
+<p>LIN.PRI:C509.5284</p>
+                    
+</td>
+                    <td></td>
+                
+</tr>
+                
+<tr>
+                    
+<td>
+                        
+<p>P01.PMENE</p>
+                    
+</td>
+                    <td>
+                        
+<p>LIN.PRI:C509.6411</p>
+                    
+</td>
+                    <td></td>
+                
+</tr>
+                
+<tr>
+                    
+<td>
+                        
+<p>P01.VPREI</p>
+                    
+</td>
+                    <td>
+                        
+<p>LIN.PRI:C509.5118</p>
+                    
+</td>
+                    <td></td>
+                
+</tr>
+            
+</tbody>
+</table>
+        
+<h7 id="s158">Record program P19:</h7>
+        
+<table column-widths="30%;30%;30%" print-column-widths="30%;30%;30%" print-width="90%" width="100%" class="content">
+<col width="30%">
+<col width="30%">
+<col width="30%">
+<tbody>
+                
+<tr>
+                    
+<th>
+                        
+<p>Source field / value</p>
+                    
+</th>
+                    <th>
+                        
+<p>Destination field</p>
+                    
+</th>
+                    <th>
+                        
+<p>Note</p>
+                    
+</th>
+                
+</tr>
+                
+<tr>
+                    
+<td>
+                        
+<p>P19.IDTNR</p>
+                    
+</td>
+                    <td>
+                        
+<p>LIN.7140</p>
+                    
+</td>
+                    <td></td>
+                
+</tr>
+                
+<tr>
+                    
+<td>
+                        
+<p>P19.KTEXT</p>
+                    
+</td>
+                    <td>
+                        
+<p>LIN.7009</p>
+                    
+</td>
+                    <td></td>
+                
+</tr>
+            
+</tbody>
+</table>
+        
+<h7 id="s159">Record program MessageEnd</h7>
+        
+<p>Additional requirement: The LIN.MOA segment will contain all single amounts.
+However there is a MOA segment on header level which has to contain the total
+amount of all positions. Please also use this record program to reset counters
+relevant per message.</p>
+        
+<table column-widths="30%;30%;30%" print-column-widths="30%;30%;30%" print-width="90%" width="100%" class="content">
+<col width="30%">
+<col width="30%">
+<col width="30%">
+<tbody>
+                
+<tr>
+                    
+<th>
+                        
+<p>Source field / value</p>
+                    
+</th>
+                    <th>
+                        
+<p>Destination field</p>
+                    
+</th>
+                    <th>
+                        
+<p>Note</p>
+                    
+</th>
+                
+</tr>
+                
+<tr>
+                    
+<td>
+                        
+<p>"128"</p>
+                    
+</td>
+                    <td>
+                        
+<p>MOA:C516.5025</p>
+                    
+</td>
+                    <td></td>
+                
+</tr>
+                
+<tr>
+                    
+<td>
+                        
+<p>Sum of all P01.BETRG</p>
+                    
+</td>
+                    <td>
+                        
+<p>MOA:C516.5004</p>
+                    
+</td>
+                    <td></td>
+                
+</tr>
+                
+<tr>
+                    
+<td>
+                        
+<p>K01.CURCY</p>
+                    
+</td>
+                    <td>
+                        
+<p>MOA:C516.6345</p>
+                    
+</td>
+                    <td>
+                        
+<p>Value had been stored in a variable before</p>
+                    
+</td>
+                
+</tr>
+            
+</tbody>
+</table>
+        
+</div>
+<div class="right">
+<a href="dsy20505-SEEDOC.html"><img src="resources/images/big_right.gif"></a>
+</div>
+</div>
+<div id="pageNumber">
+<div class="numberAndTitle">
+<span class="bottomTitle">Training BIC 6 Basics</span><span class="count">136</span>
+</div>
+</div>
+</div>
+</body>
+</html>

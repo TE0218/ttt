@@ -1,0 +1,570 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html xmlns:fn="http://www.w3.org/2005/xpath-functions" xmlns:p="http://outerx.org/daisy/1.0#publisher" xmlns:i18n="http://apache.org/cocoon/i18n/2.1" xmlns:einclude="http://outerx.org/daisy/1.0#externalinclude" xmlns:d="http://outerx.org/daisy/1.0">
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<link href="resources/css/books.css" type="text/css" rel="stylesheet">
+<script src="resources/js/toggle.js" type="text/javascript"></script>
+</head>
+<body onLoad="appendToDiv();">
+<div class="all">
+<div class="top">
+<div class="chunkNavigation">
+<div class="topCut"></div>
+<div class="logoTitle">
+<span><img src="resources/images/see-logo.png"></span><span class="bookTitle">Mapfile and MapDB Handling</span>
+</div>
+<div class="navigation">
+<ul>
+<li class="first">
+<a href="dsy21049-SEEDOC.html">&nbsp;<img src="resources/images/small_left.gif">&nbsp;Previous&nbsp;</a>
+</li>
+<li class="middle">
+<a href="chunk1.html"><img src="resources/images/content.png">Table of Contents&nbsp;</a>
+</li>
+<li class="last">
+<a href="dsy20887-SEEDOC.html">&nbsp;Next&nbsp;<img src="resources/images/small_right.gif"></a>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="content">
+<div class="left">
+<a href="dsy21049-SEEDOC.html"><img src="resources/images/big_left.gif" class="centeredImage"></a>
+</div>
+<div class="center">
+<h3 xmlns:ns="http://outerx.org/daisy/1.0" daisyBranch="1" daisyDocument="20886-SEEDOC" daisyLanguage="2" id="dsy20886-SEEDOC">How to use a MapFile - mapFile</h3>
+        
+<p>Performs a value mapping operation on a previously open map file channel
+(see) . The command returns a value which is alphanumeric and which is the
+destination value for the mapping. The value is right trimmed before being
+returned (trailing spaces and tabs are removed).</p>
+        
+<p>There are two types:</p>
+        
+<ul>
+            
+<li>
+                
+<p>mapFile(ChannelName, SourceValue, DefaultValue);</p>
+            
+</li>
+        
+</ul>
+        
+<ul>
+            
+<li>
+                
+<p>mapFile(ChannelName, SourceValue);</p>
+            
+</li>
+        
+</ul>
+        
+<pre>// Use Mapfiles
+copy mapfile("Country",Country_Code$)    to Country_Name$;
+copy mapfile("Currency",Country_Code$)  to Country_Currency$;
+copy mapfile("Continent",Country_Code$) to Country_Continent$;</pre>
+        
+<h8 id="s120">For more details please refer to</h8>
+        
+<h9 daisyBranch="1" daisyDocument="2944-SEEDOC" daisyLanguage="2" id="dsy2944-SEEDOC">openMapDB</h9>
+        
+<h13 id="s121">Syntax</h13>
+        
+<p>
+            
+<strong>openMapDB(name, connection, table, sourceField, destinationField,
+defaultValue)</strong>
+        
+</p>
+        
+<h13 id="s122">Description</h13>
+        
+<p>Opens a database access for <em>mapDB</em>
+commands. For further information please refer tot he topic
+<em>
+                <a href="dsy21050-SEEDOC.html#dsy2298-SEEDOC">
+                    <p:linkInfo access="read,fullRead,write,publish,delete" documentName="MapDB Commands" documentType="SimpleDocument" href="daisy:2298-SEEDOC" lastVersionId="30" liveVersionId="30">
+                        <p:linkPartInfo id="7" mimeType="text/xml" name="SimpleDocumentContent" size="5064"/>
+                    </p:linkInfo>MapDB commands</a>
+            </em>.</p>
+        
+<h13 id="s123">Parameter(s)</h13>
+        
+<table class="content" column-widths="20%;20%" print-column-widths="20%;20%" width="100%">
+<col width="20%">
+<col width="20%">
+<col>
+<tbody>
+                
+<tr>
+                    
+<th>
+                        
+<p>Parameter</p>
+                    
+</th>
+                    <th>
+                        
+<p>Type</p>
+                    
+</th>
+                    <th>
+                        
+<p>Description</p>
+                    
+</th>
+                
+</tr>
+                
+<tr>
+                    
+<td>
+                        
+<p align="center">name</p>
+                    
+</td>
+                    <td>
+                        
+<p align="center">$</p>
+                    
+</td>
+                    <td>
+                        
+<p align="left">Name of the mapping table.</p>
+                    
+</td>
+                
+</tr>
+                
+<tr>
+                    
+<td>
+                        
+<p align="center">connection</p>
+                    
+</td>
+                    <td>
+                        
+<p align="center">$</p>
+                    
+</td>
+                    <td>
+
+                        
+<p>Database's connection to use. Please use the<a href="dsy20887-SEEDOC.html#dsy2818-SEEDOC">
+                                <p:linkInfo access="read,fullRead,write,publish,delete" documentName="connectDB" documentType="SimpleDocument" href="daisy:2818-SEEDOC" lastVersionId="17" liveVersionId="17">
+                                    <p:linkPartInfo id="7" mimeType="text/xml" name="SimpleDocumentContent" size="3801"/>
+                                </p:linkInfo>
+                                <em>connectDB</em>
+
+                            </a> command before to define the DB connection. It is also
+possible to use a <em>SQLDocReader</em>&nbsp;if the source message is SQL or a
+<em>SQLDocWriter.</em>&nbsp;If the destination message is SQL,
+then&nbsp;<a href="dsy20887-SEEDOC.html#dsy2818-SEEDOC">
+                                <p:linkInfo access="read,fullRead,write,publish,delete" documentName="connectDB" documentType="SimpleDocument" href="daisy:2818-SEEDOC" lastVersionId="17" liveVersionId="17">
+                                    <p:linkPartInfo id="7" mimeType="text/xml" name="SimpleDocumentContent" size="3801"/>
+                                </p:linkInfo>
+                                <em>connectDB</em>
+                            </a> is not needed.</p>
+                    
+</td>
+                
+</tr>
+                
+<tr>
+                    
+<td>
+                        
+<p align="center">table</p>
+                    
+</td>
+                    <td>
+                        
+<p align="center">$</p>
+                    
+</td>
+                    <td>
+                        
+<p>Mapping code table.</p>
+                    
+</td>
+                
+</tr>
+                
+<tr>
+                    
+<td>
+                        
+<p align="center">sourceField</p>
+                    
+</td>
+                    <td>
+                        
+<p align="center">$</p>
+                    
+</td>
+                    <td>
+                        
+<p>Source column of the table, which is searched.</p>
+                    
+</td>
+                
+</tr>
+                
+<tr>
+                    
+<td>
+                        
+<p align="center">destinationField</p>
+                    
+</td>
+                    <td>
+                        
+<p align="center">$</p>
+                    
+</td>
+                    <td>
+                        
+<p>Destination column which is mapped for the found source value.</p>
+                    
+</td>
+                
+</tr>
+                
+<tr>
+                    
+<td>
+                        
+<p align="center">defaultValue</p>
+                    
+</td>
+                    <td>
+                        
+<p align="center">$</p>
+                    
+</td>
+                    <td>
+                        
+<p>Value, which is returned for the
+<em>mapdb</em> command, if the source value of
+the <em>mapdb</em> is not found in the source
+column.</p>
+                    
+</td>
+                
+</tr>
+            
+</tbody>
+</table>
+        
+<h7 daisyBranch="1" daisyDocument="15258-SEEDOC" daisyLanguage="2" id="dsy15258-SEEDOC">Return Value</h7>
+        
+<p>This command does not return a value.</p>
+        
+<h13 id="s124">Warning(s) / Error(s)</h13>
+        
+<ul>
+            
+<li>
+                
+<em>4045</em>
+            
+</li>
+            
+<li>
+                
+<em>4518</em>
+            
+</li>
+            
+<li>
+                
+<em>4524</em>
+            
+</li>
+            
+<li>
+                
+<em>4526</em>
+            
+</li>
+            
+<li>
+                
+<em>4530</em>
+            
+</li>
+        
+</ul>
+        
+<h13 id="s125">Example</h13>
+        
+<pre>connectDB("Name","myConnection","user","psw2[,"driver2,"transaction"]);
+openMapDB("Maptable1","myConnection","EAN codes","EAN","Internalcode","");
+copy mapDB("Maptable1","100") to tableContent$;
+
+
+// using the existing SQLDocReader
+openMapDB("Maptable1","SQLDocReader","EAN codes","EAN","Internalcode","");
+copy mapDB("Maptable1","100") to tableContent$;
+
+
+// using the existing SQLDocWriter
+openMapDB("Maptable1","SQLDocWriter","EAN codes","EAN","Internalcode","");
+copy mapDB("Maptable1","100") to tableContent$;</pre>
+        
+<h8 daisyBranch="1" daisyDocument="2930-SEEDOC" daisyLanguage="2" id="dsy2930-SEEDOC">mapFile</h8>
+        
+<p class="warn">
+            
+<strong>Attention</strong>: This command is deprecated. The
+ should be used with database
+tables.</p>
+        
+<h12 id="s126">Syntax</h12>
+        
+<p>
+            
+<strong>mapFile(name, sourceValue);</strong>
+        
+</p>
+        
+<p>
+            
+<strong>mapFile(name, sourceValue, defaultValue)</strong>
+        
+</p>
+        
+<h12 id="s127">Description</h12>
+        
+<p>Performs a value mapping operation on a previously open map file channel
+(please refer to the command
+<em>openMapFile</em>). The command returns
+an&nbsp;alphanumeric value that is the destination value for the mapping. The value
+is right trimmed before being returned (trailing spaces and tabs are removed).
+</p>
+        
+<p>Mapfiles have to be stored in the directory <em>..\user\bicmd\mapfiles\&nbsp;
+</em>if you use the standard workspace up to version 6.3.3. If you use a
+different workspace the mapfiles have to be stored in the directory
+<em>&lt;workplace&gt;\user\bicmd\mapfiles</em>. When using version 6.3.4, you
+have to copy the mapfiles to the
+directory<em>..\&lt;workspace&gt;\src\mapfiles\...</em>
+        
+</p>
+        
+<p>For further information please refer to the topic
+<em>Mapfile and MapDB.</em>
+        
+</p>
+        
+<p>The command is deprecated. Please refer to the topic
+<em>
+                <a href="dsy18657-SEEDOC.html#dsy15914-SEEDOC">
+                    <p:linkInfo access="read,fullRead,write,publish,delete" documentName="Migration from MapFile to MapDB" documentType="SimpleDocument" href="daisy:15914-SEEDOC" lastVersionId="51" liveVersionId="51">
+                        <p:linkPartInfo id="7" mimeType="text/xml" name="SimpleDocumentContent" size="27660"/>
+                    </p:linkInfo>Migration from MapFile to MapDB</a>
+            </em>.</p>
+        
+<h12 id="s128">Parameter(s)</h12>
+        
+<table class="content" column-widths="20%;20%" print-column-widths="20%;20%" width="100%">
+<col width="20%">
+<col width="20%">
+<col>
+<tbody>
+                
+<tr>
+                    
+<th>
+                        
+<p>Parameter</p>
+                    
+</th>
+                    <th>
+                        
+<p>Type</p>
+                    
+</th>
+                    <th>
+                        
+<p>Description</p>
+                    
+</th>
+                
+</tr>
+                
+<tr>
+                    
+<td>
+                        
+<p align="center">name</p>
+                    
+</td>
+                    <td>
+                        
+<p align="center">$</p>
+                    
+</td>
+                    <td>
+                        
+<p align="left">Name of the channel that is used. It has to be opened with the
+ function.</p>
+                    
+</td>
+                
+</tr>
+                
+<tr>
+                    
+<td>
+                        
+<p align="center">sourceValue</p>
+                    
+</td>
+                    <td>
+                        
+<p align="center">$</p>
+                    
+</td>
+                    <td>
+                        
+<p>This is a value expected by the function in the source column to produce a
+mapping. The destination value is the value residing in the same row, but in the
+destination column, defined by
+the&nbsp; function.</p>
+                    
+</td>
+                
+</tr>
+                
+<tr>
+                    
+<td>
+                        
+<p align="center">defaultValue</p>
+                    
+</td>
+                    <td>
+                        
+<p align="center">$</p>
+                    
+</td>
+                    <td>
+                        
+<p>Initial value if the source value is not found in the source column.</p>
+                    
+</td>
+                
+</tr>
+            
+</tbody>
+</table>
+        
+<h12 id="s129">Return Value</h12>
+        
+<table class="content" column-widths="30%;" print-column-widths="30%" width="100%">
+<col width="30%">
+<col>
+<tbody>
+                
+<tr>
+                    
+<th>
+                        
+<p>Type</p>
+                    
+</th>
+                    <th>
+                        
+<p>Description</p>
+                    
+</th>
+                
+</tr>
+                
+<tr>
+                    
+<td>
+                        
+<p align="center">$</p>
+                    
+</td>
+                    <td>
+                        
+<p>The value of the destination column, if the source value is found in the
+source column. If the value is not found the default value or "" is returned.
+</p>
+                    
+</td>
+                
+</tr>
+            
+</tbody>
+</table>
+        
+<h12 id="s130">Warning(s) /Error(s)</h12>
+        
+<ul>
+            
+<li>4005</li>
+            
+<li>4053</li>
+            
+<li>4059</li>
+            
+<li>4254</li>
+        
+</ul>
+        
+<h12 id="s131">Example</h12>
+        
+<pre>! This map file maps two-letter country 
+! codes to currency codes and geographical locations.
+! country code | country name  | currency  | continent
+
+DE,Germany,DM,Europe
+US,United States of Americe,USD,North America
+RUS,Russia,Ruble,Europe and Asia
+BG,Bulgaria,Lev,Europe</pre>
+        
+<p>To create a mapping that translates the country code (e.g., US) into currency
+(e.g., USD) write the following BIC BASIC code:</p>
+        
+<pre>// We read a source value from the source message, 
+// and before writing it to destination we do a mapping
+
+// Open a map file channel for our file
+openMapFile("Channel_1",         // any name would do
+            "country_data.dta",  // name of the map file
+            1,                   // 1 IS THE COLUMN FOR COUNTRY        
+                                 // codes
+            3,                   // 3 is the column for country        
+                                 // currency symbols
+            ",",                 // "," is the file column separator
+            "country code not found!!!");  // default return value
+
+dim CountryCode$;
+dim CurrencyCode$;
+
+copy SOURCE_MESSAGE:SOME_FIELD to CountryCode$;
+CurrencyCode$ = mapFile("Channel_1", CountryCode$);
+Copy CurrencyCode$ to DESTINATION_MESSAGE:WHATEVER_FIELD;
+// End of mapping</pre>
+        
+</div>
+<div class="right">
+<a href="dsy20887-SEEDOC.html"><img src="resources/images/big_right.gif"></a>
+</div>
+</div>
+<div id="pageNumber">
+<div class="numberAndTitle">
+<span class="bottomTitle">Training BIC 6 Basics</span><span class="count">107</span>
+</div>
+</div>
+</div>
+</body>
+</html>

@@ -1,0 +1,416 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html xmlns:fn="http://www.w3.org/2005/xpath-functions" xmlns:p="http://outerx.org/daisy/1.0#publisher" xmlns:i18n="http://apache.org/cocoon/i18n/2.1" xmlns:einclude="http://outerx.org/daisy/1.0#externalinclude" xmlns:d="http://outerx.org/daisy/1.0">
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<link href="resources/css/books.css" type="text/css" rel="stylesheet">
+<script src="resources/js/toggle.js" type="text/javascript"></script>
+</head>
+<body onLoad="appendToDiv();">
+<div class="all">
+<div class="top">
+<div class="chunkNavigation">
+<div class="topCut"></div>
+<div class="logoTitle">
+<span><img src="resources/images/see-logo.png"></span><span class="bookTitle">Command Reference and Sample Coding</span>
+</div>
+<div class="navigation">
+<ul>
+<li class="first">
+<a href="dsy20433-SEEDOC.html">&nbsp;<img src="resources/images/small_left.gif">&nbsp;Previous&nbsp;</a>
+</li>
+<li class="middle">
+<a href="chunk1.html"><img src="resources/images/content.png">Table of Contents&nbsp;</a>
+</li>
+<li class="last">
+<a href="dsy20435-SEEDOC.html">&nbsp;Next&nbsp;<img src="resources/images/small_right.gif"></a>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="content">
+<div class="left">
+<a href="dsy20433-SEEDOC.html"><img src="resources/images/big_left.gif" class="centeredImage"></a>
+</div>
+<div class="center">
+<h3 xmlns:ns="http://outerx.org/daisy/1.0" daisyBranch="1" daisyDocument="20434-SEEDOC" daisyLanguage="2" id="dsy20434-SEEDOC">String commands - Handling of umlauts</h3>
+        
+<table column-widths="20%;60%;20%" print-column-widths="20%;60%;20%" print-width="100%" width="100%" class="content">
+<col width="20%">
+<col width="60%">
+<col width="20%">
+<tbody>
+                
+<tr>
+                    
+<th>
+                        
+<p>Command</p>
+                    
+</th>
+                    <th valign="middle">
+                        
+<p>Example</p>
+                    
+</th>
+                    <th>
+                        
+<p align="center">Result</p>
+                    
+</th>
+                
+</tr>
+                
+<tr>
+                    
+<td>
+                        
+<p>
+                            
+<strong>expandUmlaut</strong>
+                        
+</p>
+                    
+</td>
+                    <td valign="top">
+                        
+<p>expandUmlaut("&ouml;&auml;&uuml;&Ouml;&Auml;&Uuml;&szlig;");</p>
+                    
+</td>
+                    <td>
+                        
+<p>"oeaeueOeAeUess"</p>
+                    
+</td>
+                
+</tr>
+                
+<tr>
+                    
+<td>
+                        
+<p>
+                            
+<strong>ignoreUmlaut</strong>
+                        
+</p>
+                    
+</td>
+                    <td>
+                        
+<p>ignoreUmlaut("&ouml;&auml;&uuml;&Ouml;&Auml;&Uuml;&szlig;");</p>
+                    
+</td>
+                    <td>
+                        
+<p>"oauOAUs"</p>
+                    
+</td>
+                
+</tr>
+                
+<tr>
+                    
+<td>
+                        
+<p>
+                            
+<strong>openConvertUmlautFile</strong>
+                        
+</p>
+                    
+</td>
+                    <td>
+                        
+<pre>local filePath$;
+filePath$ = "d:\\bis\\user\\myfiles\\myUmlautfile.dta";
+
+// use the specified file for the processing in the current mapping 
+openConvertUmlautFile(filePath$);
+
+expandUmlaut("&ouml;&auml;&uuml;&Ouml;&Auml;&Uuml;&szlig;");</pre>
+                        
+<p>An example for "myUmlautfile.dta" would be</p>
+                        
+<pre>&Auml;,Ae
+&auml;,ae
+&Ouml;,oe
+&ouml;,xx</pre>
+                    
+</td>
+                    <td>
+                        
+<p>Depending on what is defined in the file</p>
+                    
+</td>
+                
+</tr>
+            
+</tbody>
+</table>
+        
+<p class="note">The modes can also be set in <em>Source</em> and
+<em>Destination Options</em> of the mappings.</p>
+        
+<h8 id="s57">For more details please refer to</h8>
+        
+<h8 daisyBranch="1" daisyDocument="15388-SEEDOC" daisyLanguage="2" id="dsy15388-SEEDOC">Umlaut Conversion</h8>
+        
+<table column-widths="25%;25%;25%" print-column-widths="25%;25%;25%" print-width="100%" width="100%" class="content">
+<col width="25%">
+<col width="25%">
+<col width="25%">
+<col>
+<tbody>
+                
+<tr>
+                    
+<th>
+                        
+<p>Umlaut Character</p>
+                    
+</th>
+                    <th>
+                        
+<p align="center">Expand Umlaut</p>
+                    
+</th>
+                    <th>
+                        
+<p>Ignore Umlaut</p>
+                    
+</th>
+                    <th>
+                        
+<p>Umlaut File</p>
+                    
+</th>
+                
+</tr>
+                
+<tr>
+                    
+<td>
+                        
+<p>&auml;</p>
+                    
+</td>
+                    <td valign="top">
+                        
+<p>ae</p>
+                    
+</td>
+                    <td valign="top">
+                        
+<p>a</p>
+                    
+</td>
+                    <td>
+                        
+<p>&auml;,ae</p>
+                    
+</td>
+                
+</tr>
+                
+<tr>
+                    
+<td>
+                        
+<p>&uuml;</p>
+                    
+</td>
+                    <td valign="top">
+                        
+<p>oe</p>
+                    
+</td>
+                    <td valign="top">
+                        
+<p>o</p>
+                    
+</td>
+                    <td>
+                        
+<p>&uuml;,ue</p>
+                    
+</td>
+                
+</tr>
+                
+<tr>
+                    
+<td>
+                        
+<p>&ouml;</p>
+                    
+</td>
+                    <td valign="top">
+                        
+<p>ue</p>
+                    
+</td>
+                    <td valign="top">
+                        
+<p>u</p>
+                    
+</td>
+                    <td>
+                        
+<p>&ouml;,oe</p>
+                    
+</td>
+                
+</tr>
+                
+<tr>
+                    
+<td>
+                        
+<p>&szlig;</p>
+                    
+</td>
+                    <td valign="top">
+                        
+<p>ss</p>
+                    
+</td>
+                    <td valign="top">
+                        
+<p>s</p>
+                    
+</td>
+                    <td>
+                        
+<p>&szlig;,ss</p>
+                    
+</td>
+                
+</tr>
+                
+<tr>
+                    
+<td valign="top">
+                        
+<p>&agrave;</p>
+                    
+</td>
+                    <td valign="top">
+                        
+<p>a</p>
+                    
+</td>
+                    <td valign="top">
+                        
+<p>a</p>
+                    
+</td>
+                    <td valign="top">
+                        
+<p>&agrave;,a</p>
+                    
+</td>
+                
+</tr>
+                
+<tr>
+                    
+<td valign="top">
+                        
+<p>&egrave;</p>
+                    
+</td>
+                    <td valign="top">
+                        
+<p>e</p>
+                    
+</td>
+                    <td valign="top">
+                        
+<p>e</p>
+                    
+</td>
+                    <td valign="top">
+                        
+<p>&egrave;,e</p>
+                    
+</td>
+                
+</tr>
+                
+<tr>
+                    
+<td valign="top">
+                        
+<p>&ntilde;</p>
+                    
+</td>
+                    <td valign="top">
+                        
+<p>n</p>
+                    
+</td>
+                    <td valign="top">
+                        
+<p>n</p>
+                    
+</td>
+                    <td valign="top">
+                        
+<p>&ntilde;,n</p>
+                    
+</td>
+                
+</tr>
+                
+<tr>
+                    
+<td valign="top">
+                        
+<p>...</p>
+                    
+</td>
+                    <td valign="top">
+                        
+<p>...</p>
+                    
+</td>
+                    <td valign="top">
+                        
+<p>...</p>
+                    
+</td>
+                    <td valign="top">
+                        
+<p>...</p>
+                    
+</td>
+                
+</tr>
+            
+</tbody>
+</table>
+        
+<p>The table shows a small subset of all possible umlauts. The Umlaut conversion
+is performed based on the entries in the resource pool file
+<em>Charsetb.dta</em> (Umlaut File). For an umlaut expansion the entry behind
+the comma, for an umlaut ignoring its first character is used.&nbsp;</p>
+        
+<p>If a user specifies his own file for the umlaut conversion via
+<em>openConvertUmlautFile</em> it overlays
+<em>Charsetb.dta</em> completely (content is not merged) and the entries are
+interpreted as in <em>Charsetb.dta</em>.</p>
+        
+</div>
+<div class="right">
+<a href="dsy20435-SEEDOC.html"><img src="resources/images/big_right.gif"></a>
+</div>
+</div>
+<div id="pageNumber">
+<div class="numberAndTitle">
+<span class="bottomTitle">Training BIC 6 Basics</span><span class="count">68</span>
+</div>
+</div>
+</div>
+</body>
+</html>

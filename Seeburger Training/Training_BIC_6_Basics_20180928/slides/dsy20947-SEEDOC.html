@@ -1,0 +1,371 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html xmlns:fn="http://www.w3.org/2005/xpath-functions" xmlns:p="http://outerx.org/daisy/1.0#publisher" xmlns:i18n="http://apache.org/cocoon/i18n/2.1" xmlns:einclude="http://outerx.org/daisy/1.0#externalinclude" xmlns:d="http://outerx.org/daisy/1.0">
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<link href="resources/css/books.css" type="text/css" rel="stylesheet">
+<script src="resources/js/toggle.js" type="text/javascript"></script>
+</head>
+<body onLoad="appendToDiv();">
+<div class="all">
+<div class="top">
+<div class="chunkNavigation">
+<div class="topCut"></div>
+<div class="logoTitle">
+<span><img src="resources/images/see-logo.png"></span><span class="bookTitle">BIC Architecture and Technology</span>
+</div>
+<div class="navigation">
+<ul>
+<li class="first">
+<a href="dsy20928-SEEDOC.html">&nbsp;<img src="resources/images/small_left.gif">&nbsp;Previous&nbsp;</a>
+</li>
+<li class="middle">
+<a href="chunk1.html"><img src="resources/images/content.png">Table of Contents&nbsp;</a>
+</li>
+<li class="last">
+<a href="dsy20948-SEEDOC.html">&nbsp;Next&nbsp;<img src="resources/images/small_right.gif"></a>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="content">
+<div class="left">
+<a href="dsy20928-SEEDOC.html"><img src="resources/images/big_left.gif" class="centeredImage"></a>
+</div>
+<div class="center">
+<h3 xmlns:ns="http://outerx.org/daisy/1.0" daisyBranch="1" daisyDocument="20947-SEEDOC" daisyLanguage="2" id="dsy20947-SEEDOC">Multireader / Multiwriter</h3>
+        
+<ul>
+            
+<li>
+                
+<p>It is possible to read from different files simultaneously and also to write
+to different files at once. However there is no GUI available.</p>
+            
+</li>
+        
+</ul>
+        
+<ul>
+            
+<li>
+                
+<p>There are a couple of commands related to this feature:</p>
+            
+</li>
+        
+</ul>
+        
+<table class="borderless" print-width="50%" width="50%">
+<tbody>
+                
+<tr>
+                    
+<td>
+                        
+<ul>
+                            
+<ul>
+                                
+<li>
+                                    
+<p>SetDocReader</p>
+                                
+</li>
+                            
+</ul>
+                        
+</ul>
+                    
+</td>
+                    <td>
+                        
+<ul>
+                            
+<ul>
+                                
+<li>
+                                    
+<p>SwitchDocWriter</p>
+                                
+</li>
+                            
+</ul>
+                        
+</ul>
+                    
+</td>
+                
+</tr>
+                
+<tr>
+                    
+<td>
+                        
+<ul>
+                            
+<ul>
+                                
+<li>
+                                    
+<p>SwitchDocReader</p>
+                                
+</li>
+                            
+</ul>
+                        
+</ul>
+                    
+</td>
+                    <td>
+                        
+<ul>
+                            
+<ul>
+                                
+<li>
+                                    
+<p>getDocWriterName</p>
+                                
+</li>
+                            
+</ul>
+                        
+</ul>
+                    
+</td>
+                
+</tr>
+                
+<tr>
+                    
+<td>
+                        
+<ul>
+                            
+<ul>
+                                
+<li>
+                                    
+<p>getDocReaderName</p>
+                                
+</li>
+                            
+</ul>
+                        
+</ul>
+                    
+</td>
+                    <td>
+                        
+<ul>
+                            
+<ul>
+                                
+<li>
+                                    
+<p>setSQLDocWriter</p>
+                                
+</li>
+                            
+</ul>
+                        
+</ul>
+                    
+</td>
+                
+</tr>
+                
+<tr>
+                    
+<td>
+                        
+<ul>
+                            
+<ul>
+                                
+<li>
+                                    
+<p>SetDocWriter</p>
+                                
+</li>
+                            
+</ul>
+                        
+</ul>
+                    
+</td>
+                    <td>
+                        
+<ul>
+                            
+<ul>
+                                
+<li>
+                                    
+<p>setAS400DocWriter</p>
+                                
+</li>
+                            
+</ul>
+                        
+</ul>
+                    
+</td>
+                
+</tr>
+            
+</tbody>
+</table>
+        
+<h8 id="s12">For more details please refer to</h8>
+        
+<h8 daisyBranch="1" daisyDocument="3247-SEEDOC" daisyLanguage="2" id="dsy3247-SEEDOC">Usage of Multiple Doc Readers and Writers</h8>
+        
+<p>It is possible to create different reading and writing sources, different
+readers and writers within a single mapping, and to switch between them during
+conversion. This is an advanced and powerfull feature, but It has limited
+support in the BIC Mapping Designer user interface. The use of drag-and-drop or
+input completion does only work for the primary input and output formats which
+are visible. Especially note the following:</p>
+        
+<ol>
+            
+<li>The creation of new files, stream sources, or destinations (so-called doc
+reader and doc writer) and the switching between them can only be managed with
+the use of mapping commands.</li>
+            
+<li>A single mapping can contain only record mapping programs for <strong>a
+single</strong> source message description. Therefore the usage of multiple
+readers has the following constraints:</li>
+            
+<ul>
+                
+<li>All doc readers must use the same message type and the same message
+description.</li>
+            
+</ul>
+            
+<ul>
+                
+<li>All identical segments/records of <strong>all </strong>doc readers are
+calling the same record mapping program in the mapping. It does not matter which
+doc reader is currently in use. Take care about the "correct use" and the
+management of the different doc readers in the mapping code of that record
+mapping program.</li>
+            
+</ul>
+            
+<li>There are no such constraints for doc writers. It is possible to create any
+possible different output file or stream using different message types and
+different message descriptions (e.g. simultaneous use of XML and EDIFACT).</li>
+            
+<li>The graphical representation of a mapping in the BIC Mapping Designer still
+contains only the main/default doc reader and writer. It does not matter if you
+use and access different doc readers/writers in the mapping. A validation of the
+addresses used in the mapping code is done against the default doc reader and
+writer only. The usage of a doc writer of a different type or message
+descriptions may result in compilation warnings (compiler version 2). The
+compiler version 1 does not check addresses at all, so it should be possible to
+compile the mapping without any further problem.</li>
+            
+<li>The integration in BIS 6 allows the creation of multiple destination message
+attachments. If your doc writer should create a new destination attachment,
+please use the word "automatically" as file name.</li>
+            
+<li>In XI 1.5, 1.6, 1.7 or 2.0, 2.1,2.2 it is NOT possible to access multiple
+attachments with multiple doc readers from within a mapping.</li>
+            
+<li>For BIC in BIC MD and BIS6 it is possible to have multiple sources by also
+using the file name "automatically" for the <em>setDocReader</em>.</li>
+            
+<li>In the BIS 6 and SAP XI environment conversions are managed by the runtime,
+the use of direct file access (by name) or re-use of input streams is not
+possible.</li>
+            
+<li>Configuration commands (<em>setSourceDelimiter</em>, etc.) work on the
+current doc reader/writer. You have to call them after the doc reader/ writer is
+initialized and switched. These settings are only valid for the currently
+activated doc reader/writer. If you switch the doc reader, the changes take
+effect after the current mapping record program is finished, and the next record
+will be read from the new active reader.</li>
+            
+<li>Whenever a record mapping program is finished, BIC continues with reading on
+the current activated doc reader. To continue with reading in another doc
+reader, please switch to that reader.</li>
+            
+<li>Every doc reader and writer does its own syntax check. Each syntax check
+does not affect the others.</li>
+            
+<li>Global procedures have a special behavior: they are initialized with the
+default doc reader and writer (main source/destination stream). Global
+procedures are not affected by switchDocReder/Writer calls outside in the
+mapping. If the doc reader/writer should be switched within a global procedure,
+the switchDocRedaer/writer command has to be executed there, too. This also does
+not affext the doc reader/writer settings of the main mapping.</li>
+        
+</ol>
+        
+<h12 id="s13">Related Commands</h12>
+        
+<ul>
+            
+<li></li>
+            
+<li>
+                
+<em>switchDocReader</em>
+            
+</li>
+            
+<li>
+                
+<em>getDocReaderName</em>
+            
+</li>
+            
+<li>
+                
+<em>setDocWriter</em>
+            
+</li>
+            
+<li>
+                
+<em>switchDocWriter</em>
+            
+</li>
+            
+<li>
+                
+<em>getDocWriterName</em>
+            
+</li>
+            
+<li>
+                
+<em>setSQLDocWriter</em>
+            
+</li>
+            
+<li>
+                
+<em>setAS400DocWriter</em>
+            
+</li>
+        
+</ul>
+        
+</div>
+<div class="right">
+<a href="dsy20948-SEEDOC.html"><img src="resources/images/big_right.gif"></a>
+</div>
+</div>
+<div id="pageNumber">
+<div class="numberAndTitle">
+<span class="bottomTitle">Training BIC 6 Basics</span><span class="count">28</span>
+</div>
+</div>
+</div>
+</body>
+</html>

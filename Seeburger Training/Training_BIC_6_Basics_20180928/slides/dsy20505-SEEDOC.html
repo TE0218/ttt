@@ -1,0 +1,388 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html xmlns:fn="http://www.w3.org/2005/xpath-functions" xmlns:p="http://outerx.org/daisy/1.0#publisher" xmlns:i18n="http://apache.org/cocoon/i18n/2.1" xmlns:einclude="http://outerx.org/daisy/1.0#externalinclude" xmlns:d="http://outerx.org/daisy/1.0">
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<link href="resources/css/books.css" type="text/css" rel="stylesheet">
+<script src="resources/js/toggle.js" type="text/javascript"></script>
+</head>
+<body onLoad="appendToDiv();">
+<div class="all">
+<div class="top">
+<div class="chunkNavigation">
+<div class="topCut"></div>
+<div class="logoTitle">
+<span><img src="resources/images/see-logo.png"></span><span class="bookTitle">EDIFACT Adapter</span>
+</div>
+<div class="navigation">
+<ul>
+<li class="first">
+<a href="dsy20504-SEEDOC.html">&nbsp;<img src="resources/images/small_left.gif">&nbsp;Previous&nbsp;</a>
+</li>
+<li class="middle">
+<a href="chunk1.html"><img src="resources/images/content.png">Table of Contents&nbsp;</a>
+</li>
+<li class="last">
+<a href="dsy20506-SEEDOC.html">&nbsp;Next&nbsp;<img src="resources/images/small_right.gif"></a>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="content">
+<div class="left">
+<a href="dsy20504-SEEDOC.html"><img src="resources/images/big_left.gif" class="centeredImage"></a>
+</div>
+<div class="center">
+<h2 xmlns:ns="http://outerx.org/daisy/1.0" daisyBranch="1" daisyDocument="20505-SEEDOC" daisyLanguage="2" id="dsy20505-SEEDOC">EDIFACT Tutorial</h2>
+        
+<table column-widths="30%;70%" nokeeptogether="true" print-column-widths="30%;70%" print-width="100%" width="100%" class="content">
+<col width="30%">
+<col width="70%">
+<tbody>
+                
+<tr>
+                    
+<th>
+                        
+<p align="center">Instruction</p>
+                    
+</th>
+                    <th>
+                        
+<p align="center">Illustration</p>
+                    
+</th>
+                
+</tr>
+                
+<tr>
+                    
+<td valign="top">
+                        
+<ol>
+                            
+<li>
+                                
+<p>Import the two message structures of the class material. Create a new mapping
+(source = "INVOICE", destination = "INVOIC_UN_D96A_ modified").</p>
+                            
+</li>
+                        
+</ol>
+                    
+</td>
+                    <td valign="middle">
+                        
+<p>Check chapter "How to Operate BIC Mapping Designer" if you need further
+assistance.</p>
+                    
+</td>
+                
+</tr>
+                
+<tr>
+                    
+<td valign="top">
+                        
+<ol start="2">
+                            
+<li>
+                                
+<p>Go to record program NewMapping</p>
+                            
+</li>
+                        
+</ol>
+                    
+</td>
+                    <td valign="middle">
+                        
+<pre>// Fill UNB/UNZ (only once)
+copy "UNOC"                  to UNB:S001.0001;
+copy "3"                     to UNB:S001.0002;
+copy "SEEBURGER"             to UNB:S002.0004;
+copy "14"                    to UNB:S002.0007;
+copy mid(currentDate(),3)    to UNB:S004.0017;
+// or: copy formatDate(currentDate(),"CCYYMMDD", "YYMMDD")
+// to UNB:S004.0017;
+copy left(currenttime(),4)   to UNB:S004.0019;
+// or: copy formatDate(currenttime(),"hhmmss", "hhmm")
+//to UNB:S004.0019;
+copy getCounter("UNB")       to UNB_0020%;
+copy UNB_0020%               to UNB:0020;
+copy UNB_0020%               to UNB.UNZ:0020;</pre>
+                    
+</td>
+                
+</tr>
+                
+<tr>
+                    
+<td valign="top">
+                        
+<ol start="3">
+                            
+<li>
+                                
+<p>Go to record program NewMessage</p>
+                            
+</li>
+                        
+</ol>
+                    
+</td>
+                    <td valign="middle">
+                        
+<pre>// Create one UNH for each K01 occurrence
+UNH_counter% = UNH_counter% + 1;
+
+// Fill UNH
+copy UNH_Counter%                to UNB.UNH:0062;
+copy "INVOIC"                    to UNB.UNH:S009.0065;
+copy "D"                         to UNB.UNH:S009.0052;
+copy "96A"                       to UNB.UNH:S009.0054;
+copy "UN"                        to UNB.UNH:S009.0051;</pre>
+                    
+</td>
+                
+</tr>
+                
+<tr>
+                    
+<td valign="top">
+                        
+<ol start="4">
+                            
+<li>
+                                
+<p align="left">Go to record program K01.</p>
+                            
+</li>
+                        
+</ol>
+                    
+</td>
+                    <td valign="middle">
+                        
+<pre>global UNH_counter%, MOA_Curcy$, UNB_0020%; 
+
+// Fill BGM
+copy "380"                       to UNB.UNH.BGM:C002.1001;
+copy K01:BELNR                   to UNB.UNH.BGM:1004;
+
+// Save currency to variable
+copy K01:CURCY                   to MOA_Curcy$;</pre>
+                    
+</td>
+                
+</tr>
+                
+<tr>
+                    
+<td valign="top">
+                        
+<ol start="5">
+                            
+<li>
+                                
+<p align="left">Go to record program KA1.</p>
+                            
+</li>
+                        
+</ol>
+                    
+</td>
+                    <td valign="middle">
+                        
+<pre>// Check the address type qualifier and transcode if necessary
+selectcase K01.KA1:PARVW
+
+ case "WE" :
+    copy "CN" to UNB.UNH.NAD:3035;
+
+ case "AG" :
+    copy "BY" to UNB.UNH.NAD:3035;
+    
+    // Determine the UNB receiver (only once)
+    overwrite K01.KA1:PARTN to UNB:S003.0010;
+    overwrite "14"          to UNB:S003.0007;
+
+ caseelse:
+     copy K01.KA1:PARVW to UNB.UNH.NAD:3035;
+
+endselect
+
+// Map the address data
+copy K01.KA1:NAME1        to UNB.UNH.NAD:C058.3036;
+copy K01.KA1:STRAS        to UNB.UNH.NAD:C058.3042;
+copy K01.KA1:ORT01        to UNB.UNH.NAD:3164;
+copy K01.KA1:PSTLZ        to UNB.UNH.NAD:3251;
+copy K01.KA1:LAND1        to UNB.UNH.NAD:3207;
+copy K01.KA1:REGIO        to UNB.UNH.NAD:3229;</pre>
+                    
+</td>
+                
+</tr>
+                
+<tr>
+                    
+<td valign="top">
+                        
+<ol start="6">
+                            
+<li>
+                                
+<p>Go to record program K02.</p>
+                            
+</li>
+                        
+</ol>
+                    
+</td>
+                    <td valign="middle">
+                        
+<pre>copy "3"                      to UNB.UNH.DTM:C507.2005;
+copy right(K01.K02:DATUM,6) &amp;
+    &nbsp;left(K01.K02:UZEIT,4)    to UNB.UNH.DTM:C507.2380;
+copy "201"                    to UNB.UNH.DTM:C507.2379;</pre>
+                    
+</td>
+                
+</tr>
+                
+<tr>
+                    
+<td valign="top">
+                        
+<ol start="7">
+                            
+<li>
+                                
+<p>Go to record program P01.</p>
+                            
+</li>
+                        
+</ol>
+                    
+</td>
+                    <td valign="middle">
+                        
+<pre>global PosCounter%, MOA_Gesamtbetrag%;
+
+PosCounter% = PosCounter% + 1;
+
+copy PosCounter% to UNB.UNH.LIN:1082;
+
+copy P01:BETRG   to UNB.UNH.LIN.MOA:C516.5004;
+copy "203"       to UNB.UNH.LIN.MOA:C516.5025;
+copy MOA_Curcy$  to UNB.UNH.LIN.MOA:C516.6345;
+
+copy "131"       to UNB.UNH.LIN.QTY:C186.6063;
+copy P01:MENGE   to UNB.UNH.LIN.QTY:C186.6060;
+copy "PCE"       to UNB.UNH.LIN.QTY:C186.6411;
+
+copy "AAA"       to UNB.UNH.LIN.PRI:C509.5125;
+copy P01:BMNG2   to UNB.UNH.LIN.PRI:C509.5284;
+copy P01:PMENE   to UNB.UNH.LIN.PRI:C509.6411;
+copy P01:VPREI   to UNB.UNH.LIN.PRI:C509.5118;
+
+MOA_Gesamtbetrag% = MOA_Gesamtbetrag% + P01:BETRG;</pre>
+                    
+</td>
+                
+</tr>
+                
+<tr>
+                    
+<td valign="top">
+                        
+<ol start="8">
+                            
+<li>
+                                
+<p>Go to record program P19.</p>
+                            
+</li>
+                        
+</ol>
+                    
+</td>
+                    <td valign="top">
+                        
+<pre>copy P01.P19:IDTNR     to UNB.UNH.LIN:7140;
+copy P01.P19:KTEXT     to UNB.UNH.LIN:7009;</pre>
+                    
+</td>
+                
+</tr>
+                
+<tr>
+                    
+<td valign="top">
+                        
+<ol start="9">
+                            
+<li>
+                                
+<p>Go to record program MessageEnd</p>
+                            
+</li>
+                        
+</ol>
+                    
+</td>
+                    <td valign="top">
+                        
+<pre>copy "128"             to UNB.UNH.MOA:C516.5025;
+copy MOA_Gesamtbetrag% to UNB.UNH.MOA:C516.5004;
+copy MOA_Curcy$        to UNB.UNH.MOA:C516.6345;
+
+// Fill UNT
+copy UNH_Counter%                to UNB.UNH.UNT:0062;
+
+//reset variables at message end
+PosCounter% = 0;
+MOA_Gesamtbetrag% = 0;</pre>
+                    
+</td>
+                
+</tr>
+                
+<tr>
+                    
+<td valign="top">
+                        
+<ol start="10">
+                            
+<li>
+
+                                
+<p>You can compare your results with the attached
+<a href="../classmaterial/EdifactAdapter/TrainerMaterial_BIC6Basics_BIC_EDIFACT_Adapter.zip">trainer
+solution</a>.</p>
+                            
+</li>
+                        
+</ol>
+                    
+</td>
+                    <td valign="top"></td>
+                
+</tr>
+            
+</tbody>
+</table>
+        
+</div>
+<div class="right">
+<a href="dsy20506-SEEDOC.html"><img src="resources/images/big_right.gif"></a>
+</div>
+</div>
+<div id="pageNumber">
+<div class="numberAndTitle">
+<span class="bottomTitle">Training BIC 6 Basics</span><span class="count">137</span>
+</div>
+</div>
+</div>
+</body>
+</html>

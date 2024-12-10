@@ -1,0 +1,338 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html xmlns:fn="http://www.w3.org/2005/xpath-functions" xmlns:p="http://outerx.org/daisy/1.0#publisher" xmlns:i18n="http://apache.org/cocoon/i18n/2.1" xmlns:einclude="http://outerx.org/daisy/1.0#externalinclude" xmlns:d="http://outerx.org/daisy/1.0">
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<link href="resources/css/books.css" type="text/css" rel="stylesheet">
+<script src="resources/js/toggle.js" type="text/javascript"></script>
+</head>
+<body onLoad="appendToDiv();">
+<div class="all">
+<div class="top">
+<div class="chunkNavigation">
+<div class="topCut"></div>
+<div class="logoTitle">
+<span><img src="resources/images/see-logo.png"></span><span class="bookTitle">How to Operate BIC Mapping Designer</span>
+</div>
+<div class="navigation">
+<ul>
+<li class="first">
+<a href="dsy26261-SEEDOC.html">&nbsp;<img src="resources/images/small_left.gif">&nbsp;Previous&nbsp;</a>
+</li>
+<li class="middle">
+<a href="chunk1.html"><img src="resources/images/content.png">Table of Contents&nbsp;</a>
+</li>
+<li class="last">
+<a href="dsy26309-SEEDOC.html">&nbsp;Next&nbsp;<img src="resources/images/small_right.gif"></a>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="content">
+<div class="left">
+<a href="dsy26261-SEEDOC.html"><img src="resources/images/big_left.gif" class="centeredImage"></a>
+</div>
+<div class="center">
+<h3 xmlns:ns="http://outerx.org/daisy/1.0" daisyBranch="1" daisyDocument="20479-SEEDOC" daisyLanguage="2" id="dsy20479-SEEDOC">BIC MD GUI - Test environment</h3>
+        
+<table class="borderless" column-widths="70%;30%" print-column-widths="70%;30%" print-width="100%" width="100%">
+<col width="70%">
+<col width="30%">
+<tbody>
+                
+<tr>
+                    
+<td>
+                        
+<ul>
+                            
+<li>
+                                
+<p>The embedded test environment allows the local testing of mappings before
+deploying them to a BIS system.</p>
+                            
+</li>
+                            
+<li>
+                                
+<p>It is possible to simulate different external parameters such as input values
+(which will be provided by the BIS process later on) and external counters</p>
+                            
+</li>
+                            
+<li>
+                                
+<p>After a conversion you can check the output message (using an external editor
+or the integrated SEEBURGER message editor) but also the output values (which
+will be provided to the BIS process later on) and the SEEBURGER Message Tracking
+entries.</p>
+                            
+</li>
+                            
+<li>
+                                
+<p>If you have reference data available (the expected result of the conversion)
+you can use the integrated compare function.</p>
+                            
+</li>
+                            
+<li>
+                                
+<p>If there is no data available you can do a manual check by using the
+integrated message editor or any external tool you are familiar with.</p>
+                            
+</li>
+                        
+</ul>
+                    
+</td>
+                    <td>
+                        
+<p align="center">
+                            
+<a href="images/20534-SEEDOC_1_2_3.jpg"><img bookStorePath="/data/resources/20534-SEEDOC_1_2_3" p:imageHeight="709" p:imageWidth="610" print-width="300px" src="images/20534-SEEDOC_1_2_3.jpg" width="300"></a>
+                        
+</p>
+                    
+</td>
+                
+</tr>
+            
+</tbody>
+</table>
+        
+<p class="note">Since 6.3.5Q4 it's possible to test 2 Mappings in a row. This
+function may be helpful to test a process Mapping together with a precompiled
+Partner Mapping (SEEBURGER Standard Mapping).</p>
+        
+<p class="note">Since 6.3.5Q4 it's possible to convert and compare a folder with
+multiple files.</p>
+        
+<h8 id="s33">For more details please refer to</h8>
+        
+<h9 daisyBranch="1" daisyDocument="24046-SEEDOC" daisyLanguage="2" id="dsy24046-SEEDOC">Test Environment Mappings</h9>
+        
+<p>The combo boxes in the
+
+allow it to select two mappings. So it is possible to work (test) two mappings
+in a row. Accordingly, two tabs are provided for the data and parameter section.
+</p>
+        
+<p>The operations, which are possible in the <em>Test Environment</em>, process
+always all selected mappings in row - e. g. if the <em>Compile</em> button is
+pressed and two mappings are selected, the first and second mapping are compiled
+one after another.</p>
+        
+<p>Each operation attempts always to work on all selected mappings. Missing or
+erroneous data may however have the effect that only one (or none) of the two
+selected mappings are processed.</p>
+        
+<h10 id="s34">Appearance of Mappings</h10>
+        
+<h11 id="s35">Project Explorer</h11>
+        
+<p>The BIC Mapping Designer presents mappings as nodes in the
+Project View. Selecting them there selects
+automatically in an opened <em>Test Environment</em> a
+Mappings Configuration in the belonging combo
+box on the .</p>
+        
+<p>The selected Mappings Configuration is</p>
+        
+<ul>
+            
+<li>using the selected mapping in the project view as first mapping</li>
+            
+<li>the last used one which fits.</li>
+        
+</ul>
+        
+<p>This (initial) combo box selection can be changed into any other selection.
+</p>
+        
+<p>The combo boxes contain the names of all the mappings in the currently
+selected project. A project change through a selection change in the
+Project View is updating the mapping names
+accordingly.&nbsp;</p>
+        
+<h11 id="dsy24046-SEEDOC_JCN Folder">JCN Folder</h11>
+        
+<p>Mappings may be available as JCN files. In this case they don't appear in the
+Project View, instead they are located in a
+predefined folder structure below <em>src/jcn</em>:</p>
+        
+<p align="center">
+            
+<a href="images/24042-SEEDOC_1_2_2.jpg"><img bookStorePath="/data/resources/24042-SEEDOC_1_2_2" p:imageHeight="193" p:imageWidth="372" src="images/24042-SEEDOC_1_2_2.jpg"></a>
+        
+</p>
+        
+<h12 id="dsy24046-SEEDOC_JCN Folder">JCN files in the Test Environment</h12>
+        
+<p>The names of those JCN files appear in the mapping combo boxes in the
+ as well.</p>
+        
+<p>It is possible to work with JCN files in the <em>Test Environment </em>as
+with ordinary mappings, except that the editing of the belonging mapping source
+code is impossible.</p>
+        
+<p>Because of their project independent nature, mapping JCN files - if found in
+the corresponding folder - are always contained as mapping combo box entries
+independently of any Project View selection.
+</p>
+        
+<h12 id="dsy24046-SEEDOC_JCN files in the Compile JCN Mappings Dialogue">JCN files in the Compile
+JCN Mappings Dialogue</h12>
+        
+<p>The names of those JCN files appear in the <em>Compile JCN Mappings
+Dialogue</em> (invoked through the last toolbar icon) as objects which can be
+selected for a compilation. This dialogue makes it is possible to compile all
+JCN files into the test or production system.</p>
+        
+<h12 id="s36">Content Creation</h12>
+        
+<p>The JCN folder needs to be filled manually via physical file system.</p>
+        
+<p>An alternative way to generate the requested folder structure is to invoke
+the BIC Mapping Designer Delivery
+functionality. The generated folder structure in the delivery destination folder
+can then be copied 1:1 into the <em>src/jcn</em> folder.</p>
+        
+<h12 id="s37">Compilation</h12>
+        
+<p>The compilation of mappings (or mappings provided through JCN files) is
+triggered through the corresponding buttons</p>
+        
+<ul>
+            
+<li>on the toolbar</li>
+            
+<li>in the test environment (eventually used in a mapping configuration)</li>
+            
+<li>deliver mappings dialogue</li>
+            
+<li>compile JCN mappings dialogue - in principle the same dialogue as the
+deliver mappings dialogue, but only those
+mappings are presented which are based on all found mapping JCN files.</li>
+        
+</ul>
+        
+<p>The deliver mappings respectively JCN mappings dialogue has the advantage
+that all mappings can be compiled in one step.</p>
+        
+<p>Once compiled, the mappings are available as java- and class files in the
+test- or production system.</p>
+        
+<h12 id="s38">Conversion</h12>
+        
+<p>The converter will process the generated class files during a conversion. Its
+class path settings determine how message formats, codelist files and mapfiles
+are found. Typically - for operation within the Test Environment - the
+<em>src</em> folder is assumed to be the root for them.</p>
+        
+<p>However, in case of a conversion with mappings which are provided through JCN
+files, the <em>src/jcn</em> folder will contain its own set of project folders,
+codelists and mapfiles (see illustration before) which is then respected.</p>
+        
+<p>Critical mixed cases are possible when a mapping from a BIC Mapping Designer
+project is invoking a child mapping which is based on a provided JCN file. In
+order to find the message formats for both mappings the converter will evaluate
+at first the content below <em>src</em> and then below <em>src/jcn</em> .
+Different message formats but with an identical name may lead here to conflicts.
+In order to mininize that the <em>src/jcn</em> folder may be
+excluded from the class
+path (included as standard).</p>
+        
+<h9 daisyBranch="1" daisyDocument="6879-SEEDOC" daisyLanguage="2" id="dsy6879-SEEDOC">Message Editor</h9>
+        
+<h10 id="s39">Introduction</h10>
+        
+<p>The <em>Message Editor</em> allows it to visualize and to edit the structure
+of message (-data). The terms <em>message</em> and <em>message format</em> must
+be separated from each other; one of the main features of the BIC Mapping
+Designer is to show and to modify the structure of a valid message format, but
+the <em>Message Editor</em> is especially tailored to treat finally the messages
+which have to fit to those message formats.</p>
+        
+<p>Aside from visualization, the possibility to modify or create a message is
+the main benefit of the <em>Message Editor</em>. Every change is checked against
+the corresponding message format so that only valid messages may be assembled.
+</p>
+        
+<h10 id="dsy6879-SEEDOC_StartMessageEditor">Start</h10>
+        
+<p align="left">The <em>Message Editor</em> can be called through a right click
+on a <em>message format </em>node. This will open the context menu, where the
+entry <em>Open message editor</em> should be selected.</p>
+        
+<p align="center">
+            
+<table class="plainTable" align="center">
+<tr>
+<td align="center"><a href="images/10040-SEEDOC_1_2_1.png"><img bookStorePath="/data/resources/10040-SEEDOC_1_2_1" daisy-caption="BIC Mapping Designer" p:imageHeight="592" p:imageWidth="668" print-width="17cm" src="images/10040-SEEDOC_1_2_1.png" daisy-image-type="default" id="dsy_fig_22"></a></td>
+</tr>
+<tr>
+<td class="imageCaption" align="center">BIC Mapping Designer</td>
+</tr>
+</table>
+        
+</p>
+        
+<p>This will open a <em>File chooser</em>, which allows to select a message
+anywhere in the file system. A message and a message format are necessary
+together to start the<em> Message Editor</em>.</p>
+        
+<p>A <em>Configuration </em>dialog is opened after the <em>File chooser,</em>
+in the most cases, you only&nbsp;have to confirm the preselected standard assumptions
+in it. Detailed settings can be made in regard to how messages are read into the
+memory and written out onto the file system. Please refer to the section
+.</p>
+        
+<p>The second possibility to start the <em>Message Editor</em> is through a
+selected mapping in the <em>Test Environment</em>. Input-, output- and reference
+files are messages, and have fit to the source and destination message format of
+this mapping. The right outer button besides each text field containing the
+message file name and path on the file system allows here further the
+.</p>
+        
+<p align="center">
+            
+<table class="plainTable" align="center">
+<tr>
+<td align="center"><a href="images/12511-SEEDOC_1_2_1.png"><img bookStorePath="/data/resources/12511-SEEDOC_1_2_1" daisy-caption="Test environment" p:imageHeight="746" p:imageWidth="1032" print-width="17cm" src="images/12511-SEEDOC_1_2_1.png" daisy-image-type="default" id="dsy_fig_23"></a></td>
+</tr>
+<tr>
+<td class="imageCaption" align="center">Test environment</td>
+</tr>
+</table>
+        
+</p>
+        
+<p align="left">All buttons to open the message (files) can be configured so
+that favorite editors are associated with them. Usually the <em>Message
+Editor</em> will be opened with the second button - right of the file browser -
+and the third button (for an alternative editor) is associated with a more
+simple editor, e. g. <em>Notepad</em>, to enable also a quick view on the plain
+file. The link between the buttons and the editors can be configured through the
+<em>editors preference page</em>.</p>
+        
+<h10 id="s40">Operating</h10>
+        
+<p align="left">Nearly all operations which can be done with the <em>Message
+Editor</em> are started through a right-click on a <em>tree</em> node so that
+the context menu opens. For details please refer to the topic
+.</p>
+        
+</div>
+<div class="right">
+<a href="dsy26309-SEEDOC.html"><img src="resources/images/big_right.gif"></a>
+</div>
+</div>
+<div id="pageNumber">
+<div class="numberAndTitle">
+<span class="bottomTitle">Training BIC 6 Basics</span><span class="count">47</span>
+</div>
+</div>
+</div>
+</body>
+</html>

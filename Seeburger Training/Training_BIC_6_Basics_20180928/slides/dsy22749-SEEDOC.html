@@ -1,0 +1,411 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html xmlns:fn="http://www.w3.org/2005/xpath-functions" xmlns:p="http://outerx.org/daisy/1.0#publisher" xmlns:i18n="http://apache.org/cocoon/i18n/2.1" xmlns:einclude="http://outerx.org/daisy/1.0#externalinclude" xmlns:d="http://outerx.org/daisy/1.0">
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<link href="resources/css/books.css" type="text/css" rel="stylesheet">
+<script src="resources/js/toggle.js" type="text/javascript"></script>
+</head>
+<body onLoad="appendToDiv();">
+<div class="all">
+<div class="top">
+<div class="chunkNavigation">
+<div class="topCut"></div>
+<div class="logoTitle">
+<span><img src="resources/images/see-logo.png"></span><span class="bookTitle">ANSI X.12 Adapter</span>
+</div>
+<div class="navigation">
+<ul>
+<li class="first">
+<a href="dsy22748-SEEDOC.html">&nbsp;<img src="resources/images/small_left.gif">&nbsp;Previous&nbsp;</a>
+</li>
+<li class="middle">
+<a href="chunk1.html"><img src="resources/images/content.png">Table of Contents&nbsp;</a>
+</li>
+<li class="last">
+<a href="dsy22750-SEEDOC.html">&nbsp;Next&nbsp;<img src="resources/images/small_right.gif"></a>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="content">
+<div class="left">
+<a href="dsy22748-SEEDOC.html"><img src="resources/images/big_left.gif" class="centeredImage"></a>
+</div>
+<div class="center">
+<h2 xmlns:ns="http://outerx.org/daisy/1.0" daisyBranch="1" daisyDocument="22749-SEEDOC" daisyLanguage="2" id="dsy22749-SEEDOC">ANSI X.12 Tutorial</h2>
+        
+<table column-widths="30%;70%" nokeeptogether="true" print-column-widths="30%;70%" print-width="100%" width="100%" class="content">
+<col width="30%">
+<col width="70%">
+<tbody>
+                
+<tr>
+                    
+<th>
+                        
+<p align="center">Instruction</p>
+                    
+</th>
+                    <th>
+                        
+<p align="center">Illustration</p>
+                    
+</th>
+                
+</tr>
+                
+<tr>
+                    
+<td valign="top">
+                        
+<ol>
+                            
+<li>
+                                
+<p>Import the two message structures of the class material. Create a new mapping
+(source = "850", destination = "850INS").</p>
+                            
+</li>
+                        
+</ol>
+                    
+</td>
+                    <td valign="middle">
+                        
+<p>Check chapter "How to Operate BIC Mapping Designer" if you need further
+assistance.</p>
+                    
+</td>
+                
+</tr>
+                
+<tr>
+                    
+<td valign="top">
+                        
+<ol start="2">
+                            
+<li>
+                                
+<p align="left">Go to record program ISA.</p>
+                            
+</li>
+                        
+</ol>
+                    
+</td>
+                    <td valign="middle">
+                        
+<pre>global CurrentDate$;
+global BaanRelationID$;
+global BANOCounter$;
+global BEG_324$;
+global BEG_373$;
+
+setdestinationdelimiter("Element","|");
+copy format(currentdate(),"YYMMDD") to CurrentDate$;</pre>
+                    
+</td>
+                
+</tr>
+                
+<tr>
+                    
+<td valign="top">
+                        
+<ol start="3">
+                            
+<li>
+                                
+<p align="left">Go to record program GS.</p>
+                            
+</li>
+                        
+</ol>
+                    
+</td>
+                    <td valign="middle">
+                        
+<pre>keepsegment("GS");</pre>
+                    
+</td>
+                
+</tr>
+                
+<tr>
+                    
+<td valign="top">
+                        
+<ol start="4">
+                            
+<li>
+                                
+<p>Go to record program BEG.</p>
+                            
+</li>
+                        
+</ol>
+                    
+</td>
+                    <td valign="middle">
+                        
+<pre>copy ARCHIVE.GS:142              to BaanRelationID$;
+BANOCounter$ =  lfill(right(getcounter("BANO"),6),"0",6);
+BEG_324$ =  THIS:324;
+BEG_373$ =  THIS:373;
+
+//ENV
+copy CurrentDate$ &amp; BANOCounter$ to ENV:MESSAGE_REFERENCE;
+copy BaanRelationID$             to ENV:RELATION;
+copy BEG_324$                    to ENV:ORDER_REFERENCE;
+copy "FFX"                       to ENV:ORGANIZATION;
+copy "850INS"                    to ENV:EDI_MESSAGE;
+copy THIS:92                     to ENV:ORDER_TYPE;
+copy ARCHIVE.GS:373              to ENV:DATE_SENT;
+copy ARCHIVE.GS:337              to ENV:TIME_SENT;
+
+//HDR
+copy CurrentDate$ &amp; BANOCounter$ to ENV.HDR:MESSAGE_REFERENCE;
+copy BaanRelationID$             to ENV.HDR:CUSTOMER;
+copy BEG_324$                    to ENV.HDR:CUSTOMER_PURCHASE_ORDER;
+copy THIS:373                    to ENV.HDR:ORDER_DATE;
+copy THIS:373                    to ENV.HDR:PLAN_DELIVERY_DATE;
+copy THIS:373                    to ENV.HDR:PLAN_RECEIPT_DATE;
+copy "CC"                        to ENV.HDR:TERMS_OF_DELIVERY;
+copy "COM"                       to ENV.HDR:FORWARDING_AGENT;
+copy "USD"                       to ENV.HDR:CURRENCY;
+copy "USA"                       to ENV.HDR:COUNTRY;
+copy "PAC"                       to ENV.HDR:SALES_PRICE_LIST;
+
+//HAD
+copy CurrentDate$ &amp; BANOCounter$ to ENV.HAD:MESSAGE_REFERENCE;
+copy BaanRelationID$             to ENV.HAD:CUSTOMER;
+copy BEG_324$                    to ENV.HAD:CUSTOMER_PO;</pre>
+                    
+</td>
+                
+</tr>
+                
+<tr>
+                    
+<td valign="top">
+                        
+<ol start="5">
+                            
+<li>
+                                
+<p>Go to record program PER.</p>
+                            
+</li>
+                        
+</ol>
+                    
+</td>
+                    <td valign="middle">
+                        
+<pre>//HDR
+copy THIS:93                     to ENV.HDR:REFERENCE_B;</pre>
+                    
+</td>
+                
+</tr>
+                
+<tr>
+                    
+<td valign="top">
+                        
+<ol start="6">
+                            
+<li>
+                                
+<p>Go to record program ITD.</p>
+                            
+</li>
+                        
+</ol>
+                    
+</td>
+                    <td valign="top">
+                        
+<pre>//HDR
+if THIS:333 = "3"
+    copy "1"                     to ENV.HDR:TERMS_OF_PAYMENT;
+endif</pre>
+                    
+</td>
+                
+</tr>
+                
+<tr>
+                    
+<td valign="top">
+                        
+<ol start="7">
+                            
+<li>
+                                
+<p>Go to record program TD5.</p>
+                            
+</li>
+                        
+</ol>
+                    
+</td>
+                    <td valign="top">
+                        
+<pre>//HTX
+copy CurrentDate$ &amp; BANOCounter$ to ENV.HTX:MESSAGE_REFERENCE;
+copy BaanRelationID$             to ENV.HTX:CUSTOMER;
+copy BEG_324$                    to ENV.HTX:CUSTOMER_PO;
+copy "CARRIER DETAILS:"          to ENV.HTX:HEADER_TEXT_1;
+copy THIS:387                    to ENV.HTX:HEADER_TEXT_2;</pre>
+                    
+</td>
+                
+</tr>
+                
+<tr>
+                    
+<td valign="top">
+                        
+<ol start="8">
+                            
+<li>
+                                
+<p>Go to record program N1.</p>
+                            
+</li>
+                        
+</ol>
+                    
+</td>
+                    <td valign="top">
+                        
+<pre>//HTX
+selectcase THIS:98
+  case "ST":
+    copy THIS:67                     to ENV.HAD:DELIVERY_ADDRESS;
+  case "WH":
+    copy "WAREHOUSE:"                to ENV.HTX:HEADER_TEXT_1;
+    copy CurrentDate$ &amp; BANOCounter$ to ENV.HTX:MESSAGE_REFERENCE;
+    copy BaanRelationID$             to ENV.HTX:CUSTOMER;
+    copy BEG_324$                    to ENV.HTX:CUSTOMER_PO;
+    copy THIS:67                     to ENV.HTX:HEADER_TEXT_2;
+endselect</pre>
+                    
+</td>
+                
+</tr>
+                
+<tr>
+                    
+<td valign="top">
+                        
+<ol start="9">
+                            
+<li>
+                                
+<p>Go to record program TD4.</p>
+                            
+</li>
+                        
+</ol>
+                    
+</td>
+                    <td valign="top">
+                        
+<pre>//HTX
+copy CurrentDate$ &amp; BANOCounter$ to ENV.HTX:MESSAGE_REFERENCE;
+copy BaanRelationID$             to ENV.HTX:CUSTOMER;
+copy BEG_324$                    to ENV.HTX:CUSTOMER_PO;
+copy "ADDITIONAL SHIP INFO"      to ENV.HTX:HEADER_TEXT_1;
+copy THIS:352                    to ENV.HTX:HEADER_TEXT_2;</pre>
+                    
+</td>
+                
+</tr>
+                
+<tr>
+                    
+<td valign="top">
+                        
+<ol start="10">
+                            
+<li>
+                                
+<p>Go to record program PO1.</p>
+                            
+</li>
+                        
+</ol>
+                    
+</td>
+                    <td valign="top">
+                        
+<pre>//LIN
+copy CurrentDate$ &amp; BANOCounter$ to ENV.LIN:MESSAGE_REFERENCE;
+copy BaanRelationID$             to ENV.LIN:CUSTOMER;
+copy BEG_324$                    to ENV.LIN:CUSTOMER_PURCHASE_ORDER;
+copy THIS:350                    to ENV.LIN:CUSTOMER_PURCHASE_ORDER_LINE;
+copy THIS:355                    to ENV.LIN:SALES_UOM;
+copy THIS:212                    to ENV.LIN:PRICE;
+copy THIS:355                    to ENV.LIN:SALE_PRICE_UOM;
+
+if THIS:235 ="BP"
+    copy THIS:234                to ENV.LIN:ITEM;
+endif
+
+if THIS:235#2 ="BP"
+    copy THIS:234#2              to ENV.LIN:ITEM;
+endif</pre>
+                    
+</td>
+                
+</tr>
+                
+<tr>
+                    
+<td valign="top">
+                        
+<ol start="11">
+                            
+<li>
+                                
+<p>Go to record program SCH.</p>
+                            
+</li>
+                        
+</ol>
+                    
+</td>
+                    <td valign="top">
+                        
+<pre>//LIN
+copy THIS:380                    to ENV.LIN:ORDERED_QUANTITY;
+copy BEG_373$                    to ENV.LIN:ORDER_DATE;
+if THIS:374 = "010"
+    copy THIS:373                to ENV.LIN:PLANED_DELIVERY_DATE;
+    copy THIS:373                to ENV.LIN:PLANED_RECEIPT_DATE;
+endif</pre>
+                    
+</td>
+                
+</tr>
+            
+</tbody>
+</table>
+        
+</div>
+<div class="right">
+<a href="dsy22750-SEEDOC.html"><img src="resources/images/big_right.gif"></a>
+</div>
+</div>
+<div id="pageNumber">
+<div class="numberAndTitle">
+<span class="bottomTitle">Training BIC 6 Basics</span><span class="count">147</span>
+</div>
+</div>
+</div>
+</body>
+</html>

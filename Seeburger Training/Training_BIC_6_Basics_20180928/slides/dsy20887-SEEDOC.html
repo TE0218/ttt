@@ -1,0 +1,407 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html xmlns:fn="http://www.w3.org/2005/xpath-functions" xmlns:p="http://outerx.org/daisy/1.0#publisher" xmlns:i18n="http://apache.org/cocoon/i18n/2.1" xmlns:einclude="http://outerx.org/daisy/1.0#externalinclude" xmlns:d="http://outerx.org/daisy/1.0">
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<link href="resources/css/books.css" type="text/css" rel="stylesheet">
+<script src="resources/js/toggle.js" type="text/javascript"></script>
+</head>
+<body onLoad="appendToDiv();">
+<div class="all">
+<div class="top">
+<div class="chunkNavigation">
+<div class="topCut"></div>
+<div class="logoTitle">
+<span><img src="resources/images/see-logo.png"></span><span class="bookTitle">Mapfile and MapDB Handling</span>
+</div>
+<div class="navigation">
+<ul>
+<li class="first">
+<a href="dsy20886-SEEDOC.html">&nbsp;<img src="resources/images/small_left.gif">&nbsp;Previous&nbsp;</a>
+</li>
+<li class="middle">
+<a href="chunk1.html"><img src="resources/images/content.png">Table of Contents&nbsp;</a>
+</li>
+<li class="last">
+<a href="dsy21050-SEEDOC.html">&nbsp;Next&nbsp;<img src="resources/images/small_right.gif"></a>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="content">
+<div class="left">
+<a href="dsy20886-SEEDOC.html"><img src="resources/images/big_left.gif" class="centeredImage"></a>
+</div>
+<div class="center">
+<h3 xmlns:ns="http://outerx.org/daisy/1.0" daisyBranch="1" daisyDocument="20887-SEEDOC" daisyLanguage="2" id="dsy20887-SEEDOC">How to use a MapDB - connectDB</h3>
+        
+<p>The connectDB command opens a connection to a database. This connection can
+be used by the mapDB and lookup commands.</p>
+        
+<p>Possible Commands</p>
+        
+<ul>
+            
+<li>
+                
+<p>connectDB(name,connection,user,psw[,driver[,transaction]])</p>
+            
+</li>
+        
+</ul>
+        
+<pre>connectDB("DB","jdbc:seeburger:jucon://DS_MD","","","com.seeburger.jucon.locator.DataSourceDriver","off");</pre>
+        
+<p class="note">In 652 Datasource "DS_MD" was introduced, prior BIS 652 the
+default datasource was called "WorkflowDS"</p>
+        
+<h8 id="s132">For more details please refer to</h8>
+        
+<h9 daisyBranch="1" daisyDocument="9662-SEEDOC" daisyLanguage="2" id="dsy9662-SEEDOC">Direct Database Access Commands</h9>
+        
+<p>BIC provides a set of high level database access commands, based on SQL.</p>
+        
+<p>The direct access commands support the complete set of standard SQL features,
+as far as they are not limited by the used JDBC driver.</p>
+        
+<p>These commands are independent from any message description and they can be
+used to:</p>
+        
+<ul>
+            
+<li>Read, write, update and delete data from database tables or views</li>
+            
+<li>Create, alter and drop tables</li>
+            
+<li>Execute stored procedures</li>
+        
+</ul>
+        
+<p>Working with direct access commands, in general there are four common steps
+to process:</p>
+        
+<ul>
+            
+<li>
+                
+<em>Open a database&nbsp;&nbsp;</em> (create a
+connection).</li>
+            
+<li>
+                
+<em>Open a lookup&nbsp;</em>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; (prepare a
+database operation, described by an SQL string).</li>
+            
+<li>
+                
+<em>Execute a lookup</em>&nbsp;&nbsp; (execute the
+prepared database operation).</li>
+            
+<li>
+                
+<em>Evaluate the result</em>(evaluate
+result sets for reading operations or return values for writing operations).
+</li>
+        
+</ul>
+        
+<p>Using direct database access commands, there are some technical details to
+consider:</p>
+        
+<ul>
+            
+<li>
+                
+<em>Lookup cache</em>
+            
+</li>
+            
+<li>
+                
+<em>Lookup transaction</em> (lookups in
+combination with SQL adapter mappings).</li>
+        
+</ul>
+        
+<h8 daisyBranch="1" daisyDocument="2818-SEEDOC" daisyLanguage="2" id="dsy2818-SEEDOC">connectDB</h8>
+        
+<h12 id="s133">Syntax</h12>
+        
+<p>
+            
+<strong> connectDB(name, connection, user, psw)</strong>
+        
+</p>
+        
+<p>
+            
+<strong> connectDB(name,connection,user,psw,driver)</strong>
+        
+</p>
+        
+<p>
+            
+<strong> connectDB(name,connection,user,psw,driver,transaction)</strong>
+        
+</p>
+        
+<h12 id="s134">Description</h12>
+        
+<p>Opens a connection to a database. The connection can be used by the mapDB and
+lookup commands. For further information refer to the topic
+<em>
+                <a href="#dsy9662-SEEDOC">
+                    <p:linkInfo access="read,fullRead,write,publish,delete" documentName="Direct Database Access Commands" documentType="SimpleDocument" href="daisy:9662-SEEDOC" lastVersionId="18" liveVersionId="18">
+                        <p:linkPartInfo id="7" mimeType="text/xml" name="SimpleDocumentContent" size="1405"/>
+                    </p:linkInfo>Direct Database Access commands</a>
+            </em>.</p>
+        
+<p>If&nbsp; the<em> connectDB </em>command is executed more than once using the same
+name, the connection will be re-used, e.g.</p>
+        
+<pre>connectDB("myConnection","jdbc:oracle:thin:@HOST:1521:DATABASE" ,"user"
+,"psw","oracle.jdbc.driver.OracleDriver", "off");
+connectDB("myConnection","jdbc:oracle:thin:@HOST:1521:DATABASE" ,"user"
+,"psw","oracle.jdbc.driver.OracleDriver", "off");</pre>
+        
+<p align="left">Will create one connection only, which will remain open until
+the end of the conversion. If you use a different name, a new connection will be
+opened. BIC currently supports up to 10 different connections.<br>
+The connection will (per default) not use transactions; all statements executed
+using this connection will be immediately committed. If you want all statements
+to be committed, or rolled back depending on the result of the conversion, you
+have two options:</p>
+        
+<ul>
+            
+<li>Execute all SQL statements within the same transaction context as the
+converter (only for database mappings).</li>
+            
+<li>Open the connection using the following syntax:<br>
+                
+<pre>connectDB("myConnection","jdbc:oracle:thin:@HOST:1521:DATABASE" ,"user"
+,"psw","oracle.jdbc.driver.OracleDriver", "on");</pre>
+                
+<p>The <em>on</em> parameter will open a transaction that will be committed or
+rolled back at the end of the conversion.</p>
+            
+</li>
+        
+</ul>
+        
+<h12 id="s135">Parameter(s)</h12>
+        
+<table class="content" width="100%">
+<tbody>
+                
+<tr>
+                    
+<th>
+                        
+<p>Parameter</p>
+                    
+</th>
+                    <th>
+                        
+<p>Type</p>
+                    
+</th>
+                    <th>
+                        
+<p>Description</p>
+                    
+</th>
+                
+</tr>
+                
+<tr>
+                    
+<td>
+                        
+<p align="center">name</p>
+                    
+</td>
+                    <td>
+                        
+<p align="center">$</p>
+                    
+</td>
+                    <td>
+                        
+<p align="left">Name of the database connection</p>
+                    
+</td>
+                
+</tr>
+                
+<tr>
+                    
+<td>
+                        
+<p align="center">connection</p>
+                    
+</td>
+                    <td>
+                        
+<p align="center">$</p>
+                    
+</td>
+                    <td>
+                        
+<p>Connection string and properties: This will depend on the used driver, for
+ODBC, use "<em>jdbc:odbc:DSN_NAME</em>"</p>
+                    
+</td>
+                
+</tr>
+                
+<tr>
+                    
+<td>
+                        
+<p align="center">user</p>
+                    
+</td>
+                    <td>
+                        
+<p align="center">$</p>
+                    
+</td>
+                    <td>
+                        
+<p>Database user</p>
+                    
+</td>
+                
+</tr>
+                
+<tr>
+                    
+<td>
+                        
+<p align="center">psw</p>
+                    
+</td>
+                    <td>
+                        
+<p align="center">$</p>
+                    
+</td>
+                    <td>
+                        
+<p>Password of the database user</p>
+                    
+</td>
+                
+</tr>
+                
+<tr>
+                    
+<td>
+                        
+<p align="center">driver</p>
+                    
+</td>
+                    <td>
+                        
+<p align="center">$</p>
+                    
+</td>
+                    <td>
+                        
+<p>Driver for database connection</p>
+                    
+</td>
+                
+</tr>
+                
+<tr>
+                    
+<td>
+                        
+<p align="center">transaction</p>
+                    
+</td>
+                    <td>
+                        
+<p align="center">?</p>
+                    
+</td>
+                    <td>
+                        
+<p>
+                            
+<em>on</em>: The <em>connectDB</em> starts a database transaction, which is
+committed, or rolled-back at the end of the conversion.<br>
+                            
+<em>off</em>: Default behavior: Database transaction is not used.</p>
+                    
+</td>
+                
+</tr>
+            
+</tbody>
+</table>
+        
+<h7 daisyBranch="1" daisyDocument="15258-SEEDOC" daisyLanguage="2" id="dsy15258-SEEDOC">Return Value</h7>
+        
+<p>This command does not return a value.</p>
+        
+<h12 id="s136">Warning(s) / Error(s)</h12>
+        
+<ul>
+            
+<li>
+                
+<em>4506</em>
+            
+</li>
+            
+<li>
+                
+<em>4523</em>
+            
+</li>
+        
+</ul>
+        
+<h12 id="s137">Example</h12>
+        
+<ul>
+            
+<li>ODBC:</li>
+        
+</ul>
+        
+<pre>connectDB("myConnection","jdbc:odbc:AS400" ,"user" ,"psw","", "off");</pre>
+        
+<ul>
+            
+<li>Oracle JDBC native driver:</li>
+        
+</ul>
+        
+<pre>connectDB("myConnection","jdbc:oracle:thin:@HOST:1521:DATABASE" ,"user"
+,"psw","oracle.jdbc.driver.OracleDriver", "off");</pre>
+        
+<ul>
+            
+<li>SEEBURGER data source:</li>
+        
+</ul>
+        
+<pre>connectDB("myConnection","jdbc:seeburger:jucon://DATASOURCENAME","","","com.seeburger.jucon.locator.DataSourceDriver","off");</pre>
+        
+</div>
+<div class="right">
+<a href="dsy21050-SEEDOC.html"><img src="resources/images/big_right.gif"></a>
+</div>
+</div>
+<div id="pageNumber">
+<div class="numberAndTitle">
+<span class="bottomTitle">Training BIC 6 Basics</span><span class="count">108</span>
+</div>
+</div>
+</div>
+</body>
+</html>

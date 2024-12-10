@@ -1,0 +1,159 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html xmlns:fn="http://www.w3.org/2005/xpath-functions" xmlns:p="http://outerx.org/daisy/1.0#publisher" xmlns:i18n="http://apache.org/cocoon/i18n/2.1" xmlns:einclude="http://outerx.org/daisy/1.0#externalinclude" xmlns:d="http://outerx.org/daisy/1.0">
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<link href="resources/css/books.css" type="text/css" rel="stylesheet">
+<script src="resources/js/toggle.js" type="text/javascript"></script>
+</head>
+<body onLoad="appendToDiv();">
+<div class="all">
+<div class="top">
+<div class="chunkNavigation">
+<div class="topCut"></div>
+<div class="logoTitle">
+<span><img src="resources/images/see-logo.png"></span><span class="bookTitle">How to Operate BIC Mapping Designer</span>
+</div>
+<div class="navigation">
+<ul>
+<li class="first">
+<a href="dsy26262-SEEDOC.html">&nbsp;<img src="resources/images/small_left.gif">&nbsp;Previous&nbsp;</a>
+</li>
+<li class="middle">
+<a href="chunk1.html"><img src="resources/images/content.png">Table of Contents&nbsp;</a>
+</li>
+<li class="last">
+<a href="dsy20479-SEEDOC.html">&nbsp;Next&nbsp;<img src="resources/images/small_right.gif"></a>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="content">
+<div class="left">
+<a href="dsy26262-SEEDOC.html"><img src="resources/images/big_left.gif" class="centeredImage"></a>
+</div>
+<div class="center">
+<h3 xmlns:ns="http://outerx.org/daisy/1.0" daisyBranch="1" daisyDocument="26261-SEEDOC" daisyLanguage="2" id="dsy26261-SEEDOC">BIC MD GUI - Compare Messages, Mappings, Procedures</h3>
+        
+<ul>
+            
+<li>
+                
+<p>The Compare can be used to compare Message structures, Mappings and
+Procedures.</p>
+            
+</li>
+            
+<li>
+
+                
+<p>Start compare with a right-click on an object or via <em>Menu
+<span class="symbol">&rarr;</span> Build <span class="symbol">&rarr;</span> Compare</em>.
+Afterwards the dialog below will open.</p>
+            
+</li>
+        
+</ul>
+        
+<blockquote>
+            
+<p align="left">
+                
+<a href="images/12357-SEEDOC_1_2_1.png"><img bookStorePath="/data/resources/12357-SEEDOC_1_2_1" p:imageHeight="233" p:imageWidth="628" src="images/12357-SEEDOC_1_2_1.png"></a>
+            
+</p>
+        
+</blockquote>
+        
+<p class="note">A common use case is to compare a structure located in
+repository with a structure stored locally on the file system.</p>
+        
+<h8 id="s28">For more details please refer to</h8>
+        
+<h8 daisyBranch="1" daisyDocument="12346-SEEDOC" daisyLanguage="2" id="dsy12346-SEEDOC">Compare</h8>
+        
+<p>Messages, mappings, and global procedures may be compared with each other.
+Backbone for the ability is the BIC Converter which supports comparing of
+converted data with reference data as it can be found in the test environment.
+Here the messages, mappings, and global procedures are just interpreted as XML
+files which could have been involved in a conversion. The belonging message
+formats for compare are fix and can be found after each installation in
+<em>[Installation Path]\conf </em>as <em>msg_CompareGlobalProcedures.xml</em>,
+<em>msg_CompareMapping.xml</em> and <em>msg_CompareMessage.xml</em>.</p>
+        
+<h9 id="s29">Invocation</h9>
+        
+<ul>
+            
+<li>Via context menu called if the selection is on a node which may be compared
+- entry <em>Compare with.</em>
+            
+</li>
+            
+<li>Through dragging a proper node on another node to compare both with each
+other.</li>
+        
+</ul>
+        
+<p>The compare dialog appears in both cases.</p>
+        
+<h9 id="s30">Compare Dialog</h9>
+        
+<p align="center">
+            
+<table class="plainTable" align="center">
+<tr>
+<td align="center"><a href="images/12357-SEEDOC_1_2_1.png"><img align="top" bookStorePath="/data/resources/12357-SEEDOC_1_2_1" daisy-caption="Compare Dialog" daisy-image-type="screenshot" p:imageHeight="233" p:imageWidth="628" print-width="17cm" src="images/12357-SEEDOC_1_2_1.png" daisyNumber="0-1" daisyPartialNumber="1" daisyRawNumber="1" id="dsy_fig_21"></a></td>
+</tr>
+<tr>
+<td class="imageCaption" align="center">Screenshot 0-1: Compare Dialog</td>
+</tr>
+</table>
+        
+</p>
+        
+<p>If not filled yet completely, the user has to enter the missing data. If the
+data is somehow erroneous a continuation - e.g. clicking on the <em>OK</em>
+button - is impossible.</p>
+        
+<p>The colored background marks the text field which is currently receiving the
+user input. The point of interest is here, that the user can click on any node
+in the background project view, and the focused text field will be filled with
+the corresponding name.</p>
+        
+<p>For a greater flexibility even files from the physical file system can be
+chosen through a click on the <em>Browse</em> button next to each text field.
+Choosing a file from the physical file system has to assure that only equal
+objects are compared with each other, i. e. messages should only be compared
+with messages, mappings with mappings and global procedures with global
+procedures.</p>
+        
+<p>If you click on the <em>OK</em> button, the compare operation continues as
+described for the compare feature included in the
+<em>test environment</em>.</p>
+        
+<h9 id="s31">Typical Use Cases</h9>
+        
+<h10 id="s32">Repository</h10>
+        
+<p>A favorite usage of the compare tool is to detect the differences of the
+local source code with the source code in the repository. Therefore the objects
+in the repository are imported into another (new) project in BIC Mapping
+Designer. Comparing now project-wide unveils the differences which a user
+created in between through editing his local source code in BIC Mapping Designer
+compared to his previously committed code in the repository, or compared to the
+contributions into the repository of another code developer.&nbsp;</p>
+        
+</div>
+<div class="right">
+<a href="dsy20479-SEEDOC.html"><img src="resources/images/big_right.gif"></a>
+</div>
+</div>
+<div id="pageNumber">
+<div class="numberAndTitle">
+<span class="bottomTitle">Training BIC 6 Basics</span><span class="count">46</span>
+</div>
+</div>
+</div>
+</body>
+</html>

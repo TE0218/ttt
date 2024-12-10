@@ -1,0 +1,216 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html xmlns:fn="http://www.w3.org/2005/xpath-functions" xmlns:p="http://outerx.org/daisy/1.0#publisher" xmlns:i18n="http://apache.org/cocoon/i18n/2.1" xmlns:einclude="http://outerx.org/daisy/1.0#externalinclude" xmlns:d="http://outerx.org/daisy/1.0">
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<link href="resources/css/books.css" type="text/css" rel="stylesheet">
+<script src="resources/js/toggle.js" type="text/javascript"></script>
+</head>
+<body onLoad="appendToDiv();">
+<div class="all">
+<div class="top">
+<div class="chunkNavigation">
+<div class="topCut"></div>
+<div class="logoTitle">
+<span><img src="resources/images/see-logo.png"></span><span class="bookTitle">INHOUSE Adapter</span>
+</div>
+<div class="navigation">
+<ul>
+<li class="first">
+<a href="dsy23411-SEEDOC.html">&nbsp;<img src="resources/images/small_left.gif">&nbsp;Previous&nbsp;</a>
+</li>
+<li class="middle">
+<a href="chunk1.html"><img src="resources/images/content.png">Table of Contents&nbsp;</a>
+</li>
+<li class="last">
+<a href="dsy22198-SEEDOC.html">&nbsp;Next&nbsp;<img src="resources/images/small_right.gif"></a>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="content">
+<div class="left">
+<a href="dsy23411-SEEDOC.html"><img src="resources/images/big_left.gif" class="centeredImage"></a>
+</div>
+<div class="center">
+<h2 xmlns:ns="http://outerx.org/daisy/1.0" daisyBranch="1" daisyDocument="23422-SEEDOC" daisyLanguage="2" id="dsy23422-SEEDOC">INHOUSE - Tutorial 2</h2>
+        
+<table column-widths="30%;70%" print-column-widths="30%;70%" print-width="100%" width="100%" class="content">
+<col width="30%">
+<col width="70%">
+<tbody>
+                
+<tr>
+                    
+<th>
+                        
+<p>Instruction</p>
+                    
+</th>
+                    <th>
+                        
+<p>Illustration</p>
+                    
+</th>
+                
+</tr>
+                
+<tr>
+                    
+<td>
+                        
+<ol>
+                            
+<li>
+                                
+<p>Import the message structure msg_Order.xml from the classmaterial.</p>
+                            
+</li>
+                            
+<li>
+                                
+<p>Create a new mapping (source = "PURCHASE_ORDER", destination = "Order").</p>
+                            
+</li>
+                        
+</ol>
+                    
+</td>
+                    <td>
+                        
+<p>Check chapter "How to Operate BIC Mapping Designer" if you need further
+assistance.</p>
+                    
+</td>
+                
+</tr>
+                
+<tr>
+                    
+<td>
+                        
+<ol start="3">
+                            
+<li>
+                                
+<p>Go to record program HEADER.</p>
+                            
+</li>
+                        
+</ol>
+                    
+</td>
+                    <td>
+                        
+<pre>global positionCounter%;
+
+//format date CCYYMMDD --&gt; DDMMCCYY
+copy format(THIS:ORDER_DATE, "CCYYMMDD", "DDMMCCYY") to 100:ORDER_DATE;
+
+copy THIS:NAME1 to 100:ORDER_PARTY;
+
+traceln("ORDER PARTY: " &amp; THIS:NAME1);
+
+copy THIS:STREET to 100:STREET;
+copy THIS:CITY to 100:CITY;</pre>
+                    
+</td>
+                
+</tr>
+                
+<tr>
+                    
+<td>
+                        
+<ol start="4">
+                            
+<li>
+                                
+<p>Go to record program POS.</p>
+                            
+</li>
+                        
+</ol>
+                    
+</td>
+                    <td>
+                        
+<pre>copy THIS:POSNUM to 100.200:SEQUENTIAL_NUMBER;
+
+//copy left 10 characters of ITEM_NUMBER
+copy left(THIS:ITEM_NUMBER,10) to 100.200:ITEM_NUMBER;
+
+copy THIS:QUANTITY to 100.200:QUANTITY;
+copy THIS:PRICE to 100.200:PRICE;
+
+//count positions
+positionCounter% = positionCounter% + 1;</pre>
+                    
+</td>
+                
+</tr>
+                
+<tr>
+                    
+<td>
+                        
+<ol start="5">
+                            
+<li>
+                                
+<p>Go to record program FOOTINFO.</p>
+                            
+</li>
+                        
+</ol>
+                    
+</td>
+                    <td>
+                        
+<pre>copy THIS:ORDER_VALUE to 300:AMOUNT;
+
+//trace position count
+traceln("Counted positions: " &amp; positionCounter%);</pre>
+                    
+</td>
+                
+</tr>
+                
+<tr>
+                    
+<td>
+                        
+<ol start="6">
+                            
+<li>
+
+                                
+<p>You can compare your results with the attached
+<a href="../classmaterial/InhouseAdapter/map_I_PURCHASE_ORDER_to_I_Order_Solution.zip.bicmd">trainer
+solution</a>.</p>
+                            
+</li>
+                        
+</ol>
+                    
+</td>
+                    <td></td>
+                
+</tr>
+            
+</tbody>
+</table>
+        
+</div>
+<div class="right">
+<a href="dsy22198-SEEDOC.html"><img src="resources/images/big_right.gif"></a>
+</div>
+</div>
+<div id="pageNumber">
+<div class="numberAndTitle">
+<span class="bottomTitle">Training BIC 6 Basics</span><span class="count">89</span>
+</div>
+</div>
+</div>
+</body>
+</html>

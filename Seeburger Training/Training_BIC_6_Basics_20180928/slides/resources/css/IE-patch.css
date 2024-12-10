@@ -1,0 +1,22 @@
+div.content div.left{
+float:left; 
+margin-right:-20px; 
+height: 620px;
+}
+
+div.content div.center{
+float:left; 
+margin:0 20px; 
+}
+
+div.content div.right{
+float:right; 
+margin-left:-20px;
+height: 620px;
+ }
+ 
+div.content div.right img , div.content div.left img { margin-top:1100%;  }
+
+.logoTitle { height:58px;}
+.logoTitle img {  float:left; }
+span.bookTitle  {  float:right; }
